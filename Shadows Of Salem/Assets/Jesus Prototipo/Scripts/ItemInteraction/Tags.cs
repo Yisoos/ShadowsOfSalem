@@ -5,8 +5,10 @@ public enum ObjectType
     {
         Lock,
         Key,
-        CloseUp,
-        other,
+        DetailedView,
+        Inspectable,
+        PopUpWindow,
+        Other,
     }
 public class Tags : MonoBehaviour
 {
@@ -18,7 +20,11 @@ public class Tags : MonoBehaviour
     public int keyID;
     public int unlockCombination;
     [Header("Inventory Tags")]
-    public bool isCollectible;
-    
-    
+    public bool isCollectable;
+    [Header("Pop-Up Tags")]
+    public GameObject referenceItem;
+    [Header("Dependencies")]
+    public bool lockDependency;
+    public GameObject requiredLock;
+    public string[] dependency;
 }
