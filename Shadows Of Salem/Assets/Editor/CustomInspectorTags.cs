@@ -23,7 +23,7 @@ public class TagsEditor : Editor
                 tags.isLocked = EditorGUILayout.Toggle("Is Locked", tags.isLocked);
                 tags.keyID = EditorGUILayout.IntField("Key ID", tags.keyID);
                 tags.unlockCombination = EditorGUILayout.IntField("Unlock Combination", tags.unlockCombination);
-                tags.isCollectable = false;
+               
                 break;
 
             case ObjectType.DetailedView:
@@ -76,8 +76,8 @@ public class TagsEditor : Editor
 
             case ObjectType.Key:
                 // Code for when objectType is Key
-                EditorGUILayout.LabelField("Inventory Tags", EditorStyles.boldLabel);
-                tags.isCollectable = EditorGUILayout.Toggle("Is Collectable", tags.isCollectable); 
+                tags.keyID = EditorGUILayout.IntField("Key ID", tags.keyID);
+
                 tags.isLocked = false;
                 break;
 
@@ -96,13 +96,7 @@ public class TagsEditor : Editor
 
             default:
                 // Code for other cases
-                EditorGUILayout.LabelField("Inventory Tags", EditorStyles.boldLabel);
-                tags.isCollectable = EditorGUILayout.Toggle("Is Collectable", tags.isCollectable);
-                if (tags.isCollectable)
-                {
-                    tags.referenceItem = (GameObject)EditorGUILayout.ObjectField("Reference Prefab", tags.referenceItem, typeof(GameObject), true);
-                    EditorGUILayout.HelpBox("\"Reference Prefrab\" refers to a prefab that will appear in the Player's inventory (UI Item).", MessageType.Info);
-                }
+
                 EditorGUILayout.LabelField("Dependencies", EditorStyles.boldLabel);
 
                 // Checkbox for lock dependency

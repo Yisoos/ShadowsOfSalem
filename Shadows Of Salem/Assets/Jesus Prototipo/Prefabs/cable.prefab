@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4871898088871538726}
   - component: {fileID: 3649792362475433555}
   m_Layer: 5
-  m_Name: Cable
+  m_Name: cable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,5 +156,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350f5ad44687c7141901d051c8872e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 7766847369888134432}
   parentAfterDrag: {fileID: 0}

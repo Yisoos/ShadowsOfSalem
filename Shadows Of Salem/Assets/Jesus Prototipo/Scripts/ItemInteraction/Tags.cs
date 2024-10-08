@@ -20,7 +20,6 @@ public class Tags : MonoBehaviour
     public int keyID;
     public int unlockCombination;
     [Header("Inventory Tags")]
-    public bool isCollectable;
     [Header("Pop-Up Tags")]
     public GameObject referenceItem;
     [Header("Dependencies")]
