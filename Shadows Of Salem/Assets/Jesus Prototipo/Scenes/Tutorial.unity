@@ -1012,10 +1012,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 331138661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 855, y: 0}
-  m_SizeDelta: {x: 139.06, y: 139.06}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -105, y: 0}
+  m_SizeDelta: {x: 139.06006, y: 139.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &495624687
 GameObject:
@@ -1058,10 +1058,10 @@ RectTransform:
   - {fileID: 236912493}
   m_Father: {fileID: 331138661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -398.33997}
-  m_SizeDelta: {x: -270.8, y: -846.79}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 141.66003}
+  m_SizeDelta: {x: 1649.2, y: 233.21002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &495624689
 MonoBehaviour:
@@ -1483,15 +1483,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: DrawerLock
-  objectType: 0
-  isLocked: 1
+  objectType: 5
+  isLocked: 0
   keyID: 1
-  unlockCombination: 0
-  isCollectable: 0
+  unlockCombination: 333
+  isCollectable: 1
   referenceItem: {fileID: 0}
   lockDependency: 0
-  requiredLock: {fileID: 0}
-  dependency: []
+  requiredLock: {fileID: 813091864}
+  dependency:
+  - 
 --- !u!1 &894434273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2677,9 +2678,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 331138661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -846, y: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 114, y: 0}
   m_SizeDelta: {x: 139.06, y: 139.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1537459171
@@ -3282,7 +3283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1858081025
 Transform:
   m_ObjectHideFlags: 0
