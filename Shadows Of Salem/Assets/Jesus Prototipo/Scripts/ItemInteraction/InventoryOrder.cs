@@ -13,7 +13,8 @@ public class InventoryOrder : MonoBehaviour
             if (inventorySlot[i].transform.childCount == 0)
             {
 
-                GameObject item = Instantiate(itemPrefab, inventorySlot[i].transform);
+                GameObject item = Instantiate(itemPrefab); // Sin padre aquí
+                item.transform.SetParent(inventorySlot[i].transform);
 
                 Debug.Log("item collected");
                 break;
