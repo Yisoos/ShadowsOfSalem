@@ -217,10 +217,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5057969667417566607}
   - component: {fileID: 5438323603581987466}
+  - component: {fileID: -3663692793935961010}
   - component: {fileID: 5728319101949770794}
   - component: {fileID: 165832277962484077}
   - component: {fileID: 6504436555347629729}
-  - component: {fileID: 6733180621341111482}
   m_Layer: 5
   m_Name: Carta
   m_TagString: Untagged
@@ -256,6 +256,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958476336666788831}
   m_CullTransparentMesh: 1
+--- !u!114 &-3663692793935961010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958476336666788831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c8d9d23d4cc3240af0ac7800b7acfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 5728319101949770794}
+  parentAfterDrag: {fileID: 0}
 --- !u!114 &5728319101949770794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,25 +385,10 @@ MonoBehaviour:
   isLocked: 0
   keyID: 0
   unlockCombination: 0
-  isCollectable: 0
   referenceItem: {fileID: 0}
   lockDependency: 0
   requiredLock: {fileID: 0}
   dependency: []
---- !u!114 &6733180621341111482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958476336666788831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350f5ad44687c7141901d051c8872e48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 5728319101949770794}
-  parentAfterDrag: {fileID: 0}
 --- !u!1 &2205943664064242175
 GameObject:
   m_ObjectHideFlags: 0

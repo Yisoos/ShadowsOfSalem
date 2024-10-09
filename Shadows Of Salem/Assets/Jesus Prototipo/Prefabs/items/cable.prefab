@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1797616169918163320}
   - component: {fileID: 6623426760658894231}
+  - component: {fileID: -4655176445623525332}
   - component: {fileID: 7766847369888134432}
   - component: {fileID: 1638431931730497383}
   - component: {fileID: 4871898088871538726}
-  - component: {fileID: 3649792362475433555}
   m_Layer: 5
   m_Name: cable
   m_TagString: Untagged
@@ -48,6 +48,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6542741525745442375}
   m_CullTransparentMesh: 1
+--- !u!114 &-4655176445623525332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6542741525745442375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c8d9d23d4cc3240af0ac7800b7acfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 7766847369888134432}
+  parentAfterDrag: {fileID: 0}
 --- !u!114 &7766847369888134432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,22 +153,7 @@ MonoBehaviour:
   isLocked: 0
   keyID: 0
   unlockCombination: 0
-  isCollectable: 0
   referenceItem: {fileID: 0}
   lockDependency: 0
   requiredLock: {fileID: 0}
   dependency: []
---- !u!114 &3649792362475433555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6542741525745442375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350f5ad44687c7141901d051c8872e48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 7766847369888134432}
-  parentAfterDrag: {fileID: 0}

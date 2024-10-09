@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7495054439540166241}
   - component: {fileID: 2969588078713430716}
+  - component: {fileID: 5795299736359844935}
   - component: {fileID: 3946590678265035120}
-  - component: {fileID: 4769857863877201292}
+  - component: {fileID: 6218712231756667155}
   m_Layer: 5
   m_Name: Key
   m_TagString: Untagged
@@ -46,6 +47,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6706631408422451783}
   m_CullTransparentMesh: 1
+--- !u!114 &5795299736359844935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6706631408422451783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c8d9d23d4cc3240af0ac7800b7acfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 3946590678265035120}
+  parentAfterDrag: {fileID: 0}
 --- !u!114 &3946590678265035120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +91,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4769857863877201292
+--- !u!114 &6218712231756667155
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,8 +100,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6706631408422451783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350f5ad44687c7141901d051c8872e48, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 3946590678265035120}
-  parentAfterDrag: {fileID: 0}
+  objectName: key
+  objectType: 1
+  isLocked: 0
+  keyID: 1
+  unlockCombination: 0
+  referenceItem: {fileID: 0}
+  lockDependency: 0
+  requiredLock: {fileID: 0}
+  dependency: []
