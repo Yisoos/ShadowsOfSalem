@@ -4,7 +4,7 @@ using UnityEngine;
 
 // Custom editor for the Tags (Tags) script
 [CustomEditor(typeof(Tags))]
-public class TagsEditor : Editor
+public class CustomInspectorTags : Editor
 {
     public override void OnInspectorGUI()
     {
@@ -14,7 +14,9 @@ public class TagsEditor : Editor
         // Draw General Tags
         EditorGUILayout.LabelField("General Tags", EditorStyles.boldLabel);
         tags.objectName = EditorGUILayout.TextField("Object Name", tags.objectName);
+        tags.objectDescription = EditorGUILayout.TextArea(tags.objectDescription);
         tags.objectType = (ObjectType)EditorGUILayout.EnumPopup("Object Type", tags.objectType);
+<<<<<<< Updated upstream
         switch (tags.objectType)
         {
             case ObjectType.Lock:
@@ -146,6 +148,9 @@ public class TagsEditor : Editor
 
                 break;
         }
+=======
+        tags.category = (ObjectCategory)EditorGUILayout.EnumPopup("Category", tags.category);
+>>>>>>> Stashed changes
         // Mark the object as dirty to ensure changes are saved
         EditorUtility.SetDirty(tags);
     }

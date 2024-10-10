@@ -2,19 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public enum ObjectType
-    {
-        Lock,
-        Key,
-        DetailedView,
-        Inspectable,
-        PopUpWindow,
-        Other,
-    }
+{
+    Lock,
+    Key,
+    DetailedView,
+    Inspectable,
+    PopUpWindow,
+    Other
+}
+
+public enum ObjectCategory
+{
+    Tool,
+    Clue,
+    Decoration,
+    Furniture
+}
+
 public class Tags : MonoBehaviour
 {
-    [Header("General Tags")]
+    [Header("General Metadata")]
     public string objectName;
+    public string objectDescription;
     public ObjectType objectType;
+<<<<<<< Updated upstream
     [Header("Lock Tags")]
     public bool isLocked;
     public int keyID;
@@ -27,4 +38,7 @@ public class Tags : MonoBehaviour
     public bool lockDependency;
     public GameObject requiredLock;
     public string[] dependency;
+=======
+    public ObjectCategory category;
+>>>>>>> Stashed changes
 }
