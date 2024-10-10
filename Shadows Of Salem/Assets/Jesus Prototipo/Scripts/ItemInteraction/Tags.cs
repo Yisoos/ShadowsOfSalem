@@ -25,20 +25,6 @@ public class Tags : MonoBehaviour
     public string objectName;
     public string objectDescription;
     public ObjectType objectType;
-<<<<<<< Updated upstream
-    [Header("Lock Tags")]
-    public bool isLocked;
-    public int keyID;
-    public int unlockCombination;
-    [Header("Inventory Tags")]
-    public bool isCollectable;
-    [Header("Pop-Up Tags")]
-    public GameObject referenceItem;
-    [Header("Dependencies")]
-    public bool lockDependency;
-    public GameObject requiredLock;
-    public string[] dependency;
-=======
     public ObjectCategory category;
->>>>>>> Stashed changes
+
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Image image;
     [HideInInspector] public Transform parentAfterDrag;
@@ -92,6 +92,11 @@ public class GraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
             case ObjectType.DetailedView:
                 break;
             default:
+                DependencyHandler dependency = targetObjectTags.GetComponent<DependencyHandler>();
+                if (dependency != null) 
+                {
+                    dependency.HandleItem(thisObjectTags);
+                }
                 break;
         }
     }

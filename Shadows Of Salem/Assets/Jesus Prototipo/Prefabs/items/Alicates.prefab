@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6316959872559814744
+--- !u!1 &5581351338318947196
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,28 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2966570205755620265}
-  - component: {fileID: 8552690128087684365}
-  - component: {fileID: 977141985550953502}
-<<<<<<< Updated upstream
-  - component: {fileID: 1386361168402261812}
-=======
-  - component: {fileID: 8016814389286276878}
->>>>>>> Stashed changes
+  - component: {fileID: 1049156969772946957}
+  - component: {fileID: 8855425258474306425}
+  - component: {fileID: 8328013636871036950}
+  - component: {fileID: 3949449594568866513}
+  - component: {fileID: -1793361305180639305}
   m_Layer: 5
-  m_Name: Alicate
+  m_Name: Alicates
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2966570205755620265
+--- !u!224 &1049156969772946957
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6316959872559814744}
+  m_GameObject: {fileID: 5581351338318947196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -42,21 +39,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &8552690128087684365
+--- !u!222 &8855425258474306425
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6316959872559814744}
+  m_GameObject: {fileID: 5581351338318947196}
   m_CullTransparentMesh: 1
---- !u!114 &977141985550953502
+--- !u!114 &8328013636871036950
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6316959872559814744}
+  m_GameObject: {fileID: 5581351338318947196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Alicates
+  objectDescription: Usa para arreglar el telefono
+  objectType: 5
+  category: 0
+--- !u!114 &3949449594568866513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5581351338318947196}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -80,36 +93,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-<<<<<<< Updated upstream
---- !u!114 &1386361168402261812
-=======
---- !u!114 &8016814389286276878
->>>>>>> Stashed changes
+--- !u!114 &-1793361305180639305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6316959872559814744}
+  m_GameObject: {fileID: 5581351338318947196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< Updated upstream
-  m_Script: {fileID: 11500000, guid: 350f5ad44687c7141901d051c8872e48, type: 3}
+  m_Script: {fileID: 11500000, guid: 23cf3b9d47124404884b93e275f40d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 977141985550953502}
+  image: {fileID: 3949449594568866513}
   parentAfterDrag: {fileID: 0}
-=======
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Alicate
-  objectType: 5
-  isLocked: 0
-  keyID: 0
-  unlockCombination: 0
-  referenceItem: {fileID: 0}
-  lockDependency: 0
-  requiredLock: {fileID: 0}
-  dependency: []
->>>>>>> Stashed changes

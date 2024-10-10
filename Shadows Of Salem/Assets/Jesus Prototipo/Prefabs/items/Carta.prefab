@@ -217,10 +217,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5057969667417566607}
   - component: {fileID: 5438323603581987466}
+  - component: {fileID: 6504436555347629729}
   - component: {fileID: 5728319101949770794}
   - component: {fileID: 165832277962484077}
-  - component: {fileID: 6504436555347629729}
-  - component: {fileID: 6733180621341111482}
+  - component: {fileID: 8021024965808840788}
   m_Layer: 5
   m_Name: Carta
   m_TagString: Untagged
@@ -256,6 +256,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958476336666788831}
   m_CullTransparentMesh: 1
+--- !u!114 &6504436555347629729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958476336666788831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Carta
+  objectDescription: 
+  objectType: 5
+  category: 1
 --- !u!114 &5728319101949770794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,7 +370,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6504436555347629729
+--- !u!114 &8021024965808840788
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -363,29 +379,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1958476336666788831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Carta
-  objectType: 5
-  isLocked: 0
-  keyID: 0
-  unlockCombination: 0
-  isCollectable: 0
-  referenceItem: {fileID: 0}
-  lockDependency: 0
-  requiredLock: {fileID: 0}
-  dependency: []
---- !u!114 &6733180621341111482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958476336666788831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350f5ad44687c7141901d051c8872e48, type: 3}
+  m_Script: {fileID: 11500000, guid: 23cf3b9d47124404884b93e275f40d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 5728319101949770794}
@@ -518,6 +512,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 2205943664064242175}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 334695346192354151}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
