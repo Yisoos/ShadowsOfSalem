@@ -5,7 +5,7 @@ public enum ObjectType
 {
     Lock,
     Key,
-    DetailedView,
+    Compartment,
     Inspectable,
     PopUpWindow,
     Other

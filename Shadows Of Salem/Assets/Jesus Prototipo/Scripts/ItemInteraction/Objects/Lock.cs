@@ -3,15 +3,21 @@ using UnityEngine;
 public class Lock : MonoBehaviour
 {
     public int lockID; // The ID of this lock
+    public bool isLocked;
+    public bool isPhysicalLock;
     public bool isCombinationLock;
     public int combination; // The key that unlocks this lock
 
     public void TryUnlock(Key key)
     {
-        if (key != null && key.keyID==lockID)
+        if (key != null && key.keyID==lockID && isLocked)
         {
             Debug.Log("Lock opened!");
-            Destroy(gameObject);
+            isLocked = false;
+            if(isPhysicalLock) 
+            { 
+                Destroy(gameObject); 
+            }
             Destroy(key.gameObject);
         }
         else

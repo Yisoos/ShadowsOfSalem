@@ -20,6 +20,8 @@ public class CustomInspectorLock : Editor
         else
         {
             lockScript.lockID = EditorGUILayout.IntField("Key ID", lockScript.lockID);
+            lockScript.isPhysicalLock = EditorGUILayout.Toggle("Is Physical lock", lockScript.isPhysicalLock);
         }
+        lockScript.isLocked = EditorGUILayout.Toggle("Is Locked", lockScript.isLocked);
     }
 }

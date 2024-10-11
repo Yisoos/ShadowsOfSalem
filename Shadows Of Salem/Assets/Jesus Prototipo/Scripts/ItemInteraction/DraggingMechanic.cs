@@ -30,7 +30,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     public void OnEndDrag(PointerEventData eventData)
     {
         Tags thisTag = GetComponent<Tags>();
-        //Debug.Log("Dropped Object: " + gameObject.name + ", Tag: " + gameObject.tag);
+        Debug.Log("Dropped Object: " + gameObject.name + ", Tag: " + gameObject.tag);
 
         // Check if we are dropping over a UI element (like inventory)
         if (!EventSystem.current.IsPointerOverGameObject())
@@ -58,7 +58,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
             if (targetTags != null)
             {
                 // Log information about the object being dropped onto
-                //Debug.Log("Dropped onto: " + hit.collider.gameObject.name + ", Tag: " + targetTags.objectType);
+                Debug.Log("Dropped onto: " + hit.collider.gameObject.name + ", Tag: " + targetTags.objectType);
 
                 // Additional logic can be placed here
                 InteractionHub(targetTags, thisObjectTag);
@@ -66,12 +66,12 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
             }
             else
             {
-                //Debug.Log("No Tags component found on: " + hit.collider.gameObject.name);
+                Debug.Log("No Tags component found on: " + hit.collider.gameObject.name);
             }
         }
         else
         {
-            //Debug.Log("Raycast did not hit anything.");
+            Debug.Log("Raycast did not hit anything.");
         }
     }
     public void InteractionHub(Tags targetObjectTags, Tags thisObjectTags)
@@ -89,7 +89,21 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                     }
                 }
                 break;
-            case ObjectType.DetailedView:
+            case ObjectType.Compartment:
+                Lock compartmentLocked = targetObjectTags.GetComponent<Lock>();
+                DependencyHandler compartmentDependency = targetObjectTags.GetComponent<DependencyHandler>();
+                if (compartmentLocked != null&&compartmentLocked.isLocked==true)
+                {
+                    Key key = GetComponent<Key>();
+                    if (key != null)
+                    {
+                        compartmentLocked.TryUnlock(key);
+                    }
+                }
+                else if (compartmentDependency != null)
+                {
+                    compartmentDependency.HandleItem(thisObjectTags);
+                }
                 break;
             default:
                 DependencyHandler dependency = targetObjectTags.GetComponent<DependencyHandler>();
