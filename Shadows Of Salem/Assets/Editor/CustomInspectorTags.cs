@@ -1,4 +1,5 @@
 using System;
+using System.Security.Cryptography;
 using UnityEditor;
 using UnityEngine;
 
@@ -15,8 +16,10 @@ public class CustomInspectorTags : Editor
         EditorGUILayout.LabelField("General Tags", EditorStyles.boldLabel);
         tags.objectName = EditorGUILayout.TextField("Object Name", tags.objectName);
         tags.objectDescription = EditorGUILayout.TextArea(tags.objectDescription);
+        tags.sprite = (Sprite)EditorGUILayout.ObjectField("Sprite", tags.sprite, typeof(Sprite), allowSceneObjects: false);
         tags.objectType = (ObjectType)EditorGUILayout.EnumPopup("Object Type", tags.objectType);
         tags.category = (ObjectCategory)EditorGUILayout.EnumPopup("Category", tags.category);
+        tags.quantity = EditorGUILayout.IntField("Quantity", tags.quantity);
         // Mark the object as dirty to ensure changes are saved
         EditorUtility.SetDirty(tags);
     }

@@ -7,6 +7,7 @@ public class Lock : MonoBehaviour
     public bool isPhysicalLock;
     public bool isCombinationLock;
     public int combination; // The key that unlocks this lock
+    public InventoryOrder inventoryOrder;
 
     public void TryUnlock(Key key)
     {
@@ -16,9 +17,10 @@ public class Lock : MonoBehaviour
             isLocked = false;
             if(isPhysicalLock) 
             { 
-                Destroy(gameObject); 
+                gameObject.SetActive(false); 
             }
-            Destroy(key.gameObject);
+            Tags keyTag = key.gameObject.GetComponent<Tags>();
+            inventoryOrder.DeleteItem(keyTag);
         }
         else
         {

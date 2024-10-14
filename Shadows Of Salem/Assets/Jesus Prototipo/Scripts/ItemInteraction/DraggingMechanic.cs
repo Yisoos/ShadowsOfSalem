@@ -30,12 +30,11 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     public void OnEndDrag(PointerEventData eventData)
     {
         Tags thisTag = GetComponent<Tags>();
-        Debug.Log("Dropped Object: " + gameObject.name + ", Tag: " + gameObject.tag);
+        Debug.Log("Dropped Object: " + gameObject.name + ", Tag: " + thisTag.objectType);
 
         // Check if we are dropping over a UI element (like inventory)
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-
             CheckForInteraction(eventData, thisTag);
         }
 
@@ -102,14 +101,14 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 }
                 else if (compartmentDependency != null)
                 {
-                    compartmentDependency.HandleItem(thisObjectTags);
+                    bool dependenciesMet = compartmentDependency.HandleItem(thisObjectTags);
                 }
                 break;
             default:
                 DependencyHandler dependency = targetObjectTags.GetComponent<DependencyHandler>();
                 if (dependency != null) 
                 {
-                    dependency.HandleItem(thisObjectTags);
+                    bool dependenciesMet = dependency.HandleItem(thisObjectTags); ;
                 }
                 break;
         }

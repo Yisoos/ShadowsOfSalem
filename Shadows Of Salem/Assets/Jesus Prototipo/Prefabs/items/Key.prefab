@@ -62,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Llave
   objectDescription: 
+  sprite: {fileID: 21300000, guid: 450cb0a8840bcbd4d9c5bba647737fd2, type: 3}
   objectType: 1
   category: 0
 --- !u!114 &-3673182812016367846

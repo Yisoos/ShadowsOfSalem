@@ -270,6 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Carta
   objectDescription: 
+  sprite: {fileID: 21300000, guid: 039bd923e4677fd4792ed2288595bf62, type: 3}
   objectType: 5
   category: 1
 --- !u!114 &5728319101949770794
