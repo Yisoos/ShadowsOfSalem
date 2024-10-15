@@ -36,7 +36,7 @@ public class InventoryOrder : MonoBehaviour
     // Function to collect an item
     public void CollectItem(Tags itemPrefab)
     {
-        Debug.Log("CollectItem function activated");
+        //Debug.Log("CollectItem function activated");
 
         for (int i = 0; i < inventorySlot.Length; i++)
         {
@@ -76,28 +76,13 @@ public class InventoryOrder : MonoBehaviour
     // Function to delete or decrease an item
     public void DeleteItem(Tags itemPrefab)
     {
-        // Find the item in the inventory list
-        Tags itemInList = items.Find(i => i.objectName == itemPrefab.objectName);
-
-        if (itemInList != null)
+        if(itemPrefab.category != ObjectCategory.Tool) 
         {
-            // Check if we can subtract the quantity
-            if (itemInList.quantity > itemPrefab.quantity)
-            {
-                itemInList.quantity -= itemPrefab.quantity; // Decrease the quantity
-                TMP_Text itemText = itemPrefab.GetComponentInChildren<TMP_Text>();
-                if (itemText != null)
-                {
-                    itemText.text = itemPrefab.quantity.ToString();
-                }
-            }
-            else
-            {
-                items.Remove(itemInList); // Remove item from list if quantity is zero or less
-            }
+            Debug.Log("Delete item");
         }
-
-        if(itemPrefab.category != ObjectCategory.Tool)// Destroy the item's GameObject
-        Destroy(itemPrefab.gameObject);
+        else
+        {
+            Debug.Log("Item is tool");
+        }
     }
 }

@@ -8,7 +8,6 @@ public class DependencyHandler : MonoBehaviour
     public List<string> requiredItems; // List of items needed for this object (e.g., phone, cable, pliers)
     public InventoryOrder inventory; 
     public Sprite phoneWithCable; // The sprite when the cable is connected
-    public Sprite phoneWithCableAndPliers; // The final sprite when both items are used
     private SpriteRenderer spriteRenderer; // Reference to change the sprite
                                                                                                                                                                                                                                                                                  
     private void Start()
@@ -21,13 +20,13 @@ public class DependencyHandler : MonoBehaviour
     {
         if (inventory == null)
         {
-            Debug.LogError("InventoryOrder reference is missing!");
+            Debug.LogError("Este script no está conectado al inventario");
             return false;
         }
         // Check if the droppedItem's objectName exists in the requiredItems list
         if (!requiredItems.Contains(objectDropped.objectName))
         {
-            Debug.Log($"Dropped item '{objectDropped.objectName}' is not on the required items list.");
+            Debug.Log($" '{objectDropped.objectName}' no puede ser utilizada con este objeto");
             return false;
         }
         // Iterate through the required items and check if they all exist in the inventory
@@ -39,13 +38,22 @@ public class DependencyHandler : MonoBehaviour
             // If any required item is not found, return false
             if (!itemFound)
             {
-                Debug.Log($"Item {requiredItem} not found in inventory.");
+                Debug.Log($"Para usar este objeto necesitas {requiredItem}");
                 return false;
             }
         }
-
         // All required items were found
-        Debug.Log("All required items are present in the inventory.");
+        Debug.Log("Objeto listo para interactuar");
+        foreach (Tags inventoryItem in inventory.items)
+        {
+            if (requiredItems.Contains(inventoryItem.objectName))
+            {
+                
+                Debug.Log($"Item encontrado en el inventario: {inventoryItem.objectName}");
+                inventory.DeleteItem(inventoryItem);
+
+            }
+        }
         return true;
     }
 }

@@ -4197,7 +4197,6 @@ MonoBehaviour:
   - Alicates
   inventory: {fileID: 331138666}
   phoneWithCable: {fileID: 21300000, guid: cd97862dcd27be3418d7070bc48fb7ef, type: 3}
-  phoneWithCableAndPliers: {fileID: 21300000, guid: cd97862dcd27be3418d7070bc48fb7ef, type: 3}
 --- !u!1001 &1904104421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4582,6 +4581,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alicates
       objectReference: {fileID: 0}
+    - target: {fileID: 8328013636871036950, guid: b8b773cb97f9f2043843b42fd2065c4c, type: 3}
+      propertyPath: quantity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4824,6 +4827,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6504436555347629729, guid: fc20766286a70b844b689731c45bbca2, type: 3}
+      propertyPath: quantity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4837,6 +4844,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 16426822}
     m_Modifications:
+    - target: {fileID: -8620931397597157835, guid: c79ee8aae55700a41885dea6e6cac324, type: 3}
+      propertyPath: quantity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -3673182812016367846, guid: c79ee8aae55700a41885dea6e6cac324, type: 3}
       propertyPath: keyID
       value: 1

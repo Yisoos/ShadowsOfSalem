@@ -108,7 +108,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 DependencyHandler dependency = targetObjectTags.GetComponent<DependencyHandler>();
                 if (dependency != null) 
                 {
-                    bool dependenciesMet = dependency.HandleItem(thisObjectTags); ;
+                    bool dependenciesMet = dependency.HandleItem(thisObjectTags);
                 }
                 break;
         }
