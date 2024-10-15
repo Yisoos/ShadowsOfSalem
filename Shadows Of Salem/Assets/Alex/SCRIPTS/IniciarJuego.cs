@@ -8,7 +8,7 @@ public class IniciarJuego : MonoBehaviour
     public void EmpezarJuego()
     {
         Debug.Log("Iniciar Juego");
-        SceneManager.LoadScene("Nivel 0");
+        SceneManager.LoadScene("Intro");
 
     }
     public void VolverAlMenu()

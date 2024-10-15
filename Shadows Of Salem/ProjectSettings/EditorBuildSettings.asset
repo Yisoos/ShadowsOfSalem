@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Jesus Prototipo/Scenes/Pantalla Principal.unity
     guid: e579f459a8316a14aae9e8305ab9c9ae
   - enabled: 1
-    path: Assets/Jesus Prototipo/Scenes/Nivel 0.unity
+    path: Assets/Jesus Prototipo/Scenes/Nivel 0/Escritorio de Charlotte.unity
     guid: 9b842ea834b287843b485d04bd10b83d
+  - enabled: 1
+    path: Assets/Jesus Prototipo/Scenes/Nivel 0/Intro.unity
+    guid: eda9fa4e96ad5c842a3de512a54da1f1
   m_configObjects: {}
