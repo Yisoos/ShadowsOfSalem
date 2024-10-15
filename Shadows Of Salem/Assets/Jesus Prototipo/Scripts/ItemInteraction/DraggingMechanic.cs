@@ -6,78 +6,96 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+// Clase que maneja la mecánica de arrastre de un objeto en la interfaz de usuario
 public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    // Imagen que representa el objeto que se arrastra
     public Image image;
+
+    // Transformación del padre del objeto después de ser arrastrado
     [HideInInspector] public Transform parentAfterDrag;
 
+    // Método llamado al inicio del arrastre
     public void OnBeginDrag(PointerEventData eventData)
     {
+        // Guardar el padre original del objeto
         parentAfterDrag = transform.parent;
+
+        // Cambiar el padre a la raíz para que flote en la interfaz
         transform.SetParent(transform.root);
+
+        // Mover el objeto al final de la lista de hermanos en la jerarquía
         transform.SetAsLastSibling();
-        image.raycastTarget = false;  // Disable raycast on dragged object
+
+        // Desactivar el raycast en la imagen arrastrada
+        image.raycastTarget = false;
     }
 
+    // Método llamado mientras se arrastra el objeto
     public void OnDrag(PointerEventData eventData)
     {
-        // Move the inventory item to follow the mouse
+        // Mover el objeto en la posición del ratón
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0; // Set Z to 0 for 2D
+        mousePos.z = 0; // Ajustar Z a 0 para 2D
         transform.position = mousePos;
     }
 
+    // Método llamado al final del arrastre
     public void OnEndDrag(PointerEventData eventData)
     {
+        // Obtener el componente de Tags del objeto
         Tags thisTag = GetComponent<Tags>();
-        Debug.Log("Dropped Object: " + gameObject.name + ", Tag: " + thisTag.objectType);
 
-        // Check if we are dropping over a UI element (like inventory)
+        // Devolver el objeto a su padre original después de arrastrarlo
+        transform.SetParent(parentAfterDrag);
+
+        // Comprobar si se está soltando sobre un elemento de la interfaz de usuario
         if (!EventSystem.current.IsPointerOverGameObject())
         {
+            // Llamar al método para comprobar interacciones con otros objetos
             CheckForInteraction(eventData, thisTag);
         }
 
-        // Snap back to the original parent after dragging
-        transform.SetParent(parentAfterDrag);
-        image.raycastTarget = true;  // Re-enable raycast on dragged object
+        // Rehabilitar el raycast en la imagen arrastrada
+        image.raycastTarget = true;
     }
 
+    // Método para verificar interacciones al soltar el objeto
     public void CheckForInteraction(PointerEventData eventData, Tags thisObjectTag)
     {
-        // Cast a ray from the mouse position in 2D
+        // Lanzar un rayo desde la posición del ratón en 2D
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero); // Cast ray with zero direction to get the object under the mouse position
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero); // Lanzar un rayo con dirección cero para obtener el objeto debajo del ratón
 
-        // Check if we hit something
+        // Comprobar si el rayo golpeó algo
         if (hit.collider != null)
         {
-            // Check if the hit object has the Tags script
+            // Obtener el componente de Tags del objeto golpeado
             Tags targetTags = hit.collider.GetComponent<Tags>();
             if (targetTags != null)
             {
-                // Log information about the object being dropped onto
-                Debug.Log("Dropped onto: " + hit.collider.gameObject.name + ", Tag: " + targetTags.objectType);
-
-                // Additional logic can be placed here
+                // Lógica adicional puede ser colocada aquí
                 InteractionHub(targetTags, thisObjectTag);
-
             }
             else
             {
-                Debug.Log("No Tags component found on: " + hit.collider.gameObject.name);
+                Debug.Log("No se encontró el componente Tags en: " + hit.collider.gameObject.name);
             }
         }
         else
         {
-            Debug.Log("Raycast did not hit anything.");
+            Debug.Log("El raycast no golpeó nada.");
         }
     }
+
+    // Método para manejar las interacciones basadas en el tipo de objeto objetivo
     public void InteractionHub(Tags targetObjectTags, Tags thisObjectTags)
     {
+        // Manejar interacciones basadas en el tipo de objeto
         switch (targetObjectTags.objectType)
         {
             case ObjectType.Lock:
+                // Manejar desbloqueo si el objeto es un candado
                 Lock lockComponent = targetObjectTags.GetComponent<Lock>();
                 if (lockComponent != null)
                 {
@@ -88,10 +106,12 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                     }
                 }
                 break;
+
             case ObjectType.Compartment:
+                // Manejar compartimentos bloqueados y dependencias
                 Lock compartmentLocked = targetObjectTags.GetComponent<Lock>();
                 DependencyHandler compartmentDependency = targetObjectTags.GetComponent<DependencyHandler>();
-                if (compartmentLocked != null&&compartmentLocked.isLocked==true)
+                if (compartmentLocked != null && compartmentLocked.isLocked == true)
                 {
                     Key key = GetComponent<Key>();
                     if (key != null)
@@ -104,9 +124,11 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                     bool dependenciesMet = compartmentDependency.HandleItem(thisObjectTags);
                 }
                 break;
+
             default:
+                // Manejar dependencias para otros tipos de objetos
                 DependencyHandler dependency = targetObjectTags.GetComponent<DependencyHandler>();
-                if (dependency != null) 
+                if (dependency != null)
                 {
                     bool dependenciesMet = dependency.HandleItem(thisObjectTags);
                 }

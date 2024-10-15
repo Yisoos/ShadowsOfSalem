@@ -633,8 +633,7 @@ MonoBehaviour:
   objectDescription: 
   sprite: {fileID: 0}
   quantity: 1
-  objectType: 5
-  category: 0
+  objectType: 6
 --- !u!114 &14217378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,8 +758,7 @@ MonoBehaviour:
   objectDescription: Look for the key
   sprite: {fileID: 0}
   quantity: 0
-  objectType: 2
-  category: 0
+  objectType: 3
 --- !u!212 &52242476
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1183,10 +1181,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 331138660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8349908cfda849949911810d006fad82, type: 3}
+  m_Script: {fileID: 11500000, guid: 38f70d5c14c53d243ba487faf3a9feda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventorySlot:
+  inventorySlots:
   - {fileID: 1127901907}
   - {fileID: 978626701}
   - {fileID: 1571850437}
@@ -1777,7 +1775,6 @@ MonoBehaviour:
   sprite: {fileID: 0}
   quantity: 0
   objectType: 5
-  category: 0
 --- !u!61 &894434276
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4177,9 +4174,8 @@ MonoBehaviour:
   objectName: Phone
   objectDescription: 
   sprite: {fileID: 0}
-  quantity: 0
-  objectType: 2
-  category: 0
+  quantity: 1
+  objectType: 6
 --- !u!114 &1893224069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4193,10 +4189,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredItems:
-  - Cable
   - Alicates
+  - Cable
   inventory: {fileID: 331138666}
-  phoneWithCable: {fileID: 21300000, guid: cd97862dcd27be3418d7070bc48fb7ef, type: 3}
+  dependencyMetSprite: {fileID: 21300000, guid: cd97862dcd27be3418d7070bc48fb7ef, type: 3}
 --- !u!1001 &1904104421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4585,6 +4581,10 @@ PrefabInstance:
       propertyPath: quantity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8328013636871036950, guid: b8b773cb97f9f2043843b42fd2065c4c, type: 3}
+      propertyPath: objectType
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4830,6 +4830,10 @@ PrefabInstance:
     - target: {fileID: 6504436555347629729, guid: fc20766286a70b844b689731c45bbca2, type: 3}
       propertyPath: quantity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504436555347629729, guid: fc20766286a70b844b689731c45bbca2, type: 3}
+      propertyPath: objectType
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

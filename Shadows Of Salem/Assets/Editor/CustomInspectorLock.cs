@@ -23,7 +23,7 @@ public class CustomInspectorLock : Editor
             lockScript.isPhysicalLock = EditorGUILayout.Toggle("Is Physical lock", lockScript.isPhysicalLock);
         }
         lockScript.isLocked = EditorGUILayout.Toggle("Is Locked", lockScript.isLocked);
-        lockScript.inventoryOrder = (InventoryOrder)EditorGUILayout.ObjectField("Inventory Order", lockScript.inventoryOrder, typeof(InventoryOrder), allowSceneObjects: true);
+        lockScript.inventoryOrder = (Inventory)EditorGUILayout.ObjectField("Inventory Order", lockScript.inventoryOrder, typeof(Inventory), allowSceneObjects: true);
 
     }
 }

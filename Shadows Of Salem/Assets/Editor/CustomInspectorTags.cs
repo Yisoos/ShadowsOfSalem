@@ -18,7 +18,6 @@ public class CustomInspectorTags : Editor
         tags.objectDescription = EditorGUILayout.TextArea(tags.objectDescription);
         tags.sprite = (Sprite)EditorGUILayout.ObjectField("Sprite", tags.sprite, typeof(Sprite), allowSceneObjects: false);
         tags.objectType = (ObjectType)EditorGUILayout.EnumPopup("Object Type", tags.objectType);
-        tags.category = (ObjectCategory)EditorGUILayout.EnumPopup("Category", tags.category);
         tags.quantity = EditorGUILayout.IntField("Quantity", tags.quantity);
         // Mark the object as dirty to ensure changes are saved
         EditorUtility.SetDirty(tags);

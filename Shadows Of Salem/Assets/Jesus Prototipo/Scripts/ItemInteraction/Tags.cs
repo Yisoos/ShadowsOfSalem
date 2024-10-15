@@ -5,18 +5,11 @@ public enum ObjectType
 {
     Lock,
     Key,
+    Tool,
     Compartment,
     Inspectable,
     PopUpWindow,
     Other
-}
-
-public enum ObjectCategory
-{
-    Tool,
-    Clue,
-    Decoration,
-    Furniture
 }
 
 public class Tags : MonoBehaviour
@@ -27,6 +20,4 @@ public class Tags : MonoBehaviour
     public Sprite sprite;
     public int quantity;
     public ObjectType objectType;
-    public ObjectCategory category;
-
 }

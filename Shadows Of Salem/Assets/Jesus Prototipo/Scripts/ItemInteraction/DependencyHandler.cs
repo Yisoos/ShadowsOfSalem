@@ -4,56 +4,55 @@ using UnityEngine;
 
 public class DependencyHandler : MonoBehaviour
 {
-    [Header("Required Items")]
-    public List<string> requiredItems; // List of items needed for this object (e.g., phone, cable, pliers)
-    public InventoryOrder inventory; 
-    public Sprite phoneWithCable; // The sprite when the cable is connected
-    private SpriteRenderer spriteRenderer; // Reference to change the sprite
-                                                                                                                                                                                                                                                                                 
+    [Header("Elementos requeridos")]
+    public List<string> requiredItems; // Lista de elementos necesarios para este objeto (por ejemplo, teléfono, cable, pinzas)
+    public Inventory inventory; // Referencia al inventario
+    public Sprite dependencyMetSprite; // Sprite cuando el cable está conectado
+    private SpriteRenderer spriteRenderer; // Referencia para cambiar el sprite
+
     private void Start()
     {
+        // Obtener el componente SpriteRenderer al iniciar
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Check if the required item is part of the dependency list
-    public bool HandleItem( Tags objectDropped)
+    // Método para manejar el objeto que se ha soltado y verificar si los elementos requeridos están presentes en el inventario
+    public bool HandleItem(Tags objectDropped)
     {
+        // Verificar si el inventario está asignado
         if (inventory == null)
         {
             Debug.LogError("Este script no está conectado al inventario");
             return false;
         }
-        // Check if the droppedItem's objectName exists in the requiredItems list
-        if (!requiredItems.Contains(objectDropped.objectName))
-        {
-            Debug.Log($" '{objectDropped.objectName}' no puede ser utilizada con este objeto");
-            return false;
-        }
-        // Iterate through the required items and check if they all exist in the inventory
+
+        // Iterar a través de los elementos requeridos
         foreach (string requiredItem in requiredItems)
         {
-            // Check if the inventory contains the required item
-            bool itemFound = inventory.items.Exists(item => item.objectName == requiredItem);
+            // Verificar si el elemento requerido está presente en el inventario
+            bool itemFound = inventory.items.Exists(item =>
+                string.Equals(item.objectName.Trim(), requiredItem.Trim(), System.StringComparison.OrdinalIgnoreCase)
+            );
 
-            // If any required item is not found, return false
+            // Si el elemento requerido no se encuentra en el inventario, registrar un mensaje y devolver falso
             if (!itemFound)
             {
                 Debug.Log($"Para usar este objeto necesitas {requiredItem}");
                 return false;
             }
         }
-        // All required items were found
-        Debug.Log("Objeto listo para interactuar");
-        foreach (Tags inventoryItem in inventory.items)
-        {
-            if (requiredItems.Contains(inventoryItem.objectName))
-            {
-                
-                Debug.Log($"Item encontrado en el inventario: {inventoryItem.objectName}");
-                inventory.DeleteItem(inventoryItem);
 
-            }
+        // Todos los elementos requeridos fueron encontrados
+        Debug.Log("Todos los objetos requeridos están en el inventario.");
+
+        // Opcional: Eliminar los elementos requeridos del inventario si se utilizaron con éxito
+        foreach (string requiredItem in requiredItems)
+        {
+            // Eliminar el elemento del inventario
+            inventory.DeleteItem(inventory.items.Find(item => item.objectName.Trim() == requiredItem.Trim()));
+            spriteRenderer.sprite = dependencyMetSprite;
         }
-        return true;
+
+        return true; // Todos los elementos requeridos están disponibles
     }
 }

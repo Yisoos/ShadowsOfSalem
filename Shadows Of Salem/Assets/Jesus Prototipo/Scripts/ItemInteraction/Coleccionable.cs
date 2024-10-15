@@ -8,8 +8,8 @@ public class Coleccionable : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // Obtener la instancia de InventoryOrder
-        InventoryOrder inventory = FindObjectOfType<InventoryOrder>();
+        // Obtener la instancia de Inventory
+        Inventory inventory = FindObjectOfType<Inventory>();
         if (inventory != null)
         {
             inventory.CollectItem(itemPrefab);
