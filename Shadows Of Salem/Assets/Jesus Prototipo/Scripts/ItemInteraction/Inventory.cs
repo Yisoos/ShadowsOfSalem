@@ -6,7 +6,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public GameObject[] inventorySlots; // Array de espacios de inventario en la UI
-    public List<Tags> items = new List<Tags>(); // Lista para almacenar los objetos en el inventario
+    [HideInInspector] public List<Tags> items = new List<Tags>(); // Lista para almacenar los objetos en el inventario
 
     private void Start()
     {

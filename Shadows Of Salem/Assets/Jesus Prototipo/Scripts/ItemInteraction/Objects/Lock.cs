@@ -1,18 +1,21 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
+using TMPro.EditorUtilities;
 
 // Clase que representa un candado
 public class Lock : MonoBehaviour
 {
-    public int lockID; // El ID de este candado
+    
     public bool isLocked; // Indica si el candado está cerrado
+    public int lockID; // El ID de este candado
     public bool isPhysicalLock; // Indica si es un candado físico
-    public bool isCombinationLock; // Indica si es un candado de combinación
-    public int combination; // La clave que desbloquea este candado
     public Inventory inventoryOrder; // Referencia al inventario asociado
     public FeedbackTextController feedbackText;
-
+   
     // Método que intenta desbloquear el candado con una llave
-    public void TryUnlock(Key key)
+    public void TryUnlock(Key key) //para candados con llave
     {
         // Verifica si la llave no es nula, si su ID coincide con el del candado y si está bloqueado
         if (key != null && key.keyID == lockID && isLocked)
@@ -38,4 +41,5 @@ public class Lock : MonoBehaviour
             Debug.Log("La llave no coincide con la requerida."); // Mensaje de error
         }
     }
+   
 }
