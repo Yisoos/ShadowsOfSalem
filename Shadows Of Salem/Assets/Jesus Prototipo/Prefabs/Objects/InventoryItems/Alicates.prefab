@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Alicates
-  objectDescription: Usa para arreglar el telefono
+  objectDescription: Necesitas buscar el cable primero
   sprite: {fileID: 21300000, guid: 13397e9feec4db14b89b7f87fc4bd263, type: 3}
   quantity: 1
   objectType: 2

@@ -42,7 +42,10 @@ public class DependencyHandler : MonoBehaviour
                 // Si el elemento requerido no se encuentra en el inventario, registrar un mensaje y devolver falso
                 if (!itemFound)
                 {
-                    feedbackText.PopUpText(objectDropped.objectDescription);
+                    if (feedbackText != null)
+                    {
+                        feedbackText.PopUpText(objectDropped.objectDescription);
+                    }
                     Debug.Log($"Para usar este objeto necesitas {requiredItem}");
                     return false;
                 }

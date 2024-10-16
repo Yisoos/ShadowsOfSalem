@@ -24,6 +24,6 @@ public class CustomInspectorLock : Editor
         }
         lockScript.isLocked = EditorGUILayout.Toggle("Is Locked", lockScript.isLocked);
         lockScript.inventoryOrder = (Inventory)EditorGUILayout.ObjectField("Inventory Order", lockScript.inventoryOrder, typeof(Inventory), allowSceneObjects: true);
-
+        lockScript.feedbackText = (FeedbackTextController)EditorGUILayout.ObjectField("Feedback Text", lockScript.feedbackText, typeof(FeedbackTextController), allowSceneObjects: true);
     }
 }

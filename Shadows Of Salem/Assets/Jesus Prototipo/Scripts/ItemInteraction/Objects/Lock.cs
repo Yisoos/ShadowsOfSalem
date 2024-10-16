@@ -9,6 +9,7 @@ public class Lock : MonoBehaviour
     public bool isCombinationLock; // Indica si es un candado de combinación
     public int combination; // La clave que desbloquea este candado
     public Inventory inventoryOrder; // Referencia al inventario asociado
+    public FeedbackTextController feedbackText;
 
     // Método que intenta desbloquear el candado con una llave
     public void TryUnlock(Key key)
@@ -18,7 +19,6 @@ public class Lock : MonoBehaviour
         {
             Debug.Log("¡Candado abierto!"); // Mensaje de éxito
             isLocked = false; // Cambia el estado del candado a desbloqueado
-
             // Si es un candado físico, lo desactiva
             if (isPhysicalLock)
             {
@@ -27,6 +27,10 @@ public class Lock : MonoBehaviour
 
             // Obtiene el componente Tags de la llave y elimina la llave del inventario
             Tags keyTag = key.gameObject.GetComponent<Tags>();
+            if (feedbackText != null) 
+            { 
+                feedbackText.PopUpText(keyTag.objectDescription);
+            }
             inventoryOrder.DeleteItem(keyTag);
         }
         else

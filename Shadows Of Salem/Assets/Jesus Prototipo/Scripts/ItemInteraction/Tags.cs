@@ -9,7 +9,8 @@ public enum ObjectType
     Compartment,
     Inspectable,
     PopUpWindow,
-    Other
+    Other,
+    Reusable
 }
 
 public class Tags : MonoBehaviour

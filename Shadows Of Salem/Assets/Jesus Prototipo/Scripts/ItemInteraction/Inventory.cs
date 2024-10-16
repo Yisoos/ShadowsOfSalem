@@ -79,7 +79,7 @@ public class Inventory : MonoBehaviour
         }
 
         // Comprobar si el objeto es de tipo herramienta
-        if (itemPrefab.objectType != ObjectType.Tool)
+        if (itemPrefab.objectType != ObjectType.Reusable)
         {
             // Buscar el objeto en el inventario
             Tags inventoryItem = items.Find(item => item == itemPrefab);
