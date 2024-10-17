@@ -17,7 +17,7 @@ public class FeedbackTextController : MonoBehaviour
     {
         // Set the text
         feedbackText.text = displayText;
-
+        transform.SetAsLastSibling();
         // Set the color with full opacity (alpha = 1)
         feedbackText.color = new Color(feedbackText.color.r, feedbackText.color.g, feedbackText.color.b, 1f);
 
