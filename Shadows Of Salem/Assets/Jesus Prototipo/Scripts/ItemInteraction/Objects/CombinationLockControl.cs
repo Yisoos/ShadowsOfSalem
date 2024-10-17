@@ -44,32 +44,38 @@ public class CombinationLockControl : MonoBehaviour
     }
     public void AddNumberToCombinationDigit(TMP_Text displayDigit)
     {
-        int digit = Convert.ToInt32(displayDigit.text);
-        digit = digit + 1 > 9 ? 0 : digit + 1;
-        displayDigit.text = Convert.ToString(digit);
-        for (int i = 0;i < numbersInLock.Length; i++)
-        {
-            if (numbersInLock[i] == displayDigit) 
+        if (isLocked)
+        { 
+            int digit = Convert.ToInt32(displayDigit.text);
+            digit = digit + 1 > 9 ? 0 : digit + 1;
+            displayDigit.text = Convert.ToString(digit);
+            for (int i = 0; i < numbersInLock.Length; i++)
             {
-                numbersInLock[i].text = displayDigit.text;
+                if (numbersInLock[i] == displayDigit)
+                {
+                    numbersInLock[i].text = displayDigit.text;
+                }
             }
+            Debug.Log($"Valor en el candado: {numbersInLock[0].text}{numbersInLock[1].text}{numbersInLock[2].text}{numbersInLock[3].text}");
+            CombinationLockLogic();
         }
-        Debug.Log($"Valor en el candado: {numbersInLock[0].text}{numbersInLock[1].text}{numbersInLock[2].text}{numbersInLock[3].text}");
-        CombinationLockLogic();
     }
     public void SubtractNumberToCombinationDigit(TMP_Text displayDigit)
     {
-        int digit = Convert.ToInt32(displayDigit.text);
-        digit = digit - 1 < 0 ? 9 : digit - 1;
-        displayDigit.text = Convert.ToString(digit);
-        for (int i = 0; i < numbersInLock.Length; i++)
+        if (isLocked)
         {
-            if (numbersInLock[i] == displayDigit)
+            int digit = Convert.ToInt32(displayDigit.text);
+            digit = digit - 1 < 0 ? 9 : digit - 1;
+            displayDigit.text = Convert.ToString(digit);
+            for (int i = 0; i < numbersInLock.Length; i++)
             {
-                numbersInLock[i].text = displayDigit.text;
+                if (numbersInLock[i] == displayDigit)
+                {
+                    numbersInLock[i].text = displayDigit.text;
+                }
             }
+            Debug.Log($"Valor en el candado: {numbersInLock[0].text}{numbersInLock[1].text}{numbersInLock[2].text}{numbersInLock[3].text}");
+            CombinationLockLogic();
         }
-        Debug.Log($"Valor en el candado: {numbersInLock[0].text}{numbersInLock[1].text}{numbersInLock[2].text}{numbersInLock[3].text}");
-        CombinationLockLogic();
     }
 }
