@@ -20,7 +20,5 @@ public class CambiarEscenas : MonoBehaviour
     {
         Debug.Log("Cambiar Escena");
         SceneManager.LoadScene(nombreDeEscena);
-
     }
-    
 }
