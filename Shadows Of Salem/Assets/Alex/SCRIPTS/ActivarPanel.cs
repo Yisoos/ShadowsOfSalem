@@ -5,6 +5,10 @@ using UnityEngine;
 public class ActivarPanel : MonoBehaviour
 {
     public GameObject panel; // Asignar panel
+    public GameObject arrows; // las flechas
+    public GameObject backButton;
+   
+
     private void OnMouseDown()
     {
         TogglePanel();
@@ -12,10 +16,24 @@ public class ActivarPanel : MonoBehaviour
 
     public void TogglePanel()
     {
-        if (panel != null)
+        if (panel != null && arrows != null && backButton != null)  
         {
-            panel.SetActive(!panel.activeSelf);
-            Debug.Log("Activar panel");
+            bool isPanelActive = !panel.activeSelf;
+            panel.SetActive(isPanelActive);
+
+            Debug.Log("Panel activo: " + isPanelActive);
+
+            if (isPanelActive)
+            {
+                arrows.SetActive(false);  // Desactivar las flechas
+                backButton.SetActive(true);
+            }
         }
+
+        else
+        {
+            Debug.LogError("Alguno de los elementos no está asignado.");
+        }
+            
     }
 }
