@@ -676,7 +676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a4caeca73e8469e4ca7dd36016602529, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb92673649940374ab5227625ea80cb5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -701,16 +701,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227135434}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -9719.999}
   m_LocalScale: {x: 0.9048245, y: 0.9048245, z: 0.9048245}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1079089407}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 537, y: -363}
+  m_AnchoredPosition: {x: 553, y: -188}
   m_SizeDelta: {x: 35, y: 51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1322265384
@@ -771,11 +771,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "En la tranquila ciudad de Salem, Massachusetts, el pasado resuena con
-    ecos de terror y superstici\xF3n. En el a\xF1o 1692, la histeria de las cacer\xEDas
-    de brujas alcanz\xF3 su punto m\xE1ximo, y muchas mujeres inocentes fueron acusadas,
-    torturadas y ejecutadas bajo la acusaci\xF3n de brujer\xEDa. La verdad detr\xE1s
-    de estos eventos ha sido enterrada, oculta bajo siglos de miedo y manipulaci\xF3n."
+  m_text: "En Salem, Massachusetts, el pasado resuena con ecos de miedo e incertidumbre.
+    A\xFAn habita en las sombras la cacer\xEDa de brujas de 1692 en la que muchas
+    mujeres fueron acusadas, torturadas y ejecutadas por brujer\xEDa. \r\n\nLa verdad
+    detr\xE1s de estos eventos ha permanecido enterrada y oculta siglos mediante
+    miedo y manipulaci\xF3n.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a4cd8e424a7e1a4f93dcbd39e5c2aa2, type: 2}
   m_sharedMaterial: {fileID: 7888957626616832292, guid: 8a4cd8e424a7e1a4f93dcbd39e5c2aa2, type: 2}
@@ -802,14 +802,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 49.7
-  m_fontSizeBase: 49.7
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: -1.31
