@@ -2,28 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public enum ObjectType
-    {
-        Lock,
-        Key,
-        DetailedView,
-        Inspectable,
-        PopUpWindow,
-        Other,
-    }
+{
+    Lock,
+    Key,
+    Tool,
+    Compartment,
+    Inspectable,
+    PopUpWindow,
+    Other,
+    Reusable
+}
+
 public class Tags : MonoBehaviour
 {
-    [Header("General Tags")]
+    [Header("General Metadata")]
     public string objectName;
+    public string objectDescription;
+    public Sprite sprite;
+    public int quantity;
     public ObjectType objectType;
-    [Header("Lock Tags")]
-    public bool isLocked;
-    public int keyID;
-    public int unlockCombination;
-    [Header("Inventory Tags")]
-    [Header("Pop-Up Tags")]
-    public GameObject referenceItem;
-    [Header("Dependencies")]
-    public bool lockDependency;
-    public GameObject requiredLock;
-    public string[] dependency;
 }

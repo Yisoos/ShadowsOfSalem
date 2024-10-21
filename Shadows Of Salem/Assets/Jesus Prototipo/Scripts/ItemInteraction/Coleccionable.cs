@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Coleccionable : MonoBehaviour
 {
-   public GameObject itemPrefab; // Prefab del objeto que se recogerá
+   public Tags itemPrefab; // Prefab del objeto que se recogerá
 
     private void OnMouseDown()
     {
-        // Obtener la instancia de InventoryOrder
-        InventoryOrder inventory = FindObjectOfType<InventoryOrder>();
+        // Obtener la instancia de Inventory
+        Inventory inventory = FindObjectOfType<Inventory>();
         if (inventory != null)
         {
             inventory.CollectItem(itemPrefab);
-            Debug.Log($"Collected {itemPrefab.name}");
+            //Debug.Log($"Collected {itemPrefab.name}");
             // Destruir el objeto de la escena
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         else
         {
