@@ -7,12 +7,6 @@ public class ActivarPanel : MonoBehaviour
     public GameObject panel; // Asignar panel
     public GameObject arrows; // las flechas
     public GameObject backButton;
-   
-
-    private void OnMouseDown()
-    {
-        TogglePanel();
-    }
 
     public void TogglePanel()
     {
@@ -35,5 +29,12 @@ public class ActivarPanel : MonoBehaviour
             Debug.LogError("Alguno de los elementos no está asignado.");
         }
             
+    }
+
+    public void DeactivatePanel()
+    {
+        panel.SetActive(false);
+        backButton.SetActive(false);
+        arrows.SetActive(true);
     }
 }
