@@ -2,7 +2,6 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
-using TMPro.EditorUtilities;
 
 // Clase que representa un candado
 public class Lock : MonoBehaviour
