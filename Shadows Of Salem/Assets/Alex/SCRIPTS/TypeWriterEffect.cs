@@ -16,12 +16,20 @@ public class TypeWriterEffect : MonoBehaviour
 
     [SerializeField] GameObject flechita;
     private bool isTyping = false;
+    private bool hasFinishedTyping = false;
+
+    [SerializeField] string[] phrases; // array de las frases
+    private int currentPhraseIndex = 0; // para rastrear que frase esta siendo escrita
+
+    public float titleDisplayDelay = 1.7f; // retraso antes de activar el titulo del nivel (texto) ej. año 194x
+    [SerializeField] TMP_Text title;
 
     public CambiarEscenas changeScenes;
 
     void Start()
     {
         _tmpProText = GetComponent<TMP_Text>();
+        title.enabled = false;
 
         if (_tmpProText != null)
         {
@@ -35,28 +43,32 @@ public class TypeWriterEffect : MonoBehaviour
 
             changeScenes = FindObjectOfType<CambiarEscenas>();
 
-            StartCoroutine("TypeWriterTMP"); // Inicia la corrutina para realizar el efecto de máquina de escribir
+            StartCoroutine(TypePhrase(phrases[currentPhraseIndex])); // Inicia la corrutina para realizar el efecto de máquina de escribir
         }
     }
 
-    IEnumerator TypeWriterTMP()
+    IEnumerator TypePhrase(string phrase)
     {
         isTyping = true;
-
+        hasFinishedTyping = false;
+        originalText = phrase;
         _tmpProText.text = leadingCharBeforeDelay ? leadingChar : ""; // mostrar o no el leadingchar
 
         yield return new WaitForSeconds(delayBeforeStart); // // Espera el tiempo especificado antes de comenzar a escribir
 
-        foreach (char c in originalText)
+        foreach (char letter in phrase.ToCharArray())
         {
             if (_tmpProText.text.Length > 0)
             {
                 _tmpProText.text = _tmpProText.text.Substring(0, _tmpProText.text.Length - leadingChar.Length); // Si hay algún texto en pantalla, primero quita el leadingChar temporalmente
             }
-            _tmpProText.text += c; // Añade el siguiente carácter
+            _tmpProText.text += letter; // Añade el siguiente carácter
             _tmpProText.text += leadingChar; // Vuelve a añadir el leadingChar para dar la ilusión de que el cursor sigue parpadeando o moviéndose después de cada carácter
             yield return new WaitForSeconds(timeBtwChars);
         }
+        _tmpProText.text = phrase; // Ensure the full phrase is displayed at the end
+        isTyping = false; // Typing effect finished
+        hasFinishedTyping = true; // Phrase has finished typing
 
         if (flechita != null)
         {
@@ -74,6 +86,7 @@ public class TypeWriterEffect : MonoBehaviour
                 StopAllCoroutines(); 
                 _tmpProText.text = originalText; // el texto actual igual al original 
                 isTyping = false; // efecto terminado
+                hasFinishedTyping = true;
 
                 // Activar flechita ya que se ha saltado el efecto typewriter
                 if (flechita != null)
@@ -84,11 +97,51 @@ public class TypeWriterEffect : MonoBehaviour
             return; 
         }
 
-        if (changeScenes != null)
+        // Si ha terminado de escribir la frase actual y detecta un clic, empezar escribiendo la siguente
+        if (hasFinishedTyping && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
-            changeScenes.CambiarEscena(); // Call the method to check if the scene should change
+            ShowNextPhrase(); 
+        }
+        
+    }
+
+    void ShowNextPhrase()
+    {
+        currentPhraseIndex++; // siguiente frase
+
+        if (currentPhraseIndex < phrases.Length)
+        {
+            _tmpProText.text = ""; // borramos todo el texto que teniamos
+            flechita.SetActive(false); // Activar flechita ya que se ha saltado el efecto typewriter
+
+            StartCoroutine(TypePhrase(phrases[currentPhraseIndex])); // a escribir la siguiente
+        }
+        else
+        {
+            Debug.Log("All phrases completed.");
+            flechita.SetActive(false);
+            _tmpProText.enabled = false;
+            StartCoroutine(EnableTitleDisplayDelay());
         }
     }
 
-   
+    IEnumerator EnableTitleDisplayDelay()
+    {
+        yield return new WaitForSeconds(0.7f);
+        Debug.Log("Wait");
+        title.enabled = true;
+
+        yield return new WaitForSeconds(titleDisplayDelay);
+        Debug.Log("Display title");
+        title.enabled = false;
+
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("Changing scenes");
+
+        // cambiar de escena (nivel 0) cuando termine de escribir todas las frases
+        if (changeScenes != null)
+        {
+            changeScenes.CambiarEscenaSinInput(); // metodo del script "CambiarEscenas"
+        }
+    }
 }
