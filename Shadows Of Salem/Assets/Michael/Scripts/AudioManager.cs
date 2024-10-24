@@ -10,7 +10,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("---------- Audio Clip ----------")]
     public AudioClip background;
-    public AudioClip sound1;
+    public AudioClip MaquinaDeEscribir;
+    public AudioClip saltoDeEscritura; // Añadir este nuevo clip en AudioManager
     public AudioClip sound2;
     public AudioClip sound3;
     public AudioClip sound4;
