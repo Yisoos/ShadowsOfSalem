@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -12,10 +13,11 @@ public class CollidersControlador : MonoBehaviour
     public GameObject zoomPanel; // el zoom
     public ActivarPanel activarZoomPanel; 
     public float colliderDelay = 0.5f; // retraso antes de activar los colliders de los cajones
+    public FeedbackTextController feedbackTextController;
 
     void Start()
     {
-        activarZoomPanel = FindAnyObjectByType<ActivarPanel>();
+        //activarZoomPanel = FindAnyObjectByType<ActivarPanel>();
         // desactivar el zoom y sus colliders 
         zoomPanel.SetActive(false);
         ActivarColliders(false);
@@ -52,10 +54,19 @@ public class CollidersControlador : MonoBehaviour
                 // ver si el collider clickeado coincide con uno de los colliders puestos 
                 if (hit.collider == colliders[i])
                 {
-                    // activar el game object que corresponda
-                    GameObject objectToToggle = activarObjetos[i];
-                    objectToToggle.SetActive(!objectToToggle.activeSelf); // chequea si el game object esta activado o no; si esta activado, lo desactiva y si esta desactivado, lo activa
-                    Debug.Log("Activar " + colliders[i]);
+                    Lock itemLocked = hit.collider.GetComponent<Lock>();
+                    Tags itemTags = hit.collider.GetComponent<Tags>();   
+                    if (itemLocked != null && itemLocked.isLocked)
+                    {
+                        feedbackTextController.PopUpText(itemTags.objectDescription);
+                    }
+                    else
+                    {
+                        // activar el game object que corresponda
+                        GameObject objectToToggle = activarObjetos[i];
+                        objectToToggle.SetActive(!objectToToggle.activeSelf); // chequea si el game object esta activado o no; si esta activado, lo desactiva y si esta desactivado, lo activa
+                        Debug.Log("Activar " + colliders[i]);
+                    }
                 }
             }
         }
