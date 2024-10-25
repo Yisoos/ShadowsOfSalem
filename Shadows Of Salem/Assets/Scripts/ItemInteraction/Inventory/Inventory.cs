@@ -36,7 +36,7 @@ public class Inventory : MonoBehaviour
     public void CollectItem(Tags itemPrefab)
     {
         // Recorrer los espacios de inventario
-        for (int i = 0; i < items.Count; i++)
+        for (int i = 0; i < inventorySlots.Length; i++)
         {
             // Comprobar si el espacio de inventario está vacío (sin hijos)
             if (inventorySlots[i].transform.childCount == 0)
@@ -82,7 +82,7 @@ public class Inventory : MonoBehaviour
         if (itemPrefab.objectType != ObjectType.Reusable)
         {
             // Buscar el objeto en el inventario
-            Tags inventoryItem = items.Find(item => item == itemPrefab);
+            Tags inventoryItem = items.Find(currentItem => currentItem.objectName == itemPrefab.objectName);
             if (inventoryItem.quantity - itemPrefab.quantity > 0)
             {
                 // Disminuir la cantidad del objeto

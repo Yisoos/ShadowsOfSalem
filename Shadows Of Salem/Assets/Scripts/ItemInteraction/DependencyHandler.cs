@@ -12,7 +12,7 @@ public class DependencyHandler : MonoBehaviour
     public Sprite dependencyMetSprite; // Sprite cuando el cable está conectado
     public FeedbackTextController feedbackText;
     private SpriteRenderer spriteRenderer; // Referencia para cambiar el sprite
-    private bool dependencyMet;
+    [HideInInspector] public bool dependencyMet;
 
     private void Start()
     {

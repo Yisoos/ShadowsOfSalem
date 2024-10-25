@@ -8,6 +8,10 @@ public class Coleccionable : MonoBehaviour
 
     private void OnMouseDown()
     {
+        CollectItem();
+    }
+    public void CollectItem() 
+    {
         // Obtener la instancia de Inventory
         Inventory inventory = FindObjectOfType<Inventory>();
         if (inventory != null)
