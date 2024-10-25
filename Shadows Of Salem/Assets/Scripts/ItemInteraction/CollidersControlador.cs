@@ -26,30 +26,32 @@ public class CollidersControlador : MonoBehaviour
         // Detecta clic con botón izquierdo del ratón
         if (Input.GetMouseButtonDown(0))
         {
+
             // Convierte la posición del ratón en coordenadas del mundo
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             // Lanza un rayo desde la posición del ratón para detectar colisiones
             RaycastHit2D hit = CheckLayersInOrder(mousePos);
-
-            // Si el rayo choca con el objeto interactivo
-            if (hit.collider != null && hit.collider.gameObject == objetoInteractivo)
+            bool isAccessible = true;
+            if (hit.collider != null)
             {
-                // Alterna la visibilidad del zoomPanel
-                activarZoomPanel.TogglePanel();
-                // Desactiva temporalmente los colliders de los cajones
-                ActivarColliders(false);
-                // Activa los colliders tras un retraso de colliderDelay
-                StartCoroutine(EnableDrawerCollidersWithDelay());
+                isAccessible = ObjectAccessibilityChecker(hit.collider.gameObject);
+
+                // Si el rayo choca con el objeto interactivo
+                if (hit.collider.gameObject == objetoInteractivo && isAccessible)
+                {
+                    // Alterna la visibilidad del zoomPanel
+                    activarZoomPanel.TogglePanel();
+                    // Desactiva temporalmente los colliders de los cajones
+                    ActivarColliders(false);
+                    // Activa los colliders tras un retraso de colliderDelay
+                    StartCoroutine(EnableDrawerCollidersWithDelay());
+                }
             }
 
             // Recorre todos los colliders para verificar interacciones
             for (int i = 0; i < colliders.Length; i++)
             {
-                bool isAccessible = true;
-                if (hit.collider != null)
-                { 
-                    isAccessible = ObjectAccessibilityChecker(hit.collider.gameObject); 
-                }
+               
 
                 // Si el collider clickeado coincide con uno del array
                 if (hit.collider == colliders[i])
@@ -90,7 +92,7 @@ public class CollidersControlador : MonoBehaviour
         // Si el objeto está en un candado de combinación, muestra mensaje y devuelve falso
         if (combinationLocked != null && combinationLocked.isLocked)
         {
-            feedbackTextController.PopUpText(itemTags.objectDescription);
+           
             return false;
         }
         // Si el objeto es coleccionable, lo recoge y devuelve falso

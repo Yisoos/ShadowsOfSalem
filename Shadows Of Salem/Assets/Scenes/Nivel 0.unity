@@ -895,7 +895,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &745999588
 Transform:
   m_ObjectHideFlags: 0
@@ -2168,6 +2168,8 @@ GameObject:
   - component: {fileID: 1665301426}
   - component: {fileID: 1665301427}
   - component: {fileID: 1665301428}
+  - component: {fileID: 1665301429}
+  - component: {fileID: 1665301430}
   m_Layer: 0
   m_Name: "Ba\xFAl_Cerrado_VistaCercaBa\xFAl"
   m_TagString: Untagged
@@ -2287,6 +2289,40 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.164093, y: 6.0613875}
   m_EdgeRadius: 0
+--- !u!114 &1665301429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665301425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 173da3bb10a392b4e9b6c749a6eabbb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLocked: 1
+  feedbackText: {fileID: 6973665184144531453}
+  combination: 0312
+  popUpLockPrefab: {fileID: 5636392485063428453, guid: 90480714d3bba5540b1b225b412311b3, type: 3}
+  PopUpLockParent: {fileID: 1423499380}
+--- !u!114 &1665301430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665301425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: "Ba\xFAl"
+  objectDescription: "Ba\xFAl Abierto!"
+  sprite: {fileID: 0}
+  quantity: 1
+  objectType: 3
 --- !u!1 &1684904968
 GameObject:
   m_ObjectHideFlags: 0

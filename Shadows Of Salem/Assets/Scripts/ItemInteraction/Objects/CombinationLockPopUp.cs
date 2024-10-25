@@ -33,6 +33,7 @@ public class CombinationLockPopUp : MonoBehaviour
                     combinationLock.feedbackText.PopUpText(tag.objectDescription);
                     gameObject.SetActive(false);
                 }
+                TurnOnLockCollider();
             }
             else
             {
