@@ -121,4 +121,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 7461977181295672298}
+  magnificationOnDrag: 1.5
   parentAfterDrag: {fileID: 0}

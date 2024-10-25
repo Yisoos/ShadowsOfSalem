@@ -11,6 +11,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 {
     // Imagen que representa el objeto que se arrastra
     public Image image;
+    public float magnificationOnDrag;
 
     // Transformación del padre del objeto después de ser arrastrado
     [HideInInspector] public Transform parentAfterDrag;
@@ -38,11 +39,13 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0; // Ajustar Z a 0 para 2D
         transform.position = mousePos;
+        transform.localScale = Vector3.one * magnificationOnDrag;
     }
 
     // Método llamado al final del arrastre
     public void OnEndDrag(PointerEventData eventData)
     {
+        transform.localScale = Vector3.one;
         // Obtener el componente de Tags del objeto
         Tags thisTag = gameObject.GetComponent<Tags>();
         Debug.Log(thisTag.objectName);
@@ -121,7 +124,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 }
                 else if (compartmentDependency != null)
                 {
-                    bool dependenciesMet = compartmentDependency.HandleItem(thisObjectTags);
+                   compartmentDependency.HandleItem(thisObjectTags);
                 }
                 break;
 
@@ -130,7 +133,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 DependencyHandler dependency = targetObjectTags.GetComponent<DependencyHandler>();
                 if (dependency != null)
                 {
-                    bool dependenciesMet = dependency.HandleItem(thisObjectTags);
+                  dependency.HandleItem(thisObjectTags);
                 }
                 break;
         }

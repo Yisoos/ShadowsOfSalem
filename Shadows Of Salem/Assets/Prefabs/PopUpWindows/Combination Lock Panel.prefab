@@ -1659,6 +1659,7 @@ MonoBehaviour:
   - {fileID: 6639824149299160640}
   - {fileID: 8104747817041078982}
   - {fileID: 8393709359411889890}
+  delayBeforeDeactivate: 0.5
 --- !u!114 &8843288439885454136
 MonoBehaviour:
   m_ObjectHideFlags: 0

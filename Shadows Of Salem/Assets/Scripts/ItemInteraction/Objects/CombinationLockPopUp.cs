@@ -8,12 +8,13 @@ public class CombinationLockPopUp : MonoBehaviour
 {
     public CombinationLockControl combinationLock;
     public TMP_Text[] numbersInLock;
+    public float delayBeforeDeactivate; // Delay in seconds before deactivating the lock
 
-    public void CombinationLockLogic() //para candados de combinación
+    public void CombinationLockLogic() // For combination locks
     {
         if (combinationLock.isLocked)
         {
-            //popUpLockPrefab.SetActive(true);
+            // popUpLockPrefab.SetActive(true);
             string digitsInLockAdded = null;
             for (int i = 0; i < numbersInLock.Length; i++)
             {
@@ -25,22 +26,30 @@ public class CombinationLockPopUp : MonoBehaviour
 
             if (combinationMatch)
             {
-                Debug.Log("Combinación correcta, Candado abierto");
+                Debug.Log("Correct combination, Lock opened");
                 combinationLock.isLocked = false;
+
                 if (combinationLock.feedbackText != null)
                 {
                     Tags tag = combinationLock.gameObject.GetComponent<Tags>();
                     combinationLock.feedbackText.PopUpText(tag.objectDescription);
-                    gameObject.SetActive(false);
+                    StartCoroutine(DeactivateAfterDelay()); // Start the coroutine for delayed deactivation
                 }
                 TurnOnLockCollider();
             }
             else
             {
-                Debug.Log("Contraseña incorrecta");
+                Debug.Log("Incorrect combination");
             }
         }
     }
+
+    private IEnumerator DeactivateAfterDelay()
+    {
+        yield return new WaitForSeconds(delayBeforeDeactivate);
+        gameObject.SetActive(false);
+    }
+
     public void AddNumberToCombinationDigit(TMP_Text displayDigit)
     {
         int digit = Convert.ToInt32(displayDigit.text);
@@ -53,9 +62,10 @@ public class CombinationLockPopUp : MonoBehaviour
                 numbersInLock[i].text = displayDigit.text;
             }
         }
-        Debug.Log($"Valor en el candado: {numbersInLock[0].text}{numbersInLock[1].text}{numbersInLock[2].text}{numbersInLock[3].text}");
+        Debug.Log($"Lock value: {numbersInLock[0].text}{numbersInLock[1].text}{numbersInLock[2].text}{numbersInLock[3].text}");
         CombinationLockLogic();
     }
+
     public void SubtractNumberToCombinationDigit(TMP_Text displayDigit)
     {
         int digit = Convert.ToInt32(displayDigit.text);
@@ -68,18 +78,19 @@ public class CombinationLockPopUp : MonoBehaviour
                 numbersInLock[i].text = displayDigit.text;
             }
         }
-        Debug.Log($"Valor en el candado: {numbersInLock[0].text}{numbersInLock[1].text}{numbersInLock[2].text}{numbersInLock[3].text}");
+        Debug.Log($"Lock value: {numbersInLock[0].text}{numbersInLock[1].text}{numbersInLock[2].text}{numbersInLock[3].text}");
         CombinationLockLogic();
     }
+
     public void TurnOnLockCollider()
     {
         Collider2D objectCollider = combinationLock.GetComponent<Collider2D>();
 
-        // Disable the Collider
+        // Enable the Collider
         if (objectCollider != null)
         {
             objectCollider.enabled = true;
-            Debug.Log("Collider has been disabled.");
+            Debug.Log("Collider has been enabled.");
         }
     }
 }

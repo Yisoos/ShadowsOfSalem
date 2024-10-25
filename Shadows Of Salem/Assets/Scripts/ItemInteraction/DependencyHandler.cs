@@ -22,7 +22,7 @@ public class DependencyHandler : MonoBehaviour
 }
 
     // Método para manejar el objeto que se ha soltado y verificar si los elementos requeridos están presentes en el inventario
-    public bool HandleItem(Tags objectDropped)
+    public void HandleItem(Tags objectDropped)
     {
         if(!dependencyMet)
         {
@@ -30,7 +30,6 @@ public class DependencyHandler : MonoBehaviour
             if (inventory == null)
             {
                 Debug.LogError("Este script no está conectado al inventario");
-                return false;
             }
 
             // Iterar a través de los elementos requeridos
@@ -47,7 +46,6 @@ public class DependencyHandler : MonoBehaviour
                         feedbackText.PopUpText(objectDropped.objectDescription);
                     }
                     Debug.Log($"Para usar este objeto necesitas {requiredItem}");
-                    return false;
                 }
             }
 
@@ -63,12 +61,11 @@ public class DependencyHandler : MonoBehaviour
                 dependencyMet = true;
             }
 
-            return true; // Todos los elementos requeridos están disponibles
+            
         }
         else
         {
             Debug.Log("El objeto ya es accesible");
-            return true;
         }
     }
 }
