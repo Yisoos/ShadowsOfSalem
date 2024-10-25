@@ -1380,14 +1380,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2371927246017478427}
         m_TargetAssemblyTypeName: CambiarEscenas, Assembly-CSharp
-        m_MethodName: CambiarEscenaSinInput
-        m_Mode: 1
+        m_MethodName: CambiarAEscena
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Nivel 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1283452339
