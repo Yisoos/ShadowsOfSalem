@@ -19,6 +19,7 @@ public class CollidersControlador : MonoBehaviour
         // Desactiva el panel de zoom y sus colliders al iniciar
         zoomPanel.SetActive(false);
         ActivarColliders(false);
+
     }
 
     void Update()

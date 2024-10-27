@@ -41,7 +41,6 @@ public class TypeWriterEffect : MonoBehaviour
                 flechita.SetActive(false);
             }
 
-            changeScenes = FindObjectOfType<CambiarEscenas>();
 
             StartCoroutine(TypePhrase(phrases[currentPhraseIndex])); // Inicia la corrutina para realizar el efecto de máquina de escribir
         }
@@ -54,7 +53,7 @@ public class TypeWriterEffect : MonoBehaviour
         originalText = phrase;
         _tmpProText.text = leadingCharBeforeDelay ? leadingChar : ""; // mostrar o no el leadingchar
 
-        yield return new WaitForSeconds(delayBeforeStart); // // Espera el tiempo especificado antes de comenzar a escribir
+        yield return new WaitForSeconds(delayBeforeStart); // Espera el tiempo especificado antes de comenzar a escribir
 
         foreach (char letter in phrase.ToCharArray())
         {
@@ -66,9 +65,9 @@ public class TypeWriterEffect : MonoBehaviour
             _tmpProText.text += leadingChar; // Vuelve a añadir el leadingChar para dar la ilusión de que el cursor sigue parpadeando o moviéndose después de cada carácter
             yield return new WaitForSeconds(timeBtwChars);
         }
-        _tmpProText.text = phrase; // Ensure the full phrase is displayed at the end
-        isTyping = false; // Typing effect finished
-        hasFinishedTyping = true; // Phrase has finished typing
+        _tmpProText.text = phrase; // asegurar de que toda la frase esté escrita
+        isTyping = false; // efecto de escribir ha terminado
+        hasFinishedTyping = true; // hemos terminado de escribir las frases
 
         if (flechita != null)
         {
