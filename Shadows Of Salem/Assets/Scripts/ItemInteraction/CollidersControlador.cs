@@ -52,16 +52,18 @@ public class CollidersControlador : MonoBehaviour
             // Recorre todos los colliders para verificar interacciones
             for (int i = 0; i < colliders.Length; i++)
             {
-               
 
-                // Si el collider clickeado coincide con uno del array
-                if (hit.collider == colliders[i])
+                if (hit.collider != null)
                 {
-                    // Si el objeto es accesible, activa o desactiva el objeto correspondiente
-                    if (isAccessible)
+                    // Si el collider clickeado coincide con uno del array
+                    if (hit.collider.gameObject == colliders[i].gameObject)
                     {
-                        GameObject objectToToggle = activarObjetos[i];
-                        objectToToggle.SetActive(!objectToToggle.activeSelf); // Alterna el estado activo del objeto
+                        // Si el objeto es accesible, activa o desactiva el objeto correspondiente
+                        if (isAccessible)
+                        {
+                            GameObject objectToToggle = activarObjetos[i];
+                            objectToToggle.SetActive(!objectToToggle.activeSelf); // Alterna el estado activo del objeto
+                        }
                     }
                 }
             }
@@ -110,20 +112,33 @@ public class CollidersControlador : MonoBehaviour
     // Método que lanza un raycast en el orden de capas especificado
     RaycastHit2D CheckLayersInOrder(Vector2 origin)
     {
-        foreach (string layerName in layerOrder)
-        {
-            // Crear un LayerMask para la capa actual
-            int layerMask = LayerMask.GetMask(layerName);
+        // Raycast all objects at the origin position with any layer.
+        RaycastHit2D[] hits = Physics2D.RaycastAll(origin, Vector2.zero, Mathf.Infinity);
 
-            // Lanzar el raycast en la capa especificada
-            RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.zero, Mathf.Infinity, layerMask);
-            if (hit.collider != null)
+        if (hits.Length > 0)
+        {
+            // Convert the first layer name in layerOrder to a LayerMask integer
+            int topPriorityLayer = LayerMask.NameToLayer(layerOrder[0]);
+
+            // Check if any hit belongs to the top-priority layer
+            foreach (RaycastHit2D hit in hits)
             {
-                return hit; // Devuelve el primer hit encontrado en el orden de prioridad
+                if (hit.collider != null && hit.collider.gameObject.layer == topPriorityLayer)
+                {
+                    // Return the first object found in the top-priority layer
+                    return hit;
+                }
             }
+
+            // If no objects from the top-priority layer were found, return the first hit
+            return hits[0];
         }
-        return new RaycastHit2D(); // Devuelve un raycast vacío si no se encontró ningún collider
+
+        // Return an empty RaycastHit2D if no objects were hit
+        return new RaycastHit2D();
     }
+
+
 
     // Activa o desactiva todos los colliders del array
     void ActivarColliders(bool isActive)

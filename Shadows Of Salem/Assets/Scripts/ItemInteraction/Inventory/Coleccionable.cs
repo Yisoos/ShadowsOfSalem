@@ -6,10 +6,6 @@ public class Coleccionable : MonoBehaviour
 {
    public Tags itemPrefab; // Prefab del objeto que se recogerá
 
-    private void OnMouseDown()
-    {
-        CollectItem();
-    }
     public void CollectItem() 
     {
         // Obtener la instancia de Inventory

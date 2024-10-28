@@ -82,7 +82,7 @@ public class Inventory : MonoBehaviour
         if (itemPrefab.objectType != ObjectType.Reusable)
         {
             // Buscar el objeto en el inventario
-            Tags inventoryItem = items.Find(currentItem => currentItem.objectName == itemPrefab.objectName);
+            Tags inventoryItem = items.Find(currentItem => currentItem == itemPrefab);
             if (inventoryItem.quantity - itemPrefab.quantity > 0)
             {
                 // Disminuir la cantidad del objeto

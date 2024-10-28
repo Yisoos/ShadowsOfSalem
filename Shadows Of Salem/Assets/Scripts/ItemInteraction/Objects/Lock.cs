@@ -19,6 +19,7 @@ public class Lock : MonoBehaviour
         // Verifica si la llave no es nula, si su ID coincide con el del candado y si está bloqueado
         if (key != null && key.keyID == lockID && isLocked)
         {
+
             Debug.Log("¡Candado abierto!"); // Mensaje de éxito
             isLocked = false; // Cambia el estado del candado a desbloqueado
             // Si es un candado físico, lo desactiva
@@ -28,16 +29,21 @@ public class Lock : MonoBehaviour
             }
 
             // Obtiene el componente Tags de la llave y elimina la llave del inventario
-            Tags keyTag = key.gameObject.GetComponent<Tags>();
+            Tags LockTag = GetComponent<Tags>();
             if (feedbackText != null) 
             { 
-                feedbackText.PopUpText(keyTag.displayText);
+                feedbackText.PopUpText(LockTag.displayText2);
             }
-            inventoryOrder.DeleteItem(keyTag);
+            inventoryOrder.DeleteItem(LockTag);
         }
         else
         {
-            Debug.Log("La llave no coincide con la requerida."); // Mensaje de error
+            Tags LockTag = GetComponent<Tags>();
+            if (feedbackText != null)
+            {
+                feedbackText.PopUpText(LockTag.displayText);
+            }
+            inventoryOrder.DeleteItem(LockTag);
         }
     }
    

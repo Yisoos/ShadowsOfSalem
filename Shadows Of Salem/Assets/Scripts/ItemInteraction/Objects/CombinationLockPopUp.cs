@@ -32,7 +32,7 @@ public class CombinationLockPopUp : MonoBehaviour
                 if (combinationLock.feedbackText != null)
                 {
                     Tags tag = combinationLock.gameObject.GetComponent<Tags>();
-                    combinationLock.feedbackText.PopUpText(tag.displayText);
+                    combinationLock.feedbackText.PopUpText(tag.displayText2);
                     StartCoroutine(DeactivateAfterDelay()); // Start the coroutine for delayed deactivation
                 }
                 TurnOnLockCollider();

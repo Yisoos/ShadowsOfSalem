@@ -104,7 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Llave Escritorio
-  objectDescription: "Caj\xF3n Abierto!"
+  displayText: 
+  displayText2: 
   sprite: {fileID: 21300000, guid: 3563cd1b13a13c34fa77152beac1b398, type: 3}
   quantity: 1
   objectType: 1
