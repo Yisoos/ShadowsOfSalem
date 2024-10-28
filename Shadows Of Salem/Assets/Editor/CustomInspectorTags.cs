@@ -15,7 +15,8 @@ public class CustomInspectorTags : Editor
         // Draw General Tags
         EditorGUILayout.LabelField("General Tags", EditorStyles.boldLabel);
         tags.objectName = EditorGUILayout.TextField("Object Name", tags.objectName);
-        tags.objectDescription = EditorGUILayout.TextArea(tags.objectDescription);
+        tags.displayText = EditorGUILayout.TextArea(tags.displayText);
+        tags.displayText2 = EditorGUILayout.TextArea(tags.displayText2);
         tags.sprite = (Sprite)EditorGUILayout.ObjectField("Sprite", tags.sprite, typeof(Sprite), allowSceneObjects: false);
         tags.objectType = (ObjectType)EditorGUILayout.EnumPopup("Object Type", tags.objectType);
         tags.quantity = EditorGUILayout.IntField("Quantity", tags.quantity);

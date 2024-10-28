@@ -81,13 +81,13 @@ public class CollidersControlador : MonoBehaviour
         // Si el objeto está bloqueado, muestra mensaje y devuelve falso
         if (itemLocked != null && itemLocked.isLocked)
         {
-            feedbackTextController.PopUpText(itemTags.objectDescription);
+            feedbackTextController.PopUpText(itemTags.displayText);
             return false;
         }
         // Si el objeto tiene dependencias no cumplidas, muestra mensaje y devuelve falso
         if (itemDependencies != null && !itemDependencies.dependencyMet)
         {
-            feedbackTextController.PopUpText(itemTags.objectDescription);
+            feedbackTextController.PopUpText(itemTags.displayText);
             return false;
         }
         // Si el objeto está en un candado de combinación, muestra mensaje y devuelve falso

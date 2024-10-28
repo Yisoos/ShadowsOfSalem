@@ -43,7 +43,7 @@ public class DependencyHandler : MonoBehaviour
                 {
                     if (feedbackText != null)
                     {
-                        feedbackText.PopUpText(objectDropped.objectDescription);
+                        feedbackText.PopUpText(objectDropped.displayText);
                     }
                     Debug.Log($"Para usar este objeto necesitas {requiredItem}");
                 }

@@ -31,7 +31,7 @@ public class Lock : MonoBehaviour
             Tags keyTag = key.gameObject.GetComponent<Tags>();
             if (feedbackText != null) 
             { 
-                feedbackText.PopUpText(keyTag.objectDescription);
+                feedbackText.PopUpText(keyTag.displayText);
             }
             inventoryOrder.DeleteItem(keyTag);
         }

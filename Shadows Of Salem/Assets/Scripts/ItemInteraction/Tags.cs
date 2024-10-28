@@ -17,7 +17,8 @@ public class Tags : MonoBehaviour
 {
     [Header("General Metadata")]
     public string objectName;
-    public string objectDescription;
+    public string displayText;
+    public string displayText2;
     public Sprite sprite;
     public int quantity;
     public ObjectType objectType;
