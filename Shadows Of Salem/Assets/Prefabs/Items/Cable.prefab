@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Cable
-  displayText: 
+  displayText: Para conectar el cable necesito unos alicates...
   displayText2: 
   sprite: {fileID: 21300000, guid: 780f6ae392626da41a2d272fd225dfec, type: 3}
   quantity: 1

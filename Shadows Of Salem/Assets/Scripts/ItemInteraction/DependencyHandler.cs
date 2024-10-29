@@ -46,6 +46,7 @@ public class DependencyHandler : MonoBehaviour
                         feedbackText.PopUpText(objectDropped.displayText);
                     }
                     Debug.Log($"Para usar este objeto necesitas {requiredItem}");
+                    break;
                 }
             }
 
@@ -58,10 +59,9 @@ public class DependencyHandler : MonoBehaviour
                 // Eliminar el elemento del inventario
                 inventory.DeleteItem(inventory.items.Find(item => item.objectName.Trim() == requiredItem.Trim()));
                 spriteRenderer.sprite = dependencyMetSprite;
+                feedbackText.PopUpText(objectDropped.displayText2);
                 dependencyMet = true;
             }
-
-            
         }
         else
         {
