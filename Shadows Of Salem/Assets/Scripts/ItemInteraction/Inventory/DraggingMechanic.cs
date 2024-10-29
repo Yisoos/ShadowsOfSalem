@@ -51,14 +51,11 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         Debug.Log(thisTag.objectName);
         // Devolver el objeto a su padre original después de arrastrarlo
         transform.SetParent(parentAfterDrag);
-
-        // Comprobar si se está soltando sobre un elemento de la interfaz de usuario
-        //if (!EventSystem.current.IsPointerOverGameObject())
         {
             // Llamar al método para comprobar interacciones con otros objetos
             CheckForInteraction(eventData, thisTag);
         }
-
+         
         // Rehabilitar el raycast en la imagen arrastrada
         image.raycastTarget = true;
     }

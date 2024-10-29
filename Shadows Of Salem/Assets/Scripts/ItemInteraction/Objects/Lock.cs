@@ -29,12 +29,14 @@ public class Lock : MonoBehaviour
             }
 
             // Obtiene el componente Tags de la llave y elimina la llave del inventario
-            Tags LockTag = GetComponent<Tags>();
+            Tags lockTag = GetComponent<Tags>();
+            Tags keyTag = key.GetComponent<Tags>();
             if (feedbackText != null) 
             { 
-                feedbackText.PopUpText(LockTag.displayText2);
+                feedbackText.PopUpText(lockTag.displayText2);
             }
-            inventoryOrder.DeleteItem(LockTag);
+
+            inventoryOrder.DeleteItem(keyTag);
         }
         else
         {
@@ -43,7 +45,7 @@ public class Lock : MonoBehaviour
             {
                 feedbackText.PopUpText(LockTag.displayText);
             }
-            inventoryOrder.DeleteItem(LockTag);
+            //inventoryOrder.DeleteItem(LockTag);
         }
     }
    
