@@ -288,7 +288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &376355076
 Transform:
   m_ObjectHideFlags: 0
@@ -557,7 +557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &451784480
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -666,7 +666,7 @@ Transform:
   m_GameObject: {fileID: 562738077}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.23, y: 0.49, z: 0}
+  m_LocalPosition: {x: -2.15, y: 0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -737,8 +737,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: "Tel\xE9fono Cable"
-  displayText: 
-  displayText2: 
+  displayText: "El cable est\xE1 Roto...."
+  displayText2: Cable arreglado!
   sprite: {fileID: 0}
   quantity: 1
   objectType: 3
@@ -4087,8 +4087,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5117146746343917352, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1830.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117146746343917352, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 76.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117146746343917352, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5117146746343917352, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 207
+      value: 176
       objectReference: {fileID: 0}
     - target: {fileID: 5419532073976784257, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

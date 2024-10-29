@@ -22,14 +22,15 @@ public class DependencyHandler : MonoBehaviour
 }
 
     // Método para manejar el objeto que se ha soltado y verificar si los elementos requeridos están presentes en el inventario
-    public void HandleItem(Tags objectDropped)
+    public bool HandleItem(Tags objectDropped)
     {
-        if(!dependencyMet)
+        if (!dependencyMet)
         {
             // Verificar si el inventario está asignado
             if (inventory == null)
             {
                 Debug.LogError("Este script no está conectado al inventario");
+                return false;
             }
 
             // Iterar a través de los elementos requeridos
@@ -46,12 +47,14 @@ public class DependencyHandler : MonoBehaviour
                         feedbackText.PopUpText(objectDropped.displayText);
                     }
                     Debug.Log($"Para usar este objeto necesitas {requiredItem}");
-                    break;
+                    return false;
                 }
             }
 
             // Todos los elementos requeridos fueron encontrados
             Debug.Log("Todos los objetos requeridos están en el inventario.");
+            Tags thisTag = GetComponent<Tags>();
+            feedbackText.PopUpText(thisTag.displayText2);
 
             // Opcional: Eliminar los elementos requeridos del inventario si se utilizaron con éxito
             foreach (string requiredItem in requiredItems)
@@ -59,13 +62,15 @@ public class DependencyHandler : MonoBehaviour
                 // Eliminar el elemento del inventario
                 inventory.DeleteItem(inventory.items.Find(item => item.objectName.Trim() == requiredItem.Trim()));
                 spriteRenderer.sprite = dependencyMetSprite;
-                feedbackText.PopUpText(objectDropped.displayText2);
                 dependencyMet = true;
             }
+
+            return true; // Todos los elementos requeridos están disponibles
         }
         else
         {
             Debug.Log("El objeto ya es accesible");
+            return true;
         }
     }
 }
