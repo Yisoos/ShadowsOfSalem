@@ -7,19 +7,20 @@ public class CollidersControlador : MonoBehaviour
     public GameObject objetoInteractivo; // Objeto interactivo que reacciona al clic
     public Collider2D[] colliders; // Array de colliders que representan objetos interactivos
     public GameObject[] activarObjetos; // Array de objetos a activar al hacer clic en colliders específicos
-    public GameObject zoomPanel; // Panel de zoom, se activa al interactuar con objetoInteractivo
-    public ActivarPanel activarZoomPanel; // Controlador de activación del zoomPanel
+    ActivarPanel activarPanelScript; // Controlador de activación del zoomPanel
     public float colliderDelay = 0.5f; // Retraso antes de activar los colliders en zoom
+    
     public FeedbackTextController feedbackTextController; // Controlador para mostrar mensajes de retroalimentación
+    
     // Define los nombres de las capas en el orden de prioridad (de más alta a más baja)
     public string[] layerOrder = { "Prioritario","Default" };
 
     void Start()
     {
+        activarPanelScript = GetComponent<ActivarPanel>();
         // Desactiva el panel de zoom y sus colliders al iniciar
-        zoomPanel.SetActive(false);
+        activarPanelScript.DeactivatePanel();
         ActivarColliders(false);
-
     }
 
     void Update()
@@ -27,12 +28,13 @@ public class CollidersControlador : MonoBehaviour
         // Detecta clic con botón izquierdo del ratón
         if (Input.GetMouseButtonDown(0))
         {
-
             // Convierte la posición del ratón en coordenadas del mundo
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
             // Lanza un rayo desde la posición del ratón para detectar colisiones
             RaycastHit2D hit = CheckLayersInOrder(mousePos);
             bool isAccessible = true;
+
             if (hit.collider != null)
             {
                 isAccessible = ObjectAccessibilityChecker(hit.collider.gameObject);
@@ -41,7 +43,7 @@ public class CollidersControlador : MonoBehaviour
                 if (hit.collider.gameObject == objetoInteractivo && isAccessible)
                 {
                     // Alterna la visibilidad del zoomPanel
-                    activarZoomPanel.TogglePanel();
+                    activarPanelScript.TogglePanel();
                     // Desactiva temporalmente los colliders de los cajones
                     ActivarColliders(false);
                     // Activa los colliders tras un retraso de colliderDelay
