@@ -14,7 +14,7 @@ public class IniciarJuego : MonoBehaviour
     public void VolverAlMenu()
     {
         Debug.Log("Volver al Menu");
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Menú");
 
     }
 }

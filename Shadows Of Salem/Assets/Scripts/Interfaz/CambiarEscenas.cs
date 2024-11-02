@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CambiarEscenas : MonoBehaviour
 {
-    public string sceneName;
-    public void CambiarEscena()
+    public void CambiarEscenaAlClic()
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) 
         {
@@ -14,12 +13,15 @@ public class CambiarEscenas : MonoBehaviour
         }
     }
 
-    public void CambiarEscenaSinInput()
+    
+
+    public void PasarEscena() 
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    public void CambiarAEscena(string nombreEscena) 
+
+    public void VolverEscena()
     {
-        SceneManager.LoadScene(nombreEscena);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

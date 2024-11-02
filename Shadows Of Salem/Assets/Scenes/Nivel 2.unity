@@ -285,8 +285,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4894437394935592273}
         m_TargetAssemblyTypeName: CambiarEscenas, Assembly-CSharp
-        m_MethodName: CambiarAEscena
-        m_Mode: 5
+        m_MethodName: PasarEscena
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -895,7 +895,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4268783129957500273, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: 8507519}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
@@ -1183,8 +1183,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4894437394935592273}
         m_TargetAssemblyTypeName: CambiarEscenas, Assembly-CSharp
-        m_MethodName: CambiarAEscena
-        m_Mode: 5
+        m_MethodName: VolverEscena
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1779,7 +1779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dba095cfc2aa042aa9afafeb998d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Nivel 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

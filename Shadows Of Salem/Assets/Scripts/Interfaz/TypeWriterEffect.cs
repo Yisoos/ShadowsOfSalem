@@ -25,7 +25,7 @@ public class TypeWriterEffect : MonoBehaviour
     [SerializeField] TMP_Text title;
 
     public CambiarEscenas changeScenes;
-
+    private string nombreEscena;
     void Start()
     {
         _tmpProText = GetComponent<TMP_Text>();
@@ -140,7 +140,7 @@ public class TypeWriterEffect : MonoBehaviour
         // cambiar de escena (nivel 0) cuando termine de escribir todas las frases
         if (changeScenes != null)
         {
-            changeScenes.CambiarEscenaSinInput(); // metodo del script "CambiarEscenas"
+            changeScenes.PasarEscena(); // metodo del script "CambiarEscenas"
         }
     }
 }

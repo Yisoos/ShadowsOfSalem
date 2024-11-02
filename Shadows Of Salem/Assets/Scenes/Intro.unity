@@ -166,7 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dba095cfc2aa042aa9afafeb998d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Nivel 0
 --- !u!1 &425422445
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,7 +647,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 50734359}
         m_TargetAssemblyTypeName: CambiarEscenas, Assembly-CSharp
-        m_MethodName: CambiarEscena
+        m_MethodName: CambiarEscenaSinInput
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
