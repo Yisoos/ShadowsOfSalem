@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.UI.Image;
@@ -13,6 +14,18 @@ public class CloseUpToggle : MonoBehaviour
     public SceneNavigator sceneNavigator;                // Reference to the scene navigator
     private Transform currentCloseUp;                    // Currently active close-up view
     private Dictionary<Collider2D, Transform> closeUpMap; // Map to link inspectable objects to close-ups
+
+    private void OnEnable()
+    {
+        for (int i = 0; i < closeUpObjetos.Length; ++i) 
+        {
+            if (closeUpObjetos[i].gameObject.activeSelf) 
+            {
+                currentCloseUp = closeUpObjetos[i];
+                ExitCloseUpView();
+            }
+        }
+    }
 
     void Start()
     {

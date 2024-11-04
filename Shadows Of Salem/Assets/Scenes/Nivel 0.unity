@@ -214,6 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 98863200}
   - component: {fileID: 98863201}
+  - component: {fileID: 98863202}
   m_Layer: 0
   m_Name: Cajon1Abierto_Gabinete
   m_TagString: Untagged
@@ -289,6 +290,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &98863202
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98863199}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 15.14, y: 4.75}
+    newSize: {x: 15.14, y: 4.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 15.14, y: 4.75}
+  m_EdgeRadius: 0
 --- !u!1 &143887620
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +538,7 @@ GameObject:
   - component: {fileID: 376355076}
   - component: {fileID: 376355077}
   m_Layer: 0
-  m_Name: "ZoomTel\xE9fono_CharlotteOficina"
+  m_Name: Zoom_Telefono
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -683,11 +729,11 @@ Transform:
   m_GameObject: {fileID: 416036708}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.40236798, y: 1.770596, z: 0}
-  m_LocalScale: {x: 1.0636, y: 1.0636, z: 1.0636}
+  m_LocalPosition: {x: 0.12000013, y: 1.1100001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 745999588}
+  m_Father: {fileID: 690355919}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &416036710
 SpriteRenderer:
@@ -756,13 +802,14 @@ GameObject:
   m_Component:
   - component: {fileID: 451784481}
   - component: {fileID: 451784480}
+  - component: {fileID: 451784482}
   m_Layer: 0
-  m_Name: ZoomEscritorio_OficinaCharlotte
+  m_Name: Zoom_Cajones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &451784480
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -832,6 +879,25 @@ Transform:
   - {fileID: 1301955956}
   m_Father: {fileID: 1873223425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &451784482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451784479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetosEstadoInicial:
+  - {fileID: 1884930295}
+  - {fileID: 689805499}
+  objetosEstadoAlternativo:
+  - {fileID: 762782799}
+  - {fileID: 1074531376}
+  feedbackTextController: {fileID: 6973665184144531453}
 --- !u!1 &472972751 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3388446832144995735, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
@@ -1426,8 +1492,9 @@ GameObject:
   m_Component:
   - component: {fileID: 690355919}
   - component: {fileID: 690355920}
+  - component: {fileID: 690355921}
   m_Layer: 0
-  m_Name: "Ba\xFAl_Abierto_VistaCercaBa\xFAl"
+  m_Name: "Ba\xFAl_Abierto"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1445,8 +1512,11 @@ Transform:
   m_LocalPosition: {x: -0.53, y: 0.59, z: 0}
   m_LocalScale: {x: 1.0636, y: 1.0636, z: 1.0636}
   m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 745999588}
+  m_Children:
+  - {fileID: 1906454812}
+  - {fileID: 799030138}
+  - {fileID: 416036709}
+  m_Father: {fileID: 1346029456}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &690355920
 SpriteRenderer:
@@ -1500,6 +1570,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &690355921
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690355918}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 14.24, y: 10.55}
+    newSize: {x: 14.24, y: 10.55}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 14.24, y: 10.55}
+  m_EdgeRadius: 0
 --- !u!1 &699706875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,94 +1699,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &745999587
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 745999588}
-  - component: {fileID: 745999589}
-  m_Layer: 0
-  m_Name: "Ba\xFAl_Fondo_VistaCercaBa\xFAl"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &745999588
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 745999587}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 690355919}
-  - {fileID: 1906454812}
-  - {fileID: 799030138}
-  - {fileID: 416036709}
-  m_Father: {fileID: 1346029456}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &745999589
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 745999587}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 7
-  m_Sprite: {fileID: 21300000, guid: cfe189b8842da624dac3a0de608abc79, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 14.24, y: 10.55}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &762782796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,13 +1709,14 @@ GameObject:
   m_Component:
   - component: {fileID: 762782797}
   - component: {fileID: 762782798}
+  - component: {fileID: 762782799}
   m_Layer: 0
   m_Name: Cajon1Abierto_Escritorio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &762782797
 Transform:
   m_ObjectHideFlags: 0
@@ -1756,6 +1784,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &762782799
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762782796}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.86298513, y: 0.2359724}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8.28, y: 4.19}
+    newSize: {x: 8.28, y: 4.19}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.5540285, y: 3.8259287}
+  m_EdgeRadius: 0
 --- !u!1 &795326457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,13 +2002,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799030137}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.670445, w: 0.7419593}
-  m_LocalPosition: {x: -3.37, y: 1.11, z: 0}
-  m_LocalScale: {x: 0.28905937, y: 0.28905937, z: 0.28905937}
+  m_LocalRotation: {x: -0, y: -0, z: -0.8563257, w: -0.51643616}
+  m_LocalPosition: {x: -2.5479503, y: 0.20684476, z: 0}
+  m_LocalScale: {x: 0.24283068, y: 0.23660485, z: 0.28943905}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 745999588}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -84.203}
+  m_Father: {fileID: 690355919}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -242.187}
 --- !u!114 &799030140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2247,6 +2320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1046643357}
   - component: {fileID: 1046643358}
+  - component: {fileID: 1046643359}
   m_Layer: 0
   m_Name: Cajon2Abierto_Gabinete
   m_TagString: Untagged
@@ -2321,6 +2395,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1046643359
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046643356}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 13.14, y: 4.23}
+    newSize: {x: 13.14, y: 4.23}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 13.14, y: 4.23}
+  m_EdgeRadius: 0
 --- !u!1 &1074531373
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,13 +2450,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1074531375}
   - component: {fileID: 1074531374}
+  - component: {fileID: 1074531376}
   m_Layer: 0
   m_Name: Cajon2Abierto_Escritorio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1074531374
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2405,6 +2525,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1301955956}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1074531376
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074531373}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.7574918, y: -0.95758367}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8.28, y: 4.81}
+    newSize: {x: 8.28, y: 4.81}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.765017, y: 2.894833}
+  m_EdgeRadius: 0
 --- !u!1 &1096079727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,7 +2666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1255598696}
   m_Layer: 0
-  m_Name: CajonesAbiertos_Gabinete
+  m_Name: Cajones_Abiertos_Gabinete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2674,7 +2839,7 @@ GameObject:
   - component: {fileID: 1301955956}
   - component: {fileID: 1301955957}
   m_Layer: 0
-  m_Name: CajonesAbiertos_Escritorio
+  m_Name: Cajones_Abiertos_Escritorio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2759,6 +2924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1313176793}
   - component: {fileID: 1313176794}
+  - component: {fileID: 1313176795}
   m_Layer: 0
   m_Name: Cajon3Abierto_Gabinete
   m_TagString: Untagged
@@ -2833,6 +2999,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1313176795
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313176792}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 11.3, y: 3.53}
+    newSize: {x: 11.3, y: 3.53}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 11.3, y: 3.53}
+  m_EdgeRadius: 0
 --- !u!1 &1346029455
 GameObject:
   m_ObjectHideFlags: 0
@@ -2843,8 +3054,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1346029456}
   - component: {fileID: 1346029457}
+  - component: {fileID: 1346029458}
   m_Layer: 0
-  m_Name: ZoomBaul_SalonCharlotte
+  m_Name: Zoom_Baul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2864,7 +3076,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1665301426}
-  - {fileID: 745999588}
+  - {fileID: 690355919}
   m_Father: {fileID: 1840554812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1346029457
@@ -2919,6 +3131,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1346029458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346029455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetosEstadoInicial:
+  - {fileID: 1665301428}
+  objetosEstadoAlternativo:
+  - {fileID: 690355921}
+  feedbackTextController: {fileID: 6973665184144531453}
 --- !u!1 &1351927735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2929,7 +3158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1351927736}
   m_Layer: 0
-  m_Name: CollidersCajones_Escritorio
+  m_Name: Cajones_Cerrados_Escritorio(Colliders)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3102,7 +3331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1504934144}
   m_Layer: 0
-  m_Name: CollidersCajones_Gabinete
+  m_Name: Cajones:_Cerrados:Gabinete(Colliders)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3829,7 +4058,7 @@ GameObject:
   - component: {fileID: 1665301429}
   - component: {fileID: 1665301430}
   m_Layer: 0
-  m_Name: "Ba\xFAl_Cerrado_VistaCercaBa\xFAl"
+  m_Name: "Ba\xFAl_Cerrado"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4185,7 +4414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1840554811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4240,7 +4469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1873223424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4422,11 +4651,11 @@ Transform:
   m_GameObject: {fileID: 1906454811}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.40448242, w: 0.91454583}
-  m_LocalPosition: {x: 1.14, y: 2.32, z: 0}
-  m_LocalScale: {x: 0.2487, y: 0.2487, z: 0.2487}
+  m_LocalPosition: {x: 1.5701392, y: 1.6265512, z: 0}
+  m_LocalScale: {x: 0.23382847, y: 0.23382847, z: 0.2338285}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 745999588}
+  m_Father: {fileID: 690355919}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -47.717}
 --- !u!114 &1906454813
 MonoBehaviour:
@@ -4556,8 +4785,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1911104933}
   - component: {fileID: 1911104934}
+  - component: {fileID: 1911104935}
   m_Layer: 0
-  m_Name: ZoomGabinete_CharlotteSala
+  m_Name: Zoom_Gabinete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4632,6 +4862,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1911104935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911104932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetosEstadoInicial:
+  - {fileID: 617294805}
+  - {fileID: 88931671}
+  - {fileID: 798030939}
+  objetosEstadoAlternativo:
+  - {fileID: 98863202}
+  - {fileID: 1046643359}
+  - {fileID: 1313176795}
+  feedbackTextController: {fileID: 6973665184144531453}
 --- !u!1 &1929128092
 GameObject:
   m_ObjectHideFlags: 0
