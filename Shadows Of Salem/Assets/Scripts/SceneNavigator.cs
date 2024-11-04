@@ -101,11 +101,11 @@ public class SceneNavigator : MonoBehaviour
     {
         arrow[0].SetActive(false);    // Activa la flecha izquierda
         arrow[1].SetActive(false);
-        arrow[3].SetActive(true);
+        arrow[2].SetActive(true);
     }
     public void LeaveCloseupViewArrows()
     {
-        arrow[3].SetActive(false);
+        arrow[2].SetActive(false);
         CheckViewEnd();
     }
 }
