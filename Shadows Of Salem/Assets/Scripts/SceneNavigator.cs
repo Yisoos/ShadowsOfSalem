@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 
@@ -9,7 +10,7 @@ public class SceneNavigator : MonoBehaviour
     public GameObject[] view; //Las diferentes vistas guardadas en el inspector
     public int startingView; //la vista donde empezará la escena
     public int[] roomEndViews;
-    int currentView; //la escena actual
+    [HideInInspector]public int currentView; //la escena actual
     int maxViews;
     [Header("Arrows")]
     public GameObject[] arrow; //flechas en la interfaz que se usan para moverse
@@ -96,9 +97,15 @@ public class SceneNavigator : MonoBehaviour
            // Debug.Log($"current view is {currentView}");
         }
     }
-        // Update is called once per frame
-        void Update()
+    public void EnterCloseUpViewArrows()
     {
-        
+        arrow[0].SetActive(false);    // Activa la flecha izquierda
+        arrow[1].SetActive(false);
+        arrow[3].SetActive(true);
+    }
+    public void LeaveCloseupViewArrows()
+    {
+        arrow[3].SetActive(false);
+        CheckViewEnd();
     }
 }
