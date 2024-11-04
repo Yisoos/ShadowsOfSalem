@@ -5,6 +5,7 @@ public class CollidersControlador : MonoBehaviour
 {
     // Variables públicas para configurar objetos y colliders desde el editor
     public GameObject objetoInteractivo; // Objeto interactivo que reacciona al clic
+    public Collider2D colliderVistaGeneral;
     public Collider2D[] colliders; // Array de colliders que representan objetos interactivos
     public GameObject[] activarObjetos; // Array de objetos a activar al hacer clic en colliders específicos
     ActivarPanel activarPanelScript; // Controlador de activación del zoomPanel
@@ -20,6 +21,7 @@ public class CollidersControlador : MonoBehaviour
         activarPanelScript = GetComponent<ActivarPanel>();
         // Desactiva el panel de zoom y sus colliders al iniciar
         activarPanelScript.DeactivatePanel();
+
         ActivarColliders(false);
     }
 
@@ -143,12 +145,13 @@ public class CollidersControlador : MonoBehaviour
 
 
     // Activa o desactiva todos los colliders del array
-    void ActivarColliders(bool isActive)
+    public void ActivarColliders(bool isActive)
     {
         for (int i = 0; i < colliders.Length; i++)
         {
             colliders[i].enabled = isActive; // Cambia el estado de cada collider
         }
+        colliderVistaGeneral.enabled = !isActive;
     }
 
     // Corrutina para activar los colliders tras un retraso

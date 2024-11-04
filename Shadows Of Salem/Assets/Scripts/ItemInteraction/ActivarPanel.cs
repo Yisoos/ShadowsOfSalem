@@ -7,14 +7,13 @@ public class ActivarPanel : MonoBehaviour
     public GameObject panel; // Asignar panel
     public GameObject arrows; // las flechas
     public GameObject backButton;
-
+    
     public void TogglePanel()
     {
         if (panel != null && arrows != null && backButton != null)  
         {
             bool isPanelActive = !panel.activeSelf;
             panel.SetActive(isPanelActive);
-
             Debug.Log("Panel activo: " + isPanelActive);
 
             if (isPanelActive)
