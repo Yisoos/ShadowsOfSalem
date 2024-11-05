@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: "Assets/Scenes/Men\xFA.unity"
-    guid: e579f459a8316a14aae9e8305ab9c9ae
+    guid: dfeb602150f48c34cb57904317b976b8
   - enabled: 1
     path: Assets/Scenes/Intro.unity
     guid: eda9fa4e96ad5c842a3de512a54da1f1
@@ -19,8 +19,8 @@ EditorBuildSettings:
     guid: 94698d9014c7c4d4e8362e5a9cdf6efc
   - enabled: 1
     path: Assets/Scenes/Nivel 2.unity
-    guid: c9e3eb7a45a596b4e9562f2ff40bc731
+    guid: 44a619c75a4f32a45a24ce1f56224a40
   - enabled: 1
     path: Assets/Scenes/Nivel 3.unity
-    guid: fc541c82cdf72ff4b914bd2e1db36a08
+    guid: 39d17321676a4db4ea003b15b55fac0a
   m_configObjects: {}
