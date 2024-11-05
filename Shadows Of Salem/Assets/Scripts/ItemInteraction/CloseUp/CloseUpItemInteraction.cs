@@ -32,13 +32,13 @@ public class CloseUpItemInteraction : MonoBehaviour
             { 
             isAccesible = ObjectAccessibilityChecker(hit.transform);
             }
-            if (hit.transform != null && isAccesible) 
+            if (hit.transform != null && isAccesible)
             {
                 int index = Array.IndexOf(objetosEstadoInicial, hit.collider);
+               
                 if (index != -1)
                 {
                     ToggleObjectState(index, true);
-                    Debug.Log("Objeto está en su estado inicial, cambiando...");
                 }
                 else
                 {
@@ -46,28 +46,37 @@ public class CloseUpItemInteraction : MonoBehaviour
                     if (index != -1)
                     {
                         ToggleObjectState(index, false);
-                        Debug.Log("Objeto está en estado alternativo, cambiando...");
                     }
                     else
                     {
-                        Debug.Log("Objeto no está definido para interacción"); 
+                        Debug.Log("Objeto no está definido para interacción");
                     }
                 }
+                
             }
         }
     }
 
     public void ToggleObjectState(int index, bool initialState) 
     {
-        if (initialState)
+        if (objetosEstadoInicial[index] != objetosEstadoAlternativo[index])
         {
-            objetosEstadoInicial[index].gameObject.SetActive(false);
-            objetosEstadoAlternativo[index].gameObject.SetActive(true);
+            if (initialState)
+            {
+                objetosEstadoInicial[index].gameObject.SetActive(false);
+                objetosEstadoAlternativo[index].gameObject.SetActive(true);
+                Debug.Log("Objeto está en su estado inicial, cambiando...");
+            }
+            if (!initialState)
+            {
+                objetosEstadoInicial[index].gameObject.SetActive(true);
+                objetosEstadoAlternativo[index].gameObject.SetActive(false);
+                Debug.Log("Objeto está en estado alternativo, cambiando...");
+            }
         }
-        if (!initialState)
+        else
         {
-            objetosEstadoInicial[index].gameObject.SetActive(true);
-            objetosEstadoAlternativo[index].gameObject.SetActive(false);
+            Debug.Log("Estado inicial es igual al estado Alternativo, no hay cambio");
         }
     }
 

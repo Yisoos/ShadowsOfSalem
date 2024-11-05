@@ -27,7 +27,8 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
         // Mover el objeto al final de la lista de hermanos en la jerarquía
         transform.SetAsLastSibling();
-
+        
+        
         // Desactivar el raycast en la imagen arrastrada
         image.raycastTarget = false;
     }
