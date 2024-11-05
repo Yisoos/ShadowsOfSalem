@@ -1,65 +1,99 @@
 using UnityEngine;
+using UnityEngine.EventSystems; // Required for detecting UI events
 
 public class CursorChanger : MonoBehaviour
 {
-    public Texture2D customCursor;    // Custom cursor texture
-    public Texture2D defaultCursor;   // Default cursor texture
-    public Vector2 cursorHotspot = Vector2.zero; // Offset for cursor position, usually center of the texture
+    [HideInInspector] public static CursorChanger instance;
+    public Texture2D[] variantesCursor;      // Custom cursor textures
+    public Texture2D cursorPorDefecto;       // Default cursor texture
+    public Vector2 cursorHotspot = Vector2.zero;
 
-    private Camera mainCamera;
-    private bool isCustomCursorActive = false;
+    private bool isDefaultCursorActive = true;
+    private bool externalCursorRequest = false;
+    private bool isOnUIButton = false;       // Tracks if the cursor is over a UI button
+    private float cursorResetDelay = 0.1f;
+    private float resetTimer = 0f;
 
-    void Start()
+    private void Awake()
     {
-        mainCamera = Camera.main;
-        Debug.Log("CursorChanger initialized for 2D.");
-
-        // Check if camera is correctly set
-        if (mainCamera != null)
+        if (instance == null)
         {
-            Debug.Log("Main camera found.");
-            Cursor.SetCursor(defaultCursor, cursorHotspot, CursorMode.Auto);
-            Debug.Log("Default cursor set.");
+            instance = this;
         }
         else
         {
-            Debug.LogError("Main camera not found! Ensure there is a camera tagged as MainCamera.");
+            Destroy(this);
         }
+    }
+
+    void Start()
+    {
+        SetCursorToDefault();
     }
 
     void Update()
     {
-        if (mainCamera == null) return; // Safety check
+        // Skip collider detection if the cursor is over a UI button
+        if (isOnUIButton || externalCursorRequest)
+        {
+            resetTimer -= Time.deltaTime;
+            if (resetTimer <= 0f)
+            {
+                externalCursorRequest = false;
+            }
+            return;
+        }
 
-        // Perform a 2D raycast from the camera to the mouse position
-        Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        // Raycast to detect if cursor is over a collider
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
         if (hit.collider != null)
         {
-            Debug.Log("Cursor over object: " + hit.collider.gameObject.name);
-
-            // Change cursor to custom cursor if over an interactable collider
-            if (!isCustomCursorActive)
-            {
-                Cursor.SetCursor(customCursor, cursorHotspot, CursorMode.Auto);
-                isCustomCursorActive = true;
-                Debug.Log("Custom cursor activated.");
-            }
+            ChangeCursor(0);  // Change to custom cursor when hitting a collider
         }
         else
         {
-            ResetCursor();
+            SetCursorToDefault();  // Reset to default cursor
         }
     }
 
-    private void ResetCursor()
+    public void ChangeCursor(int cursorIndex)
     {
-        if (isCustomCursorActive)
+        if (cursorIndex < variantesCursor.Length)
         {
-            Cursor.SetCursor(defaultCursor, cursorHotspot, CursorMode.Auto);
-            isCustomCursorActive = false;
-            Debug.Log("Default cursor reactivated.");
+            Cursor.SetCursor(variantesCursor[cursorIndex], cursorHotspot, CursorMode.Auto);
+            isDefaultCursorActive = false;
+            externalCursorRequest = true;
+            resetTimer = cursorResetDelay;
         }
+    }
+
+    public void ResetCursor()
+    {
+        SetCursorToDefault();
+    }
+
+    public void SetCursorToDefault()
+    {
+        if (!isDefaultCursorActive)
+        {
+            Cursor.SetCursor(cursorPorDefecto, cursorHotspot, CursorMode.Auto);
+            isDefaultCursorActive = true;
+        }
+    }
+
+    // Called when mouse enters a UI button
+    public void SetCursorUI(int cursorIndex)
+    {
+        ChangeCursor(cursorIndex);
+        isOnUIButton = true;
+    }
+
+    // Called when mouse exits a UI button
+    public void ResetCursorUI()
+    {
+        SetCursorToDefault();
+        isOnUIButton = false;
     }
 }
