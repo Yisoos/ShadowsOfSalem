@@ -33,7 +33,7 @@ public class Lock : MonoBehaviour
             Tags keyTag = key.GetComponent<Tags>();
             if (feedbackText != null) 
             { 
-                feedbackText.PopUpText(lockTag.displayText2);
+                feedbackText.PopUpText(lockTag.displayText[1]);
             }
 
             inventoryOrder.DeleteItem(keyTag);
@@ -43,7 +43,7 @@ public class Lock : MonoBehaviour
             Tags LockTag = GetComponent<Tags>();
             if (feedbackText != null)
             {
-                feedbackText.PopUpText(LockTag.displayText);
+                feedbackText.PopUpText(LockTag.displayText[0]);
             }
             //inventoryOrder.DeleteItem(LockTag);
         }

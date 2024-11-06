@@ -44,7 +44,7 @@ public class DependencyHandler : MonoBehaviour
                 {
                     if (feedbackText != null)
                     {
-                        feedbackText.PopUpText(objectDropped.displayText);
+                        feedbackText.PopUpText(objectDropped.displayText[0]);
                     }
                     Debug.Log($"Para usar este objeto necesitas {requiredItem}");
                     return false;
@@ -54,7 +54,7 @@ public class DependencyHandler : MonoBehaviour
             // Todos los elementos requeridos fueron encontrados
             Debug.Log("Todos los objetos requeridos están en el inventario.");
             Tags thisTag = GetComponent<Tags>();
-            feedbackText.PopUpText(thisTag.displayText2);
+            feedbackText.PopUpText(thisTag.displayText[1]);
 
             // Opcional: Eliminar los elementos requeridos del inventario si se utilizaron con éxito
             foreach (string requiredItem in requiredItems)

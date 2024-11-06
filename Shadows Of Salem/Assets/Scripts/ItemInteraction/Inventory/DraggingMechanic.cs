@@ -123,6 +123,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 // Manejar compartimentos bloqueados y dependencias
                 Lock compartmentLocked = targetObjectTags.GetComponent<Lock>();
                 DependencyHandler compartmentDependency = targetObjectTags.GetComponent<DependencyHandler>();
+                OrderedDependencies compartmentDependencyInOrder = targetObjectTags.GetComponent<OrderedDependencies>();
                 if (compartmentLocked != null && compartmentLocked.isLocked == true)
                 {
                     Key key = GetComponent<Key>();
@@ -134,6 +135,10 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 else if (compartmentDependency != null)
                 {
                     compartmentDependency.HandleItem(thisObjectTags);
+                }
+                if (compartmentDependencyInOrder != null)
+                {
+                    compartmentDependencyInOrder.HandleItem(thisObjectTags);
                 }
                 break;
 

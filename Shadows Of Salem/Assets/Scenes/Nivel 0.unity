@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 98863202}
   m_Layer: 0
   m_Name: Cajon1Abierto_Gabinete
-  m_TagString: Untagged
+  m_TagString: Open Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1014,8 +1014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Cable
-  displayText: 
-  displayText2: 
+  displayText: []
   sprite: {fileID: 21300000, guid: 780f6ae392626da41a2d272fd225dfec, type: 3}
   quantity: 1
   objectType: 2
@@ -1095,7 +1094,7 @@ GameObject:
   - component: {fileID: 562738078}
   - component: {fileID: 562738080}
   - component: {fileID: 562738081}
-  - component: {fileID: 562738082}
+  - component: {fileID: 562738084}
   - component: {fileID: 562738083}
   m_Layer: 0
   m_Name: Telefono
@@ -1183,31 +1182,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: "Tel\xE9fono Cable"
-  displayText: "El cable est\xE1 Roto...."
-  displayText2: Cable arreglado!
-  sprite: {fileID: 0}
+  objectName: Telefono
+  displayText:
+  - "El cable del tel\xE9fono est\xE1 roto\u2026"
+  - Tengo que reemplazar este cable...
+  - "\xA1Telefono arreglado!"
+  sprite: {fileID: 21300000, guid: 6a679e572a864ff45a17ea9b67ad3722, type: 3}
   quantity: 1
   objectType: 3
---- !u!114 &562738082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562738077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3dea6528b7718342b4f86530d119ef7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requiredItems:
-  - Cable
-  - Alicates
-  inventory: {fileID: 1684904970}
-  dependencyMetSprite: {fileID: 21300000, guid: 285c0faf90e8e374faa5753a052c86ef, type: 3}
-  feedbackText: {fileID: 6973665184144531453}
-  dependencyMet: 0
 --- !u!61 &562738083
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1253,6 +1235,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 8.263632, y: 7.8608246}
   m_EdgeRadius: 0
+--- !u!114 &562738084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562738077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33957f4d034e5cf4caf4fd243ded2ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredItems:
+  - Alicates
+  - Cable
+  inventory: {fileID: 1684904970}
+  dependencyMetSprite:
+  - {fileID: 21300000, guid: 6a679e572a864ff45a17ea9b67ad3722, type: 3}
+  - {fileID: 21300000, guid: aaba74b8a92450542a4179f02b81d600, type: 3}
+  - {fileID: 21300000, guid: 285c0faf90e8e374faa5753a052c86ef, type: 3}
+  feedbackText: {fileID: 6973665184144531453}
+  dependencyMet: 
 --- !u!1 &617294803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,7 +1512,7 @@ GameObject:
   - component: {fileID: 690355921}
   m_Layer: 0
   m_Name: "Ba\xFAl_Abierto"
-  m_TagString: Untagged
+  m_TagString: Open Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2015,13 +2019,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799030137}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.8563257, w: -0.51643616}
-  m_LocalPosition: {x: -2.5479503, y: 0.20684476, z: 0}
-  m_LocalScale: {x: 0.24283068, y: 0.23660485, z: 0.28943905}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7552529, w: -0.65543354}
+  m_LocalPosition: {x: -1.841, y: 0.06, z: 0}
+  m_LocalScale: {x: 0.29778326, y: 0.29014853, z: 0.3549391}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 690355919}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -242.187}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -261.905}
 --- !u!114 &799030140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2048,8 +2052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Alicates
-  displayText: 
-  displayText2: 
+  displayText: []
   sprite: {fileID: 21300000, guid: 2fa16f3b90b69db40b417d1643ddad53, type: 3}
   quantity: 1
   objectType: 2
@@ -2105,8 +2108,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &799030143
-BoxCollider2D:
+--- !u!70 &799030143
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2137,19 +2140,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3467884, y: -0.35036087}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.9, y: 8.9}
-    newSize: {x: 2.96, y: 6.73}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 15.549543, y: 12.315521}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.28531474, y: -0.000001472201}
+  m_Size: {x: 4.1504455, y: 9.134186}
+  m_Direction: 0
 --- !u!1 &803333517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,6 +2311,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &985610976
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5385151767659755121, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: m_Name
+      value: Audio Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714820535422135042, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.9065918
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714820535422135042, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.2780757
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714820535422135042, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.653689
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714820535422135042, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714820535422135042, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714820535422135042, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714820535422135042, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714820535422135042, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714820535422135042, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714820535422135042, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
 --- !u!1 &1043175451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7940589322037771877, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
@@ -2336,7 +2386,7 @@ GameObject:
   - component: {fileID: 1046643359}
   m_Layer: 0
   m_Name: Cajon2Abierto_Gabinete
-  m_TagString: Untagged
+  m_TagString: Open Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2793,7 +2843,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2371927246017478427}
         m_TargetAssemblyTypeName: CambiarEscenas, Assembly-CSharp
-        m_MethodName: PasarEscena
+        m_MethodName: CambiarEscenaSinInput
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2940,7 +2990,7 @@ GameObject:
   - component: {fileID: 1313176795}
   m_Layer: 0
   m_Name: Cajon3Abierto_Gabinete
-  m_TagString: Untagged
+  m_TagString: Open Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4076,7 +4126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1665301426
 Transform:
   m_ObjectHideFlags: 0
@@ -4219,8 +4269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: "Ba\xFAl"
-  displayText: 
-  displayText2: "Ba\xFAl Abierto!"
+  displayText:
+  - "Est\xE1 cerrado..."
+  - "\xA1Ba\xFAl abierto!"
   sprite: {fileID: 0}
   quantity: 1
   objectType: 3
@@ -4648,8 +4699,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Drawer
-  displayText: "Est\xE1 cerrado..."
-  displayText2: "Caj\xF3n abierto!"
+  displayText:
+  - "Necesito mi llave para abrir el caj\xF3n..."
+  - "\xA1Caj\xF3n abierto!"
   sprite: {fileID: 0}
   quantity: 1
   objectType: 3
@@ -4714,8 +4766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: LlaveCajonEscena
-  displayText: 
-  displayText2: 
+  displayText: []
   sprite: {fileID: 21300000, guid: 3563cd1b13a13c34fa77152beac1b398, type: 3}
   quantity: 1
   objectType: 1
@@ -5059,7 +5110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dba095cfc2aa042aa9afafeb998d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: Nivel 1
 --- !u!4 &6895682814121052121
 Transform:
   m_ObjectHideFlags: 0
@@ -5405,11 +5456,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5117146746343917352, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1830.15
+      value: 1901.43
       objectReference: {fileID: 0}
     - target: {fileID: 5117146746343917352, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 76.52
+      value: 178.58
       objectReference: {fileID: 0}
     - target: {fileID: 5117146746343917352, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5417,7 +5468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5117146746343917352, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 176
+      value: 250.03
       objectReference: {fileID: 0}
     - target: {fileID: 5419532073976784257, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5463,6 +5514,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2280603291232679450, guid: f138b4c345536ce4f984ad672c46340c, type: 2}
+    - target: {fileID: 6901700047004616247, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 6901700047004616247, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -5552,3 +5607,4 @@ SceneRoots:
   - {fileID: 6895682814121052121}
   - {fileID: 1684904969}
   - {fileID: 795326460}
+  - {fileID: 985610976}

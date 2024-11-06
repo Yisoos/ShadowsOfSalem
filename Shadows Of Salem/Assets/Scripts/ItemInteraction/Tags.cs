@@ -15,10 +15,10 @@ public enum ObjectType
 
 public class Tags : MonoBehaviour
 {
-    [Header("General Metadata")]
+    [Header("Datos Generales")]
     public string objectName;
-    public string displayText;
-    public string displayText2;
+    [Tooltip("Array de mensajes: Generalmente, los primeros Elementos contienen los textos del objeto 'no accesible', y el ultimo Elemento contiene el mensaje de 'accesible'.")]
+    public string[] displayText;
     public Sprite sprite;
     public int quantity;
     public ObjectType objectType;

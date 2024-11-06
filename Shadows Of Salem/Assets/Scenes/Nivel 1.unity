@@ -1763,6 +1763,7 @@ MonoBehaviour:
   - {fileID: 276539874}
   startingView: 0
   roomEndViews: 02000000
+  currentView: 0
   arrow:
   - {fileID: 1086506245}
   - {fileID: 512234182}
@@ -1779,6 +1780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dba095cfc2aa042aa9afafeb998d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: Nivel 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
