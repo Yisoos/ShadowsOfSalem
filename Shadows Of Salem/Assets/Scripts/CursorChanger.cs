@@ -8,7 +8,7 @@ public class CursorChanger : MonoBehaviour
     public Texture2D cursorPorDefecto;       // Default cursor texture
     public Vector2 cursorHotspot = Vector2.zero;
 
-    private bool isDefaultCursorActive = true;
+    private bool isDefaultCursorActive;
     private bool externalCursorRequest = false;
     private bool isOnUIButton = false;       // Tracks if the cursor is over a UI button
     private float cursorResetDelay = 0.1f;
@@ -67,11 +67,6 @@ public class CursorChanger : MonoBehaviour
             externalCursorRequest = true;
             resetTimer = cursorResetDelay;
         }
-    }
-
-    public void ResetCursor()
-    {
-        SetCursorToDefault();
     }
 
     public void SetCursorToDefault()
