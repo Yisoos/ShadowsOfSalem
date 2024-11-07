@@ -2921,6 +2921,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Overlay_VintageFilm
       objectReference: {fileID: 0}
+    - target: {fileID: 5424109005557109284, guid: 65ffb6036056be043be5f9a6b6718aaf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6225528640108658472, guid: 65ffb6036056be043be5f9a6b6718aaf, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: ea67a4e459e07dd4192b87af74a4d39f, type: 3}
     - target: {fileID: 6225528640108658472, guid: 65ffb6036056be043be5f9a6b6718aaf, type: 3}
       propertyPath: m_DirectAudioVolumes.Array.data[0]
       value: 0.249
@@ -4760,6 +4768,10 @@ PrefabInstance:
     - target: {fileID: 5585642545150451178, guid: 81677c2b3338367488be73fcb0e6a927, type: 3}
       propertyPath: m_Name
       value: Overlay_CameraFlash
+      objectReference: {fileID: 0}
+    - target: {fileID: 5585642545150451178, guid: 81677c2b3338367488be73fcb0e6a927, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
