@@ -53,7 +53,7 @@ public class CombinationLockControl : MonoBehaviour
             if (objectCollider != null)
             {
                 objectCollider.enabled = false;
-                Debug.Log("Collider has been disabled.");
+                //Debug.Log("Collider has been disabled.");
             }
         }
     }

@@ -20,13 +20,13 @@ public class CombinationLockPopUp : MonoBehaviour
             {
                 digitsInLockAdded += numbersInLock[i].text;
             }
-            Debug.Log(digitsInLockAdded);
+            //Debug.Log(digitsInLockAdded);
 
             bool combinationMatch = digitsInLockAdded == combinationLock.combination;
 
             if (combinationMatch)
             {
-                Debug.Log("Correct combination, Lock opened");
+                //Debug.Log("Correct combination, Lock opened");
                 combinationLock.isLocked = false;
 
                 if (combinationLock.feedbackText != null)
@@ -39,7 +39,7 @@ public class CombinationLockPopUp : MonoBehaviour
             }
             else
             {
-                Debug.Log("Incorrect combination");
+                //Debug.Log("Incorrect combination");
             }
         }
     }
@@ -62,7 +62,7 @@ public class CombinationLockPopUp : MonoBehaviour
                 numbersInLock[i].text = displayDigit.text;
             }
         }
-        Debug.Log($"Lock value: {numbersInLock[0].text}{numbersInLock[1].text}{numbersInLock[2].text}{numbersInLock[3].text}");
+        //Debug.Log($"Lock value: {numbersInLock[0].text}{numbersInLock[1].text}{numbersInLock[2].text}{numbersInLock[3].text}");
         CombinationLockLogic();
     }
 
@@ -78,7 +78,7 @@ public class CombinationLockPopUp : MonoBehaviour
                 numbersInLock[i].text = displayDigit.text;
             }
         }
-        Debug.Log($"Lock value: {numbersInLock[0].text}{numbersInLock[1].text}{numbersInLock[2].text}{numbersInLock[3].text}");
+        //Debug.Log($"Lock value: {numbersInLock[0].text}{numbersInLock[1].text}{numbersInLock[2].text}{numbersInLock[3].text}");
         CombinationLockLogic();
     }
 
@@ -90,7 +90,7 @@ public class CombinationLockPopUp : MonoBehaviour
         if (objectCollider != null)
         {
             objectCollider.enabled = true;
-            Debug.Log("Collider has been enabled.");
+            //Debug.Log("Collider has been enabled.");
         }
     }
 }

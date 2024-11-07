@@ -65,18 +65,18 @@ public class CloseUpItemInteraction : MonoBehaviour
             {
                 objetosEstadoInicial[index].gameObject.SetActive(false);
                 objetosEstadoAlternativo[index].gameObject.SetActive(true);
-                Debug.Log("Objeto está en su estado inicial, cambiando...");
+                //Debug.Log("Objeto está en su estado inicial, cambiando...");
             }
             if (!initialState)
             {
                 objetosEstadoInicial[index].gameObject.SetActive(true);
                 objetosEstadoAlternativo[index].gameObject.SetActive(false);
-                Debug.Log("Objeto está en estado alternativo, cambiando...");
+                //Debug.Log("Objeto está en estado alternativo, cambiando...");
             }
         }
         else
         {
-            Debug.Log("Estado inicial es igual al estado Alternativo, no hay cambio");
+            //Debug.Log("Estado inicial es igual al estado Alternativo, no hay cambio");
         }
     }
 
@@ -102,10 +102,10 @@ public class CloseUpItemInteraction : MonoBehaviour
             feedbackTextController.PopUpText(itemTags.displayText[0]);
             return false;
         }
-        if (itemDependencyByOrder != null && !itemDependencyByOrder.dependencyMet[itemDependencyByOrder.dependencyMet.Length-1])
+        if (itemDependencyByOrder != null)
         {
-            feedbackTextController.PopUpText(itemTags.displayText[0]);
-            return false;
+           
+            return itemDependencyByOrder.feedbackTextDesider();
         }
         // Si el objeto está en un candado de combinación, muestra mensaje y devuelve falso
         if (combinationLocked != null && combinationLocked.isLocked)

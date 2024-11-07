@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        Debug.Log($"Inventario inicializado con {items.Count} objetos.");
+        //Debug.Log($"Inventario inicializado con {items.Count} objetos.");
     }
 
     // Función para recolectar un objeto

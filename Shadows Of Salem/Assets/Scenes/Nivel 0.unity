@@ -481,7 +481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &173722973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1185,7 +1185,7 @@ MonoBehaviour:
   objectName: Telefono
   displayText:
   - "El cable del tel\xE9fono est\xE1 roto\u2026"
-  - Tengo que reemplazar este cable...
+  - Ahora necesito poner un cable nuevo...
   - "\xA1Telefono arreglado!"
   sprite: {fileID: 21300000, guid: 6a679e572a864ff45a17ea9b67ad3722, type: 3}
   quantity: 1
@@ -2363,6 +2363,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: ClickButton
+      value: 
+      objectReference: {fileID: 8300000, guid: 43cb291a3064f0247b219e9f0147aa6a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2649,7 +2653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1096079728
 Transform:
   m_ObjectHideFlags: 0
@@ -4551,7 +4555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1873223424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4700,7 +4704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Drawer
   displayText:
-  - "Necesito mi llave para abrir el caj\xF3n..."
+  - "\xBFD\xF3nde habr\xE9 dejado la llave?..."
   - "\xA1Caj\xF3n abierto!"
   sprite: {fileID: 0}
   quantity: 1

@@ -20,7 +20,7 @@ public class Lock : MonoBehaviour
         if (key != null && key.keyID == lockID && isLocked)
         {
 
-            Debug.Log("¡Candado abierto!"); // Mensaje de éxito
+            //Debug.Log("¡Candado abierto!"); // Mensaje de éxito
             isLocked = false; // Cambia el estado del candado a desbloqueado
             // Si es un candado físico, lo desactiva
             if (isPhysicalLock)
@@ -45,7 +45,6 @@ public class Lock : MonoBehaviour
             {
                 feedbackText.PopUpText(LockTag.displayText[0]);
             }
-            //inventoryOrder.DeleteItem(LockTag);
         }
     }
    

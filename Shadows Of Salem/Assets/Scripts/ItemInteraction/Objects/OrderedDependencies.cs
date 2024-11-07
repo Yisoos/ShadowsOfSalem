@@ -12,6 +12,7 @@ public class OrderedDependencies : MonoBehaviour
     public Sprite[] dependencyMetSprite; // Sprite cuando el cable está conectado
     public FeedbackTextController feedbackText;
     private SpriteRenderer spriteRenderer; // Referencia para cambiar el sprite
+    private Tags thisTag;
     [HideInInspector] public bool[] dependencyMet;
 
     private void Start()
@@ -20,6 +21,7 @@ public class OrderedDependencies : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         dependencyMet = new bool[requiredItems.Count];
         dependencyMet = Enumerable.Repeat(false, dependencyMet.Length).ToArray();
+        thisTag = GetComponent<Tags>();
     }
 
     // Método para manejar el objeto que se ha soltado y verificar si los elementos requeridos están presentes en el inventario
@@ -48,14 +50,13 @@ public class OrderedDependencies : MonoBehaviour
                         {
                             feedbackText.PopUpText(objectDropped.displayText[0]);
                         }
-                        Debug.Log($"Para usar este objeto necesitas {requiredItems[i]}");
+                        //Debug.Log($"Para usar este objeto necesitas {requiredItems[i]}");
                         return false;
                     }
                 
 
                 // Todos los elementos requeridos fueron encontrados
-                Debug.Log("objeto requerido detectado.");
-                Tags thisTag = GetComponent<Tags>();
+                //Debug.Log("objeto requerido detectado.");
 
                 if (thisTag != null || i == requiredItems.Count - 1)
                 {
@@ -71,6 +72,23 @@ public class OrderedDependencies : MonoBehaviour
 
                     // Eliminar el elemento del inventario
                     inventory.DeleteItem(objectDropped);
+            }
+        }
+        return true;
+    }
+    public bool feedbackTextDesider() 
+    {
+        if (!dependencyMet[0])
+        {
+            feedbackText.PopUpText(thisTag.displayText[0]);
+            return false;
+        }
+        for (int i = 0; i < dependencyMet.Length; i++)
+        {
+            if (dependencyMet[i] && !dependencyMet[dependencyMet.Length-1])
+            {
+                feedbackText.PopUpText(thisTag.displayText[i+1]);
+                return false;
             }
         }
         return true;
