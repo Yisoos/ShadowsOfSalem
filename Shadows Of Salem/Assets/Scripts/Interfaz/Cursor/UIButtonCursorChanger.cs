@@ -5,7 +5,7 @@ public class UIButtonCursorChanger : MonoBehaviour, IPointerEnterHandler, IPoint
 {
     public int cursorIndex; // Index of the cursor variant to show when over this button
 
-    #region Métodos de Interacción con el Ratón (OnPointerEnter, OnPointerExit)
+    
     // Método llamado cuando el ratón entra sobre el objeto
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -23,5 +23,4 @@ public class UIButtonCursorChanger : MonoBehaviour, IPointerEnterHandler, IPoint
             CursorChanger.instance.ResetCursorUI();
         }
     }
-    #endregion
 }

@@ -215,13 +215,13 @@ GameObject:
   - component: {fileID: 98863200}
   - component: {fileID: 98863201}
   - component: {fileID: 98863202}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cajon1Abierto_Gabinete
   m_TagString: Open Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &98863200
 Transform:
   m_ObjectHideFlags: 0
@@ -611,7 +611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &173722973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1156,9 +1156,11 @@ MonoBehaviour:
   objetosEstadoInicial:
   - {fileID: 1884930295}
   - {fileID: 689805499}
+  - {fileID: 1864527152}
   objetosEstadoAlternativo:
   - {fileID: 762782799}
   - {fileID: 1074531376}
+  - {fileID: 843719829}
   feedbackTextController: {fileID: 6973665184144531453}
 --- !u!1 &472972751 stripped
 GameObject:
@@ -1583,7 +1585,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 19.043732, y: 10.855305}
   m_EdgeRadius: 0
 --- !u!1 &617294803
 GameObject:
@@ -1838,7 +1840,7 @@ GameObject:
   - component: {fileID: 690355919}
   - component: {fileID: 690355920}
   - component: {fileID: 690355921}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "Ba\xFAl_Abierto"
   m_TagString: Open Container
   m_Icon: {fileID: 0}
@@ -2650,14 +2652,14 @@ GameObject:
   m_Component:
   - component: {fileID: 820974146}
   - component: {fileID: 820974148}
-  - component: {fileID: 820974147}
+  - component: {fileID: 820974149}
   m_Layer: 0
   m_Name: Zoom_CuadroCharlotte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &820974146
 Transform:
   m_ObjectHideFlags: 0
@@ -2675,23 +2677,6 @@ Transform:
   - {fileID: 584660559}
   m_Father: {fileID: 1873223425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &820974147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 820974145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 151676332}
-  objetosEstadoAlternativo:
-  - {fileID: 584660560}
-  feedbackTextController: {fileID: 6973665184144531453}
 --- !u!212 &820974148
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2744,6 +2729,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &820974149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820974145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetosEstadoInicial:
+  - {fileID: 151676332}
+  objetosEstadoAlternativo:
+  - {fileID: 584660560}
+  feedbackTextController: {fileID: 6973665184144531453}
 --- !u!1 &828207800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,7 +2906,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: fcf11dadd08bc794bb627980af53bcbc, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7058824}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2914,23 +2916,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &843719829
-MonoBehaviour:
+--- !u!61 &843719829
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 843719826}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 1864527152}
-  objetosEstadoAlternativo:
-  - {fileID: 1297857917}
-  feedbackTextController: {fileID: 6973665184144531453}
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 19.2, y: 10.8}
+    newSize: {x: 19.2, y: 10.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.2, y: 10.8}
+  m_EdgeRadius: 0
 --- !u!1 &933006195
 GameObject:
   m_ObjectHideFlags: 0
@@ -3176,7 +3206,7 @@ GameObject:
   - component: {fileID: 1046643357}
   - component: {fileID: 1046643358}
   - component: {fileID: 1046643359}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cajon2Abierto_Gabinete
   m_TagString: Open Container
   m_Icon: {fileID: 0}
@@ -3910,7 +3940,7 @@ GameObject:
   - component: {fileID: 1313176793}
   - component: {fileID: 1313176794}
   - component: {fileID: 1313176795}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cajon3Abierto_Gabinete
   m_TagString: Open Container
   m_Icon: {fileID: 0}
@@ -4181,6 +4211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1420227472}
   - component: {fileID: 1420227471}
+  - component: {fileID: 1420227473}
   m_Layer: 0
   m_Name: PapelCodigo_CharlotteOficina
   m_TagString: Untagged
@@ -4254,6 +4285,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1420227473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420227470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b890834a970864988ab8594dc1cc33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorIndex: 0
+  isCursorSet: 0
 --- !u!224 &1423499380 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4268783129957500273, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
@@ -4519,6 +4564,7 @@ GameObject:
   - component: {fileID: 1541057224}
   - component: {fileID: 1541057225}
   - component: {fileID: 1541057226}
+  - component: {fileID: 1541057227}
   m_Layer: 0
   m_Name: PuertaCerrada_CharlotteRecibidor
   m_TagString: Untagged
@@ -4638,6 +4684,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.46625, y: 1.358849}
   m_EdgeRadius: 0
+--- !u!114 &1541057227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541057223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b890834a970864988ab8594dc1cc33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorIndex: 0
+  isCursorSet: 0
 --- !u!1 &1561392372
 GameObject:
   m_ObjectHideFlags: 0
@@ -5077,6 +5137,7 @@ GameObject:
   - component: {fileID: 1634246367}
   - component: {fileID: 1634246369}
   - component: {fileID: 1634246368}
+  - component: {fileID: 1634246370}
   m_Layer: 0
   m_Name: PuertaCarta_CharlotteRecibidor
   m_TagString: Untagged
@@ -5196,6 +5257,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1634246370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634246366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b890834a970864988ab8594dc1cc33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorIndex: 0
+  isCursorSet: 0
 --- !u!1 &1665301425
 GameObject:
   m_ObjectHideFlags: 0
@@ -5375,6 +5450,7 @@ GameObject:
   - component: {fileID: 1684904969}
   - component: {fileID: 1684904970}
   - component: {fileID: 1684904971}
+  - component: {fileID: 1684904972}
   m_Layer: 0
   m_Name: ItemCollection
   m_TagString: Untagged
@@ -5433,8 +5509,44 @@ MonoBehaviour:
   variantesCursor:
   - {fileID: 2800000, guid: a5251fbc596c2e94880f3aad515e7505, type: 3}
   - {fileID: 2800000, guid: 689d01bc0c172cc429352e566ff53ca4, type: 3}
+  - {fileID: 2800000, guid: 686bc702dfe9c2548b7decd8afaca3bf, type: 3}
   cursorPorDefecto: {fileID: 2800000, guid: 686bc702dfe9c2548b7decd8afaca3bf, type: 3}
   cursorHotspot: {x: 5, y: 5}
+  currentCursor: {fileID: 0}
+--- !u!114 &1684904972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684904968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ce7ee9ee6bc794192f310b55b2a00d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CursorChangingItems:
+  - {fileID: 143887623}
+  - {fileID: 1610408440}
+  - {fileID: 1420227471}
+  - {fileID: 562738083}
+  - {fileID: 1884930295}
+  - {fileID: 689805499}
+  - {fileID: 1864527152}
+  - {fileID: 1297857917}
+  - {fileID: 151676332}
+  - {fileID: 1494101749}
+  - {fileID: 1603177526}
+  - {fileID: 617294805}
+  - {fileID: 88931671}
+  - {fileID: 798030939}
+  - {fileID: 506167201}
+  - {fileID: 1665301428}
+  - {fileID: 1906454816}
+  - {fileID: 799030143}
+  - {fileID: 1541057226}
+  - {fileID: 1634246368}
+  cursorIndex: 0
 --- !u!1 &1726103777
 GameObject:
   m_ObjectHideFlags: 0
@@ -5669,7 +5781,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1840554811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5719,7 +5831,7 @@ GameObject:
   - component: {fileID: 1864527150}
   - component: {fileID: 1864527151}
   - component: {fileID: 1864527152}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CuadernoNotas_Cajon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6025,6 +6137,7 @@ GameObject:
   - component: {fileID: 1906454814}
   - component: {fileID: 1906454813}
   - component: {fileID: 1906454816}
+  - component: {fileID: 1906454817}
   m_Layer: 3
   m_Name: llave
   m_TagString: Untagged
@@ -6164,6 +6277,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 2.9600003, y: 6.73}
   m_Direction: 0
+--- !u!114 &1906454817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906454811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b890834a970864988ab8594dc1cc33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorIndex: 0
+  isCursorSet: 0
 --- !u!1 &1911104932
 GameObject:
   m_ObjectHideFlags: 0

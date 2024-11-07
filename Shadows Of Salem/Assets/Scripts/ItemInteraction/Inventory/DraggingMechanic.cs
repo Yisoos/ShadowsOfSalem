@@ -50,6 +50,9 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     // Método llamado al final del arrastre
     public void OnEndDrag(PointerEventData eventData)
     {
+        // Restaurar el cursor a la normalidad
+        CursorChanger.instance.SetCursorToDefault();
+
         // Restablecer la escala del objeto
         transform.localScale = Vector3.one;
 
@@ -62,9 +65,6 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
         // Llamar al método para comprobar interacciones con otros objetos
         CheckForInteraction(eventData, thisTag);
-
-        // Restaurar el cursor a la normalidad
-        CursorChanger.instance.SetCursorToDefault();
 
         // Rehabilitar el raycast en la imagen arrastrada
         image.raycastTarget = true;

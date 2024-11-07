@@ -7,6 +7,7 @@ public class CursorChanger : MonoBehaviour
     public Texture2D[] variantesCursor;      // Texturas de cursor personalizadas
     public Texture2D cursorPorDefecto;       // Textura del cursor por defecto
     public Vector2 cursorHotspot = Vector2.zero;
+    public Texture2D currentCursor;
 
     private bool isDefaultCursorActive;       // Verifica si el cursor por defecto está activo
     private bool isOnUIButton = false;         // Indica si el cursor está sobre un botón de UI
@@ -15,107 +16,94 @@ public class CursorChanger : MonoBehaviour
 
     private void Awake()
     {
-        // Configura esta instancia como la única del CursorChanger
         if (instance == null)
         {
             instance = this;
+         //   Debug.Log("CursorChanger instance created.");
         }
         else
         {
             Destroy(this); // Destruye si ya existe otra instancia
+            Debug.LogWarning("Another instance of CursorChanger already exists. Destroying duplicate.");
         }
     }
 
     void Start()
     {
         SetCursorToDefault(); // Establece el cursor por defecto al inicio
-    }
-
-    void Update()
-    {
-        // Evita la detección de colisiones si el cursor está sobre un botón de UI
-        if (isOnUIButton)
-        {
-            resetTimer -= Time.deltaTime;
-            return;
-        }
-
-        // Detecta si el cursor está sobre un colisionador
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = CheckLayersInOrder(mousePosition);
-
-        if (hit.collider != null && hit.collider.gameObject.tag!="Open Container")
-        {
-            ChangeCursor(0); // Cambia al cursor personalizado si hay un colisionador
-        }
-        else
-        {
-            SetCursorToDefault(); // Restablece el cursor al predeterminado si no hay colisionador
-        }
+       // Debug.Log("Cursor set to default at start.");
     }
 
     public void ChangeCursor(int cursorIndex)
     {
         if (cursorIndex < variantesCursor.Length)
         {
-            // Cambia el cursor según el índice especificado en el arreglo de variantes
-            cursorHotspot = new Vector2(variantesCursor[cursorIndex].width / 2, variantesCursor[cursorIndex].width / 2);
+            cursorHotspot = new Vector2(variantesCursor[cursorIndex].width / 2, variantesCursor[cursorIndex].height / 2);
             Cursor.SetCursor(variantesCursor[cursorIndex], cursorHotspot, CursorMode.Auto);
+            currentCursor = variantesCursor[cursorIndex];
             isDefaultCursorActive = false;
-            resetTimer = cursorResetDelay; // Activa el temporizador para resetear el cursor después de un tiempo
+            resetTimer = cursorResetDelay;
+
+            //Debug.Log($"Cursor changed to variant index {cursorIndex}. Timer set to {cursorResetDelay} seconds.");
+        }
+        else
+        {
+           // Debug.LogWarning($"Cursor index {cursorIndex} is out of range. No cursor change applied.");
         }
     }
 
     public void SetCursorToDefault()
     {
-        // Configura el cursor al cursor por defecto solo si no está activo
         if (!isDefaultCursorActive)
         {
-            cursorHotspot = new Vector2(8, 8);
-            Cursor.SetCursor(cursorPorDefecto, cursorHotspot, CursorMode.Auto);
-            isDefaultCursorActive = true;
+            if (!isOnUIButton || currentCursor == variantesCursor[0] || Input.GetMouseButtonUp(0))
+            {
+                cursorHotspot = new Vector2(8, 8);
+                Cursor.SetCursor(cursorPorDefecto, cursorHotspot, CursorMode.Auto);
+                currentCursor = cursorPorDefecto;
+                isDefaultCursorActive = true;
+                // Debug.Log("Cursor reset to default.");
+            }
         }
     }
 
-    // Llamado cuando el cursor entra en un botón de UI
     public void SetCursorUI(int cursorIndex)
     {
         ChangeCursor(cursorIndex); // Cambia el cursor al índice especificado para UI
         isOnUIButton = true;
+        //Debug.Log($"Cursor changed for UI element at index {cursorIndex}. Cursor set to UI mode.");
     }
 
-    // Llamado cuando el cursor sale de un botón de UI
     public void ResetCursorUI()
     {
         SetCursorToDefault(); // Restablece el cursor al por defecto
         isOnUIButton = false;
+        //Debug.Log("Cursor reset from UI to default.");
     }
-    RaycastHit2D CheckLayersInOrder(Vector2 origin)
+
+    public RaycastHit2D CheckLayersInOrder(Vector2 origin)
     {
         string[] layerOrder = { "Prioritario", "Default" };
-        // Raycast all objects at the origin position with any layer.
         RaycastHit2D[] hits = Physics2D.RaycastAll(origin, Vector2.zero, Mathf.Infinity);
 
         if (hits.Length > 0)
         {
-            // Convert the first layer name in layerOrder to a LayerMask integer
             int topPriorityLayer = LayerMask.NameToLayer(layerOrder[0]);
 
-            // Check if any hit belongs to the top-priority layer
             foreach (RaycastHit2D hit in hits)
             {
                 if (hit.collider != null && hit.collider.gameObject.layer == topPriorityLayer)
                 {
-                    // Return the first object found in the top-priority layer
+                   // Debug.Log($"Top-priority layer object detected: {hit.collider.gameObject.name}");
                     return hit;
                 }
             }
 
-            // If no objects from the top-priority layer were found, return the first hit
+           // Debug.Log("No top-priority layer objects detected; returning first hit object.");
             return hits[0];
         }
 
-        // Return an empty RaycastHit2D if no objects were hit
+        //Debug.Log("No objects detected by raycast.");
         return new RaycastHit2D();
     }
 }
