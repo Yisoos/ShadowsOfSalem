@@ -52,7 +52,7 @@ public class CloseUpToggle : MonoBehaviour
             // Check if we hit an inspectable object that has a mapped close-up
             if (hit.collider != null && closeUpMap.ContainsKey(hit.collider))
             {
-                Debug.Log("Hit an inspectable object!");
+                //Debug.Log("Hit an inspectable object!");
                 SwitchView(closeUpMap[hit.collider]);  // Use mapped close-up view for the clicked object
             }
         }

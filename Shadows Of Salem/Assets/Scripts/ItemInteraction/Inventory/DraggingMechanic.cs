@@ -55,7 +55,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
         // Obtener el componente de Tags del objeto
         Tags thisTag = gameObject.GetComponent<Tags>();
-        Debug.Log(thisTag.objectName);
+        //Debug.Log(thisTag.objectName);
 
         // Devolver el objeto a su padre original después de arrastrarlo
         transform.SetParent(parentAfterDrag);
@@ -64,7 +64,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         CheckForInteraction(eventData, thisTag);
 
         // Restaurar el cursor a la normalidad
-        CursorChanger.instance.SetCursorUI(0);
+        CursorChanger.instance.SetCursorToDefault();
 
         // Rehabilitar el raycast en la imagen arrastrada
         image.raycastTarget = true;
@@ -96,7 +96,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         }
         else
         {
-            Debug.Log("El raycast no golpeó nada.");
+            //Debug.Log("El raycast no golpeó nada.");
         }
     }
 
