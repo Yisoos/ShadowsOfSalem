@@ -4,16 +4,19 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 
+[RequireComponent(typeof(Tags))]
 public class OrderedDependencies : MonoBehaviour
 {
+    
     [Header("Elementos requeridos")]
-    public List<string> requiredItems; // Lista de elementos necesarios para este objeto (por ejemplo, teléfono, cable, pinzas)
-    public Inventory inventory; // Referencia al inventario
-    public Sprite[] dependencyMetSprite; // Sprite cuando el cable está conectado
+    [Space (20)] public List<string> requiredItems; // Lista de elementos necesarios para este objeto (por ejemplo, teléfono, cable, pinzas)
+    [Space(20)] public Inventory inventory; // Referencia al inventario
+    [Space(20)] public Sprite[] dependencyMetSprite; // Sprite cuando el cable está conectado
+    [Space(20)]
     public FeedbackTextController feedbackText;
     private SpriteRenderer spriteRenderer; // Referencia para cambiar el sprite
     private Tags thisTag;
-    [HideInInspector] public bool[] dependencyMet;
+    private bool[] dependencyMet;
 
     private void Start()
     {
@@ -92,5 +95,11 @@ public class OrderedDependencies : MonoBehaviour
             }
         }
         return true;
+    }
+    [ContextMenu("Conectar componentes generales")]
+    private void ConectarComponentesGenerales() 
+    {
+        feedbackText = FindFirstObjectByType<FeedbackTextController>();
+        inventory = FindFirstObjectByType<Inventory>();
     }
 }

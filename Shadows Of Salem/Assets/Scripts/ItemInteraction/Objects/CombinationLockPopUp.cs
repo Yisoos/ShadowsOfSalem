@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(Tags))]
 public class CombinationLockPopUp : MonoBehaviour
 {
     public CombinationLockControl combinationLock;

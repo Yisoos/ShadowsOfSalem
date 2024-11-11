@@ -17,7 +17,7 @@ public class Tags : MonoBehaviour
 {
     [Header("Datos Generales")]
     public string objectName;
-    [Tooltip("Array de mensajes: Generalmente, los primeros Elementos contienen los textos del objeto 'no accesible', y el ultimo Elemento contiene el mensaje de 'accesible'.")]
+    [TextArea(1,10),Tooltip("Array de mensajes: Generalmente, los primeros Elementos contienen los textos del objeto 'no accesible', y el ultimo Elemento contiene el mensaje de 'accesible'.")]
     public string[] displayText;
     public Sprite sprite;
     public int quantity;

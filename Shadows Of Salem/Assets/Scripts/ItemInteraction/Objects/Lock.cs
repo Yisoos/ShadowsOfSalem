@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
 
+[RequireComponent(typeof(Tags))]
 // Clase que representa un candado
 public class Lock : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Lock : MonoBehaviour
     public bool isLocked; // Indica si el candado está cerrado
     public int lockID; // El ID de este candado
     public bool isPhysicalLock; // Indica si es un candado físico
-    public Inventory inventoryOrder; // Referencia al inventario asociado
+    public Inventory inventory; // Referencia al inventario asociado
     public FeedbackTextController feedbackText;
    
     // Método que intenta desbloquear el candado con una llave
@@ -36,7 +37,7 @@ public class Lock : MonoBehaviour
                 feedbackText.PopUpText(lockTag.displayText[1]);
             }
 
-            inventoryOrder.DeleteItem(keyTag);
+            inventory.DeleteItem(keyTag);
         }
         else
         {
@@ -47,5 +48,10 @@ public class Lock : MonoBehaviour
             }
         }
     }
-   
+    [ContextMenu("Conectar componentes generales")]
+    private void ConectarComponentesGenerales()
+    {
+        feedbackText = FindFirstObjectByType<FeedbackTextController>();
+        inventory = FindFirstObjectByType<Inventory>();
+    }
 }

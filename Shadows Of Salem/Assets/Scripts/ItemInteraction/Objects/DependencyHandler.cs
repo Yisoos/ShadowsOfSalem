@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 
+[RequireComponent(typeof(Tags))]
 public class DependencyHandler : MonoBehaviour
 {
     [Header("Elementos requeridos")]
@@ -72,5 +73,11 @@ public class DependencyHandler : MonoBehaviour
             Debug.Log("El objeto ya es accesible");
             return true;
         }
+    }
+    [ContextMenu("Conectar componentes generales")]
+    private void ConectarComponentesGenerales()
+    {
+        feedbackText = FindFirstObjectByType<FeedbackTextController>();
+        inventory = FindFirstObjectByType<Inventory>();
     }
 }

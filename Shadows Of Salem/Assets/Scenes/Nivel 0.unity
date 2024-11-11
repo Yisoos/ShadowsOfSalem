@@ -1462,7 +1462,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: aaba74b8a92450542a4179f02b81d600, type: 3}
   - {fileID: 21300000, guid: 285c0faf90e8e374faa5753a052c86ef, type: 3}
   feedbackText: {fileID: 6973665184144531453}
-  dependencyMet: 
 --- !u!60 &562738085
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2182,7 +2181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &690355919
 Transform:
   m_ObjectHideFlags: 0
@@ -4412,7 +4411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1346029456
 Transform:
   m_ObjectHideFlags: 0
@@ -5581,7 +5580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1665301426
 Transform:
   m_ObjectHideFlags: 0
@@ -5710,7 +5709,7 @@ MonoBehaviour:
   feedbackText: {fileID: 6973665184144531453}
   combination: 0312
   popUpLockPrefab: {fileID: 5636392485063428453, guid: 90480714d3bba5540b1b225b412311b3, type: 3}
-  PopUpLockParent: {fileID: 1423499380}
+  popUpLockParent: {fileID: 1423499380}
 --- !u!114 &1665301430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6072,7 +6071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1840554811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6394,7 +6393,7 @@ MonoBehaviour:
   isLocked: 1
   lockID: 1
   isPhysicalLock: 0
-  inventoryOrder: {fileID: 1684904970}
+  inventory: {fileID: 0}
   feedbackText: {fileID: 6973665184144531453}
 --- !u!114 &1884930297
 MonoBehaviour:
@@ -6802,7 +6801,7 @@ MonoBehaviour:
   - {fileID: 1840554810}
   - {fileID: 1873223423}
   startingView: 0
-  roomEndViews: 02000000
+  roomEndViews: 0200000000000000
   currentView: 0
   arrow:
   - {fileID: 6973665184144531451}

@@ -3,10 +3,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-#region Declaración de Clase y Variables
+[RequireComponent(typeof(Tags),typeof(UIButtonCursorChanger))] 
 // Clase que maneja la mecánica de arrastre de un objeto en la interfaz de usuario
 public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    #region Declaración de Clase y Variables
     // Imagen que representa el objeto que se arrastra
     public Image image;
     public float magnificationOnDrag;

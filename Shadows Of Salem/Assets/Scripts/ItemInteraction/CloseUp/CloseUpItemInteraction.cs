@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CloseUpItemInteraction : MonoBehaviour
 {
-    public Collider2D[] objetosEstadoInicial;
-    public Collider2D[] objetosEstadoAlternativo;
+    [Tooltip("Arrastrar el/los objetos como quieres que aparezca al entrar en la vista close up")]public Collider2D[] objetosEstadoInicial;
+    [Tooltip("Arrastrar el/los objetos en el estado que quieres que aparezcan al hacer click en él/ellos (si no quieres que cambie, pon el mismo del estado inicial)")] public Collider2D[] objetosEstadoAlternativo;
     public FeedbackTextController feedbackTextController;
 
     private void OnEnable()
