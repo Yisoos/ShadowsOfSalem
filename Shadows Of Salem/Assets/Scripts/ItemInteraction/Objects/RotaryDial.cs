@@ -7,10 +7,12 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     public float StartingRotation;
     public float EndRotation;
     [Range(0,60)]public float dialReturnSpeed;
+
     private Vector2 Current;
     private float previousAngle; 
     private float currentAngle;
     private float startRotation;
+    private bool isReturning;
 
     private void Start()
     {
@@ -40,12 +42,15 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     public void OnDrag(PointerEventData eventData)
     {
-        Vector3 origin = transform.position;
-        Vector3 pointer = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
-        currentAngle = GetAngleBetweenPoints(origin, pointer);
-        Debug.Log("Angle between points: " + currentAngle + " degrees");
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z+(currentAngle - previousAngle));
-        previousAngle = GetAngleBetweenPoints(origin, pointer); ;
+        if (!isReturning)
+        {
+            Vector3 origin = transform.position;
+            Vector3 pointer = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
+            currentAngle = GetAngleBetweenPoints(origin, pointer);
+            Debug.Log("Angle between points: " + currentAngle + " degrees");
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z+(currentAngle - previousAngle));
+            previousAngle = GetAngleBetweenPoints(origin, pointer); 
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -55,6 +60,9 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     private IEnumerator ReturnDialPosition()
     {
+        isReturning = true;
+
+        isReturning = false;
         return null;
     }
 }
