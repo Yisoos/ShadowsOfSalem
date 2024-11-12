@@ -5947,11 +5947,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 107844619311862226, guid: 2a9f42df249769343b3ce762dd8e1b32, type: 3}
   m_PrefabInstance: {fileID: 865492670}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &1726014224 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 78486509349624835, guid: 2a9f42df249769343b3ce762dd8e1b32, type: 3}
-  m_PrefabInstance: {fileID: 865492670}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1726014227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5964,10 +5959,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bbb5c89f873474190deb05bfa91ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialTransform: {fileID: 1726014224}
-  minRotationAngle: 0
-  maxRotationAngle: 210
-  returnSpeed: 200
+  StartingRotation: 0
+  EndRotation: 0
+  dialReturnSpeed: 8.8
 --- !u!1 &1726103777
 GameObject:
   m_ObjectHideFlags: 0
