@@ -1,147 +1,175 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using TMPro;
-using System.Globalization;
+using UnityEngine.EventSystems;
 
+// Clase RotaryDial para simular el comportamiento de un dial giratorio
 public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public float defaultRotation;
-    public float endRotation;
-    [Range(0,15)]public float dialReturnSpeed;
-    [SerializeField] private string numberToCall;
-    [SerializeField] private string displayedNumber;
-
-    private GameObject originalButton;
-    private string currentNumber;
-    private float previousAngle; 
-    private float currentAngle;
+    public float defaultRotation; // Ángulo de rotación inicial del dial
+    public float endRotation; // Ángulo de rotación inicial del dial
+    [Range(0, 15)] public float dialReturnSpeed; // Velocidad de retorno del dial a su posición inicial
+    public string numberToCall; // Número de teléfono que se desea marcar
+    public FeedbackTextController feedbackText;
+    public TMP_Text phoneNumberDisplay;
+    private string currentNumber; // Número actual que se obtiene al girar el dial
     private float startAngle;
-    private bool isReturning;
-    private bool endRotationReached;
+    private float previousAngle; // Ángulo previo al girar
+    private float currentAngle; // Ángulo actual durante el giro
+    private bool isReturning; // Indicador de si el dial está volviendo a su posición inicial
+    private float distanceToEnd;
+    private float currentDistanceToEnd;
 
     private void Start()
     {
+        if (feedbackText != null ) 
+        { 
+        feedbackText.gameObject.SetActive(false);
+        }
+        phoneNumberDisplay.text = string.Empty;
     }
-
+    private void OnDisable()
+    {
+        feedbackText.gameObject.SetActive(true);
+    }
+    // Calcula el ángulo entre dos puntos en la pantalla
     float GetAngleBetweenPoints(Vector3 from, Vector3 to)
     {
-        // Calculate direction vector from 'from' to 'to'
         Vector3 direction = to - from;
-
-        // Get the currentAngle in radians, then convert to degrees
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // Make sure currentAngle is always positive (0 to 360 degrees)
-        angle += 20f;
-        if (angle < 20) angle += 360f;
-        if (angle >360) angle -= 360f;
+        // Normalize the angle to be within 0 to 360 degrees
+        if (angle < 0) angle += 360f;
+
         return angle;
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    private TMP_Text GetDigit(PointerEventData eventData)
     {
-        // Store the original button being dragged
-        originalButton = eventData.pointerEnter;
-
-        // Check if there is another button at this position
-        GameObject overlappingButton = GetUIElementUnderPointer(eventData);
-        TMP_Text digit = overlappingButton.GetComponent<TMP_Text>();
-        if (overlappingButton != null && overlappingButton != originalButton && digit!=null)
+        // Create a new PointerEventData instance for the event
+        PointerEventData pointerEventData = new PointerEventData(EventSystem.current)
         {
-            currentNumber=digit.text;
-            Debug.Log(digit.text);
-        }
-        else
-        {
-            Debug.Log("Started dragging without overlapping a different button.");
-        Vector3 origin = transform.position;
-        Vector3 pointer = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
-        startAngle = GetAngleBetweenPoints(origin, pointer);
-        previousAngle = startAngle;
+            position = eventData.position
+        };
 
-        
+        // List to store the raycast results
+        List<RaycastResult> results = new List<RaycastResult>();
+
+        // Perform the raycast to find all UI objects under the pointer
+        EventSystem.current.RaycastAll(pointerEventData, results);
+
+        // Loop through the results and check for TMP_Text components
+        foreach (var result in results)
+        {
+            // Check if the RaycastResult's GameObject has a TMP_Text component
+            TMP_Text tmpTextComponent = result.gameObject.GetComponent<TMP_Text>();
+
+            if (tmpTextComponent != null)
+            {
+                // Log the name of the UI element containing TMP_Text
+                //Debug.Log("UI Object with TMP_Text hit: " + result.gameObject.name);
+
+                // Return the TMP_Text component
+                return tmpTextComponent;
+            }
         }
+
+        // Return null if no UI object with TMP_Text is found
+        return null;
     }
 
+    // Evento que se ejecuta al iniciar el arrastre del dial
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        Vector3 origin = transform.position;
+        Vector3 pointer = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(transform.position).z));
+       
+        startAngle = GetAngleBetweenPoints(origin, pointer);
+        previousAngle = startAngle;
+        distanceToEnd = startAngle < endRotation? startAngle + (360 - endRotation) : startAngle-endRotation;
+        Debug.Log(distanceToEnd);
+        currentDistanceToEnd = distanceToEnd;
+        currentNumber = GetDigit(eventData).text;
+    }
+
+    // Evento que se ejecuta mientras se arrastra el dial
     public void OnDrag(PointerEventData eventData)
     {
         if (!isReturning)
         {
+            //Debug.Log($"{previousAngle}");
+
             Vector3 origin = transform.position;
-            Vector3 pointer = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
-            float currentRotation = transform.rotation.eulerAngles.z;
+            Vector3 pointer = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
+
             currentAngle = GetAngleBetweenPoints(origin, pointer);
             float rotateDirection = currentAngle - previousAngle;
 
-            if (Mathf.Abs(currentAngle - endRotation) <= 1f && Mathf.Abs(transform.rotation.z - endRotation ) >= 0.1f)
+            if (rotateDirection < 0 && rotateDirection > -50 && currentDistanceToEnd > 0)
             {
-                endRotationReached = true;
+                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + rotateDirection);
+                currentDistanceToEnd = currentDistanceToEnd + rotateDirection >= -50 ? currentDistanceToEnd + rotateDirection : currentDistanceToEnd;
+               // currentDistanceToEnd += rotateDirection;
+                Debug.Log(rotateDirection);
             }
-                Debug.Log(currentAngle);
-            if (currentAngle <= startAngle && currentAngle >= endRotation && !endRotationReached)
-            {
-                transform.rotation =  Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z + (rotateDirection));
-                
-            }
-            previousAngle = GetAngleBetweenPoints(origin, pointer); 
+
+            previousAngle = currentAngle;
         }
     }
 
+    // Evento que se ejecuta al finalizar el arrastre del dial
     public void OnEndDrag(PointerEventData eventData)
     {
-        StartCoroutine(ReturnDialPosition());
-        if (endRotationReached)
+        if (currentDistanceToEnd <= 0)
         {
-            displayedNumber += displayedNumber == null ? currentNumber : "-" + currentNumber;
-            Debug.Log(displayedNumber);
+            // Only add the number if rotation has completed
+            if (phoneNumberDisplay != null)
+            {
+                if (!string.IsNullOrEmpty(currentNumber))
+                {
+                    phoneNumberDisplay.text += string.IsNullOrEmpty(phoneNumberDisplay.text) ? currentNumber : $"-{currentNumber}";
+                }
+                if (phoneNumberDisplay.text.Length >= numberToCall.Length)
+                {
+                    if(phoneNumberDisplay.text == numberToCall) 
+                    {
+                        Debug.Log("Llamando al jefe...");
+                    }
+                    else
+                    {
+                        phoneNumberDisplay.text = string.Empty;
+                    }
+                }
+            }
         }
-        endRotationReached = false;
+        currentNumber = string.Empty;
+        StartCoroutine(ReturnDialPosition());
     }
 
+    // Corrutina que devuelve el dial a su posición inicial
     private IEnumerator ReturnDialPosition()
     {
         isReturning = true;
 
         float currentRotation = transform.rotation.eulerAngles.z;
         float targetRotation = defaultRotation;
-        float step = dialReturnSpeed * Time.deltaTime*20; // Linear speed step per frame
+        float step = dialReturnSpeed * Time.deltaTime * 20; // Velocidad de retorno por frame
 
         while (Mathf.Abs(currentRotation - targetRotation) > 0.1f)
         {
-            // Move the current rotation closer to the target by a fixed amount
-            currentRotation = currentRotation < targetRotation ? Mathf.MoveTowards(currentRotation, targetRotation, step) : Mathf.MoveTowards(currentRotation-360, targetRotation, step);
+            currentRotation = currentRotation < targetRotation ? Mathf.MoveTowards(currentRotation, targetRotation, step) : Mathf.MoveTowards(currentRotation - 360, targetRotation, step);
             transform.rotation = Quaternion.Euler(0, 0, currentRotation);
             yield return null;
         }
 
-        // Snap exactly to starting rotation at the end
         transform.rotation = Quaternion.Euler(0, 0, defaultRotation);
         isReturning = false;
     }
 
-    private GameObject GetUIElementUnderPointer(PointerEventData eventData)
+    [ContextMenu("Conectar componentes generales")]
+    private void ConectarComponentesGenerales()
     {
-        // Raycast to find UI element under pointer
-        PointerEventData pointerEventData = new PointerEventData(EventSystem.current)
-        {
-            position = eventData.position
-        };
-
-        var results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerEventData, results);
-
-        // Find first UI element that is not the original button being dragged
-        foreach (var result in results)
-        {
-            if (result.gameObject != originalButton)
-            {
-                return result.gameObject; // Found another UI element
-            }
-        }
-
-        return null; // No overlapping UI element found
+        feedbackText = FindFirstObjectByType<FeedbackTextController>();
     }
 }
