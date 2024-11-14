@@ -6,14 +6,19 @@ using UnityEngine;
 public class RotaryDialControl : MonoBehaviour
 {
     [Space(10)] public FeedbackTextController feedbackText;
-    [Space(10),Tooltip("Separa cada número con un '-' ")]public string PhoneNumberToDial; // The key to unlock this lock
+    [Space(10),Tooltip("Separa cada número con un '-' ")]public string numberToCall; // The key to unlock this lock
+    [Space(10), Range(0, 15)] public float dialReturnSpeed; // Velocidad de retorno del dial a su posición inicial
     [Space(10)]public GameObject dialDisplayPrefab;
     [Space(10)] public Transform dialDispalyParent;
+    [Space(10)] public Transform UIInventoryDisplay;
+    public bool dependenciesMet = false;
 
     public void OnMouseDown()
     {
-        
+        if (dependenciesMet) 
+        { 
             StartCoroutine(PopUpWindowManager());
+        }
     }
 
     private IEnumerator PopUpWindowManager()
@@ -41,9 +46,10 @@ public class RotaryDialControl : MonoBehaviour
             if (!foundMatchingTag)
             {
                 GameObject popUp = Instantiate(dialDisplayPrefab, dialDispalyParent);
-                popUp.transform.SetAsLastSibling();
-                RotaryDial popUpScript = popUp.GetComponent<RotaryDial>();
+                RotaryDial popUpScript = popUp.GetComponentInChildren<RotaryDial>();
                 popUpScript.phoneParent = this;
+                popUpScript.phoneNumberDisplay.text = string.Empty;
+                popUp.transform.SetAsLastSibling();
             }
 
             // Disable the Collider

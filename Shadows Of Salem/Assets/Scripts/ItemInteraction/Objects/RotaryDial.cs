@@ -9,41 +9,36 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 {
     public float defaultRotation; // Ángulo de rotación inicial del dial
     public float endRotation; // Ángulo de rotación inicial del dial
-    [Range(0, 15)] public float dialReturnSpeed; // Velocidad de retorno del dial a su posición inicial
-    public string numberToCall; // Número de teléfono que se desea marcar
-    public FeedbackTextController feedbackText;
     public TMP_Text phoneNumberDisplay;
-    public Transform inventory;
     public RotaryDialControl phoneParent;
     private string currentNumber; // Número actual que se obtiene al girar el dial
     private float startAngle;
     private float previousAngle; // Ángulo previo al girar
     private float currentAngle; // Ángulo actual durante el giro
     private bool isReturning; // Indicador de si el dial está volviendo a su posición inicial
-    private float distanceToEnd;
-    private float currentDistanceToEnd;
+    private float DistanceToEnd;
 
     private void OnEnable()
     {
-        if (inventory != null)
+        if (phoneParent.UIInventoryDisplay != null)
         {
-            inventory.gameObject.SetActive(false);
+            phoneParent.UIInventoryDisplay.gameObject.SetActive(false);
         }
-        if (feedbackText != null ) 
+        if (phoneParent.feedbackText != null ) 
         { 
-            feedbackText.gameObject.SetActive(false);
+            phoneParent.feedbackText.gameObject.SetActive(false);
         }
         phoneNumberDisplay.text = string.Empty;
     }
     private void OnDisable()
     {
-        if (inventory != null)
+        if (phoneParent.UIInventoryDisplay != null)
         {
-            inventory.gameObject.SetActive(true);
+            phoneParent.UIInventoryDisplay.gameObject.SetActive(true);
         }
-        if (feedbackText != null)
+        if (phoneParent.feedbackText != null)
         {
-            feedbackText.gameObject.SetActive(true);
+            phoneParent.feedbackText.gameObject.SetActive(true);
 
         }
     }
@@ -101,9 +96,7 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
        
         startAngle = GetAngleBetweenPoints(origin, pointer);
         previousAngle = startAngle;
-        distanceToEnd = startAngle < endRotation? startAngle + (360 - endRotation) : startAngle-endRotation;
-        Debug.Log(distanceToEnd);
-        currentDistanceToEnd = distanceToEnd;
+        DistanceToEnd = startAngle < endRotation? startAngle + (360 - endRotation) : startAngle-endRotation;
         currentNumber = GetDigit(eventData).text;
     }
 
@@ -120,10 +113,10 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             currentAngle = GetAngleBetweenPoints(origin, pointer);
             float rotateDirection = currentAngle - previousAngle;
 
-            if (rotateDirection < 0 && rotateDirection > -50 && currentDistanceToEnd > 0)
+            if (rotateDirection < 0 && rotateDirection > -50 && DistanceToEnd > 0)
             {
                 transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + rotateDirection);
-                currentDistanceToEnd = currentDistanceToEnd + rotateDirection >= -50 ? currentDistanceToEnd + rotateDirection : currentDistanceToEnd;
+                DistanceToEnd = DistanceToEnd + rotateDirection >= -50 ? DistanceToEnd + rotateDirection : DistanceToEnd;
                // currentDistanceToEnd += rotateDirection;
                 Debug.Log(rotateDirection);
             }
@@ -135,7 +128,7 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     // Evento que se ejecuta al finalizar el arrastre del dial
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (currentDistanceToEnd <= 0)
+        if (DistanceToEnd <= 5)
         {
             // Only add the number if rotation has completed
             if (phoneNumberDisplay != null)
@@ -144,9 +137,9 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
                 {
                     phoneNumberDisplay.text += string.IsNullOrEmpty(phoneNumberDisplay.text) ? currentNumber : $"-{currentNumber}";
                 }
-                if (phoneNumberDisplay.text.Length >= numberToCall.Length)
+                if (phoneNumberDisplay.text.Length >= phoneParent.numberToCall.Length)
                 {
-                    if(phoneNumberDisplay.text == numberToCall) 
+                    if(phoneNumberDisplay.text == phoneParent.numberToCall) 
                     {
                         Debug.Log("Llamando al jefe...");
                     }
@@ -168,7 +161,7 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
         float currentRotation = transform.rotation.eulerAngles.z;
         float targetRotation = defaultRotation;
-        float step = dialReturnSpeed * Time.deltaTime * 20; // Velocidad de retorno por frame
+        float step = phoneParent.dialReturnSpeed * Time.deltaTime * 20; // Velocidad de retorno por frame
 
         while (Mathf.Abs(currentRotation - targetRotation) > 0.1f)
         {
@@ -181,9 +174,57 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         isReturning = false;
     }
 
-    [ContextMenu("Conectar componentes generales")]
-    private void ConectarComponentesGenerales()
+    public void DesactivarPopUp() 
     {
-        feedbackText = FindFirstObjectByType<FeedbackTextController>();
+        if (!isMouseOnDial()) 
+        {
+            OnDisable();
+            transform.parent.gameObject.SetActive(false);
+
+            Collider2D parentCollider = phoneParent.GetComponent<Collider2D>();
+            if (parentCollider != null)
+            {
+                parentCollider.enabled = true;
+                //Debug.Log("Collider has been disabled.");
+            }
+        }
     }
+
+    public bool isMouseOnDial()
+    {
+        // Check if the mouse is over a UI element
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            // Get the direct parent of this UI element
+            Transform directParent = transform.parent;
+
+            // If there is no parent, return false
+            if (directParent == null)
+                return true;
+
+            // Prepare PointerEventData to store the current mouse position
+            PointerEventData pointerData = new PointerEventData(EventSystem.current)
+            {
+                position = Input.mousePosition
+            };
+
+            // Store only the topmost UI element under the mouse position
+            var raycastResults = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerData, raycastResults);
+
+            // Check if the topmost element is the direct parent
+            if (raycastResults.Count > 0)
+            {
+                // The first element in raycastResults is the topmost UI element
+                if (raycastResults[0].gameObject == directParent.gameObject)
+                {
+                    return false;
+                }
+            }
+        }
+
+        // Return false if the topmost UI element is not the direct parent
+        return false;
+    }
+
 }

@@ -89,6 +89,7 @@ public class CloseUpItemInteraction : MonoBehaviour
         OrderedDependencies itemDependencyByOrder = objectHit.GetComponent<OrderedDependencies>();
         CombinationLockControl combinationLocked = objectHit.GetComponent<CombinationLockControl>();
         Coleccionable collectable = objectHit.GetComponent<Coleccionable>();
+        RotaryDialControl rotaryDialControl = objectHit.GetComponent<RotaryDialControl>();
 
         // Si el objeto está bloqueado, muestra mensaje y devuelve falso
         if (itemLocked != null && itemLocked.isLocked)
@@ -118,6 +119,10 @@ public class CloseUpItemInteraction : MonoBehaviour
         {
             collectable.CollectItem();
             return false;
+        }
+        if (rotaryDialControl != null && itemDependencyByOrder != null)
+        {
+            rotaryDialControl.dependenciesMet = itemDependencyByOrder.dependencyMet[itemDependencyByOrder.dependencyMet.Length - 1];
         }
 
         // Si no hay restricciones, devuelve verdadero

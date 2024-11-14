@@ -16,7 +16,7 @@ public class OrderedDependencies : MonoBehaviour
     public FeedbackTextController feedbackText;
     private SpriteRenderer spriteRenderer; // Referencia para cambiar el sprite
     private Tags thisTag;
-    private bool[] dependencyMet;
+    [HideInInspector] public bool[] dependencyMet;
 
     private void Start()
     {

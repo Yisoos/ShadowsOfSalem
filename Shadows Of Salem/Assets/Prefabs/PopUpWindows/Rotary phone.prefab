@@ -91,10 +91,7 @@ MonoBehaviour:
   defaultRotation: 0
   endRotation: 340
   dialReturnSpeed: 7.09
-  numberToCall: 3-8-9-1-7
-  feedbackText: {fileID: 0}
   phoneNumberDisplay: {fileID: 645413669472756979}
-  inventory: {fileID: 0}
   phoneParent: {fileID: 0}
 --- !u!1 &290276338221010053
 GameObject:
@@ -184,7 +181,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290276338221010053}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -221,10 +218,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 290276338221010053}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 3587088665569295885}
+        m_TargetAssemblyTypeName: RotaryDial, Assembly-CSharp
+        m_MethodName: DesactivarPopUp
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2087,7 +2084,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3-8-9-1-7
+  m_text: 0-1-2-3-4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b55f0db5873e2d3418dcac6ce8bc9465, type: 2}
   m_sharedMaterial: {fileID: 1582558983478268921, guid: b55f0db5873e2d3418dcac6ce8bc9465, type: 2}
