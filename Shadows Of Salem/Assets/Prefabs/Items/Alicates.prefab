@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7461977181295672298}
   - component: {fileID: 6036662115135243276}
   - component: {fileID: 1414600988108829769}
+  - component: {fileID: 5585211024636408062}
   m_Layer: 5
   m_Name: Alicates
   m_TagString: Untagged
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e4371df4bf29c674384840e2e7b951e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2fa16f3b90b69db40b417d1643ddad53, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -90,8 +91,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Alicates
-  displayText: Para arreglar el telefono necesito el cable...
-  displayText2: 
+  displayText:
+  - Cable roto fuera, Ahora falta poner el nuevo
+  - "\xA1Cable roto desconectado!"
   sprite: {fileID: 21300000, guid: 3563cd1b13a13c34fa77152beac1b398, type: 3}
   quantity: 1
   objectType: 2
@@ -110,3 +112,16 @@ MonoBehaviour:
   image: {fileID: 7461977181295672298}
   magnificationOnDrag: 1.5
   parentAfterDrag: {fileID: 0}
+--- !u!114 &5585211024636408062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204294384838603436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f06defcc3307934d80c8eb4fdab9bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorIndex: 0

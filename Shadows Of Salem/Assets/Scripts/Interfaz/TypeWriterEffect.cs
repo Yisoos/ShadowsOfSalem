@@ -6,6 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class TypeWriterEffect : MonoBehaviour
 {
+
+    AudioManager audioManager; // controlar Sonido
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>(); //Se utiliza para que suene el efeco de sonido
+    }
+   
+
     TMP_Text _tmpProText;
     string originalText; //  Almacena el texto original del componente TMP antes de que se inicie el efecto
 
@@ -25,7 +34,7 @@ public class TypeWriterEffect : MonoBehaviour
     [SerializeField] TMP_Text title;
 
     public CambiarEscenas changeScenes;
-    private string nombreEscena;
+
     void Start()
     {
         _tmpProText = GetComponent<TMP_Text>();
@@ -41,6 +50,7 @@ public class TypeWriterEffect : MonoBehaviour
                 flechita.SetActive(false);
             }
 
+            changeScenes = FindObjectOfType<CambiarEscenas>();
 
             StartCoroutine(TypePhrase(phrases[currentPhraseIndex])); // Inicia la corrutina para realizar el efecto de máquina de escribir
         }
@@ -48,12 +58,16 @@ public class TypeWriterEffect : MonoBehaviour
 
     IEnumerator TypePhrase(string phrase)
     {
+
+        // Reproducir sonido SFX cuando se salta la escritura
+        audioManager.PlaySFX(audioManager.saltoDeEscritura);
+
         isTyping = true;
         hasFinishedTyping = false;
         originalText = phrase;
         _tmpProText.text = leadingCharBeforeDelay ? leadingChar : ""; // mostrar o no el leadingchar
 
-        yield return new WaitForSeconds(delayBeforeStart); // Espera el tiempo especificado antes de comenzar a escribir
+        yield return new WaitForSeconds(delayBeforeStart); // // Espera el tiempo especificado antes de comenzar a escribir
 
         foreach (char letter in phrase.ToCharArray())
         {
@@ -65,9 +79,9 @@ public class TypeWriterEffect : MonoBehaviour
             _tmpProText.text += leadingChar; // Vuelve a añadir el leadingChar para dar la ilusión de que el cursor sigue parpadeando o moviéndose después de cada carácter
             yield return new WaitForSeconds(timeBtwChars);
         }
-        _tmpProText.text = phrase; // asegurar de que toda la frase esté escrita
-        isTyping = false; // efecto de escribir ha terminado
-        hasFinishedTyping = true; // hemos terminado de escribir las frases
+        _tmpProText.text = phrase; // Ensure the full phrase is displayed at the end
+        isTyping = false; // Typing effect finished
+        hasFinishedTyping = true; // Phrase has finished typing
 
         if (flechita != null)
         {
@@ -140,7 +154,7 @@ public class TypeWriterEffect : MonoBehaviour
         // cambiar de escena (nivel 0) cuando termine de escribir todas las frases
         if (changeScenes != null)
         {
-            changeScenes.PasarEscena(); // metodo del script "CambiarEscenas"
+            changeScenes.CambiarEscenaSinInput(); // metodo del script "CambiarEscenas"
         }
     }
 }

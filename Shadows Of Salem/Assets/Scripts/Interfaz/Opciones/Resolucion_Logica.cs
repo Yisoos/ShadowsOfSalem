@@ -7,40 +7,63 @@ using UnityEngine.UI;
 public class Resolucion_Logica : MonoBehaviour
 {
     public TMP_Dropdown dropdown;
-    Resolution[] resolution;
-    
-    // Start is called before the first frame update
+    private Resolution[] resolutions;
+    private AudioManager audioManager; // Controlador de sonido
+
     void Start()
     {
+        // Inicializa el AudioManager al iniciar el script
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
         CheckResolution();
+
+        // Agrega un listener al Dropdown para reproducir sonido cuando se selecciona una opción
+        dropdown.onValueChanged.AddListener(OnDropdownClick);
     }
+
     public void CheckResolution()
     {
-        resolution = Screen.resolutions;
+        resolutions = Screen.resolutions;
         dropdown.ClearOptions();
         List<string> options = new List<string>();
         int currentResolution = 0;
 
-        // Populate the options list and find the current resolution
-        for (int i = 0; i < resolution.Length; i++)
+        // Agrega opciones al dropdown y busca la resolución actual
+        for (int i = 0; i < resolutions.Length; i++)
         {
-            string option = resolution[i].width + "x" + resolution[i].height;
-            options.Add(option);  // Add options to the dropdown
-            if ((Screen.currentResolution.height == resolution[i].height) &&
-                (Screen.currentResolution.width == resolution[i].width))
+            string option = resolutions[i].width + "x" + resolutions[i].height;
+            options.Add(option);
+
+            if ((Screen.currentResolution.height == resolutions[i].height) &&
+                (Screen.currentResolution.width == resolutions[i].width))
             {
                 currentResolution = i;
             }
         }
+
         dropdown.AddOptions(options);
         dropdown.value = PlayerPrefs.GetInt("Resolution", currentResolution);
         dropdown.RefreshShownValue();
     }
 
-    public void ChangeResolution(int resolutionIndicator)
+    public void ChangeResolution(int resolutionIndex)
     {
-        Resolution newResolution = resolution[resolutionIndicator];
+        Resolution newResolution = resolutions[resolutionIndex];
         Screen.SetResolution(newResolution.width, newResolution.height, Screen.fullScreen);
-        PlayerPrefs.SetInt("Resolution", resolutionIndicator); // Store selected resolution in PlayerPrefs
+        PlayerPrefs.SetInt("Resolution", resolutionIndex); // Guarda la resolución seleccionada
+    }
+
+    // Método que se llama cuando se hace clic en el Dropdown
+    private void OnDropdownClick(int value)
+    {
+        // Reproduce el sonido al hacer clic en el Dropdown
+        if (audioManager != null)
+        {
+            audioManager.PlaySFX(audioManager.ClickButton); // Asegúrate de tener un clip asignado en AudioManager
+        }
+        else
+        {
+            Debug.LogWarning("AudioManager no encontrado.");
+        }
     }
 }
