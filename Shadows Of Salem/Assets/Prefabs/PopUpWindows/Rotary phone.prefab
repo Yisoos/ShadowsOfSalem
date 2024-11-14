@@ -88,12 +88,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bbb5c89f873474190deb05bfa91ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultRotation: -1
-  endRotation: 0
-  dialReturnSpeed: 8.8
-  phoneNumberDisplay: {fileID: 645413669472756979}
+  defaultRotation: 0
+  endRotation: 340
+  dialReturnSpeed: 7.09
   numberToCall: 3-8-9-1-7
-  displayedNumber: 
+  feedbackText: {fileID: 0}
+  phoneNumberDisplay: {fileID: 645413669472756979}
+  inventory: {fileID: 0}
+  phoneParent: {fileID: 0}
 --- !u!1 &290276338221010053
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +108,7 @@ GameObject:
   - component: {fileID: 2086870927883063410}
   - component: {fileID: 3032984201191824524}
   - component: {fileID: 1363692212569548438}
+  - component: {fileID: 8848161222012933341}
   m_Layer: 5
   m_Name: Rotary phone
   m_TagString: Untagged
@@ -181,7 +184,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290276338221010053}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -230,6 +233,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8848161222012933341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290276338221010053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: Rotary Phone
+  displayText: []
+  sprite: {fileID: 0}
+  quantity: 1
+  objectType: 5
 --- !u!1 &355240868942395345
 GameObject:
   m_ObjectHideFlags: 0

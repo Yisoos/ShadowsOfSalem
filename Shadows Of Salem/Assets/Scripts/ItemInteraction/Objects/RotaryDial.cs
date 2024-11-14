@@ -13,6 +13,8 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     public string numberToCall; // Número de teléfono que se desea marcar
     public FeedbackTextController feedbackText;
     public TMP_Text phoneNumberDisplay;
+    public Transform inventory;
+    public RotaryDialControl phoneParent;
     private string currentNumber; // Número actual que se obtiene al girar el dial
     private float startAngle;
     private float previousAngle; // Ángulo previo al girar
@@ -21,17 +23,29 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     private float distanceToEnd;
     private float currentDistanceToEnd;
 
-    private void Start()
+    private void OnEnable()
     {
+        if (inventory != null)
+        {
+            inventory.gameObject.SetActive(false);
+        }
         if (feedbackText != null ) 
         { 
-        feedbackText.gameObject.SetActive(false);
+            feedbackText.gameObject.SetActive(false);
         }
         phoneNumberDisplay.text = string.Empty;
     }
     private void OnDisable()
     {
-        feedbackText.gameObject.SetActive(true);
+        if (inventory != null)
+        {
+            inventory.gameObject.SetActive(true);
+        }
+        if (feedbackText != null)
+        {
+            feedbackText.gameObject.SetActive(true);
+
+        }
     }
     // Calcula el ángulo entre dos puntos en la pantalla
     float GetAngleBetweenPoints(Vector3 from, Vector3 to)
