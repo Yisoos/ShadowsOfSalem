@@ -20,15 +20,16 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     private void OnEnable()
     {
-        if (phoneParent.UIInventoryDisplay != null)
+        if (phoneParent!= null && phoneParent.UIInventoryDisplay != null)
         {
             phoneParent.UIInventoryDisplay.gameObject.SetActive(false);
         }
-        if (phoneParent.feedbackText != null ) 
+        if (phoneParent != null && phoneParent.feedbackText != null ) 
         { 
             phoneParent.feedbackText.gameObject.SetActive(false);
         }
         phoneNumberDisplay.text = string.Empty;
+        transform.rotation = Quaternion.Euler(0, 0, defaultRotation);
     }
     private void OnDisable()
     {
@@ -97,7 +98,10 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         startAngle = GetAngleBetweenPoints(origin, pointer);
         previousAngle = startAngle;
         DistanceToEnd = startAngle < endRotation? startAngle + (360 - endRotation) : startAngle-endRotation;
+        if (eventData != null)
+        {
         currentNumber = GetDigit(eventData).text;
+        }
     }
 
     // Evento que se ejecuta mientras se arrastra el dial
@@ -118,7 +122,7 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
                 transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + rotateDirection);
                 DistanceToEnd = DistanceToEnd + rotateDirection >= -50 ? DistanceToEnd + rotateDirection : DistanceToEnd;
                // currentDistanceToEnd += rotateDirection;
-                Debug.Log(rotateDirection);
+                //Debug.Log(rotateDirection);
             }
 
             previousAngle = currentAngle;
@@ -133,20 +137,17 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             // Only add the number if rotation has completed
             if (phoneNumberDisplay != null)
             {
+                if (phoneNumberDisplay.text.Length >= phoneParent.numberToCall.Length)
+                {
+                        phoneNumberDisplay.text = string.Empty;
+                }
                 if (!string.IsNullOrEmpty(currentNumber))
                 {
                     phoneNumberDisplay.text += string.IsNullOrEmpty(phoneNumberDisplay.text) ? currentNumber : $"-{currentNumber}";
                 }
-                if (phoneNumberDisplay.text.Length >= phoneParent.numberToCall.Length)
+                if (phoneNumberDisplay.text == phoneParent.numberToCall)
                 {
-                    if(phoneNumberDisplay.text == phoneParent.numberToCall) 
-                    {
-                        Debug.Log("Llamando al jefe...");
-                    }
-                    else
-                    {
-                        phoneNumberDisplay.text = string.Empty;
-                    }
+                    Debug.Log("Llamando al jefe...");
                 }
             }
         }

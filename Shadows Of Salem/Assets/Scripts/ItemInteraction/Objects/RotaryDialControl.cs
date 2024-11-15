@@ -11,10 +11,14 @@ public class RotaryDialControl : MonoBehaviour
     [Space(10)]public GameObject dialDisplayPrefab;
     [Space(10)] public Transform dialDispalyParent;
     [Space(10)] public Transform UIInventoryDisplay;
-    public bool dependenciesMet = false;
+    public bool dependenciesMet;
 
     public void OnMouseDown()
     {
+        OrderedDependencies orderedDependencies = GetComponent<OrderedDependencies>();
+       
+            dependenciesMet = orderedDependencies != null? orderedDependencies.dependencyMet[orderedDependencies.dependencyMet.Length-1] : true;
+        
         if (dependenciesMet) 
         { 
             StartCoroutine(PopUpWindowManager());
