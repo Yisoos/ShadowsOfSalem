@@ -63,7 +63,7 @@ public class OrderedDependencies : MonoBehaviour
 
                 if (thisTag != null || i == requiredItems.Count - 1)
                 {
-                    feedbackText.PopUpText(thisTag.displayText[thisTag.displayText.Length - 1]);
+                    feedbackText.PopUpText(thisTag.displayText[thisTag.displayText.Length - 2]);
                 }
                 else
                 {

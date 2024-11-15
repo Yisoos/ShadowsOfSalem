@@ -147,7 +147,8 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
                 }
                 if (phoneNumberDisplay.text == phoneParent.numberToCall)
                 {
-                    Debug.Log("Llamando al jefe...");
+                    Tags tags = phoneParent.GetComponent<Tags>();
+                    phoneNumberDisplay.text = tags.displayText[tags.displayText.Length-1];
                 }
             }
         }

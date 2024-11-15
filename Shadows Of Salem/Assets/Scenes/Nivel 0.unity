@@ -1439,6 +1439,7 @@ MonoBehaviour:
   - "El cable del tel\xE9fono est\xE1 roto\u2026"
   - Ahora necesito poner un cable nuevo...
   - "\xA1Telefono arreglado!"
+  - Llamando al jefe...
   sprite: {fileID: 21300000, guid: 6a679e572a864ff45a17ea9b67ad3722, type: 3}
   quantity: 1
   objectType: 3
