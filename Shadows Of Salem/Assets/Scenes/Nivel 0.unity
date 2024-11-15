@@ -787,7 +787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &376355076
 Transform:
   m_ObjectHideFlags: 0
@@ -1864,7 +1864,9 @@ MonoBehaviour:
   dialDisplayPrefab: {fileID: 290276338221010053, guid: 2a9f42df249769343b3ce762dd8e1b32, type: 3}
   dialDispalyParent: {fileID: 1423499380}
   UIInventoryDisplay: {fileID: 1965032658}
-  dependenciesMet: 0
+  fontAsset:
+  - {fileID: 11400000, guid: b55f0db5873e2d3418dcac6ce8bc9465, type: 2}
+  - {fileID: 11400000, guid: f138b4c345536ce4f984ad672c46340c, type: 2}
 --- !u!1 &584660558
 GameObject:
   m_ObjectHideFlags: 0
@@ -5763,6 +5765,7 @@ GameObject:
   - component: {fileID: 1684904970}
   - component: {fileID: 1684904971}
   - component: {fileID: 1684904972}
+  - component: {fileID: 1684904973}
   m_Layer: 0
   m_Name: ItemCollection
   m_TagString: Untagged
@@ -5859,6 +5862,19 @@ MonoBehaviour:
   - {fileID: 1541057226}
   - {fileID: 1634246368}
   cursorIndex: 0
+--- !u!114 &1684904973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684904968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0846ca68632f143b4cf3ccddc8a56a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feedbackTextController: {fileID: 6973665184144531453}
 --- !u!1 &1726103777
 GameObject:
   m_ObjectHideFlags: 0
