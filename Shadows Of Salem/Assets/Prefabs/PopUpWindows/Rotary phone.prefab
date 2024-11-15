@@ -90,7 +90,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultRotation: 0
   endRotation: 340
-  dialReturnSpeed: 7.09
   phoneNumberDisplay: {fileID: 645413669472756979}
   phoneParent: {fileID: 0}
 --- !u!1 &290276338221010053
@@ -2054,7 +2053,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 398}
-  m_SizeDelta: {x: 1567.2444, y: 224.7605}
+  m_SizeDelta: {x: 1798.0771, y: 224.7605}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2315482942377809319
 CanvasRenderer:
@@ -2084,7 +2083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0-1-2-3-4
+  m_text: 1-2-3-4-5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b55f0db5873e2d3418dcac6ce8bc9465, type: 2}
   m_sharedMaterial: {fileID: 1582558983478268921, guid: b55f0db5873e2d3418dcac6ce8bc9465, type: 2}
@@ -2111,8 +2110,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 180
-  m_fontSizeBase: 180
+  m_fontSize: 150
+  m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

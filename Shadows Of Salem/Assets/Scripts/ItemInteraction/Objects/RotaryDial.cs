@@ -144,10 +144,12 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
                 if (!string.IsNullOrEmpty(currentNumber))
                 {
                     phoneNumberDisplay.text += string.IsNullOrEmpty(phoneNumberDisplay.text) ? currentNumber : $"-{currentNumber}";
+                    phoneNumberDisplay.font = phoneParent.fontAsset[0];
                 }
                 if (phoneNumberDisplay.text == phoneParent.numberToCall)
                 {
                     Tags tags = phoneParent.GetComponent<Tags>();
+                    phoneNumberDisplay.font = phoneParent.fontAsset[1];
                     phoneNumberDisplay.text = tags.displayText[tags.displayText.Length-1];
                 }
             }

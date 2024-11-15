@@ -84,11 +84,11 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         if (hit.collider != null)
         {
             // Obtener el componente de Tags del objeto golpeado
-            Tags targetTags = hit.collider.GetComponent<Tags>();
-            if (targetTags != null)
+            Tags targetTag = hit.collider.GetComponent<Tags>();
+            if (targetTag != null)
             {
                 // Lógica adicional puede ser colocada aquí
-                InteractionHub(targetTags, thisObjectTag);
+                InteractionHub(thisObjectTag, targetTag);
             }
             else
             {
@@ -102,7 +102,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     }
 
     // Método para manejar las interacciones basadas en el tipo de objeto objetivo
-    public void InteractionHub(Tags targetObjectTags, Tags thisObjectTags)
+    public void InteractionHub(Tags thisObjectTags, Tags targetObjectTags)
     {
         // Manejar interacciones basadas en el tipo de objeto
         switch (targetObjectTags.objectType)

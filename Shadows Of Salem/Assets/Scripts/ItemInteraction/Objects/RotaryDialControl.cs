@@ -11,15 +11,11 @@ public class RotaryDialControl : MonoBehaviour
     [Space(10)]public GameObject dialDisplayPrefab;
     [Space(10)] public Transform dialDispalyParent;
     [Space(10)] public Transform UIInventoryDisplay;
-    public bool dependenciesMet;
+    [Space(10)] public TMP_FontAsset[] fontAsset;
 
     public void OnMouseDown()
     {
-        OrderedDependencies orderedDependencies = GetComponent<OrderedDependencies>();
-       
-            dependenciesMet = orderedDependencies != null? orderedDependencies.dependencyMet[orderedDependencies.dependencyMet.Length-1] : true;
-        
-        if (dependenciesMet) 
+        if (AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.transform)) 
         { 
             StartCoroutine(PopUpWindowManager());
         }
