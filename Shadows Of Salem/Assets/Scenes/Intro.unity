@@ -832,11 +832,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: '
 
-
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a4cd8e424a7e1a4f93dcbd39e5c2aa2, type: 2}
-  m_sharedMaterial: {fileID: 7888957626616832292, guid: 8a4cd8e424a7e1a4f93dcbd39e5c2aa2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e9201c5e5bb29d047ba10c5305743ca4, type: 2}
+  m_sharedMaterial: {fileID: -7306011698421651643, guid: e9201c5e5bb29d047ba10c5305743ca4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

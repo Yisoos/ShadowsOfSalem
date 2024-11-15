@@ -7,11 +7,11 @@ using UnityEngine;
 public class SceneNavigator : MonoBehaviour
 {
     [Header ("Views")]
-    public GameObject[] view; //Las diferentes vistas guardadas en el inspector
-    public int startingView; //la vista donde empezará la escena
-    public int[] roomEndViews;
-    [HideInInspector]public int currentView; //la escena actual
-    int maxViews;
+    [Tooltip("Arranstrar aqui todas las vistas generales que se van a cambiar con las flechas")]public GameObject[] view; //Las diferentes vistas guardadas en el inspector
+    [Space(20)] public int startingView; //la vista donde empezará la escena
+    [Space(20), Min(0)] public int[] roomEndViews;
+    [HideInInspector] public int currentView; //la escena actual
+    [Space(20)] int maxViews;
     [Header("Arrows")]
     public GameObject[] arrow; //flechas en la interfaz que se usan para moverse
 

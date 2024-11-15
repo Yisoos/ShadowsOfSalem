@@ -6,10 +6,9 @@ using TMPro;
 public class FeedbackTextController : MonoBehaviour
 {
     public TMP_Text feedbackText;
-    public float displayDuration = 2f;  // Time to display the text in seconds
+    [SerializeField] private float displayDuration = 2f;  // Time to display the text in seconds
     public float fadeDuration = 1f;  // Time it takes to fully fade out
-
-    private Coroutine fadeCoroutine;  // Reference to the active fade coroutine
+    [SerializeField] private Coroutine fadeCoroutine;  // Reference to the active fade coroutine
 
     // Start is called before the first frame update
     void Start()

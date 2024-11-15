@@ -1346,6 +1346,7 @@ GameObject:
   - component: {fileID: 562738080}
   - component: {fileID: 562738081}
   - component: {fileID: 562738084}
+  - component: {fileID: 562738086}
   - component: {fileID: 562738085}
   m_Layer: 0
   m_Name: Telefono
@@ -1438,6 +1439,7 @@ MonoBehaviour:
   - "El cable del tel\xE9fono est\xE1 roto\u2026"
   - Ahora necesito poner un cable nuevo...
   - "\xA1Telefono arreglado!"
+  - Llamando al jefe...
   sprite: {fileID: 21300000, guid: 6a679e572a864ff45a17ea9b67ad3722, type: 3}
   quantity: 1
   objectType: 3
@@ -1844,6 +1846,25 @@ PolygonCollider2D:
       - {x: 0.90999997, y: 1.27}
       - {x: 0.87, y: 1.23}
   m_UseDelaunayMesh: 1
+--- !u!114 &562738086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562738077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37d5288b4589ea4db234b317971f392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feedbackText: {fileID: 6973665184144531453}
+  numberToCall: 3-8-9-1-7
+  dialReturnSpeed: 4.87
+  dialDisplayPrefab: {fileID: 290276338221010053, guid: 2a9f42df249769343b3ce762dd8e1b32, type: 3}
+  dialDispalyParent: {fileID: 1423499380}
+  UIInventoryDisplay: {fileID: 1965032658}
+  dependenciesMet: 0
 --- !u!1 &584660558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,7 +2203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &690355919
 Transform:
   m_ObjectHideFlags: 0
@@ -5581,7 +5602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1665301426
 Transform:
   m_ObjectHideFlags: 0
@@ -5710,7 +5731,7 @@ MonoBehaviour:
   feedbackText: {fileID: 6973665184144531453}
   combination: 0312
   popUpLockPrefab: {fileID: 5636392485063428453, guid: 90480714d3bba5540b1b225b412311b3, type: 3}
-  PopUpLockParent: {fileID: 1423499380}
+  popUpLockParent: {fileID: 1423499380}
 --- !u!114 &1665301430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6257,7 +6278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1873223424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6394,7 +6415,7 @@ MonoBehaviour:
   isLocked: 1
   lockID: 1
   isPhysicalLock: 0
-  inventoryOrder: {fileID: 1684904970}
+  inventory: {fileID: 1684904970}
   feedbackText: {fileID: 6973665184144531453}
 --- !u!114 &1884930297
 MonoBehaviour:
@@ -6767,6 +6788,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1965032658 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5452054302664012104, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+  m_PrefabInstance: {fileID: 6973665184144531450}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2310706155015955557
 GameObject:
   m_ObjectHideFlags: 0
@@ -6802,7 +6828,7 @@ MonoBehaviour:
   - {fileID: 1840554810}
   - {fileID: 1873223423}
   startingView: 0
-  roomEndViews: 02000000
+  roomEndViews: 0200000000000000
   currentView: 0
   arrow:
   - {fileID: 6973665184144531451}

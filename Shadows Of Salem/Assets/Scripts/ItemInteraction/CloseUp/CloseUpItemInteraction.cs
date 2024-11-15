@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CloseUpItemInteraction : MonoBehaviour
 {
-    public Collider2D[] objetosEstadoInicial;
-    public Collider2D[] objetosEstadoAlternativo;
+    [Tooltip("Arrastrar el/los objetos como quieres que aparezca al entrar en la vista close up")]public Collider2D[] objetosEstadoInicial;
+    [Tooltip("Arrastrar el/los objetos en el estado que quieres que aparezcan al hacer click en él/ellos (si no quieres que cambie, pon el mismo del estado inicial)")] public Collider2D[] objetosEstadoAlternativo;
     public FeedbackTextController feedbackTextController;
 
     private void OnEnable()
@@ -30,7 +30,7 @@ public class CloseUpItemInteraction : MonoBehaviour
             bool isAccesible= true;
             if (hit.collider != null) 
             { 
-            isAccesible = ObjectAccessibilityChecker(hit.transform);
+            isAccesible = AccesibilityChecker.Instance.ObjectAccessibilityChecker(hit.transform);
             }
             if (hit.transform != null && isAccesible)
             {
@@ -78,50 +78,6 @@ public class CloseUpItemInteraction : MonoBehaviour
         {
             //Debug.Log("Estado inicial es igual al estado Alternativo, no hay cambio");
         }
-    }
-
-    bool ObjectAccessibilityChecker(Transform objectHit)
-    {
-        // Obtiene componentes de bloqueo y dependencias del objeto
-        Lock itemLocked = objectHit.GetComponent<Lock>();
-        Tags itemTags = objectHit.GetComponent<Tags>();
-        DependencyHandler itemDependencies = objectHit.GetComponent<DependencyHandler>();
-        OrderedDependencies itemDependencyByOrder = objectHit.GetComponent<OrderedDependencies>();
-        CombinationLockControl combinationLocked = objectHit.GetComponent<CombinationLockControl>();
-        Coleccionable collectable = objectHit.GetComponent<Coleccionable>();
-
-        // Si el objeto está bloqueado, muestra mensaje y devuelve falso
-        if (itemLocked != null && itemLocked.isLocked)
-        {
-            feedbackTextController.PopUpText(itemTags.displayText[0]);
-            return false;
-        }
-        // Si el objeto tiene dependencias no cumplidas, muestra mensaje y devuelve falso
-        if (itemDependencies != null && !itemDependencies.dependencyMet)
-        {
-            feedbackTextController.PopUpText(itemTags.displayText[0]);
-            return false;
-        }
-        if (itemDependencyByOrder != null)
-        {
-           
-            return itemDependencyByOrder.feedbackTextDesider();
-        }
-        // Si el objeto está en un candado de combinación, muestra mensaje y devuelve falso
-        if (combinationLocked != null && combinationLocked.isLocked)
-        {
-
-            return false;
-        }
-        // Si el objeto es coleccionable, lo recoge y devuelve falso
-        if (collectable != null)
-        {
-            collectable.CollectItem();
-            return false;
-        }
-
-        // Si no hay restricciones, devuelve verdadero
-        return true;
     }
     RaycastHit2D CheckLayersInOrder(Vector2 origin)
     {
