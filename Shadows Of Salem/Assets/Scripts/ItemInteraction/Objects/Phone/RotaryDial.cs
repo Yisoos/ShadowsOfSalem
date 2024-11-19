@@ -18,6 +18,10 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     private bool isReturning; // Indicador de si el dial está volviendo a su posición inicial
     private float DistanceToEnd;
 
+    private void Start()
+    {
+        OnEnable();
+    }
     private void OnEnable()
     {
         if (phoneParent!= null && phoneParent.UIInventoryDisplay != null)
