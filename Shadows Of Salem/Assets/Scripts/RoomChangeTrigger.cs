@@ -9,6 +9,7 @@ public class RoomChangeTrigger : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.gameObject.transform))
         nav.ChangeViewRoom(viewNumber);
     }
 }
