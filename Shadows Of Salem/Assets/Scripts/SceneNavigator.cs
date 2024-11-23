@@ -10,7 +10,7 @@ public class SceneNavigator : MonoBehaviour
     [Tooltip("Arranstrar aqui todas las vistas generales que se van a cambiar con las flechas")]public GameObject[] view; //Las diferentes vistas guardadas en el inspector
     [Space(20)] public int startingView; //la vista donde empezará la escena
     [Space(20), Min(0)] public int[] roomEndViews;
-    [HideInInspector] public int currentView; //la escena actual
+    /*[HideInInspector]*/ public int currentView; //la escena actual
     [Space(20)] int maxViews;
     [Header("Arrows")]
     public GameObject[] arrow; //flechas en la interfaz que se usan para moverse
@@ -46,19 +46,21 @@ public class SceneNavigator : MonoBehaviour
                 {
                     arrow[0].SetActive(false);  // desactiva la flecha izquierda
                     arrow[1].SetActive(true);   // Activa la flecha derecha
+                    break;
                                                 //Debug.Log("Left end reached");
                 }
                 else if (currentView == maxViews || currentView == roomEndViews[i])  // Si la vista actual esta en el borde derecho
                 {
                     arrow[0].SetActive(true);    // Activa la flecha izquierda
                     arrow[1].SetActive(false);   // Activa la flecha derecha
-                                                 //Debug.Log("Right end reached");
+                    break;
+                    //Debug.Log("Right end reached");
                 }
                 else  // Si la vista actual no esta a los bordes
                 {
                     arrow[0].SetActive(true);    // Activa la flecha izquierda
                     arrow[1].SetActive(true);    // Activa la flecha derecha
-                                                 // Debug.Log("Not at the edge views");
+                    // Debug.Log("Not at the edge views");
                 }
             }
         }

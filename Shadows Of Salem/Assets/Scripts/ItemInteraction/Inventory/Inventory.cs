@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class Inventory : MonoBehaviour
     }
 
     // Función para recolectar un objeto
-    public void CollectItem(Tags itemPrefab)
+    public void CollectItem(Tags itemPrefab, Transform origin)
     {
         // Recorrer los espacios de inventario
         for (int i = 0; i < inventorySlots.Length; i++)
@@ -55,8 +56,11 @@ public class Inventory : MonoBehaviour
                 }
                 // Instanciar el itemPrefab en el espacio de inventario
                 GameObject item = Instantiate(itemPrefab.gameObject, inventorySlots[i].transform);
-
-
+                MultipleViewItem multipleViewItem = origin.GetComponent<MultipleViewItem>();
+                if(multipleViewItem != null)
+                { 
+                SetPrefabSpecifications(item,origin,multipleViewItem);
+                }
                 // Actualizar el TMP_Text en el espacio de inventario para reflejar la cantidad
                 TMP_Text itemText = item.GetComponentInChildren<TMP_Text>();
                 if (itemText != null)
@@ -117,9 +121,12 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            // No es necesario eliminar herramientas
-        }
+    }
+    public void SetPrefabSpecifications(GameObject item,Transform origin, MultipleViewItem multipleViewItem) 
+    {
+        Image prefabSprite = item.GetComponent<Image>();
+        Tags prefabTags = item.GetComponent<Tags>();
+        prefabSprite.sprite = multipleViewItem.ObjectStatusSprite[multipleViewItem.currentStatus];
+        prefabTags.objectName = multipleViewItem.ObjectStatusName[multipleViewItem.currentStatus];
     }
 }
