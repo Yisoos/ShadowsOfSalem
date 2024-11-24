@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: 6036662115135243276}
   - component: {fileID: 1414600988108829769}
   - component: {fileID: 9100701784651114248}
-  - component: {fileID: -8185183509433592366}
   m_Layer: 5
-  m_Name: Lantern
+  m_Name: Broche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 945cc3dfd557ba74c89862b351c6ff3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c9bf3ef0e628e44da28cb9ecc71d1b5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -91,12 +90,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: Farol
+  objectName: Broche
   displayText: []
-  sprite: {fileID: 21300000, guid: 945cc3dfd557ba74c89862b351c6ff3c, type: 3}
+  sprite: {fileID: 21300000, guid: 5c9bf3ef0e628e44da28cb9ecc71d1b5, type: 3}
   quantity: 1
   objectType: 2
-  status: 
 --- !u!114 &1414600988108829769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,28 +123,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorIndex: 0
---- !u!114 &-8185183509433592366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7204294384838603436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd7d2c581f93d1f4a81267882eeab0a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objetosCombinables:
-  - itemToCombine: Vela
-    currentItemStatus: Farol
-    newItemStatusSprite: {fileID: 21300000, guid: 33a4123bc8a413747a51b8aa976cdc63, type: 3}
-    newItemStatus: Farol con Vela
-  - itemToCombine: Vela Encendida
-    currentItemStatus: Farol
-    newItemStatusSprite: {fileID: 21300000, guid: 11b71f5f2a128e340b95eb572c3d355d, type: 3}
-    newItemStatus: Farol Encendido
-  - itemToCombine: Cerillas
-    currentItemStatus: Farol con Vela
-    newItemStatusSprite: {fileID: 21300000, guid: 11b71f5f2a128e340b95eb572c3d355d, type: 3}
-    newItemStatus: Farol Encendido

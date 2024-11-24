@@ -10,7 +10,7 @@ public class SceneNavigator : MonoBehaviour
     [Tooltip("Arranstrar aqui todas las vistas generales que se van a cambiar con las flechas")]public GameObject[] view; //Las diferentes vistas guardadas en el inspector
     [Space(20)] public int startingView; //la vista donde empezará la escena
     [Space(20), Min(0)] public int[] roomEndViews;
-    /*[HideInInspector]*/ public int currentView; //la escena actual
+    [HideInInspector] public int currentView; //la escena actual
     [Space(20)] int maxViews;
     [Header("Arrows")]
     public GameObject[] arrow; //flechas en la interfaz que se usan para moverse
@@ -36,45 +36,61 @@ public class SceneNavigator : MonoBehaviour
         //Debug.Log($"Max view:{maxViews}");
         CheckViewEnd();
     }
-    public void CheckViewEnd() 
+    public void CheckViewEnd()
     {
-        if(roomEndViews != null) 
+        bool isLeftEnd = false;
+        bool isRightEnd = false;
+
+        if (roomEndViews != null)
         {
+            // Check if currentView is at any of the end views
             for (int i = 0; i < roomEndViews.Length; i++)
             {
-                if (currentView == 0 || currentView == roomEndViews[i]+1)  // Is la vista actual esta en el borde izquierdo
+                if ( currentView == 0 || currentView == roomEndViews[i] + 1 )
                 {
-                    arrow[0].SetActive(false);  // desactiva la flecha izquierda
-                    arrow[1].SetActive(true);   // Activa la flecha derecha
-                    break;
-                                                //Debug.Log("Left end reached");
+                    isLeftEnd = (currentView == 0 || currentView == roomEndViews[i] + 1);
                 }
-                else if (currentView == maxViews || currentView == roomEndViews[i])  // Si la vista actual esta en el borde derecho
+                if (currentView == maxViews || currentView == roomEndViews[i]) 
                 {
-                    arrow[0].SetActive(true);    // Activa la flecha izquierda
-                    arrow[1].SetActive(false);   // Activa la flecha derecha
-                    break;
-                    //Debug.Log("Right end reached");
-                }
-                else  // Si la vista actual no esta a los bordes
-                {
-                    arrow[0].SetActive(true);    // Activa la flecha izquierda
-                    arrow[1].SetActive(true);    // Activa la flecha derecha
-                    // Debug.Log("Not at the edge views");
+                    isRightEnd = (currentView == maxViews || currentView == roomEndViews[i]);
                 }
             }
         }
+
+        // Update arrow visibility
+        if (isLeftEnd && isRightEnd)
+        {
+            // Both ends reached
+            arrow[0].SetActive(false);
+            arrow[1].SetActive(false);
+        }
+        else if (isLeftEnd)
+        {
+            // Left end reached
+            arrow[0].SetActive(false);
+            arrow[1].SetActive(true);
+        }
+        else if (isRightEnd)
+        {
+            // Right end reached
+            arrow[0].SetActive(true);
+            arrow[1].SetActive(false);
+        }
+        else
+        {
+            // Not at any end
+            arrow[0].SetActive(true);
+            arrow[1].SetActive(true);
+        }
     }
+
     public void ChangeViewRoom(int newView)
     {
-        if (currentView != maxViews) //si la vista actual no es el limite a la derecha, activa la escena a la derecha
-        {
             view[newView].SetActive(true);
             view[currentView].SetActive(false);
             currentView=newView;
             CheckViewEnd();
             //Debug.Log($"current view is {currentView}");
-        }
     }
 
     public void ChangeViewRight() 

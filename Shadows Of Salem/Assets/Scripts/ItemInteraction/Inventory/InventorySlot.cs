@@ -19,6 +19,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             Tags droppedTags = dropped.GetComponent<Tags>();
             if (existingItemInSlot != null && AccesibilityChecker.Instance.isUIObjectInteractable(droppedTags, existingItemInSlot))
             {
+                if (transform.childCount == 0)
                 draggableItem.parentAfterDrag = transform;
             }
         }

@@ -6,7 +6,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Tags))]
 public class ObjectCombination : MonoBehaviour
 {
-    [SerializeField]CombinationStatus[] objetosCombinables;
+    [SerializeField, Tooltip("Añade aquí los objetos que están por debajo en la gerarquía de combinación (Ej. Si el objeto actual es una vela, añaderias una cerilla)")] CombinationStatus[] objetosCombinables;
+    public Inventory inventory;
     Dictionary<string,int> keyValuePairs = new Dictionary<string,int>();
 
     private void Start()
@@ -20,21 +21,25 @@ public class ObjectCombination : MonoBehaviour
     public bool CheckForCombination(Tags ObjectDropped)
     {
         Tags thisTag = GetComponent<Tags>();
-        if (objetosCombinables[keyValuePairs[ObjectDropped.objectName]].currentItemName == thisTag.objectName)
+        if (objetosCombinables[keyValuePairs[ObjectDropped.objectName]].currentItemStatus == thisTag.objectName)
         {
             SpriteRenderer itemImage = GetComponent<SpriteRenderer>();
             MultipleViewItem multipleViewChange = GetComponent<MultipleViewItem>();
             int index = keyValuePairs[ObjectDropped.objectName];
             itemImage.sprite = objetosCombinables[index].newItemStatusSprite;
-            thisTag.objectName = objetosCombinables[index].newItemName;
-            for (int i = 0; i < multipleViewChange.ObjectStatusSprite.Length; i++) 
+            thisTag.objectName = objetosCombinables[index].newItemStatus;
+            thisTag.sprite = objetosCombinables[index].newItemStatusSprite;
+            if (multipleViewChange != null) 
             {
-                if (multipleViewChange != null && itemImage.sprite == multipleViewChange.ObjectStatusSprite[i]) 
+                for (int i = 0; i < multipleViewChange.objectStatusSprite.Length; i++)
                 {
-                    multipleViewChange.ChangeObjectAppearance(i);
+                    if (itemImage.sprite == multipleViewChange.objectStatusSprite[i])
+                    {
+                        multipleViewChange.UpdateMultipleViews(i);
+                    }
                 }
             }
-            Destroy(ObjectDropped.gameObject);
+            inventory.DeleteItem(ObjectDropped); 
             return true;
         }
 

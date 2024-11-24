@@ -3,42 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Tags))]
 public class MultipleViewItem : MonoBehaviour
 {
-    [Tooltip("Sprites de los diferentes estados del objeto")] public Sprite[] ObjectStatusSprite;
-    [Tooltip("Nombre en \"Tags \" de los diferentes estados del objeto")] public string[] ObjectStatusName;
-    [Tooltip("Lista representativa del mismo objeto visto en otras vistas")]public MultipleViewDetails[] objectVariations;
+    [Tooltip("Sprites de los diferentes estados del objeto")] public Sprite[] objectStatusSprite;
+    [Tooltip("Nombre en \"Tags \" de los diferentes estados del objeto")] public string[] objectStatusName;
+    [Tooltip("Lista representativa del mismo objeto visto en otras vistas")]public Transform[] objectVariations;
     public int currentStatus;
     private void Awake()
     {
-        ChangeObjectAppearance(currentStatus);
+        Tags thisTag = GetComponent<Tags>();
+        SpriteRenderer thisSprite = GetComponent<SpriteRenderer>();
+        thisTag.objectName = objectStatusName[currentStatus];
+        thisTag.sprite = objectStatusSprite[currentStatus];
+        thisSprite.sprite = objectStatusSprite[currentStatus];
+        UpdateMultipleViews(currentStatus);
     }
     public void HideObjectsInAllViews() 
     {
         gameObject.SetActive(false);
         for (int i = 0; i < objectVariations.Length; i++) 
         {
-            objectVariations[i].otherViewObject.gameObject.SetActive(false);
+            objectVariations[i].gameObject.SetActive(false);
         }
     }
-    public void ChangeObjectAppearance(int index) 
+    public void UpdateMultipleViews(int index) 
     {
-        currentStatus = index;
-        SpriteRenderer thisSprite = GetComponent<SpriteRenderer>();
-        Tags thisTags = GetComponent<Tags>();
-        if (thisTags != null)
-        {
-            thisTags.objectName = ObjectStatusName[index];
-        }
-        thisSprite.sprite = ObjectStatusSprite[index];
         for (int i = 0; i < objectVariations.Length; i++)
         {
-            SpriteRenderer variationSprite = objectVariations[i].otherViewObject.GetComponent<SpriteRenderer>();
-            Tags tags = objectVariations[i].otherViewObject.GetComponent<Tags>();
-            variationSprite.sprite = objectVariations[i].ObjectStatusSprite[index] != null? objectVariations[i].ObjectStatusSprite[index] :ObjectStatusSprite[index];
-            if (tags != null)
+            MultipleViewItem differentViewAppearence = objectVariations[i].GetComponent<MultipleViewItem>();
+            Tags differentViewTag = objectVariations[i].GetComponent<Tags>();
+            SpriteRenderer differentViewSprite = objectVariations[i].GetComponent<SpriteRenderer>();    
+            if (differentViewAppearence != null && (differentViewAppearence.objectStatusSprite.Length > 0 || differentViewAppearence.objectStatusName.Length > 0)) 
             {
-                tags.objectName = objectVariations[i].ObjectStatusName[index]!= null ? objectVariations[i].ObjectStatusName[index] : ObjectStatusName[index];
+                differentViewTag.objectName = differentViewAppearence.objectStatusName[index];
+                differentViewTag.sprite = differentViewAppearence.objectStatusSprite[index];
+                differentViewSprite.sprite = differentViewAppearence.objectStatusSprite[index];
+            }
+            else 
+            {
+                differentViewSprite.sprite = objectStatusSprite[index];
+                if (differentViewTag!= null) 
+                {
+                    differentViewTag.objectName = objectStatusName[index];
+                    differentViewTag.sprite = objectStatusSprite[index];
+                }
             }
         }
     }

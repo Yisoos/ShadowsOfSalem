@@ -35,6 +35,11 @@ public class CloseUpItemInteraction : MonoBehaviour
             if (hit.transform != null && isAccesible)
             {
                 int index = Array.IndexOf(objetosEstadoInicial, hit.collider);
+                Coleccionable coleccionable = hit.collider.GetComponent<Coleccionable>();
+                if (coleccionable != null)
+                {
+                    coleccionable.OnMouseDown();
+                }
                
                 if (index != -1)
                 {
@@ -49,7 +54,7 @@ public class CloseUpItemInteraction : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("Objeto no está definido para interacción");
+                       // Debug.Log("Objeto no está definido para interacción");
                     }
                 }
                 
