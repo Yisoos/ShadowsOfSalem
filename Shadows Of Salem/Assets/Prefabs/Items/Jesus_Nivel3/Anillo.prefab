@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: Ring
+  objectName: Anillo
   displayText: []
   sprite: {fileID: 21300000, guid: d9801765e9fbf624280967c2673cdd73, type: 3}
   quantity: 1

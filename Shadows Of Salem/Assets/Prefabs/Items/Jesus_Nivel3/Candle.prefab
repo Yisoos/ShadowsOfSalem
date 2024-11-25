@@ -93,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Vela
   displayText: []
-  sprite: {fileID: 21300000, guid: 5e22a74131144f041a008fc1b76d7802, type: 3}
+  sprite: {fileID: 21300000, guid: ec9d13bb767b57a439bb56f76ec084d2, type: 3}
   quantity: 1
   objectType: 2
 --- !u!114 &1414600988108829769
@@ -141,3 +141,7 @@ MonoBehaviour:
     currentItemStatus: Vela
     newItemStatusSprite: {fileID: 21300000, guid: 5e22a74131144f041a008fc1b76d7802, type: 3}
     newItemStatus: Vela Encendida
+  - itemToCombine: Viento
+    currentItemStatus: Vela Encendida
+    newItemStatusSprite: {fileID: 21300000, guid: ec9d13bb767b57a439bb56f76ec084d2, type: 3}
+    newItemStatus: Vela

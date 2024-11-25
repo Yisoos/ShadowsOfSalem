@@ -92,7 +92,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
             }
             else
             {
-                Debug.Log("No se encontró el componente Tags en: " + hit.collider.gameObject.name);
+                //Debug.Log("No se encontró el componente Tags en: " + hit.collider.gameObject.name);
             }
         }
         else
@@ -153,6 +153,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 DependencyHandler dependency = targetObjectTags.GetComponent<DependencyHandler>();
                 OrderedDependencies dependencyInOrder = targetObjectTags.GetComponent<OrderedDependencies>();
                 ObjectCombination objectCombination = targetObjectTags.GetComponent<ObjectCombination>();
+                InterchangableItemPlacement interchangableItemPlacement = targetObjectTags.GetComponent<InterchangableItemPlacement>();
                 if (dependency != null)
                 {
                     dependency.HandleItem(thisObjectTags);
@@ -164,6 +165,10 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 if (objectCombination != null)
                 {
                     objectCombination.CheckForCombination(thisObjectTags);
+                }
+                if (interchangableItemPlacement!= null)
+                {
+                    interchangableItemPlacement.PlaceOrSwapItem(thisObjectTags);
                 }
                 break;
 

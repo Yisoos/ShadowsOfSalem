@@ -132,6 +132,7 @@ public class Inventory : MonoBehaviour
         Image prefabSprite = item.GetComponent<Image>();
         Tags prefabTags = item.GetComponent<Tags>();
         prefabSprite.sprite = originTags.sprite;
+        prefabTags.sprite = originTags.sprite;
         prefabTags.objectName = originTags.objectName;
     }
 }
