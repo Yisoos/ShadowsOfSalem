@@ -8,10 +8,12 @@ public class ObjectRearranging : MonoBehaviour
     private Vector3 offset; // Offset to maintain proper positioning while dragging
     private Transform parentTransform; // Reference to the parent of this object
 
+    private OrderMechanic orderMechanic;
     private void Start()
     {
         grid = GetComponentInParent<Grid>();
         parentTransform = transform.parent;
+        orderMechanic = parentTransform.GetComponent<OrderMechanic>();
     }
 
     // Called when the mouse button is pressed down on the object
@@ -53,6 +55,11 @@ public class ObjectRearranging : MonoBehaviour
         if (grid != null)
         {
             grid.ArrangeObjectsInGrid();
+        }
+
+        if (orderMechanic != null)
+        {
+            orderMechanic.UpdateOrder();
         }
     }
 

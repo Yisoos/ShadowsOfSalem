@@ -94,7 +94,7 @@ MonoBehaviour:
   displayText: []
   sprite: {fileID: 21300000, guid: 867e0818311e5224c9acb8ee165d0aa2, type: 3}
   quantity: 1
-  objectType: 2
+  objectType: 7
 --- !u!114 &1414600988108829769
 MonoBehaviour:
   m_ObjectHideFlags: 0
