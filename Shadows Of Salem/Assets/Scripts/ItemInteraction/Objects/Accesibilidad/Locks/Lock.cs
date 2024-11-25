@@ -18,9 +18,10 @@ public class Lock : MonoBehaviour
     public void TryUnlock(Key key) //para candados con llave
     {
         // Verifica si la llave no es nula, si su ID coincide con el del candado y si está bloqueado
-        if (key != null && key.keyID == lockID && isLocked)
+        if (key != null && key.keyID == lockID)
         {
-
+            if (isLocked) 
+            {
             //Debug.Log("¡Candado abierto!"); // Mensaje de éxito
             isLocked = false; // Cambia el estado del candado a desbloqueado
             // Si es un candado físico, lo desactiva
@@ -38,6 +39,7 @@ public class Lock : MonoBehaviour
             }
 
             inventory.DeleteItem(keyTag);
+            }
         }
         else
         {

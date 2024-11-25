@@ -26,7 +26,7 @@ public class AccesibilityChecker : MonoBehaviour
         DependencyHandler itemDependencies = objectHit.GetComponent<DependencyHandler>();
         OrderedDependencies itemDependencyByOrder = objectHit.GetComponent<OrderedDependencies>();
         CombinationLockControl combinationLocked = objectHit.GetComponent<CombinationLockControl>();
-        Coleccionable collectable = objectHit.GetComponent<Coleccionable>();
+        SecretDoorLogic secretDoorLogic = objectHit.GetComponent<SecretDoorLogic>();
 
         // Si el objeto está bloqueado, muestra mensaje y devuelve falso
         if (itemLocked != null && itemLocked.isLocked)
@@ -51,14 +51,26 @@ public class AccesibilityChecker : MonoBehaviour
 
             return false;
         }
-        // Si el objeto es coleccionable, lo recoge y devuelve falso
-        if (collectable != null)
+        if (secretDoorLogic != null)
         {
-            collectable.CollectItem();
-            return false;
+            return !secretDoorLogic.isSolved();
         }
-
         // Si no hay restricciones, devuelve verdadero
         return true;
+    }
+    public bool isUIObjectInteractable(Tags ObjectDropped, Tags ObjectInInventorySlot) 
+    {
+        //Debug.Log($"{ObjectDropped.objectName} dropped onto {ObjectInInventorySlot.objectName}");
+        ObjectCombinationInInventory itemCombination = ObjectDropped.GetComponent<ObjectCombinationInInventory>();
+        if (itemCombination != null && itemCombination.keyValuePairs.ContainsKey(ObjectInInventorySlot.objectName)) 
+        {
+            return itemCombination.CheckForCombination(ObjectDropped, ObjectInInventorySlot);
+        }
+        itemCombination = ObjectInInventorySlot.GetComponent<ObjectCombinationInInventory>();
+        if (itemCombination != null && itemCombination.keyValuePairs.ContainsKey(ObjectDropped.objectName))
+        {
+                return itemCombination.CheckForCombination(ObjectInInventorySlot, ObjectDropped);
+        }
+        return false;
     }
 }

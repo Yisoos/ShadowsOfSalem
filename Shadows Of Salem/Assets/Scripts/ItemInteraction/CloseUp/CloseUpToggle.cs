@@ -11,7 +11,7 @@ public class CloseUpToggle : MonoBehaviour
     public Transform vistaGeneral;                       // General view
     public Collider2D[] objetosInspeccionables;          // Objects that can be inspected
     public Transform[] closeUpObjetos;                   // Close-up views for objects
-    public SceneNavigator sceneNavigator;                // Reference to the scene navigator
+    private SceneNavigator sceneNavigator;                // Reference to the scene navigator
     private Transform currentCloseUp;                    // Currently active close-up view
     private Dictionary<Collider2D, Transform> closeUpMap; // Map to link inspectable objects to close-ups
 
@@ -31,7 +31,7 @@ public class CloseUpToggle : MonoBehaviour
     {
         // Initialize the dictionary to link inspectable objects to their close-up views
         closeUpMap = new Dictionary<Collider2D, Transform>();
-
+        sceneNavigator = FindAnyObjectByType<SceneNavigator>();
         for (int i = 0; i < objetosInspeccionables.Length; i++)
         {
             if (i < closeUpObjetos.Length)
@@ -83,6 +83,7 @@ public class CloseUpToggle : MonoBehaviour
 
     public void ExitCloseUpView()
     {
+        sceneNavigator = FindAnyObjectByType<SceneNavigator>();
         vistaGeneral.gameObject.SetActive(true);
 
         if (currentCloseUp != null)

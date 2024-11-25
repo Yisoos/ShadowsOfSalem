@@ -18,4 +18,9 @@ public class CambiarEscenas : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void ChangeToScene(string sceneName) 
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }

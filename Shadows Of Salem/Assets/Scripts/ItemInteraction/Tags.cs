@@ -22,4 +22,5 @@ public class Tags : MonoBehaviour
     public Sprite sprite;
     public int quantity;
     public ObjectType objectType;
+
 }

@@ -92,7 +92,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
             }
             else
             {
-                Debug.Log("No se encontró el componente Tags en: " + hit.collider.gameObject.name);
+                //Debug.Log("No se encontró el componente Tags en: " + hit.collider.gameObject.name);
             }
         }
         else
@@ -125,6 +125,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 Lock compartmentLocked = targetObjectTags.GetComponent<Lock>();
                 DependencyHandler compartmentDependency = targetObjectTags.GetComponent<DependencyHandler>();
                 OrderedDependencies compartmentDependencyInOrder = targetObjectTags.GetComponent<OrderedDependencies>();
+                ObjectCombination compartmentObjectCombination = targetObjectTags.GetComponent<ObjectCombination>();
                 if (compartmentLocked != null && compartmentLocked.isLocked == true)
                 {
                     Key key = GetComponent<Key>();
@@ -141,16 +142,36 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 {
                     compartmentDependencyInOrder.HandleItem(thisObjectTags);
                 }
+                if (compartmentObjectCombination != null)
+                {
+                    compartmentObjectCombination.CheckForCombination(thisObjectTags);
+                }
                 break;
 
             default:
                 // Manejar dependencias para otros tipos de objetos
                 DependencyHandler dependency = targetObjectTags.GetComponent<DependencyHandler>();
+                OrderedDependencies dependencyInOrder = targetObjectTags.GetComponent<OrderedDependencies>();
+                ObjectCombination objectCombination = targetObjectTags.GetComponent<ObjectCombination>();
+                InterchangableItemPlacement interchangableItemPlacement = targetObjectTags.GetComponent<InterchangableItemPlacement>();
                 if (dependency != null)
                 {
                     dependency.HandleItem(thisObjectTags);
                 }
+                if (dependencyInOrder != null)
+                {
+                    dependencyInOrder.HandleItem(thisObjectTags);
+                }
+                if (objectCombination != null)
+                {
+                    objectCombination.CheckForCombination(thisObjectTags);
+                }
+                if (interchangableItemPlacement!= null)
+                {
+                    interchangableItemPlacement.PlaceOrSwapItem(thisObjectTags);
+                }
                 break;
+
         }
     }
     #endregion
