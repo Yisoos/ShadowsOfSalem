@@ -67,9 +67,13 @@ public class DarknessDetector : MonoBehaviour
                 {
                     StopCoroutine(blownLightOffCoroutine);
                     blownLightOffCoroutine = null; // Clear the reference
+
                 }
-                feedbackText.PopUpText(displayText[displayText.Length - 1]);
-                lanternLit = true;
+                if (transform.gameObject.activeSelf)
+                {
+                    feedbackText.PopUpText(displayText[displayText.Length - 1]);
+                }
+                    lanternLit = true;
             }
             return;
         }
@@ -85,7 +89,11 @@ public class DarknessDetector : MonoBehaviour
                 }
             }
             LightsOut();
+            if (transform.gameObject.activeSelf)
+            {
             feedbackText.PopUpText(displayText[0]);
+
+            }
         }
     }
 
@@ -97,7 +105,10 @@ public class DarknessDetector : MonoBehaviour
 
         // Wait for the specified amount of time
         yield return new WaitForSeconds(waitTime);
-        feedbackText.PopUpText(displayText[1]);
+        if (transform.gameObject.activeSelf)
+        {
+            feedbackText.PopUpText(displayText[1]);
+        }
         int index = combination.keyValuePairs[wind];
         inventory.ChangeItemStatus(objectToChange, combination.objetosCombinables[index].newItemStatus, combination.objetosCombinables[index].newItemStatusSprite);
         // Deactivate the object
