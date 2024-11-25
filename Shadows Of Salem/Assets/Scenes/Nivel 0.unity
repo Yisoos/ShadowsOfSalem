@@ -629,7 +629,6 @@ MonoBehaviour:
   - {fileID: 1541057226}
   closeUpObjetos:
   - {fileID: 1096079728}
-  sceneNavigator: {fileID: 2326792699735797970}
 --- !u!4 &173722974
 Transform:
   m_ObjectHideFlags: 0
@@ -3098,7 +3097,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &820974146
 Transform:
   m_ObjectHideFlags: 0
@@ -6581,7 +6580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1840554811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6601,7 +6600,6 @@ MonoBehaviour:
   closeUpObjetos:
   - {fileID: 1346029456}
   - {fileID: 1911104933}
-  sceneNavigator: {fileID: 2326792699735797970}
 --- !u!4 &1840554812
 Transform:
   m_ObjectHideFlags: 0
@@ -6766,7 +6764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1873223424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6788,7 +6786,6 @@ MonoBehaviour:
   - {fileID: 376355076}
   - {fileID: 451784481}
   - {fileID: 820974146}
-  sceneNavigator: {fileID: 2326792699735797970}
 --- !u!4 &1873223425
 Transform:
   m_ObjectHideFlags: 0
