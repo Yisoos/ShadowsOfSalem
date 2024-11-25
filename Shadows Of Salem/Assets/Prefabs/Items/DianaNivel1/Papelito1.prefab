@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6036662115135243276}
   - component: {fileID: 1414600988108829769}
   - component: {fileID: 9100701784651114248}
+  - component: {fileID: 1053415941695549632}
   m_Layer: 5
   m_Name: Papelito1
   m_TagString: Untagged
@@ -137,3 +138,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorIndex: 0
+--- !u!114 &1053415941695549632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204294384838603436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7d2c581f93d1f4a81267882eeab0a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetosCombinables:
+  - itemToCombine: Trozo de Papel 2/3
+    currentItemStatus: Trozo de papel 1/3
+    newItemStatusSprite: {fileID: 21300000, guid: 996a7eadd4a502446bbf0b6a683282e9, type: 3}
+    newItemStatus: 'Trozo de papel '
