@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5571765397452541864}
   - component: {fileID: 6036662115135243276}
   - component: {fileID: 1414600988108829769}
-  - component: {fileID: 9100701784651114248}
   m_Layer: 5
   m_Name: Horquillas
   m_TagString: Untagged
@@ -91,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b016c0e859c9db46959b59a6c2f77a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyID: 1
+  keyID: 6
 --- !u!114 &6036662115135243276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,16 +123,3 @@ MonoBehaviour:
   image: {fileID: 7461977181295672298}
   magnificationOnDrag: 1.5
   parentAfterDrag: {fileID: 0}
---- !u!114 &9100701784651114248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7204294384838603436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f06defcc3307934d80c8eb4fdab9bfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cursorIndex: 0
