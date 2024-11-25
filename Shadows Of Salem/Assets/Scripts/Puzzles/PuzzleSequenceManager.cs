@@ -5,6 +5,7 @@ using UnityEngine;
 public class PuzzleSequenceManager : MonoBehaviour
 {
     // Lista de los objetos en el orden correcto
+    [Tooltip("Meter aqui los GameObjects en el orden que quereis. Recordar añadirles un collider.")]
     public GameObject[] sequenceObjects;
 
     public GameObject openedBasement;
@@ -48,15 +49,15 @@ public class PuzzleSequenceManager : MonoBehaviour
             {
                 Debug.Log("¡Puzzle completado!");
                 openedBasement.SetActive(true);
-                feedbackText.PopUpText("¿Qué fue ese sonido? Creo que viene del pasillo.");
+                feedbackText.PopUpText("¿Qué fue ese sonido? Viene del pasillo.");
             }
             else
             {
                 Debug.Log("¡Incorrecto! Intenta de nuevo.");
                 feedbackText.PopUpText("¡Uy! Ese no es.");
 
-                // Reiniciar el puzzle después de 2 segundos
-                Invoke("RestartPuzzle", 2f);
+                // Reiniciar el puzzle después de 1 segundo
+                Invoke("RestartPuzzle", 1f);
             }
         }
     }
