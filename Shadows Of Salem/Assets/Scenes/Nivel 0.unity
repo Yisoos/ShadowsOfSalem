@@ -2037,7 +2037,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &668107582
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6937,7 +6937,11 @@ MonoBehaviour:
   - {fileID: 1840554810}
   - {fileID: 1873223423}
   startingView: 0
+<<<<<<< Updated upstream
   roomEndViews: 0200000000000000
+=======
+  roomEndViews: 02000000
+>>>>>>> Stashed changes
   currentView: 0
   arrow:
   - {fileID: 6973665184144531451}
