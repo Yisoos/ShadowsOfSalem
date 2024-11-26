@@ -19,7 +19,7 @@ public class DeactivateDependentObject : MonoBehaviour
         }
 
         // Check if the second dependency is met
-        if (!hasDeactivated && orderedDependencies.dependencyMet.Length > 1 && orderedDependencies.dependencyMet[1])
+        if (!hasDeactivated && isDeactivated && orderedDependencies.dependencyMet.Length > 1 && orderedDependencies.dependencyMet[1])
         {
             objectToDeactivate.SetActive(false); // Deactivate the object
             objectToActivate.SetActive(true);

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ObjectRearranging : MonoBehaviour
 {
-    Grid grid; // Reference to a Grid component in the parent
+    GridManager grid; // Reference to a Grid component in the parent
     private Vector3 offset; // Offset to maintain proper positioning while dragging
     private Transform parentTransform; // Reference to the parent of this object
 
     private OrderMechanic orderMechanic;
     private void Start()
     {
-        grid = GetComponentInParent<Grid>();
+        grid = GetComponentInParent<GridManager>();
         parentTransform = transform.parent;
         orderMechanic = parentTransform.GetComponent<OrderMechanic>();
     }
