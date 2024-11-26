@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dba095cfc2aa042aa9afafeb998d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: "Jes\xFAs Nivel 3"
+  sceneName: Nivel 1
 --- !u!1 &425422445
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,8 +927,9 @@ MonoBehaviour:
   leadingCharBeforeDelay: 1
   flechita: {fileID: 1227135434}
   phrases:
-  - Antes de poder salir de las catacumbas, Charlotte es descubierta por el clerigo,
-    quien la encierra en una celda mientras piensa en que hacer con ella.
+  - "Despu\xE9s de la llamada de su jefe, Charlotte decide enbarcar en su aventura
+    a a vieja ciudad de Salem en busca de la verdad"
+  - Su primera parada en Salem es la biblioteca...
   titleDisplayDelay: 1.7
   title: {fileID: 1876349221}
   changeScenes: {fileID: 50734359}
@@ -944,7 +945,7 @@ GameObject:
   - component: {fileID: 1876349222}
   - component: {fileID: 1876349221}
   m_Layer: 5
-  m_Name: TituloNivel3_Text
+  m_Name: TituloNivel0_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -966,7 +967,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -39}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1184.14, y: 638.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1876349221
@@ -989,7 +990,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: La Huida
+  m_text: "La Investigaci\xF3n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 20332c0a5007e0045b4acf7f90a9fade, type: 2}
   m_sharedMaterial: {fileID: 3767641368415987674, guid: 20332c0a5007e0045b4acf7f90a9fade, type: 2}
@@ -1016,8 +1017,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 325
-  m_fontSizeBase: 325
+  m_fontSize: 241.48
+  m_fontSizeBase: 241.48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

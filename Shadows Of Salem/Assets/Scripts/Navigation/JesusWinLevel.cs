@@ -11,11 +11,7 @@ public class JesusWinLevel : MonoBehaviour
     public string failMessage;
     public void OnMouseDown() 
     {
-        if (IsReadyToFinish())
-        {
-            CambiarEscenas scenesManager = FindAnyObjectByType<CambiarEscenas>();
-            scenesManager.ChangeToScene(sceneToGoToWhenFinished);
-        }
+        PassLevel();
     }
     public bool IsReadyToFinish() 
     { 
@@ -31,4 +27,13 @@ public class JesusWinLevel : MonoBehaviour
         }
         return true; 
     }
+
+    public void PassLevel() 
+    {
+        if (IsReadyToFinish())
+        {
+            CambiarEscenas scenesManager = FindAnyObjectByType<CambiarEscenas>();
+            scenesManager.ChangeToScene(sceneToGoToWhenFinished);
+        }
+    } 
 }

@@ -8,13 +8,6 @@ public class TypeWriterEffect : MonoBehaviour
 {
 
     AudioManager audioManager; // controlar Sonido
-
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>(); //Se utiliza para que suene el efeco de sonido
-    }
-   
-
     TMP_Text _tmpProText;
     string originalText; //  Almacena el texto original del componente TMP antes de que se inicie el efecto
 
@@ -27,13 +20,17 @@ public class TypeWriterEffect : MonoBehaviour
     private bool isTyping = false;
     private bool hasFinishedTyping = false;
 
-    [SerializeField] string[] phrases; // array de las frases
+    [TextArea(1, 10),SerializeField] string[] phrases; // array de las frases
     private int currentPhraseIndex = 0; // para rastrear que frase esta siendo escrita
 
     public float titleDisplayDelay = 1.7f; // retraso antes de activar el titulo del nivel (texto) ej. año 194x
     [SerializeField] TMP_Text title;
 
     public CambiarEscenas changeScenes;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>(); //Se utiliza para que suene el efeco de sonido
+    }
 
     void Start()
     {

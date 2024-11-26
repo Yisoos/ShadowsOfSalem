@@ -49,7 +49,7 @@ public class OrderedDependencies : MonoBehaviour
                     // Si el elemento requerido no se encuentra en el inventario, registrar un mensaje y devolver falso
                     if (!itemFound)
                     {
-                        if (feedbackText != null || objectDropped != null)
+                        if (feedbackText != null || objectDropped != null && objectDropped.displayText[0] != null)
                         {
                             feedbackText.PopUpText(objectDropped.displayText[0]);
                         }
