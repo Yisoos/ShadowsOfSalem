@@ -27,6 +27,7 @@ public class AccesibilityChecker : MonoBehaviour
         OrderedDependencies itemDependencyByOrder = objectHit.GetComponent<OrderedDependencies>();
         CombinationLockControl combinationLocked = objectHit.GetComponent<CombinationLockControl>();
         SecretDoorLogic secretDoorLogic = objectHit.GetComponent<SecretDoorLogic>();
+        PuertaSinGiro secretDoorNoGiro = FindAnyObjectByType<PuertaSinGiro>();
 
         // Si el objeto está bloqueado, muestra mensaje y devuelve falso
         if (itemLocked != null && itemLocked.isLocked)
@@ -54,6 +55,10 @@ public class AccesibilityChecker : MonoBehaviour
         if (secretDoorLogic != null)
         {
             return !secretDoorLogic.isSolved();
+        }
+        if (secretDoorNoGiro != null)
+        {
+            return !secretDoorNoGiro.isSolved();
         }
         // Si no hay restricciones, devuelve verdadero
         return true;
