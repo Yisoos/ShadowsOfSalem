@@ -4951,7 +4951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1346029456
 Transform:
   m_ObjectHideFlags: 0
@@ -7090,7 +7090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1911104933
 Transform:
   m_ObjectHideFlags: 0
@@ -7871,6 +7871,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6901700047004616247, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247757682147915145, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247757682147915145, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247757682147915145, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247757682147915145, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247757682147915145, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247757682147915145, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7326524252507256079, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
