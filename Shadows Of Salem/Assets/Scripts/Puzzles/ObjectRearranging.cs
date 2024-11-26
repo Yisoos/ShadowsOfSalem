@@ -14,6 +14,7 @@ public class ObjectRearranging : MonoBehaviour
         grid = GetComponentInParent<GridManager>();
         parentTransform = transform.parent;
         orderMechanic = parentTransform.GetComponent<OrderMechanic>();
+
     }
 
     // Called when the mouse button is pressed down on the object

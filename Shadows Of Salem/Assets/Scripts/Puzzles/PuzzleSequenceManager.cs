@@ -25,6 +25,7 @@ public class PuzzleSequenceManager : MonoBehaviour
         openedBasement.SetActive(false);
         // Asegurarse de que playerClicks esté inicializado correctamente
         playerClicks = new GameObject[4];
+
     }
 
     // Este método se llama cuando se hace clic en un objeto
@@ -37,6 +38,7 @@ public class PuzzleSequenceManager : MonoBehaviour
         // Registrar el clic del jugador
         playerClicks[clickCount] = clickedObject;
         clickCount++;
+
 
         // Si ya se han registrado 4 clics, verificar si la secuencia es correcta
         if (clickCount >= 4)
