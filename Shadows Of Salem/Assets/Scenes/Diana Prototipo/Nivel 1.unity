@@ -1676,6 +1676,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2449147801433696737, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2473519097676290288, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5682,6 +5686,7 @@ GameObject:
   - component: {fileID: 1863346697}
   - component: {fileID: 1863346696}
   - component: {fileID: 1863346699}
+  - component: {fileID: 1863346700}
   m_Layer: 0
   m_Name: microfilm_reader
   m_TagString: Untagged
@@ -5844,8 +5849,21 @@ MonoBehaviour:
   dependencyMetSprite:
   - {fileID: 21300000, guid: b9a0a02842eb28449936f65ec29618ec, type: 3}
   - {fileID: 21300000, guid: b9a0a02842eb28449936f65ec29618ec, type: 3}
+  - {fileID: 21300000, guid: b9a0a02842eb28449936f65ec29618ec, type: 3}
   feedbackText: {fileID: 742690427}
   dependencyMet: 
+--- !u!114 &1863346700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863346694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58648b7ccede1c04e81549cda3aeb78d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1938004638
 GameObject:
   m_ObjectHideFlags: 0
@@ -6644,6 +6662,7 @@ GameObject:
   - component: {fileID: 4374171026612063635}
   - component: {fileID: 4849288292682594968}
   - component: {fileID: 4894437394935592273}
+  - component: {fileID: 4894437394935592274}
   m_Layer: 0
   m_Name: SceneNavigator
   m_TagString: Untagged
@@ -6690,6 +6709,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Nivel 2
+--- !u!114 &4894437394935592274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4834342220129627695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 532ebbc37ee19d34d92e7c5d1c46838c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToGoToWhenFinished: Nivel 1 Terminado
+  RequiredItems: []
+  failMessage: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

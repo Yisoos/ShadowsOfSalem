@@ -104,8 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: Pase De Biblioteca
-  displayText: []
+  objectName: Cinta
+  displayText:
+  - Tengo que poner la palanca primero, si no no puedo ver la cinta
   sprite: {fileID: 21300000, guid: 8c648c3923b24db41ac764ceb3f39ca2, type: 3}
   quantity: 1
   objectType: 1

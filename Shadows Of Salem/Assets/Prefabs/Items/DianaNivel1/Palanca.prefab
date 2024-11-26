@@ -105,7 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Palanca
-  displayText: []
+  displayText:
+  - Palanca puesta! ahora pongo la cinta
   sprite: {fileID: 21300000, guid: 4d1e001bc2a10264aad46e9185a75ac2, type: 3}
   quantity: 1
   objectType: 1
