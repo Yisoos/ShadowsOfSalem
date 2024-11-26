@@ -10,9 +10,10 @@ public class OrderMechanic : MonoBehaviour
     public GameObject pantallaNegro;
     public FeedbackTextController feedbackText;
 
-    public void Start()
+    public void Awake()
     {
         pantallaNegro.SetActive(true);
+
     }
     public void UpdateOrder()
     {
@@ -57,4 +58,5 @@ public class OrderMechanic : MonoBehaviour
             Debug.Log("Incorrect Order!");
         }
     }
+
 }
