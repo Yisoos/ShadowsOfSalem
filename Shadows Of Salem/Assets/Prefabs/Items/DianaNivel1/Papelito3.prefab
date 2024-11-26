@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1414600988108829769}
   - component: {fileID: 9100701784651114248}
   m_Layer: 5
-  m_Name: Papelito2
+  m_Name: Papelito3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 347c7bf5d52ff1f4d805c5839a19eb45, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 60dc4a24abb21cf4593badf5bd7b9dbf, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -104,9 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: Papelito2
+  objectName: Papelito3
   displayText: []
-  sprite: {fileID: 21300000, guid: 347c7bf5d52ff1f4d805c5839a19eb45, type: 3}
+  sprite: {fileID: 21300000, guid: 60dc4a24abb21cf4593badf5bd7b9dbf, type: 3}
   quantity: 1
   objectType: 6
 --- !u!114 &1414600988108829769

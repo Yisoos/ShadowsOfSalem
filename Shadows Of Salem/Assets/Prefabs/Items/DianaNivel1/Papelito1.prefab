@@ -32,7 +32,7 @@ RectTransform:
   m_GameObject: {fileID: 7204294384838603436}
   m_LocalRotation: {x: 0, y: 0, z: -0.39866906, w: 0.9170949}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.647508, y: 1.647508, z: 1.647508}
+  m_LocalScale: {x: 1.8223085, y: 1.8223085, z: 1.8223085}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -105,11 +105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: Trozo de Papel 1/3
+  objectName: Papelito1
   displayText: []
   sprite: {fileID: 21300000, guid: 4861d6d4e275d0740864d4032d130aa3, type: 3}
   quantity: 1
-  objectType: 1
+  objectType: 6
 --- !u!114 &1414600988108829769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +151,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objetosCombinables:
-  - itemToCombine: Trozo de Papel 2/3
-    currentItemStatus: Trozo de papel 1/3
+  - itemToCombine: Papelito2
+    currentItemStatus: Papelito1
     newItemStatusSprite: {fileID: 21300000, guid: 996a7eadd4a502446bbf0b6a683282e9, type: 3}
     newItemStatus: 'Trozo de papel '
+  - itemToCombine: Papelito3
+    currentItemStatus: 'Trozo de papel '
+    newItemStatusSprite: {fileID: 21300000, guid: cb1fe7dd445b6d14b977316a3d17d045, type: 3}
+    newItemStatus: papelito
