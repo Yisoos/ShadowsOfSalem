@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Nivel 2.unity
     guid: 44a619c75a4f32a45a24ce1f56224a40
   - enabled: 1
+    path: Assets/Scenes/Alex Prototipo/Nivel Iglesia.unity
+    guid: 86c88e3c03ef0d84b87959c09998bbf4
+  - enabled: 1
+    path: Assets/Scenes/Alex Prototipo/Nivel Iglesia Terminado.unity
+    guid: ab0e9e9b4a3badc4ea9cfb5228e3ca0e
+  - enabled: 1
     path: "Assets/Scenes/Jesus Prototipo/Jes\xFAs Nivel 3.unity"
     guid: 2be00e22d4ff2ca478913ef3817a3fa6
   - enabled: 1
