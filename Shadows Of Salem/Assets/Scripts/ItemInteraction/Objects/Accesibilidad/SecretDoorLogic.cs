@@ -20,9 +20,7 @@ public class SecretDoorLogic : MonoBehaviour
     private void Start()
     {
         doorStates[0].gameObject.SetActive(false);
-        doorStates[1].gameObject.SetActive(false);
-        doorStates[2].gameObject.SetActive(true);
-        doorStates[3].gameObject.SetActive(true);
+        doorStates[1].gameObject.SetActive(true);
     }
     public bool isSolved() 
     {
@@ -74,9 +72,7 @@ public class SecretDoorLogic : MonoBehaviour
         {
             Debug.Log("PuertaAbierta");
             doorStates[0].gameObject.SetActive(true);
-            doorStates[1].gameObject.SetActive(true);
-            doorStates[2].gameObject.SetActive(false);
-            doorStates[3].gameObject.SetActive(false);
+            doorStates[1].gameObject.SetActive(false);
         }
         else
         {
