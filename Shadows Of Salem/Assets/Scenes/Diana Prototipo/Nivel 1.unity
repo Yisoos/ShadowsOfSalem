@@ -5727,7 +5727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Microfilm Reader
   displayText:
-  - No funciona... arreglar la palanca y meter la cinta
+  - No funciona... tengo que arreglar la palanca y meter la cinta
   - Ya funciona! Ahora necesito la cinta para leer
   - A leer
   sprite: {fileID: 21300000, guid: b9a0a02842eb28449936f65ec29618ec, type: 3}
