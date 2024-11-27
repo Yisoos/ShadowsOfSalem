@@ -9,11 +9,13 @@ public class FeedbackTextController : MonoBehaviour
     [SerializeField] private float displayDuration = 2f;  // Time to display the text in seconds
     public float fadeDuration = 1f;  // Time it takes to fully fade out
     [SerializeField] private Coroutine fadeCoroutine;  // Reference to the active fade coroutine
+    PauseMenu pauseMenu;
 
     // Start is called before the first frame update
     void Start()
     {
         feedbackText.color = new Color(feedbackText.color.r, feedbackText.color.g, feedbackText.color.b, 0);
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
     public void PopUpText(string displayText)
@@ -21,6 +23,7 @@ public class FeedbackTextController : MonoBehaviour
         // Set the text
         feedbackText.text = displayText;
         transform.SetAsLastSibling();
+        pauseMenu.pauseMenu.transform.SetAsLastSibling();
 
         // Set the color with full opacity (alpha = 1)
         feedbackText.color = new Color(feedbackText.color.r, feedbackText.color.g, feedbackText.color.b, 1f);
