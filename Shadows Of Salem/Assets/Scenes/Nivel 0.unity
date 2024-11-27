@@ -6336,6 +6336,11 @@ MonoBehaviour:
   - {fileID: 799030143}
   - {fileID: 1541057226}
   - {fileID: 0}
+  - {fileID: 828207802}
+  - {fileID: 178384759}
+  - {fileID: 1304473316}
+  - {fileID: 842719957}
+  - {fileID: 2118224019}
   cursorIndex: 0
 --- !u!114 &1684904973
 MonoBehaviour:
@@ -7477,7 +7482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dba095cfc2aa042aa9afafeb998d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Nivel 1
+  sceneName: Nivel 0 a 1 Mensaje
 --- !u!4 &6895682814121052121
 Transform:
   m_ObjectHideFlags: 0
@@ -7505,7 +7510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532ebbc37ee19d34d92e7c5d1c46838c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToGoToWhenFinished: Nivel 1
+  sceneToGoToWhenFinished: Nivel 0 a 1 Mensaje
   RequiredItems: []
   failMessage: s
 --- !u!1001 &6973665184144531450

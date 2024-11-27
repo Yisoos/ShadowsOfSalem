@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 1079089409}
   - component: {fileID: 1079089408}
   m_Layer: 5
-  m_Name: Prologo
+  m_Name: Fin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -944,7 +944,7 @@ GameObject:
   - component: {fileID: 1876349222}
   - component: {fileID: 1876349221}
   m_Layer: 5
-  m_Name: TituloNivel0_Text
+  m_Name: AcabarNivel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -993,8 +993,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 20332c0a5007e0045b4acf7f90a9fade, type: 2}
-  m_sharedMaterial: {fileID: 3767641368415987674, guid: 20332c0a5007e0045b4acf7f90a9fade, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a7b49bd831bbe874eb23767c9eb2dbdd, type: 2}
+  m_sharedMaterial: {fileID: -6240723000820211294, guid: a7b49bd831bbe874eb23767c9eb2dbdd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1018,8 +1018,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 410.1
-  m_fontSizeBase: 410.1
+  m_fontSize: 115
+  m_fontSizeBase: 115
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

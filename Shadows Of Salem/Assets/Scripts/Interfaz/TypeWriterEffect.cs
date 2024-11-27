@@ -26,6 +26,7 @@ public class TypeWriterEffect : MonoBehaviour
     public float titleDisplayDelay = 1.7f; // retraso antes de activar el titulo del nivel (texto) ej. año 194x
     [SerializeField] TMP_Text title;
 
+    private bool clicActivado = true;
     public CambiarEscenas changeScenes;
     private void Awake()
     {
@@ -79,6 +80,7 @@ public class TypeWriterEffect : MonoBehaviour
         _tmpProText.text = phrase; // Ensure the full phrase is displayed at the end
         isTyping = false; // Typing effect finished
         hasFinishedTyping = true; // Phrase has finished typing
+        AudioListener.pause = true;
 
         if (flechita != null)
         {
@@ -88,6 +90,10 @@ public class TypeWriterEffect : MonoBehaviour
     }
     void Update()
     {
+        if (!clicActivado)
+        {
+            return;
+        }
         // Comprobar si el jugador intenta avanzar mientras el texto aún está siendo escrito
         if (isTyping)
         {
@@ -97,6 +103,7 @@ public class TypeWriterEffect : MonoBehaviour
                 _tmpProText.text = originalText; // el texto actual igual al original 
                 isTyping = false; // efecto terminado
                 hasFinishedTyping = true;
+                AudioListener.pause = true;
 
                 // Activar flechita ya que se ha saltado el efecto typewriter
                 if (flechita != null)
@@ -110,6 +117,7 @@ public class TypeWriterEffect : MonoBehaviour
         // Si ha terminado de escribir la frase actual y detecta un clic, empezar escribiendo la siguente
         if (hasFinishedTyping && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
+           // AudioListener.pause = true;
             ShowNextPhrase(); 
         }
         
@@ -123,6 +131,7 @@ public class TypeWriterEffect : MonoBehaviour
         {
             _tmpProText.text = ""; // borramos todo el texto que teniamos
             flechita.SetActive(false); // Activar flechita ya que se ha saltado el efecto typewriter
+            AudioListener.pause = false;
 
             StartCoroutine(TypePhrase(phrases[currentPhraseIndex])); // a escribir la siguiente
         }
@@ -131,6 +140,7 @@ public class TypeWriterEffect : MonoBehaviour
             Debug.Log("All phrases completed.");
             flechita.SetActive(false);
             _tmpProText.enabled = false;
+            AudioListener.pause = true;
             StartCoroutine(EnableTitleDisplayDelay());
         }
     }
@@ -140,10 +150,12 @@ public class TypeWriterEffect : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         Debug.Log("Wait");
         title.enabled = true;
+        clicActivado = false;
 
         yield return new WaitForSeconds(titleDisplayDelay);
         Debug.Log("Display title");
         title.enabled = false;
+
 
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Changing scenes");
@@ -151,7 +163,9 @@ public class TypeWriterEffect : MonoBehaviour
         // cambiar de escena (nivel 0) cuando termine de escribir todas las frases
         if (changeScenes != null)
         {
+            clicActivado = true;
             changeScenes.CambiarEscenaSinInput(); // metodo del script "CambiarEscenas"
+            AudioListener.pause = false;
         }
     }
 }

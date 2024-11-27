@@ -177,11 +177,11 @@ MonoBehaviour:
   musicSource: {fileID: 2327703528993006124}
   SFXSource: {fileID: 2335808118949585453}
   background: {fileID: 0}
-  MaquinaDeEscribir: {fileID: 0}
+  ClickButton: {fileID: 0}
   saltoDeEscritura: {fileID: 8300000, guid: ca5f26d63a326f64c8890ea1e827a97c, type: 3}
-  sound2: {fileID: 0}
-  sound3: {fileID: 0}
-  sound4: {fileID: 0}
+  Inicio_Button: {fileID: 0}
+  AjustesButton: {fileID: 0}
+  SalirButton: {fileID: 0}
   sound5: {fileID: 0}
 --- !u!1 &6422065812789906973
 GameObject:

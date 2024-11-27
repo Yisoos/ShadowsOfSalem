@@ -6299,6 +6299,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575114602}
   m_CullTransparentMesh: 1
+--- !u!1 &1664541042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1664541044}
+  - component: {fileID: 1664541043}
+  m_Layer: 0
+  m_Name: Cursor Changer Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1664541043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664541042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 150de1530bec430429c46059c636a48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variantesCursor:
+  - {fileID: 2800000, guid: a5251fbc596c2e94880f3aad515e7505, type: 3}
+  - {fileID: 2800000, guid: 689d01bc0c172cc429352e566ff53ca4, type: 3}
+  - {fileID: 2800000, guid: 686bc702dfe9c2548b7decd8afaca3bf, type: 3}
+  cursorPorDefecto: {fileID: 2800000, guid: 686bc702dfe9c2548b7decd8afaca3bf, type: 3}
+  cursorHotspot: {x: 5, y: 5}
+  currentCursor: {fileID: 0}
+--- !u!4 &1664541044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664541042}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.592634, y: -4.4535055, z: -0.24565458}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1709873051
 GameObject:
   m_ObjectHideFlags: 0
@@ -7969,3 +8020,4 @@ SceneRoots:
   - {fileID: 1768106322}
   - {fileID: 1065344046}
   - {fileID: 641643938}
+  - {fileID: 1664541044}
