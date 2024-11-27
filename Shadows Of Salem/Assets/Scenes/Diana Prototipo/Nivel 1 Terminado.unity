@@ -989,7 +989,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: La Iglesia
+  m_text: "El padre, el hijo y el esp\xEDritu..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 20332c0a5007e0045b4acf7f90a9fade, type: 2}
   m_sharedMaterial: {fileID: 3767641368415987674, guid: 20332c0a5007e0045b4acf7f90a9fade, type: 2}
@@ -1016,8 +1016,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 330.66
-  m_fontSizeBase: 330.66
+  m_fontSize: 170
+  m_fontSizeBase: 170
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

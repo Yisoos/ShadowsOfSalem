@@ -26,6 +26,7 @@ public class TypeWriterEffect : MonoBehaviour
     public float titleDisplayDelay = 1.7f; // retraso antes de activar el titulo del nivel (texto) ej. año 194x
     [SerializeField] TMP_Text title;
 
+    private bool clicHabilitado = true;
     public CambiarEscenas changeScenes;
     private void Awake()
     {
@@ -88,6 +89,10 @@ public class TypeWriterEffect : MonoBehaviour
     }
     void Update()
     {
+        // si el clic esta activado
+        if (!clicHabilitado)
+            return;
+
         // Comprobar si el jugador intenta avanzar mientras el texto aún está siendo escrito
         if (isTyping)
         {
@@ -140,11 +145,13 @@ public class TypeWriterEffect : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         Debug.Log("Wait");
         title.enabled = true;
+        clicHabilitado = false;
 
         yield return new WaitForSeconds(titleDisplayDelay);
         Debug.Log("Display title");
         title.enabled = false;
-
+        clicHabilitado = true;
+        
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Changing scenes");
 
