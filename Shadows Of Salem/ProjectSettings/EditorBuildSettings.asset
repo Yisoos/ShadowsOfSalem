@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Diana Prototipo/Nivel 1 Terminado.unity
     guid: ec31aee55ebec8f4c907d636b84f1782
   - enabled: 1
+    path: Assets/Scenes/Michael Prototipo/Cementerio.unity
+    guid: 0b9676d5121416f4ab93d7d081978203
+  - enabled: 1
     path: Assets/Scenes/Alex Prototipo/Nivel Iglesia.unity
     guid: 86c88e3c03ef0d84b87959c09998bbf4
   - enabled: 1
