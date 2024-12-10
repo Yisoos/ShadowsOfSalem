@@ -15,7 +15,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip Inicio_Button;
     public AudioClip AjustesButton;
     public AudioClip SalirButton;
-    public AudioClip sound5;
     public AudioClip timbre; // Sonido del timbre
 
     [Header("---------- Delay Settings ----------")]

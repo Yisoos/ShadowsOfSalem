@@ -3404,7 +3404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 8300000, guid: c7bc3e1800b6e724a9668de0baf448f7, type: 3}
+  abrirSonido: {fileID: 8300000, guid: a0abe4f4bcc762249bc7de292b3cdda6, type: 3}
   cerrarSonido: {fileID: 0}
 --- !u!1 &842719955
 GameObject:
@@ -3860,11 +3860,19 @@ PrefabInstance:
     - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: background
       value: 
-      objectReference: {fileID: 8300000, guid: f37c265d412a4ac4984d3e9af2d073c5, type: 3}
+      objectReference: {fileID: 8300000, guid: 9465171f6a541794b80c7faa54371a31, type: 3}
     - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: ClickButton
       value: 
       objectReference: {fileID: 8300000, guid: 43cb291a3064f0247b219e9f0147aa6a, type: 3}
+    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: timbreDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: backgroundDelay
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
