@@ -14,11 +14,11 @@ public class JesusWinLevel : MonoBehaviour
     }
     public bool IsReadyToFinish() 
     { 
-        Inventory inventory = FindAnyObjectByType<Inventory>();
+        NewInventory inventory = FindAnyObjectByType<NewInventory>();
         FeedbackTextController feedbackTextController = FindAnyObjectByType<FeedbackTextController>();
         for (int i = 0;i < RequiredItems.Length; i++) 
         {
-            if (!inventory.items.Find(currentItem => currentItem.objectName == RequiredItems[i])) 
+            if (!inventory.items.Find(currentItem => currentItem.tagInfo.objectName == RequiredItems[i])) 
             {
                 feedbackTextController.PopUpText(failMessage);
                 return false;

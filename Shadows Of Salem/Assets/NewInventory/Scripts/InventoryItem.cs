@@ -3,15 +3,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Tags),typeof(UIButtonCursorChanger))] 
+[RequireComponent(typeof(UIButtonCursorChanger))]
 // Clase que maneja la mecánica de arrastre de un objeto en la interfaz de usuario
-public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     #region Declaración de Clase y Variables
+    [SerializeField] public NewTags tagInfo; 
     // Imagen que representa el objeto que se arrastra
     public Image image;
     public float magnificationOnDrag;
-
     // Transformación del padre del objeto después de ser arrastrado
     [HideInInspector] public Transform parentAfterDrag;
     #endregion
@@ -84,11 +84,11 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         if (hit.collider != null)
         {
             // Obtener el componente de Tags del objeto golpeado
-            Tags targetTag = hit.collider.GetComponent<Tags>();
+            InventoryItem targetTag = hit.collider.GetComponent<InventoryItem>();
             if (targetTag != null)
             {
                 // Lógica adicional puede ser colocada aquí
-                InteractionHub(new InventoryItem(), targetTag);
+                InteractionHub(this, targetTag);
             }
             else
             {
@@ -102,12 +102,12 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     }
 
     // Método para manejar las interacciones basadas en el tipo de objeto objetivo
-    public void InteractionHub(InventoryItem thisObjectTags, Tags targetObjectTags)
+    public void InteractionHub(InventoryItem thisObjectTags, InventoryItem targetObjectTags)
     {
         // Manejar interacciones basadas en el tipo de objeto
-        switch (targetObjectTags.objectType)
+        switch (targetObjectTags.tagInfo.objectType)
         {
-            case ObjectType.Lock:
+            case TypeObject.Lock:
                 // Manejar desbloqueo si el objeto es un candado
                 Lock lockComponent = targetObjectTags.GetComponent<Lock>();
                 if (lockComponent != null)
@@ -120,7 +120,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 }
                 break;
 
-            case ObjectType.Compartment:
+            case TypeObject.Compartment:
                 // Manejar compartimentos bloqueados y dependencias
                 Lock compartmentLocked = targetObjectTags.GetComponent<Lock>();
                 DependencyHandler compartmentDependency = targetObjectTags.GetComponent<DependencyHandler>();
@@ -166,7 +166,7 @@ public class DraggingMechanic : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 {
                     objectCombination.CheckForCombination(thisObjectTags);
                 }
-                if (interchangableItemPlacement!= null)
+                if (interchangableItemPlacement != null)
                 {
                     interchangableItemPlacement.PlaceOrSwapItem(thisObjectTags);
                 }

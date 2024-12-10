@@ -9,7 +9,7 @@ public class DarknessDetector : MonoBehaviour
     public string[] displayText;
     public float waitTime;
     public string wind;
-    Tags objectToChange;
+    InventoryItem objectToChange;
     bool lanternLit;
     private Coroutine blownLightOffCoroutine; // Store the coroutine reference
 
@@ -54,10 +54,10 @@ public class DarknessDetector : MonoBehaviour
 
     public void CheckForLight()
     {
-        Inventory inventory = FindAnyObjectByType<Inventory>();
+        NewInventory inventory = FindAnyObjectByType<NewInventory>();
         FeedbackTextController feedbackText = FindAnyObjectByType<FeedbackTextController>();
 
-        if (inventory.items.Exists(item => item.objectName == requiredItem[requiredItem.Length - 1]))
+        if (inventory.items.Exists(item => item.tagInfo.objectName == requiredItem[requiredItem.Length - 1]))
         {
             LightsOn();
             if (!lanternLit)
@@ -81,7 +81,7 @@ public class DarknessDetector : MonoBehaviour
         {
             for (int i = 0; i < requiredItem.Length; i++)
             {
-                objectToChange = inventory.items.Find(item => item.objectName == requiredItem[i]);
+                objectToChange = inventory.items.Find(item => item.tagInfo.objectName == requiredItem[i]);
                 if (objectToChange != null)
                 {
                     LightBlownOff();
@@ -99,7 +99,7 @@ public class DarknessDetector : MonoBehaviour
 
     private IEnumerator BlownLightOff()
     {
-        Inventory inventory = FindAnyObjectByType<Inventory>();
+        NewInventory inventory = FindAnyObjectByType<NewInventory>();
         FeedbackTextController feedbackText = FindAnyObjectByType<FeedbackTextController>();
         ObjectCombinationInInventory combination = objectToChange.GetComponent<ObjectCombinationInInventory>();
 

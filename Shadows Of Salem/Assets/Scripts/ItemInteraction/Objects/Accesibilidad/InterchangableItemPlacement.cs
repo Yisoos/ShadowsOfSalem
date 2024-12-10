@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Tags))]
 public class InterchangableItemPlacement : MonoBehaviour
 {
-    public GameObject itemPrefab;
+    public InventoryItem itemPrefab;
     public string[] itemsToPlace;
+    public NewTags thisTag;
     
     public void OnMouseDown()
     {
@@ -18,12 +18,11 @@ public class InterchangableItemPlacement : MonoBehaviour
     public void RemoveItemsFromPlace() 
     {
         MultipleViewItem multipleViewItem = GetComponent<MultipleViewItem>();
-        Inventory inventory = FindAnyObjectByType<Inventory>();
-        Tags thisTag = GetComponent<Tags>();
+        NewInventory inventory = FindAnyObjectByType<NewInventory>();
         SpriteRenderer thisRenderer = GetComponent<SpriteRenderer>();
         if(thisTag.objectName != itemsToPlace[0])
         {
-            if (inventory.CollectItem(itemPrefab.GetComponent<Tags>(),thisTag)) 
+            if (inventory.CollectItem(itemPrefab,thisTag)) 
             {
                 thisTag.objectName = itemsToPlace[0];
                 thisTag.sprite = itemPrefab.GetComponent<Tags>().sprite;
@@ -35,10 +34,10 @@ public class InterchangableItemPlacement : MonoBehaviour
             }
         }
     }
-    public void PlaceOrSwapItem(Tags itemDropped)
+    public void PlaceOrSwapItem(InventoryItem itemDropped)
     {
-        Inventory inventory = FindAnyObjectByType<Inventory>();
-        if (Array.Exists(itemsToPlace, itemInList => itemInList == itemDropped.objectName))
+        NewInventory inventory = FindAnyObjectByType<NewInventory>();
+        if (Array.Exists(itemsToPlace, itemInList => itemInList == itemDropped.tagInfo.objectName))
         {
             MultipleViewItem multipleViewItem = GetComponent<MultipleViewItem>();
             Tags thisTag = GetComponent<Tags>();
@@ -48,22 +47,22 @@ public class InterchangableItemPlacement : MonoBehaviour
             Debug.Log($"Comparison result: {thisTag.objectName == itemsToPlace[0]}");
             if (thisTag.objectName == itemsToPlace[0])
             {
-                thisTag.objectName = itemDropped.objectName;
-                thisTag.sprite = itemDropped.sprite;
-                thisRenderer.sprite = itemDropped.sprite;
+                thisTag.objectName = itemDropped.tagInfo.objectName;
+                thisTag.sprite = itemDropped.tagInfo.sprite;
+                thisRenderer.sprite = itemDropped.tagInfo.sprite;
                 inventory.DeleteItem(itemDropped);
             }
             else
             {
                 string currentName = thisTag.objectName;
                 Sprite currentSprite = thisRenderer.sprite;
-                Image droppedSprite = itemDropped.GetComponent<Image>();
-                thisTag.objectName = itemDropped.objectName;
-                thisTag.sprite = itemDropped.sprite;
-                thisRenderer.sprite = itemDropped.sprite;
-                itemDropped.objectName = currentName;
-                itemDropped.sprite = currentSprite;
-                droppedSprite.sprite = currentSprite;
+                InventoryItem droppedSprite = itemDropped.GetComponent<InventoryItem>();
+                thisTag.objectName = itemDropped.tagInfo.objectName;
+                thisTag.sprite = itemDropped.tagInfo.sprite;
+                thisRenderer.sprite = itemDropped.tagInfo.sprite;
+                itemDropped.tagInfo.objectName = currentName;
+                itemDropped.tagInfo.sprite = currentSprite;
+                droppedSprite.tagInfo.sprite = currentSprite;
             }
             if (multipleViewItem != null && Array.IndexOf(itemsToPlace, thisTag.objectName) >= 0)
             {

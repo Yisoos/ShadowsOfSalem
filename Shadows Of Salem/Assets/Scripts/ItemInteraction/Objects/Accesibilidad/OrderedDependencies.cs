@@ -4,18 +4,16 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 
-[RequireComponent(typeof(Tags))]
 public class OrderedDependencies : MonoBehaviour
 {
     
+    public NewTags thisTag;
     [Header("Elementos requeridos")]
     [Space (20)] public List<string> requiredItems; // Lista de elementos necesarios para este objeto (por ejemplo, teléfono, cable, pinzas)
-    [Space(20)] public Inventory inventory; // Referencia al inventario
+    [Space(20)] public NewInventory inventory; // Referencia al inventario
     [Space(20)] public Sprite[] dependencyMetSprite; // Sprite cuando el cable está conectado
-    [Space(20)]
-    public FeedbackTextController feedbackText;
+    [Space(20)] public FeedbackTextController feedbackText;
     private SpriteRenderer spriteRenderer; // Referencia para cambiar el sprite
-    private Tags thisTag;
     [HideInInspector] public bool[] dependencyMet;
 
     private void Start()
@@ -24,11 +22,10 @@ public class OrderedDependencies : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         dependencyMet = new bool[requiredItems.Count];
         dependencyMet = Enumerable.Repeat(false, dependencyMet.Length).ToArray();
-        thisTag = GetComponent<Tags>();
     }
 
     // Método para manejar el objeto que se ha soltado y verificar si los elementos requeridos están presentes en el inventario
-    public bool HandleItem(Tags objectDropped)
+    public bool HandleItem(InventoryItem objectDropped)
     {
         for(int i = 0;i < dependencyMet.Length; i++)
         {
@@ -44,14 +41,14 @@ public class OrderedDependencies : MonoBehaviour
                 // Iterar a través de los elementos requeridos
                 
                     // Verificar si el elemento requerido está presente en el inventario
-                    bool itemFound = requiredItems[i] == objectDropped.objectName;
+                    bool itemFound = requiredItems[i] == objectDropped.tagInfo.objectName;
 
                     // Si el elemento requerido no se encuentra en el inventario, registrar un mensaje y devolver falso
                     if (!itemFound)
                     {
-                        if (feedbackText != null || objectDropped != null && objectDropped.displayText[0] != null)
+                        if (feedbackText != null || objectDropped != null && objectDropped.tagInfo.displayText[0] != null)
                         {
-                            feedbackText.PopUpText(objectDropped.displayText[0]);
+                            feedbackText.PopUpText(objectDropped.tagInfo.displayText[0]);
                         }
                         //Debug.Log($"Para usar este objeto necesitas {requiredItems[i]}");
                         return false;
@@ -67,7 +64,7 @@ public class OrderedDependencies : MonoBehaviour
                 }
                 else
                 {
-                    feedbackText.PopUpText(objectDropped.displayText[1]);
+                    feedbackText.PopUpText(objectDropped.tagInfo.displayText[1]);
                 } 
 
                 spriteRenderer.sprite = dependencyMetSprite[i+1];
@@ -100,6 +97,6 @@ public class OrderedDependencies : MonoBehaviour
     private void ConectarComponentesGenerales() 
     {
         feedbackText = FindFirstObjectByType<FeedbackTextController>();
-        inventory = FindFirstObjectByType<Inventory>();
+        inventory = FindFirstObjectByType<NewInventory>();
     }
 }

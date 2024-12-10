@@ -58,16 +58,16 @@ public class AccesibilityChecker : MonoBehaviour
         // Si no hay restricciones, devuelve verdadero
         return true;
     }
-    public bool isUIObjectInteractable(Tags ObjectDropped, Tags ObjectInInventorySlot) 
+    public bool isUIObjectInteractable(InventoryItem ObjectDropped, InventoryItem ObjectInInventorySlot) 
     {
         //Debug.Log($"{ObjectDropped.objectName} dropped onto {ObjectInInventorySlot.objectName}");
         ObjectCombinationInInventory itemCombination = ObjectDropped.GetComponent<ObjectCombinationInInventory>();
-        if (itemCombination != null && itemCombination.keyValuePairs.ContainsKey(ObjectInInventorySlot.objectName)) 
+        if (itemCombination != null && itemCombination.keyValuePairs.ContainsKey(ObjectInInventorySlot.tagInfo.objectName)) 
         {
             return itemCombination.CheckForCombination(ObjectDropped, ObjectInInventorySlot);
         }
         itemCombination = ObjectInInventorySlot.GetComponent<ObjectCombinationInInventory>();
-        if (itemCombination != null && itemCombination.keyValuePairs.ContainsKey(ObjectDropped.objectName))
+        if (itemCombination != null && itemCombination.keyValuePairs.ContainsKey(ObjectDropped.tagInfo.objectName))
         {
                 return itemCombination.CheckForCombination(ObjectInInventorySlot, ObjectDropped);
         }

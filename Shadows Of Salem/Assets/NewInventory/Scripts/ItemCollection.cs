@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Tags))]
-public class Coleccionable : MonoBehaviour
+public class ItemCollection : MonoBehaviour
 {
-   public Tags itemPrefab; // Prefab del objeto que se recogerá
+    public InventoryItem itemPrefab;
+
+    [SerializeField] NewTags inheritTags;
+
     public void OnMouseDown()
     {   if(AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.gameObject.transform)) 
         {
@@ -16,10 +18,10 @@ public class Coleccionable : MonoBehaviour
     public void CollectItem() 
     {
         // Obtener la instancia de Inventory
-        Inventory inventory = FindObjectOfType<Inventory>();
+        NewInventory inventory = FindObjectOfType<NewInventory>();
         if (inventory != null)
         {
-            if (inventory.CollectItem(itemPrefab, GetComponent<Tags>()))
+            if (inventory.CollectItem(itemPrefab, inheritTags))
             {
                 //Debug.Log($"Collected {itemPrefab.name}");
                 // Destruir el objeto de la escena
