@@ -9,25 +9,26 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource SFXSource;
 
     [Header("---------- Audio Clip ----------")]
-    public AudioClip background;
+    public AudioClip background; // Música de fondo
     public AudioClip ClickButton;
     public AudioClip saltoDeEscritura;
     public AudioClip Inicio_Button;
     public AudioClip AjustesButton;
     public AudioClip SalirButton;
+    public AudioClip sound5;
     public AudioClip timbre; // Sonido del timbre
+
+    [Header("---------- Delay Settings ----------")]
+    public float backgroundDelay = 2f; // Tiempo de espera antes de la música
+    public float timbreDelay = 3f; // Tiempo de espera antes del timbre
 
     private void Start()
     {
-        // Reproducir música de fondo al inicio
-        if (background != null)
-        {
-            musicSource.clip = background;
-            musicSource.Play();
-        }
+        // Iniciar la música de fondo con un delay
+        StartCoroutine(PlayBackgroundMusicAfterDelay(backgroundDelay));
 
-        // Iniciar corutina para el timbre después de 3 segundos
-        StartCoroutine(PlayTimbreAfterDelay(3f));
+        // Iniciar el timbre con un delay
+        StartCoroutine(PlayTimbreAfterDelay(timbreDelay));
     }
 
     public void PlaySFX(AudioClip clip)
@@ -39,6 +40,20 @@ public class AudioManager : MonoBehaviour
         else
         {
             Debug.LogWarning("Clip de sonido no asignado.");
+        }
+    }
+
+    private IEnumerator PlayBackgroundMusicAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Espera el tiempo indicado
+        if (background != null)
+        {
+            musicSource.clip = background;
+            musicSource.Play(); // Reproducir música de fondo
+        }
+        else
+        {
+            Debug.LogWarning("No se asignó un clip de música de fondo.");
         }
     }
 
