@@ -641,7 +641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &173722973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,6 +686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 178384758}
   - component: {fileID: 178384759}
+  - component: {fileID: 178384760}
   m_Layer: 0
   m_Name: CartaAbierta_CharlotteRecibidor
   m_TagString: Untagged
@@ -756,6 +757,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 15.178337, y: 14.201713}
   m_EdgeRadius: 0
+--- !u!114 &178384760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178384757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abrirSonido: {fileID: 0}
+  cerrarSonido: {fileID: 8300000, guid: a0abe4f4bcc762249bc7de292b3cdda6, type: 3}
 --- !u!1 &209521176
 GameObject:
   m_ObjectHideFlags: 0
@@ -2953,7 +2968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 6036662115135243276, guid: 0bc2d96f35d5f27489e4b3f56675cc0a, type: 3}
-  recogerSonido: {fileID: 0}
+  recogerSonido: {fileID: 8300000, guid: ff9914a8705f26f49957100887697d87, type: 3}
 --- !u!114 &799030141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3257,6 +3272,7 @@ GameObject:
   - component: {fileID: 828207801}
   - component: {fileID: 828207803}
   - component: {fileID: 828207802}
+  - component: {fileID: 828207804}
   m_Layer: 0
   m_Name: CartaCerrada_CharlotteRecibidor
   m_TagString: Untagged
@@ -3376,6 +3392,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &828207804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828207800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abrirSonido: {fileID: 8300000, guid: c7bc3e1800b6e724a9668de0baf448f7, type: 3}
+  cerrarSonido: {fileID: 0}
 --- !u!1 &842719955
 GameObject:
   m_ObjectHideFlags: 0
@@ -3521,7 +3551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 6036662115135243276, guid: 04d450d5ee4958a4c94a9947c5f1cee0, type: 3}
-  recogerSonido: {fileID: 0}
+  recogerSonido: {fileID: 8300000, guid: ff9914a8705f26f49957100887697d87, type: 3}
 --- !u!114 &842719960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3765,7 +3795,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2327703528993006124, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: Mute
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327703528993006124, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: m_Volume
+      value: 0.551
       objectReference: {fileID: 0}
     - target: {fileID: 2327703528993006124, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: BypassEffects
@@ -3816,9 +3850,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: Timbre
+      value: 
+      objectReference: {fileID: 8300000, guid: 91516a55ebd7ebc46aac48a08d5b46c5, type: 3}
+    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: timbre
+      value: 
+      objectReference: {fileID: 8300000, guid: 91516a55ebd7ebc46aac48a08d5b46c5, type: 3}
+    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: background
       value: 
-      objectReference: {fileID: 8300000, guid: ab6c92016eb9b414baee3cfa984088bc, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: ClickButton
       value: 
@@ -5056,7 +5098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1346029456
 Transform:
   m_ObjectHideFlags: 0
@@ -6716,7 +6758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1840554811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7105,7 +7147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 6036662115135243276, guid: 3a88cd94a51093b4b8e11a8ad4ac34f9, type: 3}
-  recogerSonido: {fileID: 0}
+  recogerSonido: {fileID: 8300000, guid: ff9914a8705f26f49957100887697d87, type: 3}
 --- !u!114 &1906454814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7227,7 +7269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1911104933
 Transform:
   m_ObjectHideFlags: 0

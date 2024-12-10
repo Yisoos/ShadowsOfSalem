@@ -23,7 +23,7 @@ public class CajonController : MonoBehaviour
         if (!cajonAbierto)
         {
             // Abrir el cajón
-            Debug.Log("Cajón abierto");
+            Debug.Log("Sonido abierto");
             cajonAbierto = true;
             if (audioManager != null && abrirSonido != null)
             {
@@ -33,7 +33,7 @@ public class CajonController : MonoBehaviour
         else
         {
             // Cerrar el cajón
-            Debug.Log("Cajón cerrado");
+            Debug.Log("sonido cerrado");
             cajonAbierto = false;
             if (audioManager != null && cerrarSonido != null)
             {
