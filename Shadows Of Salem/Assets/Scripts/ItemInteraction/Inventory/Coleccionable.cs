@@ -5,15 +5,43 @@ using UnityEngine;
 [RequireComponent(typeof(Tags))]
 public class Coleccionable : MonoBehaviour
 {
-   public Tags itemPrefab; // Prefab del objeto que se recogerá
-    public void OnMouseDown()
-    {   if(AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.gameObject.transform)) 
+    public Tags itemPrefab; // Prefab del objeto que se recogerá
+    public AudioClip recogerSonido; // Sonido al recoger el ítem
+    private AudioManager audioManager; // Referencia al AudioManager
+
+    private void Start()
+    {
+        // Buscar el AudioManager en la escena
+        audioManager = FindObjectOfType<AudioManager>();
+        if (audioManager == null)
         {
-            CollectItem();
+            Debug.LogError("AudioManager no encontrado en la escena.");
         }
     }
 
-    public void CollectItem() 
+    public void OnMouseDown()
+    {
+        if (AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.gameObject.transform))
+        {
+            PlayRecogerSonido(); // Reproducir sonido antes de recoger
+            CollectItem(); // Recoger el ítem
+        }
+    }
+
+    private void PlayRecogerSonido()
+    {
+        // Reproducir el sonido del cable
+        if (audioManager != null && recogerSonido != null)
+        {
+            audioManager.PlaySFX(recogerSonido);
+        }
+        else
+        {
+            Debug.LogWarning("No se asignó un sonido para recoger el ítem o el AudioManager no fue encontrado.");
+        }
+    }
+
+    public void CollectItem()
     {
         // Obtener la instancia de Inventory
         Inventory inventory = FindObjectOfType<Inventory>();
@@ -21,7 +49,6 @@ public class Coleccionable : MonoBehaviour
         {
             if (inventory.CollectItem(itemPrefab, GetComponent<Tags>()))
             {
-                //Debug.Log($"Collected {itemPrefab.name}");
                 // Destruir el objeto de la escena
                 MultipleViewItem multipleViewItem = GetComponent<MultipleViewItem>();
                 if (multipleViewItem != null)
@@ -30,12 +57,12 @@ public class Coleccionable : MonoBehaviour
                 }
                 else
                 {
-                    gameObject.SetActive(false);
+                    gameObject.SetActive(false); // Desactivar después de recoger
                 }
             }
             else
             {
-                Debug.Log("Inventario esta lleno");
+                Debug.Log("Inventario está lleno");
             }
         }
         else
@@ -44,3 +71,4 @@ public class Coleccionable : MonoBehaviour
         }
     }
 }
+

@@ -132,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 88931670}
   - component: {fileID: 88931671}
+  - component: {fileID: 88931672}
   m_Layer: 0
   m_Name: 'ColliderCajon2_Gabinete '
   m_TagString: Untagged
@@ -199,6 +200,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.8, y: 1.6}
   m_EdgeRadius: 0
+--- !u!114 &88931672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88931669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abrirSonido: {fileID: 8300000, guid: c098640499609654b9b108842c7eca59, type: 3}
+  cerrarSonido: {fileID: 0}
 --- !u!1 &98461931 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7123308556899413979, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
@@ -215,6 +230,7 @@ GameObject:
   - component: {fileID: 98863200}
   - component: {fileID: 98863201}
   - component: {fileID: 98863202}
+  - component: {fileID: 98863203}
   m_Layer: 6
   m_Name: Cajon1Abierto_Gabinete
   m_TagString: Open Container
@@ -335,6 +351,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 15.14, y: 4.75}
   m_EdgeRadius: 0
+--- !u!114 &98863203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98863199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abrirSonido: {fileID: 0}
+  cerrarSonido: {fileID: 8300000, guid: 2ff84fc508e03ac479b26c0d95451ad9, type: 3}
 --- !u!1 &143887620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,7 +1345,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.08643973, y: 0.12286377}
@@ -1361,6 +1391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 6036662115135243276, guid: 74225d30676fbad42b6d9d2026ae39c7, type: 3}
+  recogerSonido: {fileID: 8300000, guid: ff9914a8705f26f49957100887697d87, type: 3}
 --- !u!212 &506167204
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2035,6 +2066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 617294804}
   - component: {fileID: 617294805}
+  - component: {fileID: 617294806}
   m_Layer: 0
   m_Name: ColliderCajon1_Gabinete
   m_TagString: Untagged
@@ -2086,7 +2118,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.63, y: 1.24}
@@ -2102,6 +2134,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.82, y: 1.48}
   m_EdgeRadius: 0
+--- !u!114 &617294806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617294803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abrirSonido: {fileID: 8300000, guid: c098640499609654b9b108842c7eca59, type: 3}
+  cerrarSonido: {fileID: 0}
 --- !u!1 &668107581
 GameObject:
   m_ObjectHideFlags: 0
@@ -2777,6 +2823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 798030938}
   - component: {fileID: 798030939}
+  - component: {fileID: 798030940}
   m_Layer: 0
   m_Name: ColliderCajon3_Gabinete
   m_TagString: Untagged
@@ -2844,6 +2891,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.54, y: 1.33}
   m_EdgeRadius: 0
+--- !u!114 &798030940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798030937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abrirSonido: {fileID: 8300000, guid: c098640499609654b9b108842c7eca59, type: 3}
+  cerrarSonido: {fileID: 0}
 --- !u!1 &799030137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2892,6 +2953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 6036662115135243276, guid: 0bc2d96f35d5f27489e4b3f56675cc0a, type: 3}
+  recogerSonido: {fileID: 0}
 --- !u!114 &799030141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3459,6 +3521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 6036662115135243276, guid: 04d450d5ee4958a4c94a9947c5f1cee0, type: 3}
+  recogerSonido: {fileID: 0}
 --- !u!114 &842719960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3700,6 +3763,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2327703528993006124, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: Mute
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327703528993006124, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5385151767659755121, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: m_Name
       value: Audio Manager
@@ -3857,6 +3928,7 @@ GameObject:
   - component: {fileID: 1046643357}
   - component: {fileID: 1046643358}
   - component: {fileID: 1046643359}
+  - component: {fileID: 1046643360}
   m_Layer: 6
   m_Name: Cajon2Abierto_Gabinete
   m_TagString: Open Container
@@ -3976,6 +4048,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 13.14, y: 4.23}
   m_EdgeRadius: 0
+--- !u!114 &1046643360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046643356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abrirSonido: {fileID: 0}
+  cerrarSonido: {fileID: 8300000, guid: 2ff84fc508e03ac479b26c0d95451ad9, type: 3}
 --- !u!1 &1059624220
 GameObject:
   m_ObjectHideFlags: 0
@@ -4819,6 +4905,7 @@ GameObject:
   - component: {fileID: 1313176793}
   - component: {fileID: 1313176794}
   - component: {fileID: 1313176795}
+  - component: {fileID: 1313176796}
   m_Layer: 6
   m_Name: Cajon3Abierto_Gabinete
   m_TagString: Open Container
@@ -4938,6 +5025,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.3, y: 3.53}
   m_EdgeRadius: 0
+--- !u!114 &1313176796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313176792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abrirSonido: {fileID: 0}
+  cerrarSonido: {fileID: 8300000, guid: 2ff84fc508e03ac479b26c0d95451ad9, type: 3}
 --- !u!1 &1346029455
 GameObject:
   m_ObjectHideFlags: 0
@@ -5307,6 +5408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1504934144}
+  - component: {fileID: 1504934145}
   m_Layer: 0
   m_Name: Cajones:_Cerrados:Gabinete(Colliders)
   m_TagString: Untagged
@@ -5332,6 +5434,20 @@ Transform:
   - {fileID: 798030938}
   m_Father: {fileID: 1911104933}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1504934145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504934143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abrirSonido: {fileID: 0}
+  cerrarSonido: {fileID: 0}
 --- !u!1 &1538032050
 GameObject:
   m_ObjectHideFlags: 0
@@ -6600,7 +6716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1840554811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6784,7 +6900,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1873223424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6989,6 +7105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 6036662115135243276, guid: 3a88cd94a51093b4b8e11a8ad4ac34f9, type: 3}
+  recogerSonido: {fileID: 0}
 --- !u!114 &1906454814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7623,7 +7740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -7639,7 +7756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
@@ -7660,7 +7777,7 @@ PrefabInstance:
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 173722972}
+      objectReference: {fileID: 1723206115}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
@@ -7691,7 +7808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: 
+      value: PlaySFX
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
@@ -7711,7 +7828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: SceneNavigator, Assembly-CSharp
+      value: AudioManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
@@ -7730,6 +7847,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 3487f3cf62ed73d44bb2926f24964ad7, type: 3}
+    - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -7743,7 +7864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.AudioClip, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -7769,6 +7890,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1929128094}
+    - target: {fileID: 4035382007512907643, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4071148912439745777, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -10.499939
