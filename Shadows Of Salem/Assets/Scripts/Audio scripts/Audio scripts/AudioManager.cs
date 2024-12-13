@@ -21,6 +21,10 @@ public class AudioManager : MonoBehaviour
     public float backgroundDelay = 2f; // Tiempo de espera antes de la música
     public float timbreDelay = 3f; // Tiempo de espera antes del timbre
 
+    [Header("---------- Volumen ----------")]
+    [Range(0f, 1f)] public float volumeSFX = 1f; // Volumen de los efectos de sonido (0 = silencio, 1 = volumen máximo)
+    [Range(0f, 1f)] public float volumeMusic = 1f; // Volumen de la música de fondo (0 = silencio, 1 = volumen máximo)
+
     private void Start()
     {
         // Iniciar la música de fondo con un delay
@@ -28,8 +32,31 @@ public class AudioManager : MonoBehaviour
 
         // Iniciar el timbre con un delay
         StartCoroutine(PlayTimbreAfterDelay(timbreDelay));
+
+        // Establecer volúmenes iniciales
+        SetVolumeSFX(volumeSFX);
+        SetVolumeMusic(volumeMusic);
     }
 
+    // Método para ajustar el volumen de los efectos de sonido
+    public void SetVolumeSFX(float volume)
+    {
+        if (SFXSource != null)
+        {
+            SFXSource.volume = Mathf.Clamp(volume, 0f, 1f); // Asegura que el volumen esté entre 0 y 1
+        }
+    }
+
+    // Método para ajustar el volumen de la música de fondo
+    public void SetVolumeMusic(float volume)
+    {
+        if (musicSource != null)
+        {
+            musicSource.volume = Mathf.Clamp(volume, 0f, 1f); // Asegura que el volumen esté entre 0 y 1
+        }
+    }
+
+    // Método para reproducir un sonido específico
     public void PlaySFX(AudioClip clip)
     {
         if (clip != null)

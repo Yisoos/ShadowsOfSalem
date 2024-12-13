@@ -641,7 +641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &173722973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -911,7 +911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &376355076
 Transform:
   m_ObjectHideFlags: 0
@@ -1195,7 +1195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &451784480
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2261,6 +2261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 689805500}
   - component: {fileID: 689805499}
+  - component: {fileID: 689805501}
   m_Layer: 0
   m_Name: ColliderCajon2_Escritorio
   m_TagString: Untagged
@@ -2328,6 +2329,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1351927736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &689805501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689805498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abrirSonido: {fileID: 8300000, guid: c098640499609654b9b108842c7eca59, type: 3}
+  cerrarSonido: {fileID: 0}
 --- !u!1 &690355918
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,6 +2655,7 @@ GameObject:
   - component: {fileID: 762782797}
   - component: {fileID: 762782798}
   - component: {fileID: 762782799}
+  - component: {fileID: 762782800}
   m_Layer: 0
   m_Name: Cajon1Abierto_Escritorio
   m_TagString: Untagged
@@ -2760,6 +2776,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.5540285, y: 3.8259287}
   m_EdgeRadius: 0
+--- !u!114 &762782800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762782796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abrirSonido: {fileID: 0}
+  cerrarSonido: {fileID: 8300000, guid: 2ff84fc508e03ac479b26c0d95451ad9, type: 3}
 --- !u!1 &795326457
 GameObject:
   m_ObjectHideFlags: 0
@@ -3587,7 +3617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &843719827
 Transform:
   m_ObjectHideFlags: 0
@@ -3799,7 +3829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2327703528993006124, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: m_Volume
-      value: 0.551
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2327703528993006124, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: BypassEffects
@@ -4200,6 +4230,7 @@ GameObject:
   - component: {fileID: 1074531375}
   - component: {fileID: 1074531374}
   - component: {fileID: 1074531376}
+  - component: {fileID: 1074531377}
   m_Layer: 0
   m_Name: Cajon2Abierto_Escritorio
   m_TagString: Untagged
@@ -4319,6 +4350,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.765017, y: 2.894833}
   m_EdgeRadius: 0
+--- !u!114 &1074531377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074531373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abrirSonido: {fileID: 0}
+  cerrarSonido: {fileID: 8300000, guid: 2ff84fc508e03ac479b26c0d95451ad9, type: 3}
 --- !u!1 &1096079727
 GameObject:
   m_ObjectHideFlags: 0
@@ -4609,6 +4654,7 @@ GameObject:
   - component: {fileID: 1297857916}
   - component: {fileID: 1297857918}
   - component: {fileID: 1297857917}
+  - component: {fileID: 1297857919}
   m_Layer: 0
   m_Name: CuadernoNotas_Abierto
   m_TagString: Untagged
@@ -4728,6 +4774,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1297857919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297857915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abrirSonido: {fileID: 0}
+  cerrarSonido: {fileID: 8300000, guid: 529d773417f270a4b8d25c9679bca293, type: 3}
 --- !u!1 &1301955955
 GameObject:
   m_ObjectHideFlags: 0
@@ -5458,7 +5518,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1504934144}
-  - component: {fileID: 1504934145}
   m_Layer: 0
   m_Name: Cajones:_Cerrados:Gabinete(Colliders)
   m_TagString: Untagged
@@ -5484,20 +5543,6 @@ Transform:
   - {fileID: 798030938}
   m_Father: {fileID: 1911104933}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1504934145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504934143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 0}
-  cerrarSonido: {fileID: 0}
 --- !u!1 &1538032050
 GameObject:
   m_ObjectHideFlags: 0
@@ -6815,6 +6860,7 @@ GameObject:
   - component: {fileID: 1864527150}
   - component: {fileID: 1864527151}
   - component: {fileID: 1864527152}
+  - component: {fileID: 1864527153}
   m_Layer: 3
   m_Name: CuadernoNotas_Cajon1
   m_TagString: Untagged
@@ -6934,6 +6980,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.2498994, y: 1.31}
   m_EdgeRadius: 0
+--- !u!114 &1864527153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864527149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abrirSonido: {fileID: 8300000, guid: 016b054f8e47e1e4299e5d59c88d889e, type: 3}
+  cerrarSonido: {fileID: 0}
 --- !u!1 &1873223423
 GameObject:
   m_ObjectHideFlags: 0
@@ -6950,7 +7010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1873223424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7004,6 +7064,7 @@ GameObject:
   - component: {fileID: 1884930295}
   - component: {fileID: 1884930296}
   - component: {fileID: 1884930297}
+  - component: {fileID: 1884930298}
   m_Layer: 0
   m_Name: ColliderCajon1_Escritorio
   m_TagString: Untagged
@@ -7107,6 +7168,20 @@ MonoBehaviour:
   sprite: {fileID: 0}
   quantity: 1
   objectType: 3
+--- !u!114 &1884930298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884930293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abrirSonido: {fileID: 8300000, guid: c098640499609654b9b108842c7eca59, type: 3}
+  cerrarSonido: {fileID: 0}
 --- !u!1 &1906454811
 GameObject:
   m_ObjectHideFlags: 0
