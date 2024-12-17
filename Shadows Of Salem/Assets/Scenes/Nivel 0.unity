@@ -1261,8 +1261,8 @@ GameObject:
   m_Component:
   - component: {fileID: 506167200}
   - component: {fileID: 506167204}
-  - component: {fileID: 506167201}
   - component: {fileID: 506167205}
+  - component: {fileID: 506167201}
   m_Layer: 3
   m_Name: Cable
   m_TagString: Untagged
@@ -1394,7 +1394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 896350513756678043, guid: da86a0b833778004288a51a6a59fcd5c, type: 3}
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
   inheritTags:
     objectName: Cable
     displayText:
@@ -2863,7 +2863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 896350513756678043, guid: da86a0b833778004288a51a6a59fcd5c, type: 3}
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
   inheritTags:
     objectName: Alicates
     displayText:

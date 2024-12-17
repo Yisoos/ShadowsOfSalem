@@ -7,16 +7,14 @@ using UnityEngine.UI;
 // Clase que maneja la mecánica de arrastre de un objeto en la interfaz de usuario
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    #region Declaración de Clase y Variables
-    [SerializeField] public NewTags tagInfo; 
+    
+    public NewTags tagInfo; 
     // Imagen que representa el objeto que se arrastra
     public Image image;
     public float magnificationOnDrag;
     // Transformación del padre del objeto después de ser arrastrado
     [HideInInspector] public Transform parentAfterDrag;
-    #endregion
-
-    #region Métodos de Arrastre (OnBeginDrag, OnDrag, OnEndDrag)
+    
     // Método llamado al inicio del arrastre
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -68,9 +66,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         // Rehabilitar el raycast en la imagen arrastrada
         image.raycastTarget = true;
     }
-    #endregion
-
-    #region Verificación y Manejo de Interacciones (CheckForInteraction, InteractionHub)
     // Método para verificar interacciones al soltar el objeto
     public void CheckForInteraction(PointerEventData eventData, NewTags thisObjectTag)
     {
@@ -81,96 +76,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         // Comprobar si el rayo golpeó algo
         if (hit.collider != null)
         {
-            // Obtener el componente de Tags del objeto golpeado
-            InventoryItem targetTag = hit.collider.GetComponent<InventoryItem>();
-            if (targetTag != null)
-            {
-                // Lógica adicional puede ser colocada aquí
-                InteractionHub(this, targetTag);
-            }
-            else
-            {
-                //Debug.Log("No se encontró el componente Tags en: " + hit.collider.gameObject.name);
-            }
+                AccesibilityChecker.Instance.TryAccess(this, hit.collider.transform);
         }
         else
         {
             //Debug.Log("El raycast no golpeó nada.");
         }
     }
-
-    // Método para manejar las interacciones basadas en el tipo de objeto objetivo
-    public void InteractionHub(InventoryItem thisObjectTags, InventoryItem targetObjectTags)
-    {
-        // Manejar interacciones basadas en el tipo de objeto
-        switch (targetObjectTags.tagInfo.objectType)
-        {
-            case TypeObject.Lock:
-                // Manejar desbloqueo si el objeto es un candado
-                Lock lockComponent = targetObjectTags.GetComponent<Lock>();
-                if (lockComponent != null)
-                {
-                    Key key = GetComponent<Key>();
-                    if (key != null)
-                    {
-                        lockComponent.TryUnlock(key);
-                    }
-                }
-                break;
-
-            case TypeObject.Compartment:
-                // Manejar compartimentos bloqueados y dependencias
-                Lock compartmentLocked = targetObjectTags.GetComponent<Lock>();
-                DependencyHandler compartmentDependency = targetObjectTags.GetComponent<DependencyHandler>();
-                OrderedDependencies compartmentDependencyInOrder = targetObjectTags.GetComponent<OrderedDependencies>();
-                ObjectCombination compartmentObjectCombination = targetObjectTags.GetComponent<ObjectCombination>();
-                if (compartmentLocked != null && compartmentLocked.isLocked == true)
-                {
-                    Key key = GetComponent<Key>();
-                    if (key != null)
-                    {
-                        compartmentLocked.TryUnlock(key);
-                    }
-                }
-                else if (compartmentDependency != null)
-                {
-                    compartmentDependency.HandleItem(thisObjectTags);
-                }
-                if (compartmentDependencyInOrder != null)
-                {
-                    compartmentDependencyInOrder.HandleItem(thisObjectTags);
-                }
-                if (compartmentObjectCombination != null)
-                {
-                    compartmentObjectCombination.CheckForCombination(thisObjectTags);
-                }
-                break;
-
-            default:
-                // Manejar dependencias para otros tipos de objetos
-                DependencyHandler dependency = targetObjectTags.GetComponent<DependencyHandler>();
-                OrderedDependencies dependencyInOrder = targetObjectTags.GetComponent<OrderedDependencies>();
-                ObjectCombination objectCombination = targetObjectTags.GetComponent<ObjectCombination>();
-                InterchangableItemPlacement interchangableItemPlacement = targetObjectTags.GetComponent<InterchangableItemPlacement>();
-                if (dependency != null)
-                {
-                    dependency.HandleItem(thisObjectTags);
-                }
-                if (dependencyInOrder != null)
-                {
-                    dependencyInOrder.HandleItem(thisObjectTags);
-                }
-                if (objectCombination != null)
-                {
-                    objectCombination.CheckForCombination(thisObjectTags);
-                }
-                if (interchangableItemPlacement != null)
-                {
-                    interchangableItemPlacement.PlaceOrSwapItem(thisObjectTags);
-                }
-                break;
-
-        }
-    }
-    #endregion
 }

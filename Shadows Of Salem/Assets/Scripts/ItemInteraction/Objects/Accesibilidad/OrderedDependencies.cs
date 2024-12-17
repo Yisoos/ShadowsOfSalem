@@ -3,97 +3,108 @@ using System.Linq;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using System;
 
 public class OrderedDependencies : MonoBehaviour
 {
     [Header("Elementos Requeridos")]
-    public List<string> requiredItems; // Lista de elementos necesarios para este objeto (por ejemplo, teléfono, cable, pinzas)
+    public List<string> requiredItems; // Lista de elementos necesarios que se deben cumplir en orden.
+
     [Space(10), Header("Cambios de Sprite")]
-    public Sprite[] dependencyMetSprite; // Sprite cuando el cable está conectado
+    public Sprite[] dependencyMetSprite; // Array de sprites para cambiar la apariencia al cumplir cada dependencia.
+
     [Space(10), Header("FeedbackText")]
-    public string[] displayText;
-    
-    private FeedbackTextController feedbackText;
-    private SpriteRenderer spriteRenderer; // Referencia para cambiar el sprite
-    private NewInventory inventory; // Referencia al inventario
-    [HideInInspector] public bool[] dependencyMet;
+    public string itemRejectionText;
+    public string[] displayText; // Mensajes de texto que se mostrarán al cumplir o no las dependencias.
+
+    private FeedbackTextController feedbackText; // Referencia al controlador de mensajes emergentes.
+    private SpriteRenderer spriteRenderer; // Referencia al componente SpriteRenderer para cambiar sprites.
+    private NewInventory inventory; // Referencia al inventario para manejar objetos.
+    [HideInInspector] public bool[] dependencyMet; // Array booleano para registrar el estado de cada dependencia.
 
     private void Start()
     {
+        // Inicialización de referencias necesarias.
         feedbackText = FindAnyObjectByType<FeedbackTextController>();
         inventory = FindAnyObjectByType<NewInventory>();
-        // Obtener el componente SpriteRenderer al iniciar
         spriteRenderer = GetComponent<SpriteRenderer>();
-        dependencyMet = new bool[requiredItems.Count];
-        dependencyMet = Enumerable.Repeat(false, dependencyMet.Length).ToArray();
+
+        // Inicializa el array de estados de dependencias como "false".
+        dependencyMet = Enumerable.Repeat(false, requiredItems.Count).ToArray();
     }
 
-    // Método para manejar el objeto que se ha soltado y verificar si los elementos requeridos están presentes en el inventario
     public bool HandleItem(InventoryItem objectDropped)
     {
-        for(int i = 0;i < dependencyMet.Length; i++)
+        for (int i = 0; i < dependencyMet.Length; i++)
         {
+            // Si la dependencia aún no se ha cumplido:
             if (!dependencyMet[i])
             {
-                // Verificar si el inventario está asignado
+                // Verifica si el inventario está configurado.
                 if (inventory == null)
                 {
                     Debug.LogError("Este script no está conectado al inventario");
                     return false;
                 }
 
-                // Iterar a través de los elementos requeridos
-                
-                    // Verificar si el elemento requerido está presente en el inventario
-                    bool itemFound = requiredItems[i] == objectDropped.tagInfo.objectName;
+                // Comprueba si el objeto soltado coincide con el requerido en esta posición.
+                bool itemFound = requiredItems[i] == objectDropped.tagInfo.objectName;
 
-                    // Si el elemento requerido no se encuentra en el inventario, registrar un mensaje y devolver falso
-                    if (!itemFound)
+                if (!itemFound)
+                {
+                    if (feedbackText != null) 
                     {
-                        if (feedbackText != null || objectDropped != null && objectDropped.tagInfo.displayText[0] != null)
+                        // Si el objeto no es el requerido, muestra un mensaje de error.
+                        if (!requiredItems.Contains(objectDropped.tagInfo.objectName))
+                        {
+                            feedbackText.PopUpText(itemRejectionText);
+                        }
+                        else if (objectDropped.tagInfo.displayText.Length > 0)
                         {
                             feedbackText.PopUpText(objectDropped.tagInfo.displayText[0]);
                         }
-                        //Debug.Log($"Para usar este objeto necesitas {requiredItems[i]}");
-                        return false;
                     }
-
-                // Todos los elementos requeridos fueron encontrados
-                //Debug.Log("objeto requerido detectado.");
-
-                if (i == requiredItems.Count - 1)
-                {
-                    feedbackText.PopUpText(displayText[displayText.Length - 1]);
+                    return false; // Termina la función sin procesar el objeto.
                 }
-                else
+
+                // Si se cumple la última dependencia, muestra un mensaje final.
+                if (feedbackText != null && objectDropped.tagInfo.displayText.Length > 0)
                 {
-                    feedbackText.PopUpText(objectDropped.tagInfo.displayText[1]);
-                } 
-
-                spriteRenderer.sprite = dependencyMetSprite[i+1];
-                dependencyMet[i] = true;
-
-                    // Eliminar el elemento del inventario
-                    inventory.DeleteItem(objectDropped);
+                    feedbackText.PopUpText(objectDropped.tagInfo.displayText[objectDropped.tagInfo.displayText.Length - 1]);
+                }
+                spriteRenderer.sprite = dependencyMetSprite[i + 1]; // Actualiza el sprite al correspondiente al progreso actual.
+                dependencyMet[i] = true; // Marca la dependencia actual como cumplida.
+                inventory.DeleteItem(objectDropped);// Elimina el objeto del inventario.
+                break; // Termina el bucle después de procesar el objeto.
             }
         }
-        return true;
+        return true; // Retorna true si el proceso se completó correctamente.
     }
-    public bool feedbackTextDesider() 
+
+    public bool feedbackTextDesider()
     {
+        // Si la primera dependencia no se ha cumplido, muestra un mensaje inicial.
         if (!dependencyMet[0])
         {
-            feedbackText.PopUpText(displayText[0]);
+            if(feedbackText != null && displayText.Length > 0)
+            {
+                feedbackText.PopUpText(displayText[0]);
+            }
             return false;
         }
+
+        // Recorre las dependencias para mostrar mensajes de progreso.
         for (int i = 0; i < dependencyMet.Length; i++)
         {
-            if (dependencyMet[i] && !dependencyMet[dependencyMet.Length-1])
+            if (dependencyMet[i] && !dependencyMet[dependencyMet.Length - 1])
             {
-                feedbackText.PopUpText(displayText[i+1]);
-                return false;
+                if (feedbackText != null && displayText.Length > 0)
+                {
+                    feedbackText.PopUpText(displayText[i + 1]);
+                }
+                return false; // Termina si aún hay dependencias sin cumplir.
             }
         }
-        return true;
+        return true; // Todas las dependencias están cumplidas.
     }
 }

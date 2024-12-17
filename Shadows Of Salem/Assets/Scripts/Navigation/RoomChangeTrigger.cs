@@ -5,8 +5,12 @@ using UnityEngine;
 public class RoomChangeTrigger : MonoBehaviour
 {
     public int viewNumber;
-    public SceneNavigator nav;
+    private SceneNavigator nav;
 
+    private void Start()
+    {
+        nav = FindAnyObjectByType<SceneNavigator>();
+    }
     private void OnMouseUp()
     {
         if(AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.gameObject.transform))

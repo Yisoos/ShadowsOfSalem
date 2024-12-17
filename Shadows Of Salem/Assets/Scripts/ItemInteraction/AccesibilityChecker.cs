@@ -57,6 +57,43 @@ public class AccesibilityChecker : MonoBehaviour
         // Si no hay restricciones, devuelve verdadero
         return true;
     }
+    public void TryAccess(InventoryItem objectDropped, Transform objectHit)
+    {
+        // Obtiene componentes de bloqueo y dependencias del objeto
+        Lock itemLocked = objectHit.GetComponent<Lock>();
+        DependencyHandler itemDependencies = objectHit.GetComponent<DependencyHandler>();
+        OrderedDependencies itemDependencyByOrder = objectHit.GetComponent<OrderedDependencies>();
+        ObjectCombination itemObjectCombination = objectHit.GetComponent<ObjectCombination>();
+        InterchangableItemPlacement itemInterchangableItemPlacement = objectHit.GetComponent<InterchangableItemPlacement>();
+        // Si el objeto está bloqueado, muestra mensaje y devuelve falso
+        if (itemLocked != null)
+        {
+            Key key = objectDropped.GetComponent<Key>();
+            if (key != null)
+            {
+            itemLocked.TryUnlock(key);
+            }
+            return;
+        }
+        // Si el objeto tiene dependencias no cumplidas, muestra mensaje y devuelve falso
+        if (itemDependencies != null)
+        {
+            itemDependencies.HandleItem(objectDropped);
+            return;
+        }
+        if (itemDependencyByOrder != null)
+        {
+            itemDependencyByOrder.HandleItem(objectDropped);
+        }
+        if (itemObjectCombination != null)
+        {
+            itemObjectCombination.CheckForCombination(objectDropped);
+        }
+        if (itemInterchangableItemPlacement != null)
+        {
+            itemInterchangableItemPlacement.PlaceOrSwapItem(objectDropped);
+        }
+    }
     public bool isUIObjectInteractable(InventoryItem ObjectDropped, InventoryItem ObjectInInventorySlot) 
     {
         //Debug.Log($"{ObjectDropped.objectName} dropped onto {ObjectInInventorySlot.objectName}");

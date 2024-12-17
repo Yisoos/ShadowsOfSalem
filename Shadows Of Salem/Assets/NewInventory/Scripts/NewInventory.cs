@@ -124,8 +124,7 @@ public class NewInventory : MonoBehaviour
         ClassSummoner classSummoner = item.GetComponent<ClassSummoner>();
         
         prefabSprite.sprite = originTags.sprite;
-        prefabTags.tagInfo.sprite = originTags.sprite;
-        prefabTags.tagInfo.objectName = originTags.objectName;
+        prefabTags.tagInfo = originTags;
 
         if(classSummoner != null)
         {

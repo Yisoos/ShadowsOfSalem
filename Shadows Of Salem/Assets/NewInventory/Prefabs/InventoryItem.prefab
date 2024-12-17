@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 877786199834206922}
   - component: {fileID: 896350513756678043}
   - component: {fileID: 8560509484604603364}
+  - component: {fileID: 7596327971507757738}
   m_Layer: 5
-  m_Name: RegularItem
+  m_Name: InventoryItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,12 +90,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3c4afed6813664b92206caabe9fcfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisTag:
+  tagInfo:
     objectName: 
     displayText: []
     sprite: {fileID: 0}
-    quantity: 1
-    objectType: 2
+    quantity: 0
+    objectType: 0
   image: {fileID: 877786199834206922}
   magnificationOnDrag: 1.5
   parentAfterDrag: {fileID: 0}
@@ -111,3 +112,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorIndex: 0
+--- !u!114 &7596327971507757738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4639062002518542064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3f1d0a1d6efab4692c83b7bdba3cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
