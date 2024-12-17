@@ -553,7 +553,7 @@ MonoBehaviour:
   inheritTags:
     objectName: Palanca
     displayText:
-    - Palanca puesta!
+    - Palanca puesta! Ahora pongo la cinta
     sprite: {fileID: 21300000, guid: 4d1e001bc2a10264aad46e9185a75ac2, type: 3}
     quantity: 1
     objectType: 2
@@ -5806,8 +5806,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b9a0a02842eb28449936f65ec29618ec, type: 3}
   itemRejectionText: Creo que no necesito poner eso ahi...
   displayText:
-  - Le falta la palanca, deberia estar por aqui...
-  - No tiene cinta! necesito la cinta para poder leerla
+  - No funciona.. Tengo que arreglar la palanca y meter la cinta
+  - Ya funciona! Ahora necesito la cinta para leerla
   dependencyMet: 
 --- !u!114 &1863346700
 MonoBehaviour:
@@ -6218,8 +6218,9 @@ MonoBehaviour:
   lockID: 6
   isPhysicalLock: 0
   displayText:
-  - Cerrada... igual puedo forzar la cerradura con algo...
-  - Listo! abierta
+  - "Est\xE1 cerrada con llave... Pero quiza prodr\xEDa intentar abrirla  con otra
+    cosa..."
+  - Ha funcionado... Se ha abierto!
 --- !u!1 &2002015574
 GameObject:
   m_ObjectHideFlags: 0

@@ -591,7 +591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &226776195
 Transform:
   m_ObjectHideFlags: 0
@@ -801,7 +801,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 4
-  nav: {fileID: 2326792699735797970}
 --- !u!61 &271902059
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -858,7 +857,6 @@ GameObject:
   - component: {fileID: 275325062}
   - component: {fileID: 275325066}
   - component: {fileID: 275325065}
-  - component: {fileID: 275325064}
   - component: {fileID: 275325063}
   m_Layer: 3
   m_Name: Camera
@@ -894,24 +892,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 664441139c426d94fbcb9d943d084abb, type: 3}
---- !u!114 &275325064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275325061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Camara
-  displayText: []
-  sprite: {fileID: 21300000, guid: c9276cc07335b7348847611426a68a1c, type: 3}
-  quantity: 1
-  objectType: 2
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Camara
+    displayText: []
+    sprite: {fileID: 21300000, guid: c9276cc07335b7348847611426a68a1c, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
 --- !u!61 &275325065
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1186,7 +1174,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 9
-  nav: {fileID: 2326792699735797970}
 --- !u!61 &306395751
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1243,7 +1230,6 @@ GameObject:
   - component: {fileID: 345942620}
   - component: {fileID: 345942622}
   - component: {fileID: 345942621}
-  - component: {fileID: 345942624}
   - component: {fileID: 345942623}
   - component: {fileID: 345942625}
   m_Layer: 0
@@ -1377,24 +1363,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 9c227b08f758fbb439ca8a02b20953c2, type: 3}
---- !u!114 &345942624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345942619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Crucifijo
-  displayText: []
-  sprite: {fileID: 21300000, guid: 3e7e527aef9745c48a0dd8aebcbb856a, type: 3}
-  quantity: 1
-  objectType: 2
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Crucifijo
+    displayText: []
+    sprite: {fileID: 21300000, guid: 3e7e527aef9745c48a0dd8aebcbb856a, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
 --- !u!114 &345942625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1599,9 +1575,9 @@ GameObject:
   - component: {fileID: 410407619}
   - component: {fileID: 410407623}
   - component: {fileID: 410407622}
-  - component: {fileID: 410407621}
   - component: {fileID: 410407620}
   - component: {fileID: 410407624}
+  - component: {fileID: 410407625}
   m_Layer: 3
   m_Name: Cellar key (1)
   m_TagString: Untagged
@@ -1636,24 +1612,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: d80a9a256808a174cbf03ecc5b92965d, type: 3}
---- !u!114 &410407621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410407618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Lave Oficina
-  displayText: []
-  sprite: {fileID: 21300000, guid: ca28777709ef4864d9550e34c06eb91e, type: 3}
-  quantity: 1
-  objectType: 1
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Llave Celda 2
+    displayText: []
+    sprite: {fileID: 21300000, guid: ca28777709ef4864d9550e34c06eb91e, type: 3}
+    quantity: 1
+    objectType: 1
+    transform: {fileID: 0}
 --- !u!61 &410407622
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1770,6 +1736,19 @@ MonoBehaviour:
   objectVariations:
   - {fileID: 2089230112}
   currentStatus: 0
+--- !u!114 &410407625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410407618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b016c0e859c9db46959b59a6c2f77a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyID: 2
 --- !u!1 &418354074 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8229091235990139740, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
@@ -1801,7 +1780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &519763158
 Transform:
   m_ObjectHideFlags: 0
@@ -1981,7 +1960,6 @@ GameObject:
   - component: {fileID: 526885698}
   - component: {fileID: 526885702}
   - component: {fileID: 526885701}
-  - component: {fileID: 526885700}
   - component: {fileID: 526885699}
   m_Layer: 3
   m_Name: Ring
@@ -2017,24 +1995,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: d56fcb96ef6a18740b406b8767bcd0f5, type: 3}
---- !u!114 &526885700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 526885697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Anillo
-  displayText: []
-  sprite: {fileID: 21300000, guid: d9801765e9fbf624280967c2673cdd73, type: 3}
-  quantity: 1
-  objectType: 2
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Anillo
+    displayText: []
+    sprite: {fileID: 21300000, guid: d9801765e9fbf624280967c2673cdd73, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
 --- !u!61 &526885701
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2196,7 +2164,6 @@ GameObject:
   m_Component:
   - component: {fileID: 606853925}
   - component: {fileID: 606853926}
-  - component: {fileID: 606853928}
   - component: {fileID: 606853927}
   - component: {fileID: 606853929}
   m_Layer: 3
@@ -2285,29 +2252,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9349f9cbd0936c4badd1cc3e9b3b7ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisTag:
+    objectName: 
+    displayText: []
+    sprite: {fileID: 0}
+    quantity: 0
+    objectType: 0
+    transform: {fileID: 0}
   itemPrefab: {fileID: 7204294384838603436, guid: 3b6795d22acf12c47829f3632fcd1ac1, type: 3}
   itemsToPlace:
   - Hole
   - Gema
   - Anillo
   - Broche
---- !u!114 &606853928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 606853924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Hole
-  displayText: []
-  sprite: {fileID: 21300000, guid: 1c08db43ed6e5244999409e5fedf97f1, type: 3}
-  quantity: 1
-  objectType: 2
 --- !u!61 &606853929
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2934,7 +2891,6 @@ GameObject:
   m_Component:
   - component: {fileID: 743781371}
   - component: {fileID: 743781373}
-  - component: {fileID: 743781372}
   m_Layer: 0
   m_Name: Salida
   m_TagString: Untagged
@@ -2957,23 +2913,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 805320614}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &743781372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743781370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532ebbc37ee19d34d92e7c5d1c46838c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToGoToWhenFinished: Jesus Mensaje Final
-  RequiredItems:
-  - Documentos
-  - Camara
-  failMessage: Necesito Coger mi camara y mis documentos antes de irme!
 --- !u!61 &743781373
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3714,7 +3653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &871280572
 Transform:
   m_ObjectHideFlags: 0
@@ -3795,7 +3734,6 @@ GameObject:
   m_Component:
   - component: {fileID: 933980693}
   - component: {fileID: 933980694}
-  - component: {fileID: 933980696}
   - component: {fileID: 933980697}
   - component: {fileID: 933980698}
   - component: {fileID: 933980699}
@@ -3873,23 +3811,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &933980696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933980692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Sombra Crucifijo
-  displayText: []
-  sprite: {fileID: 21300000, guid: 3e7e527aef9745c48a0dd8aebcbb856a, type: 3}
-  quantity: 1
-  objectType: 2
 --- !u!114 &933980697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3902,6 +3823,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9349f9cbd0936c4badd1cc3e9b3b7ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisTag:
+    objectName: 
+    displayText: []
+    sprite: {fileID: 0}
+    quantity: 0
+    objectType: 0
+    transform: {fileID: 0}
   itemPrefab: {fileID: 7204294384838603436, guid: 9c227b08f758fbb439ca8a02b20953c2, type: 3}
   itemsToPlace:
   - Sombra Crucifijo
@@ -3986,10 +3914,30 @@ MonoBehaviour:
   - Broche
   - Crucifijo
   Botones:
-  - {fileID: 1356734494}
-  - {fileID: 1994958910}
-  - {fileID: 606853928}
-  - {fileID: 933980696}
+  - objectName: 
+    displayText: []
+    sprite: {fileID: 0}
+    quantity: 0
+    objectType: 0
+    transform: {fileID: 0}
+  - objectName: 
+    displayText: []
+    sprite: {fileID: 0}
+    quantity: 0
+    objectType: 0
+    transform: {fileID: 0}
+  - objectName: 
+    displayText: []
+    sprite: {fileID: 0}
+    quantity: 0
+    objectType: 0
+    transform: {fileID: 0}
+  - objectName: 
+    displayText: []
+    sprite: {fileID: 0}
+    quantity: 0
+    objectType: 0
+    transform: {fileID: 0}
   doorStates:
   - {fileID: 2086896268}
   - {fileID: 703162314}
@@ -5050,7 +4998,6 @@ GameObject:
   - component: {fileID: 1257388131}
   - component: {fileID: 1257388130}
   - component: {fileID: 1257388132}
-  - component: {fileID: 1257388133}
   m_Layer: 3
   m_Name: matches
   m_TagString: Untagged
@@ -5085,7 +5032,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: b18caf857a168ea4e8c0f2e7a73c628c, type: 3}
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Cerillas
+    displayText: []
+    sprite: {fileID: 21300000, guid: f480e4baa25bc274c9e2e8ce75cb6133, type: 3}
+    quantity: 1
+    objectType: 5
+    transform: {fileID: 0}
 --- !u!212 &1257388131
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5183,23 +5137,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
---- !u!114 &1257388133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257388128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Cerillas
-  displayText: []
-  sprite: {fileID: 21300000, guid: f480e4baa25bc274c9e2e8ce75cb6133, type: 3}
-  quantity: 1
-  objectType: 7
 --- !u!1 &1258256687
 GameObject:
   m_ObjectHideFlags: 0
@@ -5296,7 +5233,6 @@ GameObject:
   - component: {fileID: 1264326788}
   - component: {fileID: 1264326789}
   - component: {fileID: 1264326790}
-  - component: {fileID: 1264326792}
   - component: {fileID: 1264326791}
   - component: {fileID: 1264326793}
   m_Layer: 0
@@ -5433,27 +5369,9 @@ MonoBehaviour:
   isLocked: 1
   lockID: 1
   isPhysicalLock: 0
-  inventory: {fileID: 1684904970}
-  feedbackText: {fileID: 6973665184144531453}
---- !u!114 &1264326792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1264326787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Door_Cell
   displayText:
-  - "Est\xE1 cerrada.. tengo que buscar la forma de abrirla"
+  - "Est\xE1 cerrada, necesito buscar una manera de abrirla..."
   - La he abierto!
-  sprite: {fileID: 21300000, guid: 4d2ae384b37b8534c85df504d9d2c28c, type: 3}
-  quantity: 1
-  objectType: 0
 --- !u!114 &1264326793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5467,7 +5385,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 2
-  nav: {fileID: 2326792699735797970}
 --- !u!1 &1273184420
 GameObject:
   m_ObjectHideFlags: 0
@@ -5514,7 +5431,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 3
-  nav: {fileID: 2326792699735797970}
 --- !u!61 &1273184423
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5576,7 +5492,6 @@ GameObject:
   - component: {fileID: 1285704538}
   - component: {fileID: 1285704541}
   - component: {fileID: 1285704540}
-  - component: {fileID: 1285704544}
   - component: {fileID: 1285704539}
   - component: {fileID: 1285704542}
   - component: {fileID: 1285704543}
@@ -5614,7 +5529,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 71a7b175812f8df438799de10d8ff4f8, type: 3}
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Vela
+    displayText: []
+    sprite: {fileID: 21300000, guid: ec9d13bb767b57a439bb56f76ec084d2, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
 --- !u!61 &1285704540
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5746,28 +5668,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objetosCombinables:
+  - itemToCombine: Viento
+    currentItemStatus: Vela Encendida
+    newItemStatusSprite: {fileID: 21300000, guid: ec9d13bb767b57a439bb56f76ec084d2, type: 3}
+    newItemStatus: Vela
   - itemToCombine: Cerillas
     currentItemStatus: Vela
     newItemStatusSprite: {fileID: 21300000, guid: 5e22a74131144f041a008fc1b76d7802, type: 3}
     newItemStatus: Vela Encendida
-  inventory: {fileID: 1684904970}
---- !u!114 &1285704544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1285704537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Vela
-  displayText: []
-  sprite: {fileID: 21300000, guid: ec9d13bb767b57a439bb56f76ec084d2, type: 3}
-  quantity: 1
-  objectType: 6
 --- !u!1 &1286147386
 GameObject:
   m_ObjectHideFlags: 0
@@ -5944,7 +5852,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 91aff04ed4723de47a5dd51eb7831cc9, type: 3}
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Paperclip
+    displayText: []
+    sprite: {fileID: 21300000, guid: 0cd996934a065eb4c9921af359988d6d, type: 3}
+    quantity: 1
+    objectType: 1
+    transform: {fileID: 0}
 --- !u!114 &1292369782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5954,14 +5869,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1292369777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b016c0e859c9db46959b59a6c2f77a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: Sujetapapeles
-  displayText: []
-  sprite: {fileID: 21300000, guid: 0cd996934a065eb4c9921af359988d6d, type: 3}
-  quantity: 1
-  objectType: 1
+  keyID: 1
 --- !u!1 &1294165310
 GameObject:
   m_ObjectHideFlags: 0
@@ -6251,7 +6162,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1356734491}
   - component: {fileID: 1356734492}
-  - component: {fileID: 1356734494}
   - component: {fileID: 1356734493}
   - component: {fileID: 1356734495}
   m_Layer: 3
@@ -6340,29 +6250,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9349f9cbd0936c4badd1cc3e9b3b7ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 7204294384838603436, guid: 3b6795d22acf12c47829f3632fcd1ac1, type: 3}
+  thisTag:
+    objectName: Hole
+    displayText: []
+    sprite: {fileID: 21300000, guid: 1c08db43ed6e5244999409e5fedf97f1, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
   itemsToPlace:
   - Hole
   - Gema
   - Anillo
   - Broche
---- !u!114 &1356734494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1356734490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Hole
-  displayText: []
-  sprite: {fileID: 21300000, guid: 1c08db43ed6e5244999409e5fedf97f1, type: 3}
-  quantity: 1
-  objectType: 2
 --- !u!61 &1356734495
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6419,7 +6319,6 @@ GameObject:
   - component: {fileID: 1357297601}
   - component: {fileID: 1357297605}
   - component: {fileID: 1357297604}
-  - component: {fileID: 1357297603}
   - component: {fileID: 1357297602}
   m_Layer: 0
   m_Name: Lantern
@@ -6458,26 +6357,8 @@ MonoBehaviour:
   isLocked: 1
   lockID: 666
   isPhysicalLock: 0
-  inventory: {fileID: 1684904970}
-  feedbackText: {fileID: 6973665184144531453}
---- !u!114 &1357297603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357297600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Lantern
   displayText:
-  - "Un far\xF3l... No cabe por las rejas"
-  sprite: {fileID: 0}
-  quantity: 1
-  objectType: 0
+  - Un farol... No cabe por los barrotes
 --- !u!61 &1357297604
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6674,7 +6555,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 3
-  nav: {fileID: 2326792699735797970}
 --- !u!61 &1394195720
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6900,7 +6780,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1422451619}
   - component: {fileID: 1422451620}
-  - component: {fileID: 1422451622}
   - component: {fileID: 1422451621}
   - component: {fileID: 1422451623}
   - component: {fileID: 1422451624}
@@ -6993,27 +6872,9 @@ MonoBehaviour:
   isLocked: 1
   lockID: 2
   isPhysicalLock: 0
-  inventory: {fileID: 1684904970}
-  feedbackText: {fileID: 6973665184144531453}
---- !u!114 &1422451622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1422451618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Puerta Celda 2
   displayText:
-  - "Est\xE1 cerrada..."
-  - Abierta
-  sprite: {fileID: 21300000, guid: 1e27ccb32e6cefd4cbfcefe5268e41ab, type: 3}
-  quantity: 1
-  objectType: 0
+  - Esta cerrada..
+  - Abierta!
 --- !u!61 &1422451623
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7072,7 +6933,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 6
-  nav: {fileID: 2326792699735797970}
 --- !u!1 &1433241533
 GameObject:
   m_ObjectHideFlags: 0
@@ -7089,7 +6949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1433241534
 Transform:
   m_ObjectHideFlags: 0
@@ -7226,7 +7086,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 1
-  nav: {fileID: 2326792699735797970}
 --- !u!61 &1466152026
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7744,7 +7603,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1543756142}
   - component: {fileID: 1543756143}
-  - component: {fileID: 1543756145}
   - component: {fileID: 1543756144}
   - component: {fileID: 1543756146}
   m_Layer: 3
@@ -7833,24 +7691,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: c0d153962f3f75d49bbde8a06fb417aa, type: 3}
---- !u!114 &1543756145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543756141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Documentos
-  displayText: []
-  sprite: {fileID: 21300000, guid: c3b745c00e276a843b52d8686055b903, type: 3}
-  quantity: 1
-  objectType: 2
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Documentos
+    displayText: []
+    sprite: {fileID: 21300000, guid: c3b745c00e276a843b52d8686055b903, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
 --- !u!61 &1543756146
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8254,7 +8102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 2
-  nav: {fileID: 2326792699735797970}
 --- !u!61 &1685854681
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8396,7 +8243,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1709314272}
   - component: {fileID: 1709314276}
-  - component: {fileID: 1709314275}
   - component: {fileID: 1709314274}
   - component: {fileID: 1709314273}
   - component: {fileID: 1709314277}
@@ -8469,24 +8315,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 6b42ae379c8da094183017e30cd54184, type: 3}
---- !u!114 &1709314275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1709314271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Broche
-  displayText: []
-  sprite: {fileID: 21300000, guid: 5c9bf3ef0e628e44da28cb9ecc71d1b5, type: 3}
-  quantity: 1
-  objectType: 2
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Broche
+    displayText: []
+    sprite: {fileID: 21300000, guid: 5c9bf3ef0e628e44da28cb9ecc71d1b5, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
 --- !u!212 &1709314276
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8789,7 +8625,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 7
-  nav: {fileID: 2326792699735797970}
 --- !u!1 &1790170693
 GameObject:
   m_ObjectHideFlags: 0
@@ -9019,7 +8854,6 @@ GameObject:
   - component: {fileID: 1806618281}
   - component: {fileID: 1806618283}
   - component: {fileID: 1806618284}
-  - component: {fileID: 1806618285}
   m_Layer: 3
   m_Name: Lantern
   m_TagString: Untagged
@@ -9099,7 +8933,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: b6cd903a38654eb4b89406b312659cc8, type: 3}
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Farol
+    displayText: []
+    sprite: {fileID: 21300000, guid: 945cc3dfd557ba74c89862b351c6ff3c, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
 --- !u!212 &1806618282
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9201,24 +9042,6 @@ MonoBehaviour:
     currentItemStatus: Farol con Vela
     newItemStatusSprite: {fileID: 21300000, guid: 11b71f5f2a128e340b95eb572c3d355d, type: 3}
     newItemStatus: Farol Encendido
-  inventory: {fileID: 1684904970}
---- !u!114 &1806618285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806618278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Farol
-  displayText: []
-  sprite: {fileID: 21300000, guid: 945cc3dfd557ba74c89862b351c6ff3c, type: 3}
-  quantity: 1
-  objectType: 6
 --- !u!1 &1808546893
 GameObject:
   m_ObjectHideFlags: 0
@@ -9316,7 +9139,6 @@ GameObject:
   - component: {fileID: 1826374257}
   - component: {fileID: 1826374258}
   - component: {fileID: 1826374261}
-  - component: {fileID: 1826374260}
   - component: {fileID: 1826374259}
   - component: {fileID: 1826374262}
   m_Layer: 0
@@ -9405,24 +9227,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 2b6d98d490e5a8648ab6bccd132c7d45, type: 3}
---- !u!114 &1826374260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826374256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Gema
-  displayText: []
-  sprite: {fileID: 21300000, guid: 9b0726aa535d3164692ebaea85ddf7fd, type: 3}
-  quantity: 1
-  objectType: 2
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Gema
+    displayText: []
+    sprite: {fileID: 21300000, guid: 9b0726aa535d3164692ebaea85ddf7fd, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
 --- !u!61 &1826374261
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9968,7 +9780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1914260593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10013,7 +9825,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1928807025}
   - component: {fileID: 1928807026}
-  - component: {fileID: 1928807028}
   - component: {fileID: 1928807027}
   - component: {fileID: 1928807029}
   m_Layer: 3
@@ -10102,24 +9913,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: c0d153962f3f75d49bbde8a06fb417aa, type: 3}
---- !u!114 &1928807028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928807024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Documentos
-  displayText: []
-  sprite: {fileID: 21300000, guid: c3b745c00e276a843b52d8686055b903, type: 3}
-  quantity: 1
-  objectType: 2
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Documentos
+    displayText: []
+    sprite: {fileID: 21300000, guid: c3b745c00e276a843b52d8686055b903, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
 --- !u!61 &1928807029
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10441,7 +10242,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 3
-  nav: {fileID: 2326792699735797970}
 --- !u!61 &1971307183
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10581,7 +10381,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1994958907}
   - component: {fileID: 1994958908}
-  - component: {fileID: 1994958910}
   - component: {fileID: 1994958909}
   - component: {fileID: 1994958911}
   m_Layer: 3
@@ -10670,29 +10469,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9349f9cbd0936c4badd1cc3e9b3b7ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisTag:
+    objectName: 
+    displayText: []
+    sprite: {fileID: 0}
+    quantity: 0
+    objectType: 0
+    transform: {fileID: 0}
   itemPrefab: {fileID: 7204294384838603436, guid: 3b6795d22acf12c47829f3632fcd1ac1, type: 3}
   itemsToPlace:
   - Hole
   - Gema
   - Anillo
   - Broche
---- !u!114 &1994958910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994958906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Hole
-  displayText: []
-  sprite: {fileID: 21300000, guid: 1c08db43ed6e5244999409e5fedf97f1, type: 3}
-  quantity: 1
-  objectType: 2
 --- !u!61 &1994958911
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11114,6 +10903,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6895682814121052121}
   - component: {fileID: 2326792699735797970}
+  - component: {fileID: 6895682814121052122}
   - component: {fileID: 2371927246017478427}
   m_Layer: 0
   m_Name: SceneNavigator
@@ -11181,6 +10971,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6895682814121052122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310706155015955557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4221fe6a840372242b4fa9906413aae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToGoToWhenFinished: Jesus Mensaje final
+  RequiredItems:
+  - Camara
+  - Documentos
+  failMessage: "Necesito buscar mi c\xE1mara y los documentos antes de irme!"
 --- !u!1001 &6973665184144531450
 PrefabInstance:
   m_ObjectHideFlags: 0
