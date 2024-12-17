@@ -52,7 +52,7 @@ public class AudioManager : MonoBehaviour
     {
         if (musicSource != null)
         {
-            musicSource.volume = Mathf.Clamp(volume, 0f, 1f); // Asegura que el volumen esté entre 0 y 1
+            musicSource.volume = Mathf.Clamp(volume, 0f, 0.3f); // Asegura que el volumen esté entre 0 y 1
         }
     }
 
