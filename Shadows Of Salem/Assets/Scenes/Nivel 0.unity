@@ -866,7 +866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &376355076
 Transform:
   m_ObjectHideFlags: 0
@@ -1150,7 +1150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &451784480
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1403,6 +1403,7 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6d0be690b93fd654ba2c57115c65f50f, type: 3}
     quantity: 1
     objectType: 2
+    transform: {fileID: 0}
 --- !u!1 &562738077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,7 +1414,6 @@ GameObject:
   m_Component:
   - component: {fileID: 562738078}
   - component: {fileID: 562738080}
-  - component: {fileID: 562738081}
   - component: {fileID: 562738084}
   - component: {fileID: 562738086}
   - component: {fileID: 562738085}
@@ -1491,27 +1491,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &562738081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562738077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Telefono
-  displayText:
-  - "El cable del tel\xE9fono est\xE1 roto\u2026"
-  - Ahora necesito poner un cable nuevo...
-  - "\xA1Telefono arreglado!"
-  - Llamando al jefe...
-  sprite: {fileID: 21300000, guid: 6a679e572a864ff45a17ea9b67ad3722, type: 3}
-  quantity: 1
-  objectType: 3
 --- !u!114 &562738084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1524,25 +1503,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33957f4d034e5cf4caf4fd243ded2ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisTag:
-    objectName: Telefono
-    displayText:
-    - "El cable del tel\xE9fono est\xE1 roto\u2026"
-    - Ahora necesito poner un cable nuevo...
-    - "\xA1Telefono arreglado!"
-    - Llamando al jefe...
-    sprite: {fileID: 21300000, guid: 6a679e572a864ff45a17ea9b67ad3722, type: 3}
-    quantity: 1
-    objectType: 3
   requiredItems:
   - Alicates
   - Cable
-  inventory: {fileID: 1684904970}
   dependencyMetSprite:
   - {fileID: 21300000, guid: 6a679e572a864ff45a17ea9b67ad3722, type: 3}
   - {fileID: 21300000, guid: aaba74b8a92450542a4179f02b81d600, type: 3}
   - {fileID: 21300000, guid: 285c0faf90e8e374faa5753a052c86ef, type: 3}
-  feedbackText: {fileID: 6973665184144531453}
+  displayText:
+  - "El cable del tel\xE9fono est\xE1 roto\u2026"
+  - Ahora necesito poner un cable nuevo...
+  - "\xA1Telefono arreglado!"
   dependencyMet: 
 --- !u!60 &562738085
 PolygonCollider2D:
@@ -1937,15 +1908,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37d5288b4589ea4db234b317971f392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feedbackText: {fileID: 6973665184144531453}
   numberToCall: 3-8-9-1-7
-  dialReturnSpeed: 4.87
   dialDisplayPrefab: {fileID: 290276338221010053, guid: 2a9f42df249769343b3ce762dd8e1b32, type: 3}
-  dialDispalyParent: {fileID: 1423499380}
-  UIInventoryDisplay: {fileID: 1965032658}
+  dialReturnSpeed: 4.87
+  displayText:
+  - Llamando al jefe...
   fontAsset:
   - {fileID: 11400000, guid: b55f0db5873e2d3418dcac6ce8bc9465, type: 2}
   - {fileID: 11400000, guid: f138b4c345536ce4f984ad672c46340c, type: 2}
+  UIInventoryDisplay: {fileID: 1965032658}
+  feedbackText: {fileID: 6973665184144531453}
+  dialDisplayParent: {fileID: 0}
 --- !u!1 &584660558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2854,7 +2827,6 @@ GameObject:
   m_Component:
   - component: {fileID: 799030138}
   - component: {fileID: 799030142}
-  - component: {fileID: 799030141}
   - component: {fileID: 799030140}
   - component: {fileID: 799030143}
   m_Layer: 3
@@ -2891,30 +2863,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 896350513756678043, guid: da86a0b833778004288a51a6a59fcd5c, type: 3}
   inheritTags:
-    objectName: 
-    displayText: []
-    sprite: {fileID: 0}
-    quantity: 0
-    objectType: 0
---- !u!114 &799030141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799030137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Alicates
-  displayText: []
-  sprite: {fileID: 21300000, guid: 2fa16f3b90b69db40b417d1643ddad53, type: 3}
-  quantity: 1
-  objectType: 2
+    objectName: Alicates
+    displayText:
+    - Cable roto fuera, Ahora falta poner el nuevo
+    - "\xA1Cable roto desconectado!"
+    sprite: {fileID: 21300000, guid: 2fa16f3b90b69db40b417d1643ddad53, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
 --- !u!212 &799030142
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3331,7 +3289,6 @@ GameObject:
   - component: {fileID: 842719956}
   - component: {fileID: 842719958}
   - component: {fileID: 842719957}
-  - component: {fileID: 842719960}
   - component: {fileID: 842719959}
   m_Layer: 3
   m_Name: Cartapapel
@@ -3464,31 +3421,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
   inheritTags:
-    objectName: 
-    displayText: []
-    sprite: {fileID: 0}
-    quantity: 0
-    objectType: 0
---- !u!114 &842719960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842719955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: CartaPapel
-  displayText:
-  - 'carta de mi jefe '
-  sprite: {fileID: 21300000, guid: eef3f05af07f3884d908b12ffa2791d6, type: 3}
-  quantity: 1
-  objectType: 4
+    objectName: CartaPapel
+    displayText:
+    - 'carta de mi jefe '
+    sprite: {fileID: 21300000, guid: eef3f05af07f3884d908b12ffa2791d6, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
 --- !u!1 &843719826
 GameObject:
   m_ObjectHideFlags: 0
@@ -4424,7 +4365,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2371927246017478427}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CambiarEscenas, Assembly-CSharp
         m_MethodName: CambiarEscenaSinInput
         m_Mode: 1
@@ -4967,7 +4908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1346029456
 Transform:
   m_ObjectHideFlags: 0
@@ -6084,7 +6025,6 @@ GameObject:
   - component: {fileID: 1665301427}
   - component: {fileID: 1665301428}
   - component: {fileID: 1665301429}
-  - component: {fileID: 1665301430}
   m_Layer: 0
   m_Name: "Ba\xFAl_Cerrado"
   m_TagString: Untagged
@@ -6217,29 +6157,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 1
-  feedbackText: {fileID: 6973665184144531453}
   combination: 0312
   popUpLockPrefab: {fileID: 5636392485063428453, guid: 90480714d3bba5540b1b225b412311b3, type: 3}
-  popUpLockParent: {fileID: 1423499380}
---- !u!114 &1665301430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1665301425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: "Ba\xFAl"
   displayText:
   - "Est\xE1 cerrado..."
   - "\xA1Ba\xFAl abierto!"
-  sprite: {fileID: 0}
-  quantity: 1
-  objectType: 3
+  popUpLockParent: {fileID: 1423499380}
+  feedbackText: {fileID: 6973665184144531453}
 --- !u!1 &1684904968
 GameObject:
   m_ObjectHideFlags: 0
@@ -6849,7 +6773,6 @@ GameObject:
   - component: {fileID: 1884930294}
   - component: {fileID: 1884930295}
   - component: {fileID: 1884930296}
-  - component: {fileID: 1884930297}
   m_Layer: 0
   m_Name: ColliderCajon1_Escritorio
   m_TagString: Untagged
@@ -6932,27 +6855,9 @@ MonoBehaviour:
   isLocked: 1
   lockID: 1
   isPhysicalLock: 0
-  inventory: {fileID: 1684904970}
-  feedbackText: {fileID: 6973665184144531453}
---- !u!114 &1884930297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884930293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Drawer
   displayText:
   - "\xBFD\xF3nde habr\xE9 dejado la llave?..."
   - "\xA1Caj\xF3n abierto!"
-  sprite: {fileID: 0}
-  quantity: 1
-  objectType: 3
 --- !u!1 &1906454811
 GameObject:
   m_ObjectHideFlags: 0
@@ -6964,8 +6869,8 @@ GameObject:
   - component: {fileID: 1906454812}
   - component: {fileID: 1906454815}
   - component: {fileID: 1906454816}
-  - component: {fileID: 1906454814}
   - component: {fileID: 1906454813}
+  - component: {fileID: 1906454817}
   m_Layer: 3
   m_Name: llave
   m_TagString: Untagged
@@ -7000,30 +6905,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
   inheritTags:
-    objectName: 
+    objectName: Llave
     displayText: []
-    sprite: {fileID: 0}
-    quantity: 0
-    objectType: 0
---- !u!114 &1906454814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906454811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: LlaveCajonEscena
-  displayText: []
-  sprite: {fileID: 21300000, guid: 3563cd1b13a13c34fa77152beac1b398, type: 3}
-  quantity: 1
-  objectType: 1
+    sprite: {fileID: 21300000, guid: 3563cd1b13a13c34fa77152beac1b398, type: 3}
+    quantity: 1
+    objectType: 1
+    transform: {fileID: 0}
 --- !u!212 &1906454815
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7111,6 +7000,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 2.9600003, y: 6.73}
   m_Direction: 0
+--- !u!114 &1906454817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906454811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b016c0e859c9db46959b59a6c2f77a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyID: 1
 --- !u!1 &1911104932
 GameObject:
   m_ObjectHideFlags: 0
@@ -7128,7 +7030,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1911104933
 Transform:
   m_ObjectHideFlags: 0
@@ -7456,7 +7358,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6895682814121052121}
   - component: {fileID: 2326792699735797970}
-  - component: {fileID: 2371927246017478427}
   - component: {fileID: 6895682814121052122}
   m_Layer: 0
   m_Name: SceneNavigator
@@ -7488,19 +7389,6 @@ MonoBehaviour:
   - {fileID: 6973665184144531451}
   - {fileID: 6973665184144531452}
   - {fileID: 1352460481}
---- !u!114 &2371927246017478427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2310706155015955557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4dba095cfc2aa042aa9afafeb998d7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: Nivel 0 a 1 Mensaje
 --- !u!4 &6895682814121052121
 Transform:
   m_ObjectHideFlags: 0
@@ -7525,12 +7413,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2310706155015955557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532ebbc37ee19d34d92e7c5d1c46838c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4221fe6a840372242b4fa9906413aae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToGoToWhenFinished: Nivel 0 a 1 Mensaje
   RequiredItems: []
-  failMessage: s
+  failMessage: 
 --- !u!1001 &6973665184144531450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7541,19 +7429,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 539140137956376000, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 539140137956376000, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 539140137956376000, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 861.35925
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 539140137956376000, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -113.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 750735859133917854, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -7585,35 +7473,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1556165772351914467, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1556165772351914467, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1556165772351914467, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 669.435
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1556165772351914467, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -113.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2357360290812414147, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2357360290812414147, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2357360290812414147, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 93.66214
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2357360290812414147, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -113.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2449147801433696737, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_IsActive
@@ -7621,19 +7509,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2473519097676290288, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2473519097676290288, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2473519097676290288, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1245.2078
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2473519097676290288, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -113.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2591317517115932163, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7945,19 +7833,19 @@ PrefabInstance:
       objectReference: {fileID: 2326792699735797970}
     - target: {fileID: 6501100924677451278, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6501100924677451278, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6501100924677451278, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 477.5107
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6501100924677451278, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -113.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6901700047004616247, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_fontSize
@@ -8049,19 +7937,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7963499905734634763, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7963499905734634763, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7963499905734634763, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 285.58643
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7963499905734634763, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -113.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8665637730259197836, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_IsActive
@@ -8069,19 +7957,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8908167609864414897, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8908167609864414897, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8908167609864414897, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1053.2834
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8908167609864414897, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -113.22
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

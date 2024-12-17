@@ -6,17 +6,18 @@ using Unity.VisualScripting;
 
 public class DependencyHandler : MonoBehaviour
 {
-    public NewTags thisTag;
     [Header("Elementos requeridos")]
     public List<string> requiredItems; // Lista de elementos necesarios para este objeto (por ejemplo, teléfono, cable, pinzas)
     public NewInventory inventory; // Referencia al inventario
     public Sprite dependencyMetSprite; // Sprite cuando el cable está conectado
-    public FeedbackTextController feedbackText;
+    public string[] displayText;
+    private FeedbackTextController feedbackText;
     private SpriteRenderer spriteRenderer; // Referencia para cambiar el sprite
     [HideInInspector] public bool dependencyMet;
 
     private void Start()
     {
+        feedbackText = FindAnyObjectByType<FeedbackTextController>();
         // Obtener el componente SpriteRenderer al iniciar
         spriteRenderer = GetComponent<SpriteRenderer>();
         dependencyMet= false;
@@ -54,7 +55,7 @@ public class DependencyHandler : MonoBehaviour
 
             // Todos los elementos requeridos fueron encontrados
             Debug.Log("Todos los objetos requeridos están en el inventario.");
-            feedbackText.PopUpText(thisTag.displayText[1]);
+            feedbackText.PopUpText(displayText[1]);
 
             // Opcional: Eliminar los elementos requeridos del inventario si se utilizaron con éxito
             foreach (string requiredItem in requiredItems)

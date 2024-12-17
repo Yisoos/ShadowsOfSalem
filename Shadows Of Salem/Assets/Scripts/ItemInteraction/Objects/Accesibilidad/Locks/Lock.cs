@@ -10,9 +10,17 @@ public class Lock : MonoBehaviour
     public bool isLocked; // Indica si el candado está cerrado
     public int lockID; // El ID de este candado
     public bool isPhysicalLock; // Indica si es un candado físico
-    public NewInventory inventory; // Referencia al inventario asociado
-    public FeedbackTextController feedbackText;
-   
+    public string[] displayText;
+    
+    private NewInventory inventory; // Referencia al inventario asociado
+    private FeedbackTextController feedbackText;
+
+    private void Start()
+    {
+         inventory = FindAnyObjectByType<NewInventory>(); // Referencia al inventario asociado
+        feedbackText = FindAnyObjectByType<FeedbackTextController>();
+    }
+
     // Método que intenta desbloquear el candado con una llave
     public void TryUnlock(Key key) //para candados con llave
     {
@@ -30,11 +38,10 @@ public class Lock : MonoBehaviour
             }
 
             // Obtiene el componente Tags de la llave y elimina la llave del inventario
-            Tags lockTag = GetComponent<Tags>();
             InventoryItem keyTag = key.GetComponent<InventoryItem>();
             if (feedbackText != null) 
             { 
-                feedbackText.PopUpText(lockTag.displayText[1]);
+                feedbackText.PopUpText(displayText[1]);
             }
 
             inventory.DeleteItem(keyTag);
@@ -42,10 +49,9 @@ public class Lock : MonoBehaviour
         }
         else
         {
-            Tags LockTag = GetComponent<Tags>();
             if (feedbackText != null)
             {
-                feedbackText.PopUpText(LockTag.displayText[0]);
+                feedbackText.PopUpText(displayText[0]);
             }
         }
     }

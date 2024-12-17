@@ -5,13 +5,26 @@ using UnityEngine;
 
 public class RotaryDialControl : MonoBehaviour
 {
-    [Space(10)] public FeedbackTextController feedbackText;
-    [Space(10),Tooltip("Separa cada número con un '-' ")]public string numberToCall; // The key to unlock this lock
-    [Space(10), Range(0, 15)] public float dialReturnSpeed; // Velocidad de retorno del dial a su posición inicial
-    [Space(10)]public GameObject dialDisplayPrefab;
-    [Space(10)] public Transform dialDispalyParent;
-    [Space(10)] public Transform UIInventoryDisplay;
-    [Space(10)] public TMP_FontAsset[] fontAsset;
+    [Header("Ajustes del Telefono")]
+    [Tooltip("Separa cada número con un '-' ")]public string numberToCall; // The key to unlock this lock
+    [Space(5)]public GameObject dialDisplayPrefab;
+    [Space(5), Range(0, 15)] public float dialReturnSpeed; // Velocidad de retorno del dial a su posición inicial
+
+    [Space(10), Header("Ajustes de Texto")]
+    public string[] displayText;
+    [Space(5)] public TMP_FontAsset[] fontAsset;
+    
+    [Space(10), Header("Otros Ajustes")]
+    public Transform UIInventoryDisplay;
+
+    [HideInInspector] public FeedbackTextController feedbackText;
+    [HideInInspector] public Transform dialDisplayParent;
+
+    private void Start()
+    {
+        feedbackText = FindFirstObjectByType<FeedbackTextController>();
+        dialDisplayParent = FindObjectOfType<Canvas>().transform;
+    }
 
     public void OnMouseDown()
     {
@@ -27,16 +40,15 @@ public class RotaryDialControl : MonoBehaviour
 
         if (dialDisplayPrefab != null)
         {
-            Tags prefabPopUpTags = dialDisplayPrefab.GetComponent<Tags>();
-            Tags[] allTagsInScene = GameObject.FindObjectsOfType<Tags>(true);
+            RotaryDial[] allDialsInScene = GameObject.FindObjectsOfType<RotaryDial>(true);
             bool foundMatchingTag = false; // Track if a matching tag is found
 
-            foreach (Tags tag in allTagsInScene)
+            foreach (RotaryDial dial in allDialsInScene)
             {
-                if (tag.objectName == prefabPopUpTags.objectName)
+                if (dial.phoneParent == this)
                 {
-                    tag.gameObject.SetActive(true);
-                    tag.transform.SetAsLastSibling();
+                    dial.gameObject.SetActive(true);
+                    dial.transform.SetAsLastSibling();
                     foundMatchingTag = true; // Mark that we found a match
                     break; // Exit loop once a match is found
                 }
@@ -45,7 +57,7 @@ public class RotaryDialControl : MonoBehaviour
             // If no matching tag was found, instantiate a new pop-up
             if (!foundMatchingTag)
             {
-                GameObject popUp = Instantiate(dialDisplayPrefab, dialDispalyParent);
+                GameObject popUp = Instantiate(dialDisplayPrefab, dialDisplayParent);
                 RotaryDial popUpScript = popUp.GetComponentInChildren<RotaryDial>();
                 popUpScript.phoneParent = this;
                 popUpScript.phoneNumberDisplay.text = string.Empty;
@@ -60,11 +72,5 @@ public class RotaryDialControl : MonoBehaviour
                 //Debug.Log("Collider has been disabled.");
             }
         }
-    }
-    [ContextMenu("Conectar componentes generales")]
-    private void ConectarComponentesGenerales()
-    {
-        feedbackText = FindFirstObjectByType<FeedbackTextController>();
-        dialDispalyParent = FindObjectOfType<Canvas>().transform;
     }
 }

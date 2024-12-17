@@ -152,11 +152,10 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
                 }
                 if (phoneNumberDisplay.text == phoneParent.numberToCall)
                 {
-                    Tags tags = phoneParent.GetComponent<Tags>();
-                    JesusWinLevel jesusWinLevel = FindAnyObjectByType<JesusWinLevel>();
+                    WinLevel winLevel = FindAnyObjectByType<WinLevel>();
                     phoneNumberDisplay.font = phoneParent.fontAsset[1];
-                    phoneNumberDisplay.text = tags.displayText[tags.displayText.Length-1];
-                    jesusWinLevel.PassLevel();
+                    phoneNumberDisplay.text = phoneParent.displayText[0];
+                    winLevel.PassLevel();
                 }
             }
         }

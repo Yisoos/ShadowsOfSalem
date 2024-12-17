@@ -21,4 +21,5 @@ public class NewTags
     public int quantity;
     public TypeObject objectType;
 
+    [HideInInspector] public Transform transform;
 }

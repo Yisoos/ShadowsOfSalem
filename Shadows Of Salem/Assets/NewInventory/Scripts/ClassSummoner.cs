@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class ClassSummoner : MonoBehaviour
 {
-    [SerializeField] private Transform summonOrigin;
+    [HideInInspector]public Transform summonOrigin;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,11 +26,11 @@ public class ClassSummoner : MonoBehaviour
         if (objectCombinationClass != null)
         {
             ObjectCombinationInInventory thisObjectCombinationInInventory = this.gameObject.AddComponent<ObjectCombinationInInventory>();
-
+            thisObjectCombinationInInventory.objetosCombinables = objectCombinationClass.objetosCombinables;
         }
         if (popUpManagerClass != null)
         {
-
+            PopUpManager thisPopUpManager = this.gameObject.AddComponent<PopUpManager>();
         }
     }  
 }

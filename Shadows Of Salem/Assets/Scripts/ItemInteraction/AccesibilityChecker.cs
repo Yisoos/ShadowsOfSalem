@@ -22,7 +22,6 @@ public class AccesibilityChecker : MonoBehaviour
     {
         // Obtiene componentes de bloqueo y dependencias del objeto
         Lock itemLocked = objectHit.GetComponent<Lock>();
-        Tags itemTags = objectHit.GetComponent<Tags>();
         DependencyHandler itemDependencies = objectHit.GetComponent<DependencyHandler>();
         OrderedDependencies itemDependencyByOrder = objectHit.GetComponent<OrderedDependencies>();
         CombinationLockControl combinationLocked = objectHit.GetComponent<CombinationLockControl>();
@@ -31,13 +30,13 @@ public class AccesibilityChecker : MonoBehaviour
         // Si el objeto está bloqueado, muestra mensaje y devuelve falso
         if (itemLocked != null && itemLocked.isLocked)
         {
-            feedbackTextController.PopUpText(itemTags.displayText[0]);
+            feedbackTextController.PopUpText(itemLocked.displayText[0]);
             return false;
         }
         // Si el objeto tiene dependencias no cumplidas, muestra mensaje y devuelve falso
         if (itemDependencies != null && !itemDependencies.dependencyMet)
         {
-            feedbackTextController.PopUpText(itemTags.displayText[0]);
+            feedbackTextController.PopUpText(itemDependencies.displayText[0]);
             return false;
         }
         if (itemDependencyByOrder != null)

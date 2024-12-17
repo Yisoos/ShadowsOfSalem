@@ -6,18 +6,22 @@ using Unity.VisualScripting;
 
 public class OrderedDependencies : MonoBehaviour
 {
+    [Header("Elementos Requeridos")]
+    public List<string> requiredItems; // Lista de elementos necesarios para este objeto (por ejemplo, teléfono, cable, pinzas)
+    [Space(10), Header("Cambios de Sprite")]
+    public Sprite[] dependencyMetSprite; // Sprite cuando el cable está conectado
+    [Space(10), Header("FeedbackText")]
+    public string[] displayText;
     
-    public NewTags thisTag;
-    [Header("Elementos requeridos")]
-    [Space (20)] public List<string> requiredItems; // Lista de elementos necesarios para este objeto (por ejemplo, teléfono, cable, pinzas)
-    [Space(20)] public NewInventory inventory; // Referencia al inventario
-    [Space(20)] public Sprite[] dependencyMetSprite; // Sprite cuando el cable está conectado
-    [Space(20)] public FeedbackTextController feedbackText;
+    private FeedbackTextController feedbackText;
     private SpriteRenderer spriteRenderer; // Referencia para cambiar el sprite
+    private NewInventory inventory; // Referencia al inventario
     [HideInInspector] public bool[] dependencyMet;
 
     private void Start()
     {
+        feedbackText = FindAnyObjectByType<FeedbackTextController>();
+        inventory = FindAnyObjectByType<NewInventory>();
         // Obtener el componente SpriteRenderer al iniciar
         spriteRenderer = GetComponent<SpriteRenderer>();
         dependencyMet = new bool[requiredItems.Count];
@@ -53,14 +57,13 @@ public class OrderedDependencies : MonoBehaviour
                         //Debug.Log($"Para usar este objeto necesitas {requiredItems[i]}");
                         return false;
                     }
-                
 
                 // Todos los elementos requeridos fueron encontrados
                 //Debug.Log("objeto requerido detectado.");
 
-                if (thisTag != null || i == requiredItems.Count - 1)
+                if (i == requiredItems.Count - 1)
                 {
-                    feedbackText.PopUpText(thisTag.displayText[thisTag.displayText.Length - 2]);
+                    feedbackText.PopUpText(displayText[displayText.Length - 1]);
                 }
                 else
                 {
@@ -80,23 +83,17 @@ public class OrderedDependencies : MonoBehaviour
     {
         if (!dependencyMet[0])
         {
-            feedbackText.PopUpText(thisTag.displayText[0]);
+            feedbackText.PopUpText(displayText[0]);
             return false;
         }
         for (int i = 0; i < dependencyMet.Length; i++)
         {
             if (dependencyMet[i] && !dependencyMet[dependencyMet.Length-1])
             {
-                feedbackText.PopUpText(thisTag.displayText[i+1]);
+                feedbackText.PopUpText(displayText[i+1]);
                 return false;
             }
         }
         return true;
-    }
-    [ContextMenu("Conectar componentes generales")]
-    private void ConectarComponentesGenerales() 
-    {
-        feedbackText = FindFirstObjectByType<FeedbackTextController>();
-        inventory = FindFirstObjectByType<NewInventory>();
     }
 }

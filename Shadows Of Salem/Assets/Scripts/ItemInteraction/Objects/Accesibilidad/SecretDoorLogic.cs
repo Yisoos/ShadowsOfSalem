@@ -10,7 +10,7 @@ public class SecretDoorLogic : MonoBehaviour
     public float endRotation; // Ángulo de rotación inicial del dial
     [Space(10), Range(0, 15)] public float ReturnRotationSpeed;
     public string[] Solucion;
-    public Tags[] Botones;
+    public NewTags[] Botones;
     public Transform[] doorStates;
     private float startAngle;
     private float previousAngle; // Ángulo previo al girar

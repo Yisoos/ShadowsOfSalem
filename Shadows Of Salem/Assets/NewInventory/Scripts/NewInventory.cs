@@ -121,8 +121,15 @@ public class NewInventory : MonoBehaviour
         // Actualizar sprite y nombre según el estado actual del objeto
         Image prefabSprite = item.GetComponent<Image>();
         InventoryItem prefabTags = item.GetComponent<InventoryItem>();
+        ClassSummoner classSummoner = item.GetComponent<ClassSummoner>();
+        
         prefabSprite.sprite = originTags.sprite;
         prefabTags.tagInfo.sprite = originTags.sprite;
         prefabTags.tagInfo.objectName = originTags.objectName;
+
+        if(classSummoner != null)
+        {
+            classSummoner.summonOrigin = originTags.transform;
+        }
     }
 }

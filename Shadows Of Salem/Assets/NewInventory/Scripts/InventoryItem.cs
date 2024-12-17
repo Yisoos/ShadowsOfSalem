@@ -57,15 +57,13 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         // Restablecer la escala del objeto
         transform.localScale = Vector3.one;
 
-        // Obtener el componente de Tags del objeto
-        Tags thisTag = gameObject.GetComponent<Tags>();
         //Debug.Log(thisTag.objectName);
 
         // Devolver el objeto a su padre original después de arrastrarlo
         transform.SetParent(parentAfterDrag);
 
         // Llamar al método para comprobar interacciones con otros objetos
-        CheckForInteraction(eventData, thisTag);
+        CheckForInteraction(eventData, tagInfo);
 
         // Rehabilitar el raycast en la imagen arrastrada
         image.raycastTarget = true;
@@ -74,7 +72,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     #region Verificación y Manejo de Interacciones (CheckForInteraction, InteractionHub)
     // Método para verificar interacciones al soltar el objeto
-    public void CheckForInteraction(PointerEventData eventData, Tags thisObjectTag)
+    public void CheckForInteraction(PointerEventData eventData, NewTags thisObjectTag)
     {
         // Lanzar un rayo desde la posición del ratón en 2D
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

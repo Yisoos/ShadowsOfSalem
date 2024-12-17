@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Tags))]
 public class ObjectCombinationInInventory : MonoBehaviour
 {
     NewInventory inventory;
-    [SerializeField,Tooltip("Añade aquí los objetos que están por debajo en la gerarquía de combinación (Ej. Si el objeto actual es una vela, añaderias una cerilla)")] public CombinationStatus[] objetosCombinables;
+    [Tooltip("Añade aquí los objetos que están por debajo en la gerarquía de combinación (Ej. Si el objeto actual es una vela, añaderias una cerilla)")] public CombinationStatus[] objetosCombinables;
     public Dictionary<string,int> keyValuePairs = new Dictionary<string,int>();
     private void Start()
     {

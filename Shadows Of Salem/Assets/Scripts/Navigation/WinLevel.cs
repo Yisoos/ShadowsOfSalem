@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class JesusWinLevel : MonoBehaviour
+public class WinLevel : MonoBehaviour
 {
     public string sceneToGoToWhenFinished;
     public string[] RequiredItems;

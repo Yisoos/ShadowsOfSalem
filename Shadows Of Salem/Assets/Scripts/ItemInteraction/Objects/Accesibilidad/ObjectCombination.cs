@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class ObjectCombination : MonoBehaviour
 {
-    [SerializeField] public NewTags thisTag;
-    [SerializeField, Tooltip("Añade aquí los objetos que están por debajo en la gerarquía de combinación (Ej. Si el objeto actual es una vela, añaderias una cerilla)")] CombinationStatus[] objetosCombinables;
-    public NewInventory inventory;
+    public NewTags thisTag;
+    [Tooltip("Añade aquí los objetos que están por debajo en la gerarquía de combinación (Ej. Si el objeto actual es una vela, añaderias una cerilla)")] public CombinationStatus[] objetosCombinables;
+    private NewInventory inventory;
     Dictionary<string,int> keyValuePairs = new Dictionary<string,int>();
 
     private void Start()
     {
+        inventory = FindAnyObjectByType<NewInventory>();
         for (int i = 0; i < objetosCombinables.Length; i++) // Replace with .Count if it's a List
         {
             var item = objetosCombinables[i];

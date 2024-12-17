@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 public class InterchangableItemPlacement : MonoBehaviour
 {
+    public NewTags thisTag;
     public InventoryItem itemPrefab;
     public string[] itemsToPlace;
-    public NewTags thisTag;
-    
+    private void Start()
+    {
+        thisTag.transform = transform;
+    }
     public void OnMouseDown()
     {
         if(AccesibilityChecker.Instance.ObjectAccessibilityChecker(transform))
@@ -25,8 +28,7 @@ public class InterchangableItemPlacement : MonoBehaviour
             if (inventory.CollectItem(itemPrefab,thisTag)) 
             {
                 thisTag.objectName = itemsToPlace[0];
-                thisTag.sprite = itemPrefab.GetComponent<Tags>().sprite;
-                thisRenderer.sprite = itemPrefab.GetComponent<Tags>().sprite;
+                thisRenderer.sprite = thisTag.sprite;
                 if (multipleViewItem != null && Array.IndexOf(itemsToPlace, thisTag.objectName) >= 0)
                 {
                     multipleViewItem.UpdateMultipleViews(Array.IndexOf(itemsToPlace,thisTag.objectName));
@@ -40,7 +42,6 @@ public class InterchangableItemPlacement : MonoBehaviour
         if (Array.Exists(itemsToPlace, itemInList => itemInList == itemDropped.tagInfo.objectName))
         {
             MultipleViewItem multipleViewItem = GetComponent<MultipleViewItem>();
-            Tags thisTag = GetComponent<Tags>();
             SpriteRenderer thisRenderer = GetComponent<SpriteRenderer>();
             Debug.Log($"thisTag.objectName: {thisTag.objectName}");
             Debug.Log($"itemsToPlace[0]: {itemsToPlace[0]}");

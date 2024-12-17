@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Tags))]
 public class MultipleViewItem : MonoBehaviour
 {
     [Tooltip("Sprites de los diferentes estados del objeto")] public Sprite[] objectStatusSprite;
@@ -12,10 +11,13 @@ public class MultipleViewItem : MonoBehaviour
     public int currentStatus;
     private void Awake()
     {
-        Tags thisTag = GetComponent<Tags>();
+        ItemCollection itemCollection = GetComponent<ItemCollection>();
         SpriteRenderer thisSprite = GetComponent<SpriteRenderer>();
-        thisTag.objectName = objectStatusName[currentStatus];
-        thisTag.sprite = objectStatusSprite[currentStatus];
+        if (itemCollection != null)
+        {
+        itemCollection.inheritTags.objectName = objectStatusName[currentStatus];
+        itemCollection.inheritTags.sprite = objectStatusSprite[currentStatus];
+        }
         thisSprite.sprite = objectStatusSprite[currentStatus];
         UpdateMultipleViews(currentStatus);
     }
@@ -32,21 +34,24 @@ public class MultipleViewItem : MonoBehaviour
         for (int i = 0; i < objectVariations.Length; i++)
         {
             MultipleViewItem differentViewAppearence = objectVariations[i].GetComponent<MultipleViewItem>();
-            Tags differentViewTag = objectVariations[i].GetComponent<Tags>();
+            ItemCollection differentViewItemCollection = objectVariations[i].GetComponent<ItemCollection>();
             SpriteRenderer differentViewSprite = objectVariations[i].GetComponent<SpriteRenderer>();    
             if (differentViewAppearence != null && (differentViewAppearence.objectStatusSprite.Length > 0 || differentViewAppearence.objectStatusName.Length > 0)) 
             {
-                differentViewTag.objectName = differentViewAppearence.objectStatusName[index];
-                differentViewTag.sprite = differentViewAppearence.objectStatusSprite[index];
-                differentViewSprite.sprite = differentViewAppearence.objectStatusSprite[index];
+                if (differentViewItemCollection != null)
+                {
+                    differentViewItemCollection.inheritTags.objectName = differentViewAppearence.objectStatusName[index];
+                    differentViewItemCollection.inheritTags.sprite = differentViewAppearence.objectStatusSprite[index];
+                }
+                    differentViewSprite.sprite = differentViewAppearence.objectStatusSprite[index];
             }
             else 
             {
                 differentViewSprite.sprite = objectStatusSprite[index];
-                if (differentViewTag!= null) 
+                if (differentViewItemCollection!= null) 
                 {
-                    differentViewTag.objectName = objectStatusName[index];
-                    differentViewTag.sprite = objectStatusSprite[index];
+                    differentViewItemCollection.inheritTags.objectName = objectStatusName[index];
+                    differentViewItemCollection.inheritTags.sprite = objectStatusSprite[index];
                 }
             }
         }

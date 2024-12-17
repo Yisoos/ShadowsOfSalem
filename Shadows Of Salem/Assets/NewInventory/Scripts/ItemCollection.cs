@@ -6,8 +6,13 @@ public class ItemCollection : MonoBehaviour
 {
     public InventoryItem itemPrefab;
 
-    [SerializeField] NewTags inheritTags;
+    public NewTags inheritTags;
 
+
+    private void Start()
+    {
+        inheritTags.transform = transform;
+    }
     public void OnMouseDown()
     {   if(AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.gameObject.transform)) 
         {

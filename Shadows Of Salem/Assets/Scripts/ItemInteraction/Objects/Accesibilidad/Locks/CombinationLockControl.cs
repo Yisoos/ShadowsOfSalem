@@ -6,10 +6,18 @@ using UnityEngine;
 public class CombinationLockControl : MonoBehaviour
 {
     public bool isLocked; // Indicates if the lock is closed
-    public FeedbackTextController feedbackText;
     public string combination; // The key to unlock this lock
     public GameObject popUpLockPrefab;
-    public Transform popUpLockParent;
+    public string[] displayText;
+
+    [HideInInspector] public Transform popUpLockParent;
+    [HideInInspector] public FeedbackTextController feedbackText;
+
+    private void Start()
+    {
+        feedbackText = FindFirstObjectByType<FeedbackTextController>();
+        popUpLockParent = FindObjectOfType<Canvas>().transform;
+    }
 
     public void OnMouseDown()
     {
@@ -25,15 +33,15 @@ public class CombinationLockControl : MonoBehaviour
 
         if (isLocked && popUpLockPrefab != null)
         {
-            Tags prefabPopUpTags = popUpLockPrefab.GetComponent<Tags>();
-            Tags[] allTagsInScene = GameObject.FindObjectsOfType<Tags>(true);
+
+            CombinationLockPopUp[] allComLocksInScene = GameObject.FindObjectsOfType<CombinationLockPopUp>(true);
             bool foundMatchingTag = false; // Track if a matching tag is found
 
-            foreach (Tags tag in allTagsInScene)
+            foreach (CombinationLockPopUp combLock in allComLocksInScene)
             {
-                if (tag.objectName == prefabPopUpTags.objectName)
+                if (combLock.combinationLock == this)
                 {
-                    tag.gameObject.SetActive(true);
+                    combLock.gameObject.SetActive(true);
                     foundMatchingTag = true; // Mark that we found a match
                     break; // Exit loop once a match is found
                 }
@@ -56,11 +64,5 @@ public class CombinationLockControl : MonoBehaviour
                 //Debug.Log("Collider has been disabled.");
             }
         }
-    }
-    [ContextMenu("Conectar componentes generales")]
-    private void ConectarComponentesGenerales()
-    {
-        feedbackText = FindFirstObjectByType<FeedbackTextController>();
-        popUpLockParent = FindObjectOfType<Canvas>().transform;
     }
 }
