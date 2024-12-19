@@ -27,7 +27,7 @@ public class ObjectCombinationInInventory : MonoBehaviour
         if ( objectA.tagInfo.objectName == objetosCombinables[index].currentItemStatus)
         {
             inventory.ChangeItemStatus(objectA, objetosCombinables[index].newItemStatus, objetosCombinables[index].newItemStatusSprite);
-            inventory.DeleteItem(objectB);
+            inventory.DeleteItem(objectB, 1);
             if (detector != null && detector.gameObject.activeSelf) 
             {
                 detector.CheckForLight();

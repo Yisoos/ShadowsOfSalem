@@ -41,7 +41,7 @@ public class ObjectCombination : MonoBehaviour
                     }
                 }
             }
-            inventory.DeleteItem(ObjectDropped); 
+            inventory.DeleteItem(ObjectDropped,1); 
             return true;
         }
 

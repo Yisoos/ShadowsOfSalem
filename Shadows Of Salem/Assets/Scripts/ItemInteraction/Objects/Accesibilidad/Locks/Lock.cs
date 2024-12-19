@@ -44,7 +44,7 @@ public class Lock : MonoBehaviour
                 feedbackText.PopUpText(displayText[1]);
             }
 
-            inventory.DeleteItem(keyTag);
+            inventory.DeleteItem(keyTag,1);
             }
         }
         else

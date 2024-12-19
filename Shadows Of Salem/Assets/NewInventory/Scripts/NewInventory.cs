@@ -27,14 +27,14 @@ public class NewInventory : MonoBehaviour
     }
 
     // Método para recolectar un objeto y agregarlo al inventario
-    public bool CollectItem(InventoryItem itemPrefab, NewTags origin)
+    public bool CollectItem(InventoryItem itemPrefab, NewTags origin, int amount)
     { 
         // Buscar si el objeto ya existe en el inventario i
-        InventoryItem itemInList = items.Find(currentItem => currentItem.tagInfo.objectName == itemPrefab.tagInfo.objectName);
-        if (itemInList != null)
+        InventoryItem itemInList = items.Find(currentItem => currentItem.tagInfo.objectName == origin.objectName);
+        if (itemInList != null && itemInList.tagInfo.stackable && origin.stackable)
         {
             // Si el objeto ya está en el inventario, aumentar su cantidad
-            itemInList.tagInfo.quantity += itemPrefab.tagInfo.quantity;
+            itemInList.tagInfo.quantity += amount;
 
             // Actualizar el texto en la UI con la nueva cantidad
             TMP_Text itemText = itemInList.GetComponentInChildren<TMP_Text>();
@@ -53,7 +53,7 @@ public class NewInventory : MonoBehaviour
                 {
                     // Instanciar el objeto en el espacio vacío
                     GameObject item = Instantiate(itemPrefab.gameObject, inventorySlots[i].transform);
-                    SetPrefabSpecifications(item, origin);
+                    SetPrefabSpecifications(item, origin,amount);
                     // Añadir el objeto al inventario
                     InventoryItem itemTags = item.GetComponent<InventoryItem>();
                     items.Add(itemTags);
@@ -82,27 +82,25 @@ public class NewInventory : MonoBehaviour
     }
 
     // Método para eliminar o reducir la cantidad de un objeto
-    public void DeleteItem(InventoryItem itemPrefab)
+    public void DeleteItem(InventoryItem itemToDelete, int amount)
     {
-        int deletedAmount = 1;
-
         // Verificar si el objeto no es reutilizable
-        if (itemPrefab.tagInfo.objectType != TypeObject.Reusable)
+        if (itemToDelete.tagInfo.objectType != TypeObject.Reusable)
         {
             // Buscar el objeto en el inventario
-            InventoryItem inventoryItem = items.Find(currentItem => currentItem.tagInfo.objectName == itemPrefab.tagInfo.objectName);
-            if (inventoryItem != null)
+            InventoryItem inventoryItem = items.Find(currentItem => currentItem.tagInfo.objectName == itemToDelete.tagInfo.objectName);
+            if (inventoryItem != null && inventoryItem.tagInfo.quantity >= amount)
             {
-                if (inventoryItem.tagInfo.quantity - deletedAmount > 0)
+                if (inventoryItem.tagInfo.quantity - amount > 0)
                 {
                     // Reducir la cantidad del objeto
-                    inventoryItem.tagInfo.quantity -= deletedAmount;
+                    inventoryItem.tagInfo.quantity -= amount;
 
                     // Actualizar la cantidad en la UI
                     TMP_Text itemText = inventoryItem.GetComponentInChildren<TMP_Text>();
                     if (itemText != null)
                     {
-                        itemText.text = inventoryItem.tagInfo.quantity.ToString();
+                        itemText.text = inventoryItem.tagInfo.quantity > 1? inventoryItem.tagInfo.quantity.ToString() : "" ;
                     }
                 }
                 else
@@ -112,11 +110,15 @@ public class NewInventory : MonoBehaviour
                     items.Remove(inventoryItem);
                 }
             }
+            else
+            {
+                Debug.Log("amount attemted to delete is more than the amount in inventory, deletion cancelled");
+            }
         }
     }
 
     // Configurar las especificaciones del prefab del objeto
-    public void SetPrefabSpecifications(GameObject item, NewTags originTags)
+    public void SetPrefabSpecifications(GameObject item, NewTags originTags, int amount)
     {
         // Actualizar sprite y nombre según el estado actual del objeto
         Image prefabSprite = item.GetComponent<Image>();
@@ -125,6 +127,7 @@ public class NewInventory : MonoBehaviour
         
         prefabSprite.sprite = originTags.sprite;
         prefabTags.tagInfo = originTags;
+        prefabTags.tagInfo.quantity = amount;
 
         if(classSummoner != null)
         {

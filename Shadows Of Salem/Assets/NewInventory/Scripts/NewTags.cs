@@ -18,8 +18,9 @@ public class NewTags
     [TextArea(1, 10), Tooltip("Array de mensajes: Generalmente, los primeros Elementos contienen los textos del objeto 'no accesible', y el ultimo Elemento contiene el mensaje de 'accesible'.")]
     public string[] displayText;
     public Sprite sprite;
-    public int quantity;
+    public bool stackable;
     public TypeObject objectType;
 
+    [HideInInspector] public int quantity;
     [HideInInspector] public Transform transform;
 }

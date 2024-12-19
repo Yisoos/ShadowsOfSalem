@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemCollection : MonoBehaviour
 {
     public InventoryItem itemPrefab;
-
+    public int amountToCollect = 1;
     public NewTags inheritTags;
 
 
@@ -26,7 +26,7 @@ public class ItemCollection : MonoBehaviour
         NewInventory inventory = FindObjectOfType<NewInventory>();
         if (inventory != null)
         {
-            if (inventory.CollectItem(itemPrefab, inheritTags))
+            if (inventory.CollectItem(itemPrefab, inheritTags,amountToCollect))
             {
                 //Debug.Log($"Collected {itemPrefab.name}");
                 // Destruir el objeto de la escena

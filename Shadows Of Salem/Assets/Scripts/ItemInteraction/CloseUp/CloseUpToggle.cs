@@ -8,9 +8,9 @@ using static UnityEngine.UI.Image;
 
 public class CloseUpToggle : MonoBehaviour
 {
-    public Transform vistaGeneral;                       // General view
-    public Collider2D[] objetosInspeccionables;          // Objects that can be inspected
-    public Transform[] closeUpObjetos;                   // Close-up views for objects
+    [Space(5)] public Transform vistaGeneral;                       // General view
+    [Space(5)] public Collider2D[] objetosInspeccionables;          // Objects that can be inspected
+    [Space(5)] public Transform[] closeUpObjetos;                   // Close-up views for objects
     private SceneNavigator sceneNavigator;                // Reference to the scene navigator
     private Transform currentCloseUp;                    // Currently active close-up view
     private Dictionary<Collider2D, Transform> closeUpMap; // Map to link inspectable objects to close-ups

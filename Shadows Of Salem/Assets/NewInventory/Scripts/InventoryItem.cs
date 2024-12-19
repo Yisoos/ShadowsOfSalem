@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -26,6 +27,12 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         // Mover el objeto al final de la lista de hermanos en la jerarquía
         transform.SetAsLastSibling();
+
+        TMP_Text itemQuantityText = GetComponentInChildren<TMP_Text>();
+        if (itemQuantityText != null)
+        {
+            itemQuantityText.color = new Color(itemQuantityText.color.r, itemQuantityText.color.g, itemQuantityText.color.b, 0);
+        }
 
         // Desactivar el raycast en la imagen arrastrada
         image.raycastTarget = false;
@@ -63,8 +70,14 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         // Llamar al método para comprobar interacciones con otros objetos
         CheckForInteraction(eventData, tagInfo);
 
-        // Rehabilitar el raycast en la imagen arrastrada
-        image.raycastTarget = true;
+        TMP_Text itemQuantityText = GetComponentInChildren<TMP_Text>();
+        if (itemQuantityText != null)
+        {
+            itemQuantityText.color = new Color(itemQuantityText.color.r, itemQuantityText.color.g, itemQuantityText.color.b, 255);
+        }
+
+            // Rehabilitar el raycast en la imagen arrastrada
+            image.raycastTarget = true;
     }
     // Método para verificar interacciones al soltar el objeto
     public void CheckForInteraction(PointerEventData eventData, NewTags thisObjectTag)

@@ -22,7 +22,7 @@ public class AccesibilityChecker : MonoBehaviour
     {
         // Obtiene componentes de bloqueo y dependencias del objeto
         Lock itemLocked = objectHit.GetComponent<Lock>();
-        DependencyHandler itemDependencies = objectHit.GetComponent<DependencyHandler>();
+        NonOrderedDependencies itemDependency = objectHit.GetComponent<NonOrderedDependencies>();
         OrderedDependencies itemDependencyByOrder = objectHit.GetComponent<OrderedDependencies>();
         CombinationLockControl combinationLocked = objectHit.GetComponent<CombinationLockControl>();
         SecretDoorLogic secretDoorLogic = objectHit.GetComponent<SecretDoorLogic>();
@@ -34,15 +34,15 @@ public class AccesibilityChecker : MonoBehaviour
             return false;
         }
         // Si el objeto tiene dependencias no cumplidas, muestra mensaje y devuelve falso
-        if (itemDependencies != null && !itemDependencies.dependencyMet)
+        if (itemDependency != null)
         {
-            feedbackTextController.PopUpText(itemDependencies.displayText[0]);
-            return false;
+
+            return itemDependencyByOrder.FeedbackTextDesider();
         }
         if (itemDependencyByOrder != null)
         {
 
-            return itemDependencyByOrder.feedbackTextDesider();
+            return itemDependencyByOrder.FeedbackTextDesider();
         }
         // Si el objeto está en un candado de combinación, muestra mensaje y devuelve falso
         if (combinationLocked != null && combinationLocked.isLocked)
@@ -61,7 +61,7 @@ public class AccesibilityChecker : MonoBehaviour
     {
         // Obtiene componentes de bloqueo y dependencias del objeto
         Lock itemLocked = objectHit.GetComponent<Lock>();
-        DependencyHandler itemDependencies = objectHit.GetComponent<DependencyHandler>();
+        NonOrderedDependencies itemDependencies = objectHit.GetComponent<NonOrderedDependencies>();
         OrderedDependencies itemDependencyByOrder = objectHit.GetComponent<OrderedDependencies>();
         ObjectCombination itemObjectCombination = objectHit.GetComponent<ObjectCombination>();
         InterchangableItemPlacement itemInterchangableItemPlacement = objectHit.GetComponent<InterchangableItemPlacement>();

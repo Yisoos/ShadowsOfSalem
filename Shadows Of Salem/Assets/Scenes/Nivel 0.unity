@@ -1395,14 +1395,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
   inheritTags:
     objectName: Cable
     displayText:
     - Necesito algo para quitar el cable roto...
     - Arreglado!
     sprite: {fileID: 21300000, guid: 6d0be690b93fd654ba2c57115c65f50f, type: 3}
-    quantity: 1
+    stackable: 0
     objectType: 2
+    quantity: 1
     transform: {fileID: 0}
 --- !u!1 &562738077
 GameObject:
@@ -1510,6 +1512,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6a679e572a864ff45a17ea9b67ad3722, type: 3}
   - {fileID: 21300000, guid: aaba74b8a92450542a4179f02b81d600, type: 3}
   - {fileID: 21300000, guid: 285c0faf90e8e374faa5753a052c86ef, type: 3}
+  itemRejectionText: Eso no me sirve aqui...
   displayText:
   - "El cable del tel\xE9fono est\xE1 roto\u2026"
   - Ahora necesito poner un cable nuevo...
@@ -2864,14 +2867,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
   inheritTags:
     objectName: Alicates
     displayText:
     - Cable roto fuera, Ahora falta poner el nuevo
     - "\xA1Cable roto desconectado!"
     sprite: {fileID: 21300000, guid: 2fa16f3b90b69db40b417d1643ddad53, type: 3}
-    quantity: 1
+    stackable: 0
     objectType: 2
+    quantity: 1
     transform: {fileID: 0}
 --- !u!212 &799030142
 SpriteRenderer:
@@ -3422,13 +3427,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
   inheritTags:
     objectName: CartaPapel
     displayText:
     - 'carta de mi jefe '
     sprite: {fileID: 21300000, guid: eef3f05af07f3884d908b12ffa2791d6, type: 3}
-    quantity: 1
+    stackable: 0
     objectType: 2
+    quantity: 1
     transform: {fileID: 0}
 --- !u!1 &843719826
 GameObject:
@@ -6906,12 +6913,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
   inheritTags:
     objectName: Llave
     displayText: []
     sprite: {fileID: 21300000, guid: 3563cd1b13a13c34fa77152beac1b398, type: 3}
-    quantity: 1
+    stackable: 0
     objectType: 1
+    quantity: 1
     transform: {fileID: 0}
 --- !u!212 &1906454815
 SpriteRenderer:

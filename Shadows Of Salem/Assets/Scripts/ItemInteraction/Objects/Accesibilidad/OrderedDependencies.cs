@@ -70,18 +70,18 @@ public class OrderedDependencies : MonoBehaviour
                 // Si se cumple la última dependencia, muestra un mensaje final.
                 if (feedbackText != null && objectDropped.tagInfo.displayText.Length > 0)
                 {
-                    feedbackText.PopUpText(objectDropped.tagInfo.displayText[objectDropped.tagInfo.displayText.Length - 1]);
+                    feedbackText.PopUpText(objectDropped.tagInfo.displayText[^1]);
                 }
                 spriteRenderer.sprite = dependencyMetSprite[i + 1]; // Actualiza el sprite al correspondiente al progreso actual.
                 dependencyMet[i] = true; // Marca la dependencia actual como cumplida.
-                inventory.DeleteItem(objectDropped);// Elimina el objeto del inventario.
+                inventory.DeleteItem(objectDropped,1);// Elimina el objeto del inventario.
                 break; // Termina el bucle después de procesar el objeto.
             }
         }
         return true; // Retorna true si el proceso se completó correctamente.
     }
 
-    public bool feedbackTextDesider()
+    public bool FeedbackTextDesider()
     {
         // Si la primera dependencia no se ha cumplido, muestra un mensaje inicial.
         if (!dependencyMet[0])
@@ -96,7 +96,7 @@ public class OrderedDependencies : MonoBehaviour
         // Recorre las dependencias para mostrar mensajes de progreso.
         for (int i = 0; i < dependencyMet.Length; i++)
         {
-            if (dependencyMet[i] && !dependencyMet[dependencyMet.Length - 1])
+            if (dependencyMet[i] && !dependencyMet[^1])
             {
                 if (feedbackText != null && displayText.Length > 0)
                 {
