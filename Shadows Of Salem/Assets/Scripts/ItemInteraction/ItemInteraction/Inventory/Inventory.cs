@@ -1,55 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inventory : MonoBehaviour
+public class NewInventory : MonoBehaviour
 {
     // Array de espacios de inventario en la UI
     public GameObject[] inventorySlots;
 
     // Lista para almacenar los objetos en el inventario
-    public List<Tags> items = new List<Tags>();
+    public List<InventoryItem> items = new List<InventoryItem>();
 
     private void Start()
     {
         // Inicializar la lista de objetos recorriendo cada espacio de inventario
         for (int i = 0; i < inventorySlots.Length; i++)
         {
-            GameObject slot = inventorySlots[i];
-
-            if (slot != null)
-            {
                 // Obtener todos los objetos de tipo Tags en los hijos del espacio de inventario
-                Tags[] slotItems = slot.GetComponentsInChildren<Tags>();
+                InventoryItem[] slotItems = inventorySlots[i].GetComponentsInChildren<InventoryItem>();
 
                 // Añadir los objetos encontrados a la lista de items
                 items.AddRange(slotItems);
-            }
-            else
-            {
-                // Advertencia si un espacio de inventario está nulo
-                Debug.LogWarning($"El espacio de inventario en el índice {i} es nulo. Verifica la configuración en el inspector.");
-            }
         }
     }
 
     // Método para recolectar un objeto y agregarlo al inventario
-    public bool CollectItem(Tags itemPrefab, Tags origin)
-    {
-        // Buscar si el objeto ya existe en el inventario
-        Tags itemInList = items.Find(currentItem => currentItem.objectName == itemPrefab.objectName);
-        if (itemInList != null)
+    public bool CollectItem(InventoryItem itemPrefab, NewTags origin, int amount)
+    { 
+        // Buscar si el objeto ya existe en el inventario i
+        InventoryItem itemInList = items.Find(currentItem => currentItem.tagInfo.objectName == origin.objectName);
+        if (itemInList != null && itemInList.tagInfo.stackable && origin.stackable)
         {
             // Si el objeto ya está en el inventario, aumentar su cantidad
-            itemInList.quantity += itemPrefab.quantity;
+            itemInList.tagInfo.quantity += amount;
 
             // Actualizar el texto en la UI con la nueva cantidad
             TMP_Text itemText = itemInList.GetComponentInChildren<TMP_Text>();
             if (itemText != null)
             {
-                itemText.text = itemInList.quantity.ToString();
+                itemText.text = itemInList.tagInfo.quantity.ToString();
             }
             return true;
         }
@@ -62,9 +53,9 @@ public class Inventory : MonoBehaviour
                 {
                     // Instanciar el objeto en el espacio vacío
                     GameObject item = Instantiate(itemPrefab.gameObject, inventorySlots[i].transform);
-                    SetPrefabSpecifications(item, origin);
+                    SetPrefabSpecifications(item, origin,amount);
                     // Añadir el objeto al inventario
-                    Tags itemTags = item.GetComponent<Tags>();
+                    InventoryItem itemTags = item.GetComponent<InventoryItem>();
                     items.Add(itemTags);
                     return true; // Salir después de añadir el objeto
                 }
@@ -74,15 +65,15 @@ public class Inventory : MonoBehaviour
     }
 
     // Método para cambiar el estado y sprite de un objeto
-    public void ChangeItemStatus(Tags item, string newStatus, Sprite newSprite)
+    public void ChangeItemStatus(InventoryItem item, string newStatus, Sprite newSprite)
     {
         // Buscar el objeto en el inventario
-        Tags inventoryItem = items.Find(currentItem => currentItem.objectName == item.objectName);
+        InventoryItem inventoryItem = items.Find(currentItem => currentItem.tagInfo.objectName == item.tagInfo.objectName);
         if (inventoryItem != null)
         {
             // Actualizar nombre y sprite del objeto
-            inventoryItem.objectName = newStatus;
-            inventoryItem.sprite = newSprite;
+            inventoryItem.tagInfo.objectName = newStatus;
+            inventoryItem.tagInfo.sprite = newSprite;
 
             // Actualizar la imagen del espacio en la UI
             Image slotItemImage = inventoryItem.transform.GetComponent<Image>();
@@ -91,27 +82,25 @@ public class Inventory : MonoBehaviour
     }
 
     // Método para eliminar o reducir la cantidad de un objeto
-    public void DeleteItem(Tags itemPrefab)
+    public void DeleteItem(InventoryItem itemToDelete, int amount)
     {
-        int deletedAmount = 1;
-
         // Verificar si el objeto no es reutilizable
-        if (itemPrefab.objectType != ObjectType.Reusable)
+        if (itemToDelete.tagInfo.objectType != TypeObject.Reusable)
         {
             // Buscar el objeto en el inventario
-            Tags inventoryItem = items.Find(currentItem => currentItem.objectName == itemPrefab.objectName);
-            if (inventoryItem != null)
+            InventoryItem inventoryItem = items.Find(currentItem => currentItem.tagInfo.objectName == itemToDelete.tagInfo.objectName);
+            if (inventoryItem != null && inventoryItem.tagInfo.quantity >= amount)
             {
-                if (inventoryItem.quantity - deletedAmount > 0)
+                if (inventoryItem.tagInfo.quantity - amount > 0)
                 {
                     // Reducir la cantidad del objeto
-                    inventoryItem.quantity -= deletedAmount;
+                    inventoryItem.tagInfo.quantity -= amount;
 
                     // Actualizar la cantidad en la UI
                     TMP_Text itemText = inventoryItem.GetComponentInChildren<TMP_Text>();
                     if (itemText != null)
                     {
-                        itemText.text = inventoryItem.quantity.ToString();
+                        itemText.text = inventoryItem.tagInfo.quantity > 1? inventoryItem.tagInfo.quantity.ToString() : "" ;
                     }
                 }
                 else
@@ -121,18 +110,28 @@ public class Inventory : MonoBehaviour
                     items.Remove(inventoryItem);
                 }
             }
+            else
+            {
+                Debug.Log("amount attemted to delete is more than the amount in inventory, deletion cancelled");
+            }
         }
     }
 
     // Configurar las especificaciones del prefab del objeto
-    public void SetPrefabSpecifications(GameObject item, Tags originTags)
+    public void SetPrefabSpecifications(GameObject item, NewTags originTags, int amount)
     {
-       
-            // Actualizar sprite y nombre según el estado actual del objeto
+        // Actualizar sprite y nombre según el estado actual del objeto
         Image prefabSprite = item.GetComponent<Image>();
-        Tags prefabTags = item.GetComponent<Tags>();
+        InventoryItem prefabTags = item.GetComponent<InventoryItem>();
+        ClassSummoner classSummoner = item.GetComponent<ClassSummoner>();
+        
         prefabSprite.sprite = originTags.sprite;
-        prefabTags.sprite = originTags.sprite;
-        prefabTags.objectName = originTags.objectName;
+        prefabTags.tagInfo = originTags;
+        prefabTags.tagInfo.quantity = amount;
+
+        if(classSummoner != null)
+        {
+            classSummoner.summonOrigin = originTags.transform;
+        }
     }
 }

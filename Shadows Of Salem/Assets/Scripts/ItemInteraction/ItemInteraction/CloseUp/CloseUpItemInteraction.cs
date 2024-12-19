@@ -35,7 +35,7 @@ public class CloseUpItemInteraction : MonoBehaviour
             if (hit.transform != null && isAccesible)
             {
                 int index = Array.IndexOf(objetosEstadoInicial, hit.collider);
-                Coleccionable coleccionable = hit.collider.GetComponent<Coleccionable>();
+                ItemCollection coleccionable = hit.collider.GetComponent<ItemCollection>();
                 if (coleccionable != null)
                 {
                     coleccionable.OnMouseDown();

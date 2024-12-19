@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(Tags))]
 public class CombinationLockPopUp : MonoBehaviour
 {
     public CombinationLockControl combinationLock;
@@ -32,8 +31,7 @@ public class CombinationLockPopUp : MonoBehaviour
 
                 if (combinationLock.feedbackText != null)
                 {
-                    Tags tag = combinationLock.gameObject.GetComponent<Tags>();
-                    combinationLock.feedbackText.PopUpText(tag.displayText[1]);
+                    combinationLock.feedbackText.PopUpText(combinationLock.displayText[1]);
                     StartCoroutine(DeactivateAfterDelay()); // Start the coroutine for delayed deactivation
                 }
                 TurnOnLockCollider();

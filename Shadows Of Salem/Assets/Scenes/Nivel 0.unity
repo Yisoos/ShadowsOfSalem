@@ -132,7 +132,6 @@ GameObject:
   m_Component:
   - component: {fileID: 88931670}
   - component: {fileID: 88931671}
-  - component: {fileID: 88931672}
   m_Layer: 0
   m_Name: 'ColliderCajon2_Gabinete '
   m_TagString: Untagged
@@ -200,20 +199,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.8, y: 1.6}
   m_EdgeRadius: 0
---- !u!114 &88931672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88931669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 8300000, guid: c098640499609654b9b108842c7eca59, type: 3}
-  cerrarSonido: {fileID: 0}
 --- !u!1 &98461931 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7123308556899413979, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
@@ -230,7 +215,6 @@ GameObject:
   - component: {fileID: 98863200}
   - component: {fileID: 98863201}
   - component: {fileID: 98863202}
-  - component: {fileID: 98863203}
   m_Layer: 6
   m_Name: Cajon1Abierto_Gabinete
   m_TagString: Open Container
@@ -351,20 +335,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 15.14, y: 4.75}
   m_EdgeRadius: 0
---- !u!114 &98863203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98863199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 0}
-  cerrarSonido: {fileID: 8300000, guid: 2ff84fc508e03ac479b26c0d95451ad9, type: 3}
 --- !u!1 &143887620
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +656,6 @@ GameObject:
   m_Component:
   - component: {fileID: 178384758}
   - component: {fileID: 178384759}
-  - component: {fileID: 178384760}
   m_Layer: 0
   m_Name: CartaAbierta_CharlotteRecibidor
   m_TagString: Untagged
@@ -757,20 +726,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 15.178337, y: 14.201713}
   m_EdgeRadius: 0
---- !u!114 &178384760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178384757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 0}
-  cerrarSonido: {fileID: 8300000, guid: a0abe4f4bcc762249bc7de292b3cdda6, type: 3}
 --- !u!1 &209521176
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,7 +866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &376355076
 Transform:
   m_ObjectHideFlags: 0
@@ -1013,7 +968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &382916138
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1195,7 +1150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &451784480
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1306,8 +1261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 506167200}
   - component: {fileID: 506167204}
-  - component: {fileID: 506167203}
-  - component: {fileID: 506167202}
+  - component: {fileID: 506167205}
   - component: {fileID: 506167201}
   m_Layer: 3
   m_Name: Cable
@@ -1360,7 +1314,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.08643973, y: 0.12286377}
@@ -1376,37 +1330,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.944433, y: 4.3579874}
   m_EdgeRadius: 0
---- !u!114 &506167202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506167199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Cable
-  displayText: []
-  sprite: {fileID: 21300000, guid: 6d0be690b93fd654ba2c57115c65f50f, type: 3}
-  quantity: 1
-  objectType: 2
---- !u!114 &506167203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506167199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 74225d30676fbad42b6d9d2026ae39c7, type: 3}
-  recogerSonido: {fileID: 8300000, guid: ff9914a8705f26f49957100887697d87, type: 3}
 --- !u!212 &506167204
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1459,6 +1382,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &506167205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506167199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
+  inheritTags:
+    objectName: Cable
+    displayText:
+    - Necesito algo para quitar el cable roto...
+    - Arreglado!
+    sprite: {fileID: 21300000, guid: 6d0be690b93fd654ba2c57115c65f50f, type: 3}
+    stackable: 0
+    objectType: 2
+    quantity: 1
+    transform: {fileID: 0}
 --- !u!1 &562738077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,7 +1416,6 @@ GameObject:
   m_Component:
   - component: {fileID: 562738078}
   - component: {fileID: 562738080}
-  - component: {fileID: 562738081}
   - component: {fileID: 562738084}
   - component: {fileID: 562738086}
   - component: {fileID: 562738085}
@@ -1547,27 +1493,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &562738081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562738077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Telefono
-  displayText:
-  - "El cable del tel\xE9fono est\xE1 roto\u2026"
-  - Ahora necesito poner un cable nuevo...
-  - "\xA1Telefono arreglado!"
-  - Llamando al jefe...
-  sprite: {fileID: 21300000, guid: 6a679e572a864ff45a17ea9b67ad3722, type: 3}
-  quantity: 1
-  objectType: 3
 --- !u!114 &562738084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1583,12 +1508,15 @@ MonoBehaviour:
   requiredItems:
   - Alicates
   - Cable
-  inventory: {fileID: 1684904970}
   dependencyMetSprite:
   - {fileID: 21300000, guid: 6a679e572a864ff45a17ea9b67ad3722, type: 3}
   - {fileID: 21300000, guid: aaba74b8a92450542a4179f02b81d600, type: 3}
   - {fileID: 21300000, guid: 285c0faf90e8e374faa5753a052c86ef, type: 3}
-  feedbackText: {fileID: 6973665184144531453}
+  itemRejectionText: Eso no me sirve aqui...
+  displayText:
+  - "El cable del tel\xE9fono est\xE1 roto\u2026"
+  - Ahora necesito poner un cable nuevo...
+  - "\xA1Telefono arreglado!"
   dependencyMet: 
 --- !u!60 &562738085
 PolygonCollider2D:
@@ -1983,17 +1911,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37d5288b4589ea4db234b317971f392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feedbackText: {fileID: 6973665184144531453}
   numberToCall: 3-8-9-1-7
-  dialReturnSpeed: 4.87
   dialDisplayPrefab: {fileID: 290276338221010053, guid: 2a9f42df249769343b3ce762dd8e1b32, type: 3}
-  dialDispalyParent: {fileID: 1423499380}
-  UIInventoryDisplay: {fileID: 1965032658}
+  dialReturnSpeed: 4.87
+  displayText:
+  - Llamando al jefe...
   fontAsset:
   - {fileID: 11400000, guid: b55f0db5873e2d3418dcac6ce8bc9465, type: 2}
   - {fileID: 11400000, guid: f138b4c345536ce4f984ad672c46340c, type: 2}
-  dialAudioSource: {fileID: 0}
-  dialSoundClip: {fileID: 0}
+  UIInventoryDisplay: {fileID: 1965032658}
+  feedbackText: {fileID: 6973665184144531453}
+  dialDisplayParent: {fileID: 0}
 --- !u!1 &584660558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,7 +2011,6 @@ GameObject:
   m_Component:
   - component: {fileID: 617294804}
   - component: {fileID: 617294805}
-  - component: {fileID: 617294806}
   m_Layer: 0
   m_Name: ColliderCajon1_Gabinete
   m_TagString: Untagged
@@ -2135,7 +2062,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.63, y: 1.24}
@@ -2151,20 +2078,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.82, y: 1.48}
   m_EdgeRadius: 0
---- !u!114 &617294806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617294803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 8300000, guid: c098640499609654b9b108842c7eca59, type: 3}
-  cerrarSonido: {fileID: 0}
 --- !u!1 &668107581
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,7 +2176,6 @@ GameObject:
   m_Component:
   - component: {fileID: 689805500}
   - component: {fileID: 689805499}
-  - component: {fileID: 689805501}
   m_Layer: 0
   m_Name: ColliderCajon2_Escritorio
   m_TagString: Untagged
@@ -2331,20 +2243,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1351927736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &689805501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 689805498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 8300000, guid: c098640499609654b9b108842c7eca59, type: 3}
-  cerrarSonido: {fileID: 0}
 --- !u!1 &690355918
 GameObject:
   m_ObjectHideFlags: 0
@@ -2657,7 +2555,6 @@ GameObject:
   - component: {fileID: 762782797}
   - component: {fileID: 762782798}
   - component: {fileID: 762782799}
-  - component: {fileID: 762782800}
   m_Layer: 0
   m_Name: Cajon1Abierto_Escritorio
   m_TagString: Untagged
@@ -2778,20 +2675,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.5540285, y: 3.8259287}
   m_EdgeRadius: 0
---- !u!114 &762782800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762782796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 0}
-  cerrarSonido: {fileID: 8300000, guid: 2ff84fc508e03ac479b26c0d95451ad9, type: 3}
 --- !u!1 &795326457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2870,7 +2753,6 @@ GameObject:
   m_Component:
   - component: {fileID: 798030938}
   - component: {fileID: 798030939}
-  - component: {fileID: 798030940}
   m_Layer: 0
   m_Name: ColliderCajon3_Gabinete
   m_TagString: Untagged
@@ -2938,20 +2820,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.54, y: 1.33}
   m_EdgeRadius: 0
---- !u!114 &798030940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798030937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 8300000, guid: c098640499609654b9b108842c7eca59, type: 3}
-  cerrarSonido: {fileID: 0}
 --- !u!1 &799030137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2962,7 +2830,6 @@ GameObject:
   m_Component:
   - component: {fileID: 799030138}
   - component: {fileID: 799030142}
-  - component: {fileID: 799030141}
   - component: {fileID: 799030140}
   - component: {fileID: 799030143}
   m_Layer: 3
@@ -2999,25 +2866,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 0bc2d96f35d5f27489e4b3f56675cc0a, type: 3}
-  recogerSonido: {fileID: 8300000, guid: ff9914a8705f26f49957100887697d87, type: 3}
---- !u!114 &799030141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799030137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Alicates
-  displayText: []
-  sprite: {fileID: 21300000, guid: 2fa16f3b90b69db40b417d1643ddad53, type: 3}
-  quantity: 1
-  objectType: 2
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
+  inheritTags:
+    objectName: Alicates
+    displayText:
+    - Cable roto fuera, Ahora falta poner el nuevo
+    - "\xA1Cable roto desconectado!"
+    sprite: {fileID: 21300000, guid: 2fa16f3b90b69db40b417d1643ddad53, type: 3}
+    stackable: 0
+    objectType: 2
+    quantity: 1
+    transform: {fileID: 0}
 --- !u!212 &799030142
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3304,7 +3164,6 @@ GameObject:
   - component: {fileID: 828207801}
   - component: {fileID: 828207803}
   - component: {fileID: 828207802}
-  - component: {fileID: 828207804}
   m_Layer: 0
   m_Name: CartaCerrada_CharlotteRecibidor
   m_TagString: Untagged
@@ -3424,20 +3283,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &828207804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828207800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 8300000, guid: a0abe4f4bcc762249bc7de292b3cdda6, type: 3}
-  cerrarSonido: {fileID: 0}
 --- !u!1 &842719955
 GameObject:
   m_ObjectHideFlags: 0
@@ -3449,7 +3294,6 @@ GameObject:
   - component: {fileID: 842719956}
   - component: {fileID: 842719958}
   - component: {fileID: 842719957}
-  - component: {fileID: 842719960}
   - component: {fileID: 842719959}
   m_Layer: 3
   m_Name: Cartapapel
@@ -3582,26 +3426,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 04d450d5ee4958a4c94a9947c5f1cee0, type: 3}
-  recogerSonido: {fileID: 8300000, guid: ff9914a8705f26f49957100887697d87, type: 3}
---- !u!114 &842719960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842719955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: CartaPapel
-  displayText:
-  - 'carta de mi jefe '
-  sprite: {fileID: 21300000, guid: eef3f05af07f3884d908b12ffa2791d6, type: 3}
-  quantity: 1
-  objectType: 4
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
+  inheritTags:
+    objectName: CartaPapel
+    displayText:
+    - 'carta de mi jefe '
+    sprite: {fileID: 21300000, guid: eef3f05af07f3884d908b12ffa2791d6, type: 3}
+    stackable: 0
+    objectType: 2
+    quantity: 1
+    transform: {fileID: 0}
 --- !u!1 &843719826
 GameObject:
   m_ObjectHideFlags: 0
@@ -3825,18 +3660,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2327703528993006124, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
-      propertyPath: Mute
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2327703528993006124, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
-      propertyPath: m_Volume
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2327703528993006124, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
-      propertyPath: BypassEffects
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5385151767659755121, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: m_Name
       value: Audio Manager
@@ -3882,29 +3705,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
-      propertyPath: Timbre
-      value: 
-      objectReference: {fileID: 8300000, guid: 91516a55ebd7ebc46aac48a08d5b46c5, type: 3}
-    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
-      propertyPath: timbre
-      value: 
-      objectReference: {fileID: 8300000, guid: 91516a55ebd7ebc46aac48a08d5b46c5, type: 3}
-    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: background
       value: 
-      objectReference: {fileID: 8300000, guid: 9465171f6a541794b80c7faa54371a31, type: 3}
+      objectReference: {fileID: 8300000, guid: ab6c92016eb9b414baee3cfa984088bc, type: 3}
     - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: ClickButton
       value: 
       objectReference: {fileID: 8300000, guid: 43cb291a3064f0247b219e9f0147aa6a, type: 3}
-    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
-      propertyPath: timbreDelay
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
-      propertyPath: backgroundDelay
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4010,7 +3817,6 @@ GameObject:
   - component: {fileID: 1046643357}
   - component: {fileID: 1046643358}
   - component: {fileID: 1046643359}
-  - component: {fileID: 1046643360}
   m_Layer: 6
   m_Name: Cajon2Abierto_Gabinete
   m_TagString: Open Container
@@ -4130,20 +3936,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 13.14, y: 4.23}
   m_EdgeRadius: 0
---- !u!114 &1046643360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046643356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 0}
-  cerrarSonido: {fileID: 8300000, guid: 2ff84fc508e03ac479b26c0d95451ad9, type: 3}
 --- !u!1 &1059624220
 GameObject:
   m_ObjectHideFlags: 0
@@ -4232,7 +4024,6 @@ GameObject:
   - component: {fileID: 1074531375}
   - component: {fileID: 1074531374}
   - component: {fileID: 1074531376}
-  - component: {fileID: 1074531377}
   m_Layer: 0
   m_Name: Cajon2Abierto_Escritorio
   m_TagString: Untagged
@@ -4352,20 +4143,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.765017, y: 2.894833}
   m_EdgeRadius: 0
---- !u!114 &1074531377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074531373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 0}
-  cerrarSonido: {fileID: 8300000, guid: 2ff84fc508e03ac479b26c0d95451ad9, type: 3}
 --- !u!1 &1096079727
 GameObject:
   m_ObjectHideFlags: 0
@@ -4595,7 +4372,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2371927246017478427}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CambiarEscenas, Assembly-CSharp
         m_MethodName: CambiarEscenaSinInput
         m_Mode: 1
@@ -4656,7 +4433,6 @@ GameObject:
   - component: {fileID: 1297857916}
   - component: {fileID: 1297857918}
   - component: {fileID: 1297857917}
-  - component: {fileID: 1297857919}
   m_Layer: 0
   m_Name: CuadernoNotas_Abierto
   m_TagString: Untagged
@@ -4776,20 +4552,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1297857919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297857915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 0}
-  cerrarSonido: {fileID: 8300000, guid: 529d773417f270a4b8d25c9679bca293, type: 3}
 --- !u!1 &1301955955
 GameObject:
   m_ObjectHideFlags: 0
@@ -5017,7 +4779,6 @@ GameObject:
   - component: {fileID: 1313176793}
   - component: {fileID: 1313176794}
   - component: {fileID: 1313176795}
-  - component: {fileID: 1313176796}
   m_Layer: 6
   m_Name: Cajon3Abierto_Gabinete
   m_TagString: Open Container
@@ -5137,20 +4898,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.3, y: 3.53}
   m_EdgeRadius: 0
---- !u!114 &1313176796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1313176792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 0}
-  cerrarSonido: {fileID: 8300000, guid: 2ff84fc508e03ac479b26c0d95451ad9, type: 3}
 --- !u!1 &1346029455
 GameObject:
   m_ObjectHideFlags: 0
@@ -6285,7 +6032,6 @@ GameObject:
   - component: {fileID: 1665301427}
   - component: {fileID: 1665301428}
   - component: {fileID: 1665301429}
-  - component: {fileID: 1665301430}
   m_Layer: 0
   m_Name: "Ba\xFAl_Cerrado"
   m_TagString: Untagged
@@ -6418,29 +6164,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 1
-  feedbackText: {fileID: 6973665184144531453}
   combination: 0312
   popUpLockPrefab: {fileID: 5636392485063428453, guid: 90480714d3bba5540b1b225b412311b3, type: 3}
-  popUpLockParent: {fileID: 1423499380}
---- !u!114 &1665301430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1665301425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: "Ba\xFAl"
   displayText:
   - "Est\xE1 cerrado..."
   - "\xA1Ba\xFAl abierto!"
-  sprite: {fileID: 0}
-  quantity: 1
-  objectType: 3
+  popUpLockParent: {fileID: 1423499380}
+  feedbackText: {fileID: 6973665184144531453}
 --- !u!1 &1684904968
 GameObject:
   m_ObjectHideFlags: 0
@@ -6862,7 +6592,6 @@ GameObject:
   - component: {fileID: 1864527150}
   - component: {fileID: 1864527151}
   - component: {fileID: 1864527152}
-  - component: {fileID: 1864527153}
   m_Layer: 3
   m_Name: CuadernoNotas_Cajon1
   m_TagString: Untagged
@@ -6982,20 +6711,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.2498994, y: 1.31}
   m_EdgeRadius: 0
---- !u!114 &1864527153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1864527149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 8300000, guid: 016b054f8e47e1e4299e5d59c88d889e, type: 3}
-  cerrarSonido: {fileID: 0}
 --- !u!1 &1873223423
 GameObject:
   m_ObjectHideFlags: 0
@@ -7065,8 +6780,6 @@ GameObject:
   - component: {fileID: 1884930294}
   - component: {fileID: 1884930295}
   - component: {fileID: 1884930296}
-  - component: {fileID: 1884930297}
-  - component: {fileID: 1884930298}
   m_Layer: 0
   m_Name: ColliderCajon1_Escritorio
   m_TagString: Untagged
@@ -7149,41 +6862,9 @@ MonoBehaviour:
   isLocked: 1
   lockID: 1
   isPhysicalLock: 0
-  inventory: {fileID: 1684904970}
-  feedbackText: {fileID: 6973665184144531453}
---- !u!114 &1884930297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884930293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Drawer
   displayText:
   - "\xBFD\xF3nde habr\xE9 dejado la llave?..."
   - "\xA1Caj\xF3n abierto!"
-  sprite: {fileID: 0}
-  quantity: 1
-  objectType: 3
---- !u!114 &1884930298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884930293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b77c1591dc382748a2cb8861d55c75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abrirSonido: {fileID: 8300000, guid: c098640499609654b9b108842c7eca59, type: 3}
-  cerrarSonido: {fileID: 0}
 --- !u!1 &1906454811
 GameObject:
   m_ObjectHideFlags: 0
@@ -7195,8 +6876,8 @@ GameObject:
   - component: {fileID: 1906454812}
   - component: {fileID: 1906454815}
   - component: {fileID: 1906454816}
-  - component: {fileID: 1906454814}
   - component: {fileID: 1906454813}
+  - component: {fileID: 1906454817}
   m_Layer: 3
   m_Name: llave
   m_TagString: Untagged
@@ -7231,25 +6912,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 3a88cd94a51093b4b8e11a8ad4ac34f9, type: 3}
-  recogerSonido: {fileID: 8300000, guid: ff9914a8705f26f49957100887697d87, type: 3}
---- !u!114 &1906454814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906454811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: LlaveCajonEscena
-  displayText: []
-  sprite: {fileID: 21300000, guid: 3563cd1b13a13c34fa77152beac1b398, type: 3}
-  quantity: 1
-  objectType: 1
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
+  inheritTags:
+    objectName: Llave
+    displayText: []
+    sprite: {fileID: 21300000, guid: 3563cd1b13a13c34fa77152beac1b398, type: 3}
+    stackable: 0
+    objectType: 1
+    quantity: 1
+    transform: {fileID: 0}
 --- !u!212 &1906454815
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7337,6 +7009,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 2.9600003, y: 6.73}
   m_Direction: 0
+--- !u!114 &1906454817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906454811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b016c0e859c9db46959b59a6c2f77a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyID: 1
 --- !u!1 &1911104932
 GameObject:
   m_ObjectHideFlags: 0
@@ -7542,134 +7227,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5452054302664012104, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
   m_PrefabInstance: {fileID: 6973665184144531450}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2019721690
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2019721692}
-  - component: {fileID: 2019721691}
-  m_Layer: 0
-  m_Name: Audio Source
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &2019721691
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019721690}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &2019721692
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019721690}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0560808, y: -0.03415622, z: 50.48869}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2118224017
 GameObject:
   m_ObjectHideFlags: 0
@@ -7810,7 +7367,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6895682814121052121}
   - component: {fileID: 2326792699735797970}
-  - component: {fileID: 2371927246017478427}
   - component: {fileID: 6895682814121052122}
   m_Layer: 0
   m_Name: SceneNavigator
@@ -7842,19 +7398,6 @@ MonoBehaviour:
   - {fileID: 6973665184144531451}
   - {fileID: 6973665184144531452}
   - {fileID: 1352460481}
---- !u!114 &2371927246017478427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2310706155015955557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4dba095cfc2aa042aa9afafeb998d7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: Nivel 0 a 1 Mensaje
 --- !u!4 &6895682814121052121
 Transform:
   m_ObjectHideFlags: 0
@@ -7879,12 +7422,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2310706155015955557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532ebbc37ee19d34d92e7c5d1c46838c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4221fe6a840372242b4fa9906413aae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToGoToWhenFinished: Nivel 0 a 1 Mensaje
   RequiredItems: []
-  failMessage: s
+  failMessage: 
 --- !u!1001 &6973665184144531450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7995,7 +7538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -8011,7 +7554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
@@ -8032,7 +7575,7 @@ PrefabInstance:
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 1723206115}
+      objectReference: {fileID: 173722972}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
@@ -8063,7 +7606,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: PlaySFX
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
@@ -8083,7 +7626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: AudioManager, Assembly-CSharp
+      value: SceneNavigator, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
@@ -8102,10 +7645,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 3487f3cf62ed73d44bb2926f24964ad7, type: 3}
-    - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -8119,7 +7658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3536232945205054481, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -8145,10 +7684,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1929128094}
-    - target: {fileID: 4035382007512907643, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
-      propertyPath: m_PixelPerfect
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4071148912439745777, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -10.499939
@@ -8448,6 +7983,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2096371738980989, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+    - {fileID: 5422173720671980629, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4268783129957500273, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       insertIndex: 2
@@ -8488,4 +8024,3 @@ SceneRoots:
   - {fileID: 1684904969}
   - {fileID: 795326460}
   - {fileID: 985610976}
-  - {fileID: 2019721692}

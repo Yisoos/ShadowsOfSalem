@@ -367,7 +367,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 2
-  nav: {fileID: 4849288292682594968}
 --- !u!61 &130641458
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -511,7 +510,6 @@ GameObject:
   - component: {fileID: 224559025}
   - component: {fileID: 224559029}
   - component: {fileID: 224559028}
-  - component: {fileID: 224559027}
   - component: {fileID: 224559026}
   m_Layer: 0
   m_Name: Palanca
@@ -551,24 +549,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 8a8caeddc66958c4497ccb5c14efd042, type: 3}
---- !u!114 &224559027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224559024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Palanca
-  displayText: []
-  sprite: {fileID: 21300000, guid: 4d1e001bc2a10264aad46e9185a75ac2, type: 3}
-  quantity: 1
-  objectType: 1
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Palanca
+    displayText:
+    - Palanca puesta! Ahora pongo la cinta
+    sprite: {fileID: 21300000, guid: 4d1e001bc2a10264aad46e9185a75ac2, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
 --- !u!61 &224559028
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -905,7 +894,6 @@ GameObject:
   - component: {fileID: 307584673}
   - component: {fileID: 307584677}
   - component: {fileID: 307584676}
-  - component: {fileID: 307584675}
   - component: {fileID: 307584674}
   m_Layer: 0
   m_Name: Papelito3
@@ -945,24 +933,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 723eb9a602b0b1f45807b6dab1ce6643, type: 3}
---- !u!114 &307584675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307584672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Papelito3
-  displayText: []
-  sprite: {fileID: 21300000, guid: 60dc4a24abb21cf4593badf5bd7b9dbf, type: 3}
-  quantity: 1
-  objectType: 6
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Papelito3
+    displayText: []
+    sprite: {fileID: 21300000, guid: 60dc4a24abb21cf4593badf5bd7b9dbf, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
 --- !u!61 &307584676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1639,7 +1617,7 @@ PrefabInstance:
     - target: {fileID: 750735859133917854, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4894437394935592273}
+      objectReference: {fileID: 0}
     - target: {fileID: 895666386974364438, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_Name
       value: Interfaz
@@ -1807,7 +1785,7 @@ PrefabInstance:
     - target: {fileID: 3733527999845559332, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4894437394935592273}
+      objectReference: {fileID: 0}
     - target: {fileID: 4035382007512907643, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1951,6 +1929,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2096371738980989, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
+    - {fileID: 5422173720671980629, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
@@ -1975,7 +1954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &522142269
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2068,7 +2047,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 3
-  nav: {fileID: 4849288292682594968}
 --- !u!61 &585416170
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2177,7 +2155,6 @@ GameObject:
   - component: {fileID: 598173755}
   - component: {fileID: 598173757}
   - component: {fileID: 598173756}
-  - component: {fileID: 598173758}
   - component: {fileID: 598173759}
   m_Layer: 0
   m_Name: PuertaArchivos
@@ -2302,23 +2279,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &598173758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598173754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Puerta Archivos
-  displayText: []
-  sprite: {fileID: 21300000, guid: 2efb971e276f6d54f9eabe9bca8dac18, type: 3}
-  quantity: 1
-  objectType: 0
 --- !u!114 &598173759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2332,7 +2292,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 5
-  nav: {fileID: 4849288292682594968}
 --- !u!1 &606428751
 GameObject:
   m_ObjectHideFlags: 0
@@ -2719,8 +2678,8 @@ GameObject:
   - component: {fileID: 775178610}
   - component: {fileID: 775178611}
   - component: {fileID: 775178613}
-  - component: {fileID: 775178612}
   - component: {fileID: 775178614}
+  - component: {fileID: 775178615}
   m_Layer: 0
   m_Name: PaseDeBiblioteca
   m_TagString: Untagged
@@ -2795,23 +2754,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &775178612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 775178609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Pase De Biblioteca
-  displayText: []
-  sprite: {fileID: 21300000, guid: 8e13b0dec1f5ed049965b5f61aa0c080, type: 3}
-  quantity: 1
-  objectType: 1
 --- !u!61 &775178613
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2869,7 +2811,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 97ae7cc3aefda7046bd47aaa33eb1705, type: 3}
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: PaseDeBiblioteca
+    displayText: []
+    sprite: {fileID: 21300000, guid: 8e13b0dec1f5ed049965b5f61aa0c080, type: 3}
+    quantity: 1
+    objectType: 1
+    transform: {fileID: 0}
+--- !u!114 &775178615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775178609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b016c0e859c9db46959b59a6c2f77a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyID: 5
 --- !u!1 &775420941
 GameObject:
   m_ObjectHideFlags: 0
@@ -3135,7 +3097,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &958316437
 Transform:
   m_ObjectHideFlags: 0
@@ -3275,7 +3237,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1031304643}
   - component: {fileID: 1031304646}
-  - component: {fileID: 1031304649}
   - component: {fileID: 1031304648}
   - component: {fileID: 1031304647}
   - component: {fileID: 1031304650}
@@ -3370,7 +3331,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 3
-  nav: {fileID: 4849288292682594968}
 --- !u!114 &1031304648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3386,27 +3346,9 @@ MonoBehaviour:
   isLocked: 1
   lockID: 5
   isPhysicalLock: 0
-  inventory: {fileID: 908418271}
-  feedbackText: {fileID: 742690427}
---- !u!114 &1031304649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031304642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: fichar
   displayText:
-  - Esta cerrado...
-  - Se ha abierto!
-  sprite: {fileID: 0}
-  quantity: 1
-  objectType: 0
+  - Necesito fichar con un pase para abrir la puerta...
+  - Vale, ahora si puedo pasar!
 --- !u!61 &1031304650
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3834,9 +3776,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1284499075}
   - component: {fileID: 1284499076}
-  - component: {fileID: 1284499078}
-  - component: {fileID: 1284499077}
   - component: {fileID: 1284499079}
+  - component: {fileID: 1284499080}
+  - component: {fileID: 1284499078}
   m_Layer: 0
   m_Name: Papelito1
   m_TagString: Untagged
@@ -3911,23 +3853,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1284499077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284499074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Papelito1
-  displayText: []
-  sprite: {fileID: 21300000, guid: 4861d6d4e275d0740864d4032d130aa3, type: 3}
-  quantity: 1
-  objectType: 6
 --- !u!61 &1284499078
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3985,7 +3910,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 50803ba34b003f74fb70a4631192f1f0, type: 3}
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Papelito1
+    displayText: []
+    sprite: {fileID: 21300000, guid: 4861d6d4e275d0740864d4032d130aa3, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
+--- !u!114 &1284499080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284499074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b514ce360d3e4942aee28410f870d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetosCombinables:
+  - itemToCombine: Papelito2
+    currentItemStatus: Papelito1
+    newItemStatusSprite: {fileID: 21300000, guid: 996a7eadd4a502446bbf0b6a683282e9, type: 3}
+    newItemStatus: 'Trozo de papel '
+  - itemToCombine: Papelito3
+    currentItemStatus: 'Trozo de papel '
+    newItemStatusSprite: {fileID: 21300000, guid: cb1fe7dd445b6d14b977316a3d17d045, type: 3}
+    newItemStatus: papelito
 --- !u!1 &1290934273
 GameObject:
   m_ObjectHideFlags: 0
@@ -4303,7 +4256,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 3
-  nav: {fileID: 4849288292682594968}
 --- !u!61 &1438792629
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4493,8 +4445,8 @@ GameObject:
   - component: {fileID: 1461969826}
   - component: {fileID: 1461969827}
   - component: {fileID: 1461969829}
-  - component: {fileID: 1461969828}
   - component: {fileID: 1461969830}
+  - component: {fileID: 1461969831}
   m_Layer: 0
   m_Name: Papelito2
   m_TagString: Untagged
@@ -4569,23 +4521,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1461969828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461969825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Papelito2
-  displayText: []
-  sprite: {fileID: 21300000, guid: 347c7bf5d52ff1f4d805c5839a19eb45, type: 3}
-  quantity: 1
-  objectType: 6
 --- !u!61 &1461969829
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4643,7 +4578,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: b90f0def0fe4b3c4aa5bf514b6c2808c, type: 3}
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Papelito2
+    displayText: []
+    sprite: {fileID: 21300000, guid: 347c7bf5d52ff1f4d805c5839a19eb45, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
+--- !u!114 &1461969831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461969825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b514ce360d3e4942aee28410f870d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetosCombinables:
+  - itemToCombine: Papelito1
+    currentItemStatus: Papelito2
+    newItemStatusSprite: {fileID: 21300000, guid: 996a7eadd4a502446bbf0b6a683282e9, type: 3}
+    newItemStatus: 'Trozo de papel '
+  - itemToCombine: Papelito3
+    currentItemStatus: 'Trozo de papel '
+    newItemStatusSprite: {fileID: 21300000, guid: cb1fe7dd445b6d14b977316a3d17d045, type: 3}
+    newItemStatus: papelito
 --- !u!1 &1519313846
 GameObject:
   m_ObjectHideFlags: 0
@@ -5005,7 +4968,6 @@ GameObject:
   - component: {fileID: 1650881322}
   - component: {fileID: 1650881325}
   - component: {fileID: 1650881324}
-  - component: {fileID: 1650881323}
   m_Layer: 0
   m_Name: microfilmreader
   m_TagString: Untagged
@@ -5032,23 +4994,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.46, y: 0.04}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1650881323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1650881321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Microfilm Reader
-  displayText: []
-  sprite: {fileID: 21300000, guid: b9a0a02842eb28449936f65ec29618ec, type: 3}
-  quantity: 1
-  objectType: 0
 --- !u!61 &1650881324
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5339,7 +5284,6 @@ GameObject:
   - component: {fileID: 1764553410}
   - component: {fileID: 1764553414}
   - component: {fileID: 1764553413}
-  - component: {fileID: 1764553412}
   - component: {fileID: 1764553411}
   m_Layer: 3
   m_Name: Cinta
@@ -5379,24 +5323,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 23eb8ad6339720940bdb0a8700b77d9e, type: 3}
---- !u!114 &1764553412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764553409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Cinta
-  displayText: []
-  sprite: {fileID: 21300000, guid: 8c648c3923b24db41ac764ceb3f39ca2, type: 3}
-  quantity: 1
-  objectType: 1
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Cinta
+    displayText:
+    - Antes necesito poner la palanca...
+    - Cinta puesta! ya puedo leer los archivos
+    sprite: {fileID: 21300000, guid: 8c648c3923b24db41ac764ceb3f39ca2, type: 3}
+    quantity: 1
+    objectType: 2
+    transform: {fileID: 0}
 --- !u!61 &1764553413
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5724,7 +5660,6 @@ GameObject:
   - component: {fileID: 1863346695}
   - component: {fileID: 1863346698}
   - component: {fileID: 1863346697}
-  - component: {fileID: 1863346696}
   - component: {fileID: 1863346699}
   - component: {fileID: 1863346700}
   m_Layer: 0
@@ -5753,26 +5688,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.46, y: 0.04}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1863346696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863346694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Microfilm Reader
-  displayText:
-  - No funciona... tengo que arreglar la palanca y meter la cinta
-  - Ya funciona! Ahora necesito la cinta para leer
-  - A leer
-  sprite: {fileID: 21300000, guid: b9a0a02842eb28449936f65ec29618ec, type: 3}
-  quantity: 1
-  objectType: 3
 --- !u!61 &1863346697
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5885,12 +5800,14 @@ MonoBehaviour:
   requiredItems:
   - Palanca
   - Cinta
-  inventory: {fileID: 908418271}
   dependencyMetSprite:
   - {fileID: 21300000, guid: b9a0a02842eb28449936f65ec29618ec, type: 3}
   - {fileID: 21300000, guid: b9a0a02842eb28449936f65ec29618ec, type: 3}
   - {fileID: 21300000, guid: b9a0a02842eb28449936f65ec29618ec, type: 3}
-  feedbackText: {fileID: 742690427}
+  itemRejectionText: Creo que no necesito poner eso ahi...
+  displayText:
+  - No funciona.. Tengo que arreglar la palanca y meter la cinta
+  - Ya funciona! Ahora necesito la cinta para leerla
   dependencyMet: 
 --- !u!114 &1863346700
 MonoBehaviour:
@@ -6147,7 +6064,6 @@ GameObject:
   - component: {fileID: 1970315942}
   - component: {fileID: 1970315944}
   - component: {fileID: 1970315943}
-  - component: {fileID: 1970315947}
   - component: {fileID: 1970315946}
   - component: {fileID: 1970315945}
   m_Layer: 0
@@ -6286,7 +6202,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewNumber: 4
-  nav: {fileID: 4849288292682594968}
 --- !u!114 &1970315946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6302,27 +6217,10 @@ MonoBehaviour:
   isLocked: 1
   lockID: 6
   isPhysicalLock: 0
-  inventory: {fileID: 908418271}
-  feedbackText: {fileID: 742690427}
---- !u!114 &1970315947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970315941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Puerta Oficina
   displayText:
-  - "Esta cerrada con llave... pero quiza podr\xEDa intentar abrirla con otra cosa..."
-  - ha funcionado... Se ha abierto!
-  sprite: {fileID: 21300000, guid: 2efb971e276f6d54f9eabe9bca8dac18, type: 3}
-  quantity: 1
-  objectType: 0
+  - "Est\xE1 cerrada con llave... Pero quiza prodr\xEDa intentar abrirla  con otra
+    cosa..."
+  - Ha funcionado... Se ha abierto!
 --- !u!1 &2002015574
 GameObject:
   m_ObjectHideFlags: 0
@@ -6444,8 +6342,8 @@ GameObject:
   - component: {fileID: 2013389112}
   - component: {fileID: 2013389113}
   - component: {fileID: 2013389115}
-  - component: {fileID: 2013389114}
   - component: {fileID: 2013389116}
+  - component: {fileID: 2013389117}
   m_Layer: 0
   m_Name: Horquillas
   m_TagString: Untagged
@@ -6520,23 +6418,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2013389114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013389111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a519537fdd4aea47bc02a63a1d75026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: Horquillas
-  displayText: []
-  sprite: {fileID: 21300000, guid: 6aebe17554dcef445a8d828310e80305, type: 3}
-  quantity: 1
-  objectType: 1
 --- !u!61 &2013389115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6594,7 +6475,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 6036662115135243276, guid: 7ec3b0d9ff7d79641bfd80dc0cc41728, type: 3}
+  itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  inheritTags:
+    objectName: Horquillas
+    displayText:
+    - ola
+    sprite: {fileID: 21300000, guid: 6aebe17554dcef445a8d828310e80305, type: 3}
+    quantity: 1
+    objectType: 1
+    transform: {fileID: 0}
+--- !u!114 &2013389117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013389111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b016c0e859c9db46959b59a6c2f77a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyID: 6
 --- !u!1 &2126975677
 GameObject:
   m_ObjectHideFlags: 0
@@ -6701,8 +6603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4374171026612063635}
   - component: {fileID: 4849288292682594968}
-  - component: {fileID: 4894437394935592273}
-  - component: {fileID: 4894437394935592274}
+  - component: {fileID: 4849288292682594969}
   m_Layer: 0
   m_Name: SceneNavigator
   m_TagString: Untagged
@@ -6736,7 +6637,7 @@ MonoBehaviour:
   - {fileID: 1086506245}
   - {fileID: 512234182}
   - {fileID: 1720425855}
---- !u!114 &4894437394935592273
+--- !u!114 &4849288292682594969
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6745,25 +6646,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4834342220129627695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4dba095cfc2aa042aa9afafeb998d7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: Nivel 2
---- !u!114 &4894437394935592274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4834342220129627695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532ebbc37ee19d34d92e7c5d1c46838c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4221fe6a840372242b4fa9906413aae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToGoToWhenFinished: Nivel 1 Terminado
   RequiredItems: []
-  failMessage: 
+  failMessage: f
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
