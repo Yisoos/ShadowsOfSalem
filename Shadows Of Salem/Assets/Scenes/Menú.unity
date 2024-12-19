@@ -6766,7 +6766,7 @@ PrefabInstance:
     - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: background
       value: 
-      objectReference: {fileID: 8300000, guid: f2bc0cfbcb964b84486a5a527e0c5bb8, type: 3}
+      objectReference: {fileID: 8300000, guid: f37c265d412a4ac4984d3e9af2d073c5, type: 3}
     - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: ClickButton
       value: 
@@ -6782,6 +6782,10 @@ PrefabInstance:
     - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: Inicio_Button
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: backgroundDelay
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
