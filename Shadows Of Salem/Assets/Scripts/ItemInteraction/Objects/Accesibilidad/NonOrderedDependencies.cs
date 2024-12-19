@@ -7,7 +7,8 @@ using System;
 
 public class NonOrderedDependencies : MonoBehaviour
 {
-    [Header("Elementos Requeridos")]
+    [Header("Este script actualmente no tiene un uso diferente\n al OrderedDependencies,\n ya que no le hemos dado uso en el juego aún")]
+    [Space(10), Header("Elementos Requeridos")]
     public List<string> requiredItems; // Lista de elementos necesarios que se deben cumplir en orden.
 
     [Space(10), Header("Cambios de Sprite")]
