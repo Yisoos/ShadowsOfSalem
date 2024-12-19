@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class ObjectCombination : MonoBehaviour
 {
     [Tooltip("Añade aquí los objetos que están por debajo en la gerarquía de combinación (Ej. Si el objeto actual es una vela, añaderias una cerilla)")] public CombinationStatus[] objetosCombinables;
-    private NewInventory inventory;
+    private Inventory inventory;
     private ItemCollection thisTag;
     Dictionary<string,int> keyValuePairs = new Dictionary<string,int>();
 
     private void Start()
     {
-        inventory = FindAnyObjectByType<NewInventory>();
+        inventory = FindAnyObjectByType<Inventory>();
         thisTag = GetComponent<ItemCollection>();
         for (int i = 0; i < objetosCombinables.Length; i++) // Replace with .Count if it's a List
         {

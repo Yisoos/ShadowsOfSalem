@@ -7,18 +7,18 @@ using UnityEngine.UI;
 
 public class InterchangableItemPlacement : MonoBehaviour
 {
-    public NewTags placeholder;
+    public Tags placeholder;
     public InventoryItem itemPrefab;
     public string[] itemsToPlace;
-    [HideInInspector] public NewTags thisTag;
-    private NewInventory inventory;
+    [HideInInspector] public Tags thisTag;
+    private Inventory inventory;
     private SpriteRenderer thisRenderer;
     private MultipleViewItem multipleViewItem;
     private void Start()
     {
         placeholder.transform = transform;
         thisTag = placeholder;
-        inventory = FindAnyObjectByType<NewInventory>();
+        inventory = FindAnyObjectByType<Inventory>();
         thisRenderer = GetComponent<SpriteRenderer>();
         multipleViewItem = GetComponent<MultipleViewItem>();
     }

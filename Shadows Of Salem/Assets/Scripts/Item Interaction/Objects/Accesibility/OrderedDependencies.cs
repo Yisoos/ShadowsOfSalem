@@ -19,14 +19,14 @@ public class OrderedDependencies : MonoBehaviour
 
     private FeedbackTextController feedbackText; // Referencia al controlador de mensajes emergentes.
     private SpriteRenderer spriteRenderer; // Referencia al componente SpriteRenderer para cambiar sprites.
-    private NewInventory inventory; // Referencia al inventario para manejar objetos.
+    private Inventory inventory; // Referencia al inventario para manejar objetos.
     [HideInInspector] public bool[] dependencyMet; // Array booleano para registrar el estado de cada dependencia.
 
     private void Start()
     {
         // Inicialización de referencias necesarias.
         feedbackText = FindAnyObjectByType<FeedbackTextController>();
-        inventory = FindAnyObjectByType<NewInventory>();
+        inventory = FindAnyObjectByType<Inventory>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         // Inicializa el array de estados de dependencias como "false".

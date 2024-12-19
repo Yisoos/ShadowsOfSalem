@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class ObjectCombinationInInventory : MonoBehaviour
 {
-    NewInventory inventory;
+    Inventory inventory;
     [Tooltip("Añade aquí los objetos que están por debajo en la gerarquía de combinación (Ej. Si el objeto actual es una vela, añaderias una cerilla)")] public CombinationStatus[] objetosCombinables;
     public Dictionary<string,int> keyValuePairs = new Dictionary<string,int>();
     private void Start()
     {
-        inventory = FindObjectOfType<NewInventory>();
+        inventory = FindObjectOfType<Inventory>();
         for (int i = 0; i < objetosCombinables.Length; i++) // Replace with .Count if it's a List
         {
             var item = objetosCombinables[i];

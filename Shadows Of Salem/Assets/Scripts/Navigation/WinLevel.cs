@@ -14,7 +14,7 @@ public class WinLevel : MonoBehaviour
     }
     public bool IsReadyToFinish() 
     { 
-        NewInventory inventory = FindAnyObjectByType<NewInventory>();
+        Inventory inventory = FindAnyObjectByType<Inventory>();
         FeedbackTextController feedbackTextController = FindAnyObjectByType<FeedbackTextController>();
         for (int i = 0;i < RequiredItems.Length; i++) 
         {

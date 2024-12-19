@@ -12,12 +12,12 @@ public class Lock : MonoBehaviour
     public bool isPhysicalLock; // Indica si es un candado físico
     public string[] displayText;
     
-    private NewInventory inventory; // Referencia al inventario asociado
+    private Inventory inventory; // Referencia al inventario asociado
     private FeedbackTextController feedbackText;
 
     private void Start()
     {
-         inventory = FindAnyObjectByType<NewInventory>(); // Referencia al inventario asociado
+         inventory = FindAnyObjectByType<Inventory>(); // Referencia al inventario asociado
         feedbackText = FindAnyObjectByType<FeedbackTextController>();
     }
 
@@ -59,6 +59,6 @@ public class Lock : MonoBehaviour
     private void ConectarComponentesGenerales()
     {
         feedbackText = FindFirstObjectByType<FeedbackTextController>();
-        inventory = FindFirstObjectByType<NewInventory>();
+        inventory = FindFirstObjectByType<Inventory>();
     }
 }

@@ -6,7 +6,7 @@ public class ItemCollection : MonoBehaviour
 {
     public InventoryItem itemPrefab;
     public int amountToCollect = 1;
-    public NewTags inheritTags;
+    public Tags inheritTags;
 
 
     private void Start()
@@ -23,7 +23,7 @@ public class ItemCollection : MonoBehaviour
     public void CollectItem() 
     {
         // Obtener la instancia de Inventory
-        NewInventory inventory = FindObjectOfType<NewInventory>();
+        Inventory inventory = FindObjectOfType<Inventory>();
         if (inventory != null)
         {
             if (inventory.CollectItem(itemPrefab, inheritTags,amountToCollect))

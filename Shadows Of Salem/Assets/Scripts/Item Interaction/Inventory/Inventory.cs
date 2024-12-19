@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewInventory : MonoBehaviour
+public class Inventory : MonoBehaviour
 {
     // Array de espacios de inventario en la UI
     public GameObject[] inventorySlots;
@@ -27,7 +27,7 @@ public class NewInventory : MonoBehaviour
     }
 
     // Método para recolectar un objeto y agregarlo al inventario
-    public bool CollectItem(InventoryItem itemPrefab, NewTags origin, int amount)
+    public bool CollectItem(InventoryItem itemPrefab, Tags origin, int amount)
     { 
         // Buscar si el objeto ya existe en el inventario i
         InventoryItem itemInList = items.Find(currentItem => currentItem.tagInfo.objectName == origin.objectName);
@@ -118,7 +118,7 @@ public class NewInventory : MonoBehaviour
     }
 
     // Configurar las especificaciones del prefab del objeto
-    public void SetPrefabSpecifications(GameObject item, NewTags originTags, int amount)
+    public void SetPrefabSpecifications(GameObject item, Tags originTags, int amount)
     {
         // Actualizar sprite y nombre según el estado actual del objeto
         Image prefabSprite = item.GetComponent<Image>();

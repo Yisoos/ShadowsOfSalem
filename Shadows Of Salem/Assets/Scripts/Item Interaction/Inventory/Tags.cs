@@ -11,7 +11,7 @@ public enum TypeObject
     Reusable
 }
 [System.Serializable]
-public class NewTags 
+public class Tags 
 {
     [Header("Datos Generales")]
     public string objectName;

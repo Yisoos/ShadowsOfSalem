@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     
-    public NewTags tagInfo; 
+    public Tags tagInfo; 
     // Imagen que representa el objeto que se arrastra
     public Image image;
     public float magnificationOnDrag;
@@ -80,7 +80,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             image.raycastTarget = true;
     }
     // Método para verificar interacciones al soltar el objeto
-    public void CheckForInteraction(PointerEventData eventData, NewTags thisObjectTag)
+    public void CheckForInteraction(PointerEventData eventData, Tags thisObjectTag)
     {
         // Lanzar un rayo desde la posición del ratón en 2D
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
