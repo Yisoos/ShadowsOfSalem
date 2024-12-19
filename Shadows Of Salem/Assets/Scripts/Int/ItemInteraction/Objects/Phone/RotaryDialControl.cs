@@ -5,15 +5,6 @@ using UnityEngine;
 
 public class RotaryDialControl : MonoBehaviour
 {
-<<<<<<< HEAD:Shadows Of Salem/Assets/Scripts/ItemInteraction/ItemInteraction/Objects/Phone/RotaryDialControl.cs
-    [Space(10)] public FeedbackTextController feedbackText;
-    [Space(10), Tooltip("Separa cada número con un '-' ")] public string numberToCall;
-    [Space(10), Range(0, 15)] public float dialReturnSpeed;
-    [Space(10)] public GameObject dialDisplayPrefab;
-    [Space(10)] public Transform dialDispalyParent;
-    [Space(10)] public Transform UIInventoryDisplay;
-    [Space(10)] public TMP_FontAsset[] fontAsset;
-=======
     [Header("Ajustes del Telefono")]
     [Tooltip("Separa cada número con un '-' ")]public string numberToCall; // The key to unlock this lock
     [Space(5)]public GameObject dialDisplayPrefab;
@@ -23,8 +14,14 @@ public class RotaryDialControl : MonoBehaviour
     public string[] displayText;
     [Space(5)] public TMP_FontAsset[] fontAsset;
     
+    [Space(10), Header("Audio Settings")]
+    public AudioSource dialAudioSource; // Referencia al AudioSource
+    public AudioClip dialSoundClip;     // Clip de sonido para el giro de la rueda
+
     [Space(10), Header("Otros Ajustes")]
     public Transform UIInventoryDisplay;
+
+
 
     [HideInInspector] public FeedbackTextController feedbackText;
     [HideInInspector] public Transform dialDisplayParent;
@@ -34,12 +31,6 @@ public class RotaryDialControl : MonoBehaviour
         feedbackText = FindFirstObjectByType<FeedbackTextController>();
         dialDisplayParent = FindObjectOfType<Canvas>().transform;
     }
->>>>>>> Inventory-update:Shadows Of Salem/Assets/Scripts/ItemInteraction/Objects/Phone/RotaryDialControl.cs
-
-    [Header("Audio Settings")]
-    public AudioSource dialAudioSource; // Referencia al AudioSource
-    public AudioClip dialSoundClip;     // Clip de sonido para el giro de la rueda
-
     public void OnMouseDown()
     {
         if (AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.transform))
@@ -54,30 +45,17 @@ public class RotaryDialControl : MonoBehaviour
 
         if (dialDisplayPrefab != null)
         {
-<<<<<<< HEAD:Shadows Of Salem/Assets/Scripts/ItemInteraction/ItemInteraction/Objects/Phone/RotaryDialControl.cs
-            Tags prefabPopUpTags = dialDisplayPrefab.GetComponent<Tags>();
-            Tags[] allTagsInScene = GameObject.FindObjectsOfType<Tags>(true);
-            bool foundMatchingTag = false;
-=======
             RotaryDial[] allDialsInScene = GameObject.FindObjectsOfType<RotaryDial>(true);
             bool foundMatchingTag = false; // Track if a matching tag is found
->>>>>>> Inventory-update:Shadows Of Salem/Assets/Scripts/ItemInteraction/Objects/Phone/RotaryDialControl.cs
 
             foreach (RotaryDial dial in allDialsInScene)
             {
                 if (dial.phoneParent == this)
                 {
-<<<<<<< HEAD:Shadows Of Salem/Assets/Scripts/ItemInteraction/ItemInteraction/Objects/Phone/RotaryDialControl.cs
-                    tag.gameObject.SetActive(true);
-                    tag.transform.SetAsLastSibling();
-                    foundMatchingTag = true;
-                    break;
-=======
                     dial.gameObject.SetActive(true);
                     dial.transform.SetAsLastSibling();
                     foundMatchingTag = true; // Mark that we found a match
                     break; // Exit loop once a match is found
->>>>>>> Inventory-update:Shadows Of Salem/Assets/Scripts/ItemInteraction/Objects/Phone/RotaryDialControl.cs
                 }
             }
 
@@ -101,7 +79,6 @@ public class RotaryDialControl : MonoBehaviour
             }
         }
     }
-<<<<<<< HEAD:Shadows Of Salem/Assets/Scripts/ItemInteraction/ItemInteraction/Objects/Phone/RotaryDialControl.cs
 
     private void PlayDialSound()
     {
@@ -116,11 +93,9 @@ public class RotaryDialControl : MonoBehaviour
     private void ConectarComponentesGenerales()
     {
         feedbackText = FindFirstObjectByType<FeedbackTextController>();
-        dialDispalyParent = FindObjectOfType<Canvas>().transform;
+        dialDisplayParent = FindObjectOfType<Canvas>().transform;
 
         // Configura el AudioSource automáticamente
         dialAudioSource = GetComponent<AudioSource>();
     }
-=======
->>>>>>> Inventory-update:Shadows Of Salem/Assets/Scripts/ItemInteraction/Objects/Phone/RotaryDialControl.cs
 }

@@ -29,7 +29,7 @@ public class WinLevel : MonoBehaviour
 
     public void PassLevel() 
     {
-        if (IsReadyToFinish())
+        if (IsReadyToFinish() && AccesibilityChecker.Instance.ObjectAccessibilityChecker(transform))
         {
             CambiarEscenas scenesManager = FindAnyObjectByType<CambiarEscenas>();
             scenesManager.ChangeToScene(sceneToGoToWhenFinished);

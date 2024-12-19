@@ -550,13 +550,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
   inheritTags:
     objectName: Palanca
     displayText:
     - Palanca puesta! Ahora pongo la cinta
     sprite: {fileID: 21300000, guid: 4d1e001bc2a10264aad46e9185a75ac2, type: 3}
-    quantity: 1
+    stackable: 0
     objectType: 2
+    quantity: 1
     transform: {fileID: 0}
 --- !u!61 &224559028
 BoxCollider2D:
@@ -934,12 +936,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
   inheritTags:
     objectName: Papelito3
     displayText: []
     sprite: {fileID: 21300000, guid: 60dc4a24abb21cf4593badf5bd7b9dbf, type: 3}
-    quantity: 1
+    stackable: 0
     objectType: 2
+    quantity: 1
     transform: {fileID: 0}
 --- !u!61 &307584676
 BoxCollider2D:
@@ -2812,12 +2816,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
   inheritTags:
     objectName: PaseDeBiblioteca
     displayText: []
     sprite: {fileID: 21300000, guid: 8e13b0dec1f5ed049965b5f61aa0c080, type: 3}
-    quantity: 1
+    stackable: 0
     objectType: 1
+    quantity: 1
     transform: {fileID: 0}
 --- !u!114 &775178615
 MonoBehaviour:
@@ -3911,12 +3917,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
   inheritTags:
     objectName: Papelito1
     displayText: []
     sprite: {fileID: 21300000, guid: 4861d6d4e275d0740864d4032d130aa3, type: 3}
-    quantity: 1
+    stackable: 0
     objectType: 2
+    quantity: 1
     transform: {fileID: 0}
 --- !u!114 &1284499080
 MonoBehaviour:
@@ -4579,12 +4587,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
   inheritTags:
     objectName: Papelito2
     displayText: []
     sprite: {fileID: 21300000, guid: 347c7bf5d52ff1f4d805c5839a19eb45, type: 3}
-    quantity: 1
+    stackable: 0
     objectType: 2
+    quantity: 1
     transform: {fileID: 0}
 --- !u!114 &1461969831
 MonoBehaviour:
@@ -5324,14 +5334,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
   inheritTags:
     objectName: Cinta
     displayText:
     - Antes necesito poner la palanca...
     - Cinta puesta! ya puedo leer los archivos
     sprite: {fileID: 21300000, guid: 8c648c3923b24db41ac764ceb3f39ca2, type: 3}
-    quantity: 1
+    stackable: 0
     objectType: 2
+    quantity: 1
     transform: {fileID: 0}
 --- !u!61 &1764553413
 BoxCollider2D:
@@ -5818,9 +5830,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1863346694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58648b7ccede1c04e81549cda3aeb78d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4221fe6a840372242b4fa9906413aae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToGoToWhenFinished: Nivel 1 Terminado
+  RequiredItems: []
+  failMessage: No se puede pasar al siguiente nivel
 --- !u!1 &1938004638
 GameObject:
   m_ObjectHideFlags: 0
@@ -6476,13 +6491,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
   inheritTags:
     objectName: Horquillas
     displayText:
     - ola
     sprite: {fileID: 21300000, guid: 6aebe17554dcef445a8d828310e80305, type: 3}
-    quantity: 1
+    stackable: 0
     objectType: 1
+    quantity: 1
     transform: {fileID: 0}
 --- !u!114 &2013389117
 MonoBehaviour:
@@ -6603,7 +6620,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4374171026612063635}
   - component: {fileID: 4849288292682594968}
-  - component: {fileID: 4849288292682594969}
   m_Layer: 0
   m_Name: SceneNavigator
   m_TagString: Untagged
@@ -6637,21 +6653,6 @@ MonoBehaviour:
   - {fileID: 1086506245}
   - {fileID: 512234182}
   - {fileID: 1720425855}
---- !u!114 &4849288292682594969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4834342220129627695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4221fe6a840372242b4fa9906413aae5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToGoToWhenFinished: Nivel 1 Terminado
-  RequiredItems: []
-  failMessage: f
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

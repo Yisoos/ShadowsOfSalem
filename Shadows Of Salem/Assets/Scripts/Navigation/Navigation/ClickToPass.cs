@@ -8,8 +8,8 @@ public class ClickToPass : MonoBehaviour
     {
         if (AccesibilityChecker.Instance.ObjectAccessibilityChecker(transform))
         {
-            WinLevel jesusWinLevel = FindAnyObjectByType<WinLevel>();
-            jesusWinLevel.PassLevel();
+            WinLevel WinLevel = FindAnyObjectByType<WinLevel>();
+            WinLevel.PassLevel();
         }
     }
 }
