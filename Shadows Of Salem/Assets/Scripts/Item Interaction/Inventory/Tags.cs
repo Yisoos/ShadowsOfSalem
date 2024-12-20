@@ -13,7 +13,6 @@ public enum TypeObject
 [System.Serializable]
 public class Tags 
 {
-    [Header("Datos Generales")]
     public string objectName;
     [TextArea(1, 10), Tooltip("Array de mensajes: Generalmente, los primeros Elementos contienen los textos del objeto 'no accesible', y el ultimo Elemento contiene el mensaje de 'accesible'.")]
     public string[] displayText;

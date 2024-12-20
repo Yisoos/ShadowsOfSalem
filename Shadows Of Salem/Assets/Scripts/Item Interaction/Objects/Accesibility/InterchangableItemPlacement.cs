@@ -44,12 +44,12 @@ public class InterchangableItemPlacement : MonoBehaviour
     }
     public void PlaceOrSwapItem(InventoryItem itemDropped)
     {
-        if (itemsToPlace.Contains(itemDropped.tagInfo.objectName))
+        if (itemsToPlace.Contains(itemDropped.itemTag.objectName))
         {
             if (thisTag == placeholder)
             {
-                thisTag = itemDropped.tagInfo;
-                thisRenderer.sprite = itemDropped.tagInfo.sprite;
+                thisTag = itemDropped.itemTag;
+                thisRenderer.sprite = itemDropped.itemTag.sprite;
                 inventory.DeleteItem(itemDropped, 1);
             }
             else
@@ -74,12 +74,12 @@ public class InterchangableItemPlacement : MonoBehaviour
         if (inventory.CollectItem(itemPrefab, thisTag, 1))
         {
             // Update thisTag and sprite
-            thisTag = itemDropped.tagInfo;
+            thisTag = itemDropped.itemTag;
             thisRenderer.sprite = thisTag.sprite;
         }
         else
         {
-            inventory.CollectItem(itemPrefab, itemDropped.tagInfo, 1);
+            inventory.CollectItem(itemPrefab, itemDropped.itemTag, 1);
         }
     }
 }

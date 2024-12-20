@@ -57,7 +57,7 @@ public class DarknessDetector : MonoBehaviour
         Inventory inventory = FindAnyObjectByType<Inventory>();
         FeedbackTextController feedbackText = FindAnyObjectByType<FeedbackTextController>();
 
-        if (inventory.items.Exists(item => item.tagInfo.objectName == requiredItem[requiredItem.Length - 1]))
+        if (inventory.items.Exists(item => item.itemTag.objectName == requiredItem[requiredItem.Length - 1]))
         {
             LightsOn();
             if (!lanternLit)
@@ -81,7 +81,7 @@ public class DarknessDetector : MonoBehaviour
         {
             for (int i = 0; i < requiredItem.Length; i++)
             {
-                objectToChange = inventory.items.Find(item => item.tagInfo.objectName == requiredItem[i]);
+                objectToChange = inventory.items.Find(item => item.itemTag.objectName == requiredItem[i]);
                 if (objectToChange != null)
                 {
                     LightBlownOff();

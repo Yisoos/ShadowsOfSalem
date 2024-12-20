@@ -48,29 +48,29 @@ public class OrderedDependencies : MonoBehaviour
                 }
 
                 // Comprueba si el objeto soltado coincide con el requerido en esta posición.
-                bool itemFound = requiredItems[i] == objectDropped.tagInfo.objectName;
+                bool itemFound = requiredItems[i] == objectDropped.itemTag.objectName;
 
                 if (!itemFound)
                 {
                     if (feedbackText != null) 
                     {
                         // Si el objeto no es el requerido, muestra un mensaje de error.
-                        if (!requiredItems.Contains(objectDropped.tagInfo.objectName))
+                        if (!requiredItems.Contains(objectDropped.itemTag.objectName))
                         {
                             feedbackText.PopUpText(itemRejectionText);
                         }
-                        else if (objectDropped.tagInfo.displayText.Length > 0)
+                        else if (objectDropped.itemTag.displayText.Length > 0)
                         {
-                            feedbackText.PopUpText(objectDropped.tagInfo.displayText[0]);
+                            feedbackText.PopUpText(objectDropped.itemTag.displayText[0]);
                         }
                     }
                     return false; // Termina la función sin procesar el objeto.
                 }
 
                 // Si se cumple la última dependencia, muestra un mensaje final.
-                if (feedbackText != null && objectDropped.tagInfo.displayText.Length > 0)
+                if (feedbackText != null && objectDropped.itemTag.displayText.Length > 0)
                 {
-                    feedbackText.PopUpText(objectDropped.tagInfo.displayText[^1]);
+                    feedbackText.PopUpText(objectDropped.itemTag.displayText[^1]);
                 }
                 spriteRenderer.sprite = dependencyMetSprite[i + 1]; // Actualiza el sprite al correspondiente al progreso actual.
                 dependencyMet[i] = true; // Marca la dependencia actual como cumplida.

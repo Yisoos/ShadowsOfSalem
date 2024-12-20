@@ -23,11 +23,11 @@ public class ObjectCombination : MonoBehaviour
     }
     public bool CheckForCombination(InventoryItem ObjectDropped)
     {
-        if (thisTag != null && objetosCombinables[keyValuePairs[ObjectDropped.tagInfo.objectName]].currentItemStatus == thisTag.inheritTags.objectName)
+        if (thisTag != null && objetosCombinables[keyValuePairs[ObjectDropped.itemTag.objectName]].currentItemStatus == thisTag.inheritTags.objectName)
         {
             SpriteRenderer itemImage = GetComponent<SpriteRenderer>();
             MultipleViewItem multipleViewChange = GetComponent<MultipleViewItem>();
-            int index = keyValuePairs[ObjectDropped.tagInfo.objectName];
+            int index = keyValuePairs[ObjectDropped.itemTag.objectName];
             itemImage.sprite = objetosCombinables[index].newItemStatusSprite;
             thisTag.inheritTags.objectName = objetosCombinables[index].newItemStatus;
             thisTag.inheritTags.sprite = objetosCombinables[index].newItemStatusSprite;

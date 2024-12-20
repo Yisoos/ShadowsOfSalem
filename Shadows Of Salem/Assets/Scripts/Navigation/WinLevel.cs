@@ -18,7 +18,7 @@ public class WinLevel : MonoBehaviour
         FeedbackTextController feedbackTextController = FindAnyObjectByType<FeedbackTextController>();
         for (int i = 0;i < RequiredItems.Length; i++) 
         {
-            if (!inventory.items.Find(currentItem => currentItem.tagInfo.objectName == RequiredItems[i])) 
+            if (!inventory.items.Find(currentItem => currentItem.itemTag.objectName == RequiredItems[i])) 
             {
                 feedbackTextController.PopUpText(failMessage);
                 return false;

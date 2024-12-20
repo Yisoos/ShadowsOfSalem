@@ -851,8 +851,8 @@ MonoBehaviour:
   leadingCharBeforeDelay: 1
   flechita: {fileID: 1227135434}
   phrases:
-  - "Despu\xE9s de la llamada de su jefe, Charlotte decide enbarcar en su aventura
-    a la vieja ciudad de Salem en busca de la verdad."
+  - "Despu\xE9s de la llamada de su jefe, Charlotte decide embarcar en una nueva
+    aventura a la vieja ciudad de Salem en busca de la verdad."
   - Su primera parada fue la biblioteca...
   titleDisplayDelay: 1.7
   title: {fileID: 1876349221}

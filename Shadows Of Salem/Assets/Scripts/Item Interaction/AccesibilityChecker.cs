@@ -98,12 +98,12 @@ public class AccesibilityChecker : MonoBehaviour
     {
         //Debug.Log($"{ObjectDropped.objectName} dropped onto {ObjectInInventorySlot.objectName}");
         ObjectCombinationInInventory itemCombination = ObjectDropped.GetComponent<ObjectCombinationInInventory>();
-        if (itemCombination != null && itemCombination.keyValuePairs.ContainsKey(ObjectInInventorySlot.tagInfo.objectName)) 
+        if (itemCombination != null && itemCombination.keyValuePairs.ContainsKey(ObjectInInventorySlot.itemTag.objectName)) 
         {
             return itemCombination.CheckForCombination(ObjectDropped, ObjectInInventorySlot);
         }
         itemCombination = ObjectInInventorySlot.GetComponent<ObjectCombinationInInventory>();
-        if (itemCombination != null && itemCombination.keyValuePairs.ContainsKey(ObjectDropped.tagInfo.objectName))
+        if (itemCombination != null && itemCombination.keyValuePairs.ContainsKey(ObjectDropped.itemTag.objectName))
         {
                 return itemCombination.CheckForCombination(ObjectInInventorySlot, ObjectDropped);
         }

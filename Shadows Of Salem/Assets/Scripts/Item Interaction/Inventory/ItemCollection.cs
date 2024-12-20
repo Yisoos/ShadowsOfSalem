@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemCollection : MonoBehaviour
 {
     public InventoryItem itemPrefab;
-    public int amountToCollect = 1;
+    [Min(0)]public int amountToCollect = 1;
     public Tags inheritTags;
 
 

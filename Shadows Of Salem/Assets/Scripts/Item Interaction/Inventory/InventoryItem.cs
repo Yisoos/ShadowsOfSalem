@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     
-    public Tags tagInfo; 
+    public Tags itemTag; 
     // Imagen que representa el objeto que se arrastra
     public Image image;
     public float magnificationOnDrag;
@@ -68,7 +68,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         transform.SetParent(parentAfterDrag);
 
         // Llamar al método para comprobar interacciones con otros objetos
-        CheckForInteraction(eventData, tagInfo);
+        CheckForInteraction(eventData, itemTag);
 
         TMP_Text itemQuantityText = GetComponentInChildren<TMP_Text>();
         if (itemQuantityText != null)

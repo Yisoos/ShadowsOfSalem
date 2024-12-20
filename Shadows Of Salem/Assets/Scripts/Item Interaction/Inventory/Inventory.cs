@@ -30,17 +30,17 @@ public class Inventory : MonoBehaviour
     public bool CollectItem(InventoryItem itemPrefab, Tags origin, int amount)
     { 
         // Buscar si el objeto ya existe en el inventario i
-        InventoryItem itemInList = items.Find(currentItem => currentItem.tagInfo.objectName == origin.objectName);
-        if (itemInList != null && itemInList.tagInfo.stackable && origin.stackable)
+        InventoryItem itemInList = items.Find(currentItem => currentItem.itemTag.objectName == origin.objectName);
+        if (itemInList != null && itemInList.itemTag.stackable && origin.stackable)
         {
             // Si el objeto ya está en el inventario, aumentar su cantidad
-            itemInList.tagInfo.quantity += amount;
+            itemInList.itemTag.quantity += amount;
 
             // Actualizar el texto en la UI con la nueva cantidad
             TMP_Text itemText = itemInList.GetComponentInChildren<TMP_Text>();
             if (itemText != null)
             {
-                itemText.text = itemInList.tagInfo.quantity.ToString();
+                itemText.text = itemInList.itemTag.quantity > 1 ? itemInList.itemTag.quantity.ToString() : "";
             }
             return true;
         }
@@ -57,6 +57,12 @@ public class Inventory : MonoBehaviour
                     // Añadir el objeto al inventario
                     InventoryItem itemTags = item.GetComponent<InventoryItem>();
                     items.Add(itemTags);
+                    // Actualizar el texto en la UI con la nueva cantidad
+                    TMP_Text itemText = item.GetComponentInChildren<TMP_Text>();
+                    if (itemText != null)
+                    {
+                        itemText.text = itemTags.itemTag.quantity > 1 ? itemTags.itemTag.quantity.ToString() : "";
+                    }
                     return true; // Salir después de añadir el objeto
                 }
             }
@@ -68,12 +74,12 @@ public class Inventory : MonoBehaviour
     public void ChangeItemStatus(InventoryItem item, string newStatus, Sprite newSprite)
     {
         // Buscar el objeto en el inventario
-        InventoryItem inventoryItem = items.Find(currentItem => currentItem.tagInfo.objectName == item.tagInfo.objectName);
+        InventoryItem inventoryItem = items.Find(currentItem => currentItem.itemTag.objectName == item.itemTag.objectName);
         if (inventoryItem != null)
         {
             // Actualizar nombre y sprite del objeto
-            inventoryItem.tagInfo.objectName = newStatus;
-            inventoryItem.tagInfo.sprite = newSprite;
+            inventoryItem.itemTag.objectName = newStatus;
+            inventoryItem.itemTag.sprite = newSprite;
 
             // Actualizar la imagen del espacio en la UI
             Image slotItemImage = inventoryItem.transform.GetComponent<Image>();
@@ -85,22 +91,22 @@ public class Inventory : MonoBehaviour
     public void DeleteItem(InventoryItem itemToDelete, int amount)
     {
         // Verificar si el objeto no es reutilizable
-        if (itemToDelete.tagInfo.objectType != TypeObject.Reusable)
+        if (itemToDelete.itemTag.objectType != TypeObject.Reusable)
         {
             // Buscar el objeto en el inventario
-            InventoryItem inventoryItem = items.Find(currentItem => currentItem.tagInfo.objectName == itemToDelete.tagInfo.objectName);
-            if (inventoryItem != null && inventoryItem.tagInfo.quantity >= amount)
+            InventoryItem inventoryItem = items.Find(currentItem => currentItem.itemTag.objectName == itemToDelete.itemTag.objectName);
+            if (inventoryItem != null && inventoryItem.itemTag.quantity >= amount)
             {
-                if (inventoryItem.tagInfo.quantity - amount > 0)
+                if (inventoryItem.itemTag.quantity - amount > 0)
                 {
                     // Reducir la cantidad del objeto
-                    inventoryItem.tagInfo.quantity -= amount;
+                    inventoryItem.itemTag.quantity -= amount;
 
                     // Actualizar la cantidad en la UI
                     TMP_Text itemText = inventoryItem.GetComponentInChildren<TMP_Text>();
                     if (itemText != null)
                     {
-                        itemText.text = inventoryItem.tagInfo.quantity > 1? inventoryItem.tagInfo.quantity.ToString() : "" ;
+                        itemText.text = inventoryItem.itemTag.quantity > 1? inventoryItem.itemTag.quantity.ToString() : "" ;
                     }
                 }
                 else
@@ -126,8 +132,9 @@ public class Inventory : MonoBehaviour
         ClassSummoner classSummoner = item.GetComponent<ClassSummoner>();
         
         prefabSprite.sprite = originTags.sprite;
-        prefabTags.tagInfo = originTags;
-        prefabTags.tagInfo.quantity = amount;
+        prefabTags.itemTag = originTags;
+        prefabTags.itemTag.quantity = amount;
+        item.name = prefabTags.itemTag.objectName;
 
         if(classSummoner != null)
         {

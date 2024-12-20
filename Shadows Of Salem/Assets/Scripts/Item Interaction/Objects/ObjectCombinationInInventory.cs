@@ -23,8 +23,8 @@ public class ObjectCombinationInInventory : MonoBehaviour
     {
         DarknessDetector detector = FindAnyObjectByType<DarknessDetector>();
         Image objectASprite = objectA.GetComponent<Image>();
-        int index = keyValuePairs[objectB.tagInfo.objectName];
-        if ( objectA.tagInfo.objectName == objetosCombinables[index].currentItemStatus)
+        int index = keyValuePairs[objectB.itemTag.objectName];
+        if ( objectA.itemTag.objectName == objetosCombinables[index].currentItemStatus)
         {
             inventory.ChangeItemStatus(objectA, objetosCombinables[index].newItemStatus, objetosCombinables[index].newItemStatusSprite);
             inventory.DeleteItem(objectB, 1);
