@@ -1888,7 +1888,7 @@ GameObject:
   - component: {fileID: 559550189}
   - component: {fileID: 559550193}
   - component: {fileID: 559550192}
-  - component: {fileID: 559550195}
+  - component: {fileID: 559550194}
   m_Layer: 0
   m_Name: PuertaCerrada_Collider
   m_TagString: Untagged
@@ -2008,7 +2008,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &559550195
+--- !u!114 &559550194
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2017,14 +2017,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 559550188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cea4857246e7e846b7e43eedb64cbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
-  lockID: 0
-  isPhysicalLock: 0
   displayText:
   - "La puerta est\xE1 cerrada..."
+  randomize: 0
 --- !u!1 &598008288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,13 +2681,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
   inheritTags:
     objectName: "\xD3rgano_Tubo"
     displayText:
     - tubo puesto!
     sprite: {fileID: 21300000, guid: aa363c1f8178c3a42b264aca7a4e7477, type: 3}
-    quantity: 1
+    stackable: 0
     objectType: 2
+    quantity: 1
     transform: {fileID: 0}
 --- !u!61 &673394675
 BoxCollider2D:
@@ -3181,7 +3181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &748769296
 Transform:
   m_ObjectHideFlags: 0
@@ -3620,6 +3620,7 @@ GameObject:
   - component: {fileID: 887056249}
   - component: {fileID: 887056248}
   - component: {fileID: 887056251}
+  - component: {fileID: 887056252}
   m_Layer: 0
   m_Name: talismanes_3
   m_TagString: Untagged
@@ -3746,16 +3747,36 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887056246}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
+  lockedObject: {fileID: 0}
   lockID: 0
-  isPhysicalLock: 0
+  unlockedSprite: {fileID: 0}
   displayText:
   - No se parece al simbolo...
+  isLocked: 1
+--- !u!114 &887056252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887056246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cea4857246e7e846b7e43eedb64cbc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText:
+  - "\xBFSer\xE1 este?"
+  - Este no es.
+  - Quizas este no...
+  - Hmmm...
+  - No se parece al simbolo...
+  randomize: 1
 --- !u!1 &915881015
 GameObject:
   m_ObjectHideFlags: 0
@@ -4198,6 +4219,7 @@ GameObject:
   - component: {fileID: 933381090}
   - component: {fileID: 933381089}
   - component: {fileID: 933381092}
+  - component: {fileID: 933381093}
   m_Layer: 0
   m_Name: talismanes_8
   m_TagString: Untagged
@@ -4324,16 +4346,37 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933381087}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
+  lockedObject: {fileID: 0}
   lockID: 0
-  isPhysicalLock: 0
+  unlockedSprite: {fileID: 0}
   displayText:
   - Hmmm...
+  isLocked: 1
+--- !u!114 &933381093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933381087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cea4857246e7e846b7e43eedb64cbc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText:
+  - "\xBFSer\xE1 este?"
+  - Este no es.
+  - Quizas este no...
+  - Hmmm...
+  - No se parece al simbolo...
+  - Este puede ser...
+  randomize: 1
 --- !u!1 &947602915
 GameObject:
   m_ObjectHideFlags: 0
@@ -5047,6 +5090,7 @@ GameObject:
   - component: {fileID: 1179360337}
   - component: {fileID: 1179360336}
   - component: {fileID: 1179360339}
+  - component: {fileID: 1179360340}
   m_Layer: 0
   m_Name: talismanes_0
   m_TagString: Untagged
@@ -5173,16 +5217,37 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179360334}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
+  lockedObject: {fileID: 0}
   lockID: 0
-  isPhysicalLock: 0
+  unlockedSprite: {fileID: 0}
   displayText:
   - Este puede ser...
+  isLocked: 1
+--- !u!114 &1179360340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179360334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cea4857246e7e846b7e43eedb64cbc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText:
+  - "\xBFSer\xE1 este?"
+  - Este no es.
+  - Quizas este no...
+  - Hmmm...
+  - No se parece al simbolo...
+  - Este puede ser...
+  randomize: 1
 --- !u!1 &1209273295
 GameObject:
   m_ObjectHideFlags: 0
@@ -7638,6 +7703,7 @@ GameObject:
   - component: {fileID: 1656372268}
   - component: {fileID: 1656372267}
   - component: {fileID: 1656372270}
+  - component: {fileID: 1656372271}
   m_Layer: 0
   m_Name: talismanes_10
   m_TagString: Untagged
@@ -7764,16 +7830,37 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656372265}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
+  lockedObject: {fileID: 0}
   lockID: 0
-  isPhysicalLock: 0
+  unlockedSprite: {fileID: 0}
   displayText:
   - Este no es.
+  isLocked: 1
+--- !u!114 &1656372271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656372265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cea4857246e7e846b7e43eedb64cbc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText:
+  - "\xBFSer\xE1 este?"
+  - Este no es.
+  - Quizas este no...
+  - Hmmm...
+  - No se parece al simbolo...
+  - Este puede ser...
+  randomize: 1
 --- !u!1 &1657558181
 GameObject:
   m_ObjectHideFlags: 0
@@ -8546,10 +8633,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
+  lockedObject: {fileID: 0}
   lockID: 0
-  isPhysicalLock: 0
+  unlockedSprite: {fileID: 0}
   displayText: []
+  isLocked: 1
 --- !u!114 &1745387003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8750,7 +8838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1840554811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9418,6 +9506,7 @@ GameObject:
   - component: {fileID: 2013886093}
   - component: {fileID: 2013886092}
   - component: {fileID: 2013886095}
+  - component: {fileID: 2013886096}
   m_Layer: 0
   m_Name: talismanes_9
   m_TagString: Untagged
@@ -9544,16 +9633,37 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013886090}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
+  lockedObject: {fileID: 0}
   lockID: 0
-  isPhysicalLock: 0
+  unlockedSprite: {fileID: 0}
   displayText:
   - Quizas este no...
+  isLocked: 1
+--- !u!114 &2013886096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013886090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cea4857246e7e846b7e43eedb64cbc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText:
+  - "\xBFSer\xE1 este?"
+  - Este no es.
+  - Quizas este no...
+  - Hmmm...
+  - No se parece al simbolo...
+  - Este puede ser...
+  randomize: 1
 --- !u!1 &2015375209
 GameObject:
   m_ObjectHideFlags: 0
@@ -9566,6 +9676,7 @@ GameObject:
   - component: {fileID: 2015375212}
   - component: {fileID: 2015375211}
   - component: {fileID: 2015375213}
+  - component: {fileID: 2015375214}
   m_Layer: 0
   m_Name: talismanes_11
   m_TagString: Untagged
@@ -9706,6 +9817,23 @@ MonoBehaviour:
   displayText:
   - "\xBFSer\xE1 este?"
   dependencyMet: 
+--- !u!114 &2015375214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015375209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cea4857246e7e846b7e43eedb64cbc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText:
+  - "\xBFSer\xE1 este?"
+  - Hmmm...
+  - Este puede ser...
+  randomize: 1
 --- !u!1 &2037784133
 GameObject:
   m_ObjectHideFlags: 0
@@ -9890,6 +10018,7 @@ GameObject:
   - component: {fileID: 2088558475}
   - component: {fileID: 2088558474}
   - component: {fileID: 2088558477}
+  - component: {fileID: 2088558478}
   m_Layer: 0
   m_Name: talismanes_4
   m_TagString: Untagged
@@ -10016,16 +10145,37 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088558472}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
+  lockedObject: {fileID: 0}
   lockID: 0
-  isPhysicalLock: 0
+  unlockedSprite: {fileID: 0}
   displayText:
   - Este no es.
+  isLocked: 1
+--- !u!114 &2088558478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088558472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cea4857246e7e846b7e43eedb64cbc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText:
+  - "\xBFSer\xE1 este?"
+  - Este no es.
+  - Quizas este no...
+  - Hmmm...
+  - No se parece al simbolo...
+  - Este puede ser...
+  randomize: 1
 --- !u!1 &2145010654
 GameObject:
   m_ObjectHideFlags: 0
@@ -10072,10 +10222,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
+  lockedObject: {fileID: 0}
   lockID: 0
-  isPhysicalLock: 0
+  unlockedSprite: {fileID: 0}
   displayText: []
+  isLocked: 1
 --- !u!61 &2145010658
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10247,12 +10398,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
   inheritTags:
     objectName: bucket
     displayText: []
     sprite: {fileID: 21300000, guid: 097d5c08e76596a4999060e45b9cd9ed, type: 3}
-    quantity: 1
+    stackable: 0
     objectType: 2
+    quantity: 1
     transform: {fileID: 0}
 --- !u!1 &5426118372104364764
 GameObject:
@@ -10301,13 +10454,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 896350513756678043, guid: 0389c6279be371b47bd4622d4bbf5440, type: 3}
+  amountToCollect: 1
   inheritTags:
     objectName: metalPipe
     displayText:
     - Todo sea por descubrir la verdad
     sprite: {fileID: 21300000, guid: 867e0818311e5224c9acb8ee165d0aa2, type: 3}
-    quantity: 1
+    stackable: 0
     objectType: 5
+    quantity: 1
     transform: {fileID: 0}
 --- !u!60 &6409650117193743742
 PolygonCollider2D:

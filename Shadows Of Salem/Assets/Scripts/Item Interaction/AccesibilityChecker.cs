@@ -18,36 +18,37 @@ public class AccesibilityChecker : MonoBehaviour
             Destroy(this);
         }
     }
-    public bool ObjectAccessibilityChecker(Transform objectHit)
+    public bool ObjectAccessibilityChecker(Transform ObjectClicked)
     {
         // Obtiene componentes de bloqueo y dependencias del objeto
-        Lock itemLocked = objectHit.GetComponent<Lock>();
-        NonOrderedDependencies itemDependency = objectHit.GetComponent<NonOrderedDependencies>();
-        OrderedDependencies itemDependencyByOrder = objectHit.GetComponent<OrderedDependencies>();
-        CombinationLockControl combinationLocked = objectHit.GetComponent<CombinationLockControl>();
-        SecretDoorLogic secretDoorLogic = objectHit.GetComponent<SecretDoorLogic>();
+        Lock itemLocked = ObjectClicked.GetComponent<Lock>();
+        LockedObject itemLockedObject = ObjectClicked.GetComponent<LockedObject>();
+        NonOrderedDependencies itemDependency = ObjectClicked.GetComponent<NonOrderedDependencies>();
+        OrderedDependencies itemDependencyByOrder = ObjectClicked.GetComponent<OrderedDependencies>();
+        CombinationLockControl combinationLocked = ObjectClicked.GetComponent<CombinationLockControl>();
+        SecretDoorLogic secretDoorLogic = ObjectClicked.GetComponent<SecretDoorLogic>();
 
         // Si el objeto está bloqueado, muestra mensaje y devuelve falso
         if (itemLocked != null && itemLocked.isLocked)
+        { 
+            return itemLocked.CheckIfLocked();
+        }
+        if (itemLockedObject != null && itemLockedObject.parentLock.isLocked)
         {
-            feedbackTextController.PopUpText(itemLocked.displayText[0]);
-            return false;
+            return itemLockedObject.CheckIfParentIsLocked();
         }
         // Si el objeto tiene dependencias no cumplidas, muestra mensaje y devuelve falso
         if (itemDependency != null)
         {
-
             return itemDependencyByOrder.FeedbackTextDesider();
         }
         if (itemDependencyByOrder != null)
         {
-
             return itemDependencyByOrder.FeedbackTextDesider();
         }
         // Si el objeto está en un candado de combinación, muestra mensaje y devuelve falso
         if (combinationLocked != null && combinationLocked.isLocked)
-        {
-
+        { 
             return false;
         }
         if (secretDoorLogic != null)
@@ -57,22 +58,24 @@ public class AccesibilityChecker : MonoBehaviour
         // Si no hay restricciones, devuelve verdadero
         return true;
     }
-    public void TryAccess(InventoryItem objectDropped, Transform objectHit)
+    public void TryAccess(InventoryItem objectDropped, Transform ObjectClicked)
     {
         // Obtiene componentes de bloqueo y dependencias del objeto
-        Lock itemLocked = objectHit.GetComponent<Lock>();
-        NonOrderedDependencies itemDependencies = objectHit.GetComponent<NonOrderedDependencies>();
-        OrderedDependencies itemDependencyByOrder = objectHit.GetComponent<OrderedDependencies>();
-        ObjectCombination itemObjectCombination = objectHit.GetComponent<ObjectCombination>();
-        InterchangableItemPlacement itemInterchangableItemPlacement = objectHit.GetComponent<InterchangableItemPlacement>();
+        Lock itemLocked = ObjectClicked.GetComponent<Lock>();
+        LockedObject itemLockedObject = ObjectClicked.GetComponent<LockedObject>();
+        NonOrderedDependencies itemDependencies = ObjectClicked.GetComponent<NonOrderedDependencies>();
+        OrderedDependencies itemDependencyByOrder = ObjectClicked.GetComponent<OrderedDependencies>();
+        ObjectCombination itemObjectCombination = ObjectClicked.GetComponent<ObjectCombination>();
+        InterchangableItemPlacement itemInterchangableItemPlacement = ObjectClicked.GetComponent<InterchangableItemPlacement>();
         // Si el objeto está bloqueado, muestra mensaje y devuelve falso
         if (itemLocked != null)
         {
-            Key key = objectDropped.GetComponent<Key>();
-            if (key != null)
-            {
-            itemLocked.TryUnlock(key);
-            }
+            itemLocked.TryUnlock(objectDropped);
+            return;
+        }
+        if (itemLockedObject != null)
+        {
+            itemLockedObject.CheckForKey(objectDropped);
             return;
         }
         // Si el objeto tiene dependencias no cumplidas, muestra mensaje y devuelve falso
@@ -94,7 +97,22 @@ public class AccesibilityChecker : MonoBehaviour
             itemInterchangableItemPlacement.PlaceOrSwapItem(objectDropped);
         }
     }
-    public bool isUIObjectInteractable(InventoryItem ObjectDropped, InventoryItem ObjectInInventorySlot) 
+    public bool IsAccessibleOnMousedown(Transform objectClicked)
+    {
+        Lock itemLocked = objectClicked.GetComponent<Lock>();
+        LockedObject itemLockedObject = objectClicked.GetComponent<LockedObject>();
+        OrderedDependencies itemDependencyByOrder = objectClicked.GetComponent<OrderedDependencies>();
+        FeedbackTextTrigger feedbackTextTrigger = objectClicked.GetComponent<FeedbackTextTrigger>();
+        if (feedbackTextTrigger != null)
+        {
+            if (itemLocked != null || itemDependencyByOrder != null || itemLockedObject != null)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public bool IsUIObjectInteractable(InventoryItem ObjectDropped, InventoryItem ObjectInInventorySlot) 
     {
         //Debug.Log($"{ObjectDropped.objectName} dropped onto {ObjectInInventorySlot.objectName}");
         ObjectCombinationInInventory itemCombination = ObjectDropped.GetComponent<ObjectCombinationInInventory>();

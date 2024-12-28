@@ -6675,12 +6675,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
+  lockedObject: {fileID: 1884930294}
   lockID: 1
-  isPhysicalLock: 0
+  unlockedSprite: {fileID: 0}
   displayText:
   - "\xBFD\xF3nde habr\xE9 dejado la llave?..."
+  - No necesito eso aqui...
+  - "Esa llave no es para el caj\xF3n..."
   - "\xA1Caj\xF3n abierto!"
+  isLocked: 1
 --- !u!1 &1906454811
 GameObject:
   m_ObjectHideFlags: 0

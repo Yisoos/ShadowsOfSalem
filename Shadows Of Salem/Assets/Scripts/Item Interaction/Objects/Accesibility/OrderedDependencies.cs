@@ -88,7 +88,15 @@ public class OrderedDependencies : MonoBehaviour
         {
             if(feedbackText != null && displayText.Length > 0)
             {
-                feedbackText.PopUpText(displayText[0]);
+                FeedbackTextTrigger feedbackTextTrigger = GetComponent<FeedbackTextTrigger>();
+                if (feedbackTextTrigger != null)
+                {
+                    feedbackTextTrigger.DisplayAllText();
+                }
+                else
+                {
+                    feedbackText.PopUpText(displayText[0]);
+                }
             }
             return false;
         }

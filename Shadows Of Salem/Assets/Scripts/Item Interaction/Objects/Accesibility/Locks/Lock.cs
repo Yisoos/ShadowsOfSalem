@@ -5,60 +5,99 @@ using TMPro;
 
 // Clase que representa un candado
 public class Lock : MonoBehaviour
-{
-    
-    public bool isLocked; // Indica si el candado está cerrado
-    public int lockID; // El ID de este candado
-    public bool isPhysicalLock; // Indica si es un candado físico
-    public string[] displayText;
-    
+{   
+    [Space(5)] public Transform lockedObject;
+    [Space(5)] public int lockID; // El ID de este candado
+    [Space(5)] public Sprite unlockedSprite;
+    [Space(5), Tooltip("Elemento 0: Mensaje de necesito llave/esta cerrado\n" +
+                       "Elemento 1: Objeto no es una llave\n" +
+                       "Elemento 2: Llave equivocada\n" +
+                       "Elemento 3: Mensaje de puerta Abierta")] 
+    public string[] displayText = new string[4];
+
+    [HideInInspector] public bool isLocked = true; // Indica si el candado está cerrado
     private Inventory inventory; // Referencia al inventario asociado
     private FeedbackTextController feedbackText;
+    private LockedObject lockedObjectControl;
 
     private void Start()
     {
-         inventory = FindAnyObjectByType<Inventory>(); // Referencia al inventario asociado
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        inventory = FindAnyObjectByType<Inventory>(); // Referencia al inventario asociado
         feedbackText = FindAnyObjectByType<FeedbackTextController>();
-    }
-
-    // Método que intenta desbloquear el candado con una llave
-    public void TryUnlock(Key key) //para candados con llave
-    {
-        // Verifica si la llave no es nula, si su ID coincide con el del candado y si está bloqueado
-        if (key != null && key.keyID == lockID)
+        if (unlockedSprite == null )
         {
-            if (isLocked) 
-            {
-            //Debug.Log("¡Candado abierto!"); // Mensaje de éxito
-            isLocked = false; // Cambia el estado del candado a desbloqueado
-            // Si es un candado físico, lo desactiva
-            if (isPhysicalLock)
-            {
-                gameObject.SetActive(false);
-            }
+            unlockedSprite = spriteRenderer.sprite;
+        }
+        if (lockedObject == null)
+        {
+            lockedObject = this.transform;
+        }
+        lockedObjectControl = lockedObject.GetComponent<LockedObject>();
+        if (lockedObject != this.transform && lockedObjectControl == null)
+        {
+            lockedObjectControl = lockedObject.AddComponent<LockedObject>();
+        }
 
-            // Obtiene el componente Tags de la llave y elimina la llave del inventario
-            InventoryItem keyTag = key.GetComponent<InventoryItem>();
-            if (feedbackText != null) 
-            { 
-                feedbackText.PopUpText(displayText[1]);
+        lockedObjectControl.parentLock = this;
+    }
+    public void OnMouseDown()
+    {
+        AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.transform);
+    }
+    public bool CheckIfLocked()
+    {
+        FeedbackTextTrigger feedbackTextTrigger = GetComponent<FeedbackTextTrigger>();
+        if (isLocked)
+        {
+            if (feedbackTextTrigger != null)
+            {
+                feedbackTextTrigger.DisplayAllText();
             }
-
-            inventory.DeleteItem(keyTag,1);
+            else
+            {
+                feedbackText.PopUpText(displayText[0]);
+            }
+            return false;
+        }
+        return true;
+    }
+    // Método que intenta desbloquear el candado con una llave
+    public void TryUnlock(InventoryItem itemDropped) //para candados con llave
+    {
+        Key key = itemDropped.GetComponentInParent<Key>();
+        // Verifica si la llave no es nula, si su ID coincide con el del candado y si está bloqueado
+        if (key != null)
+        {
+            if (key.keyID == lockID)
+            {
+                if (isLocked) 
+                {
+                    SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+                    isLocked = false; 
+                    if (spriteRenderer != null)
+                    {
+                        spriteRenderer.sprite = unlockedSprite;
+                    }
+                    if (feedbackText != null) 
+                    { 
+                        feedbackText.PopUpText(displayText[3]);
+                    }
+                    inventory.DeleteItem(itemDropped,1);
+                    if (lockedObject != this.transform) 
+                    {
+                        lockedObjectControl.OpenUp();
+                    }
+                }
+            }
+            else
+            {
+                feedbackText.PopUpText(displayText[2]);
             }
         }
         else
         {
-            if (feedbackText != null)
-            {
-                feedbackText.PopUpText(displayText[0]);
-            }
+            feedbackText.PopUpText(displayText[1]);
         }
-    }
-    [ContextMenu("Conectar componentes generales")]
-    private void ConectarComponentesGenerales()
-    {
-        feedbackText = FindFirstObjectByType<FeedbackTextController>();
-        inventory = FindFirstObjectByType<Inventory>();
     }
 }

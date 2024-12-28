@@ -2534,7 +2534,11 @@ MonoBehaviour:
   Inicio_Button: {fileID: 0}
   AjustesButton: {fileID: 0}
   SalirButton: {fileID: 0}
-  sound5: {fileID: 0}
+  timbre: {fileID: 0}
+  backgroundDelay: 2
+  timbreDelay: 3
+  volumeSFX: 1
+  volumeMusic: 1
 --- !u!4 &651538039
 Transform:
   m_ObjectHideFlags: 0
@@ -5392,12 +5396,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
+  lockedObject: {fileID: 1264326788}
   lockID: 1
-  isPhysicalLock: 0
+  unlockedSprite: {fileID: 21300000, guid: 4d2ae384b37b8534c85df504d9d2c28c, type: 3}
   displayText:
   - "Est\xE1 cerrada, necesito buscar una manera de abrirla..."
+  - Eso no...
+  - Eso no...
   - La he abierto!
+  isLocked: 1
 --- !u!114 &1264326793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6393,11 +6400,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
+  lockedObject: {fileID: 0}
   lockID: 666
-  isPhysicalLock: 0
+  unlockedSprite: {fileID: 0}
   displayText:
   - Un farol... No cabe por los barrotes
+  isLocked: 1
 --- !u!61 &1357297604
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6908,12 +6916,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
+  lockedObject: {fileID: 1422451619}
   lockID: 2
-  isPhysicalLock: 0
+  unlockedSprite: {fileID: 21300000, guid: 1e27ccb32e6cefd4cbfcefe5268e41ab, type: 3}
   displayText:
   - Esta cerrada..
+  - Eso no es una llave...
+  - Esta no entra!
   - Abierta!
+  isLocked: 1
 --- !u!61 &1422451623
 BoxCollider2D:
   m_ObjectHideFlags: 0

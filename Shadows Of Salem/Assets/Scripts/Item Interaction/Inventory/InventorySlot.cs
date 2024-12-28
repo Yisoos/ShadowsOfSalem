@@ -17,7 +17,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         {
             InventoryItem existingItemInSlot = GetComponentInChildren<InventoryItem>();
             
-            if (existingItemInSlot != null && AccesibilityChecker.Instance.isUIObjectInteractable(itemDroppedInfo, existingItemInSlot))
+            if (existingItemInSlot != null && AccesibilityChecker.Instance.IsUIObjectInteractable(itemDroppedInfo, existingItemInSlot))
             {
                 if (transform.childCount == 0)
                 itemDroppedInfo.parentAfterDrag = transform;

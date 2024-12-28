@@ -841,7 +841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &276539875
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1300,7 +1300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &405799916
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1958,7 +1958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &522142269
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3242,9 +3242,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1031304643}
   - component: {fileID: 1031304646}
-  - component: {fileID: 1031304648}
-  - component: {fileID: 1031304647}
   - component: {fileID: 1031304650}
+  - component: {fileID: 1031304648}
   m_Layer: 0
   m_Name: Fichar
   m_TagString: Untagged
@@ -3323,19 +3322,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1031304647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031304642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16e367317ff747942bd50552ad344f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewNumber: 3
 --- !u!114 &1031304648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3348,12 +3334,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
+  lockedObject: {fileID: 1602448399}
   lockID: 5
-  isPhysicalLock: 0
+  unlockedSprite: {fileID: 21300000, guid: ae1a300f26d8bbd4789e9fbd201cd016, type: 3}
   displayText:
   - Necesito fichar con un pase para abrir la puerta...
+  - Eso no me ayuda aqui...
+  - Necesito un pase de biblioteca, no esto...
   - Vale, ahora si puedo pasar!
+  isLocked: 1
 --- !u!61 &1031304650
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3386,7 +3375,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 16.81726, y: 0}
+  m_Offset: {x: 0.5149174, y: 0.70520306}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3397,7 +3386,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 97.66287, y: 47.989998}
+  m_Size: {x: 53.52409, y: 42.146904}
   m_EdgeRadius: 0
 --- !u!1 &1086506245 stripped
 GameObject:
@@ -4051,7 +4040,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1359582836
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4793,6 +4782,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1602448399}
   - component: {fileID: 1602448401}
+  - component: {fileID: 1602448403}
+  - component: {fileID: 1602448402}
+  - component: {fileID: 1602448404}
   m_Layer: 0
   m_Name: Puerta_cerrada
   m_TagString: Untagged
@@ -4871,6 +4863,80 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1602448402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602448398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbcea27f987666a448bacab1e5f6ea1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textWhenLocked: Esta cerrada...
+  rightKeyText: El pase! lo tengo que meter en la maquina para fichar
+  unlockedSprite: {fileID: 21300000, guid: 714cd70d49caa5742bd7c35a906b72fd, type: 3}
+  parentLock: {fileID: 0}
+--- !u!61 &1602448403
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602448398}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.57891417, y: 1.8019328}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 64.02835, y: 47.989998}
+    newSize: {x: 64.02835, y: 47.989998}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9.609349, y: 19.440228}
+  m_EdgeRadius: 0
+--- !u!114 &1602448404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602448398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e367317ff747942bd50552ad344f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewNumber: 3
 --- !u!1 &1606855803 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2461874158350056847, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
@@ -5995,7 +6061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1962395065
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6229,13 +6295,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLocked: 1
+  lockedObject: {fileID: 1970315942}
   lockID: 6
-  isPhysicalLock: 0
+  unlockedSprite: {fileID: 0}
   displayText:
   - "Est\xE1 cerrada con llave... Pero quiza prodr\xEDa intentar abrirla  con otra
     cosa..."
+  - eso no... necesito otra cosa
+  - Esto no va a abrir la esta puerta...
   - Ha funcionado... Se ha abierto!
+  isLocked: 1
 --- !u!1 &2002015574
 GameObject:
   m_ObjectHideFlags: 0
