@@ -38,8 +38,10 @@ public class Lock : MonoBehaviour
         {
             lockedObjectControl = lockedObject.AddComponent<LockedObject>();
         }
-
-        lockedObjectControl.parentLock = this;
+        if(lockedObjectControl != null)
+        {
+            lockedObjectControl.parentLock = this;
+        }
     }
     public void OnMouseDown()
     {

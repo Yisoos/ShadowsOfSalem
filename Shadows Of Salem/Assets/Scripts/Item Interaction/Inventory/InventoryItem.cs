@@ -11,11 +11,15 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     
     public Tags itemTag; 
     // Imagen que representa el objeto que se arrastra
-    public Image image;
     public float magnificationOnDrag;
+
     // Transformación del padre del objeto después de ser arrastrado
     [HideInInspector] public Transform parentAfterDrag;
-    
+    private Image image;
+    private void Start()
+    {
+        image = GetComponent<Image>();
+    }
     // Método llamado al inicio del arrastre
     public void OnBeginDrag(PointerEventData eventData)
     {
