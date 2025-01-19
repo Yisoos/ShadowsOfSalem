@@ -15,6 +15,8 @@ public class DetectCursorChange : MonoBehaviour
 
     void Update()
     {
+        if (PauseMenu.isPaused) return; ; // Ignorar cualquier input del usuario cuando el juego está en pausa
+
         if (CursorChanger.instance != null)
         {
             // Get the mouse position in world space

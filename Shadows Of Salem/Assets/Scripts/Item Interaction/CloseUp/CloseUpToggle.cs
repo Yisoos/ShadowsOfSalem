@@ -43,6 +43,8 @@ public class CloseUpToggle : MonoBehaviour
 
     void Update()
     {
+        if (PauseMenu.isPaused) return; ; // Ignorar cualquier input del usuario cuando el juego está en pausa
+
         // Detect left mouse button click while in general view
         if (Input.GetMouseButtonDown(0) && vistaGeneral.gameObject.activeSelf)
         {
