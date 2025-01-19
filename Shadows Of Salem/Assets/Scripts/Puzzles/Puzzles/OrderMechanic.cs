@@ -4,31 +4,34 @@ using UnityEngine;
 
 public class OrderMechanic : MonoBehaviour
 {
-    public Transform[] correctOrder; // Assign the correct order of objects in the Inspector
-    private Transform[] currentOrder; // Store the current order of objects
+    [Tooltip("Arrastrar aquí los GameObjects dependiendo del orden correcto.")]
+    public Transform[] correctOrder; 
+    private Transform[] currentOrder; // Guarda el orden actual
 
-    public GameObject pantallaNegro;
-    public FeedbackTextController feedbackText;
+    [Tooltip("Hacer referencia al script: OverlayDarkScreenControler.")]
+    public OverlayDarkScreenControler darkOverlayControl; 
+    private FeedbackTextController feedbackText;
+    [Tooltip("Escribir aquí el mensaje que quieres que aparezca cuando se ha resuelto el puzle.")]
+    public string feedbackMessage;
 
-    public void Awake()
+    private void Start()
     {
-        pantallaNegro.SetActive(true);
-
+        feedbackText = FindObjectOfType<FeedbackTextController>();
     }
     public void UpdateOrder()
     {
-        // Log to confirm the function is called
+        // Esta función registra el orden actual de los objetos secundarios dentro de un objeto padre y luego verifica si el orden es correcto según un orden predefinido
         Debug.Log("UpdateOrder called");
 
-        // Get all child objects of the parent in their current hierarchy order
+        // Obtener todos los objetos secundarios del padre en su orden aactual
         currentOrder = new Transform[correctOrder.Length];
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < transform.childCount; i++) // recorremos cada hijo del objeto padre
         {
-            currentOrder[i] = transform.GetChild(i);
+            currentOrder[i] = transform.GetChild(i); // almacenamos cada hijo en el indice correspondiente del array "currentOrder"
             Debug.Log($"Current Order[{i}] = {currentOrder[i].name}");
         }
 
-        // Check if the current order matches the correct order
+        // llamar la funcion que comprueba si el orden es correcto
         CheckOrder();
     }
 
@@ -36,6 +39,7 @@ public class OrderMechanic : MonoBehaviour
     {
         bool isCorrect = true;
 
+        // comprobar el orden
         for (int i = 0; i < correctOrder.Length; i++)
         {
             if (currentOrder[i] != correctOrder[i])
@@ -44,18 +48,24 @@ public class OrderMechanic : MonoBehaviour
                 break;
             }
         }
-
-        // Provide feedback
+        
         if (isCorrect)
         {
             Debug.Log("Correct Order!");
-            pantallaNegro.SetActive(false);
-            feedbackText.PopUpText("¡Ese sonido otra vez! ¿He activado algo?");
+            if (darkOverlayControl != null)
+            {
+                darkOverlayControl.DeactivateOverlay(); // es correcto, desactivamos el overlay
+                feedbackText.PopUpText(feedbackMessage);
+            }
+            else 
+            {
+                feedbackText.PopUpText(feedbackMessage);
+            }
         }
 
         else
         {
-            Debug.Log("Incorrect Order!");
+            Debug.Log("Incorrect Order!"); // no es correcto, no hacemos nada
         }
     }
 
