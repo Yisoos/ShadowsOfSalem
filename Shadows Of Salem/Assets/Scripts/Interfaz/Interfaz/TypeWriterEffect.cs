@@ -58,7 +58,7 @@ public class TypeWriterEffect : MonoBehaviour
     {
 
         // Reproducir sonido SFX cuando se salta la escritura
-        audioManager.PlaySFX(audioManager.saltoDeEscritura);
+        //audioManager.PlaySFX(audioManager.saltoDeEscritura);
 
         isTyping = true;
         hasFinishedTyping = false;

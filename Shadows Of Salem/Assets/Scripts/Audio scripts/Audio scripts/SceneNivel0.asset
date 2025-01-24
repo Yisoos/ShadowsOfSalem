@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3a76a910cd1ea459e301239ed0b0ce, type: 3}
+  m_Name: SceneNivel0
+  m_EditorClassIdentifier: 
+  background: {fileID: 8300000, guid: f37c265d412a4ac4984d3e9af2d073c5, type: 3}
+  clickButton: {fileID: 0}
+  saltoDeEscritura: {fileID: 0}
+  inicioButton: {fileID: 0}
+  ajustesButton: {fileID: 0}
+  salirButton: {fileID: 0}
+  timbre: {fileID: 8300000, guid: 91516a55ebd7ebc46aac48a08d5b46c5, type: 3}
