@@ -102,14 +102,27 @@ public class AccesibilityChecker : MonoBehaviour
         Lock itemLocked = objectClicked.GetComponent<Lock>();
         LockedObject itemLockedObject = objectClicked.GetComponent<LockedObject>();
         OrderedDependencies itemDependencyByOrder = objectClicked.GetComponent<OrderedDependencies>();
-        FeedbackTextTrigger feedbackTextTrigger = objectClicked.GetComponent<FeedbackTextTrigger>();
-        if (feedbackTextTrigger != null)
+        if (itemLocked != null)
         {
-            if (itemLocked != null || itemDependencyByOrder != null || itemLockedObject != null)
+            if (itemLocked.isLocked)
+            {
+            return false;
+            }
+        }
+        else if (itemDependencyByOrder != null) 
+        {
+            if (itemDependencyByOrder.dependencyMet[^1])
             {
                 return false;
             }
         }
+        else if (itemLockedObject != null) 
+        {
+            if (itemLockedObject.parentLock.isLocked)
+            {
+                return false;
+            }
+        }     
         return true;
     }
     public bool IsUIObjectInteractable(InventoryItem objectDropped, InventoryItem objectInInventorySlot) 

@@ -18,18 +18,21 @@ public class InteractableObject : MonoBehaviour
 
     private void Interactuar()
     {
-        // Si el objeto está cerrado, abrirlo y reproducir el sonido de apertura
-        if (!isOpened)
+        if (AccesibilityChecker.Instance.IsAccessibleOnMousedown(this.transform))
         {
-            // Aquí pondríamos la lógica para abrir la carta o cajón (animaciones, cambios de estado, etc.)
-            AudioManager.Instance.PlaySFX(openSound);  // Reproducir el sonido de abrir
-            isOpened = true;
-        }
-        else
-        {
-            // Aquí pondríamos la lógica para cerrar la carta o cajón (animaciones, cambios de estado, etc.)
-            AudioManager.Instance.PlaySFX(closeSound);  // Reproducir el sonido de cerrar
-            isOpened = false;
+            // Si el objeto está cerrado, abrirlo y reproducir el sonido de apertura
+            if (!isOpened)
+            {
+                // Aquí pondríamos la lógica para abrir la carta o cajón (animaciones, cambios de estado, etc.)
+                AudioManager.Instance.PlaySFX(openSound);  // Reproducir el sonido de abrir
+                isOpened = true;
+            }
+            else
+            {
+                // Aquí pondríamos la lógica para cerrar la carta o cajón (animaciones, cambios de estado, etc.)
+                AudioManager.Instance.PlaySFX(closeSound);  // Reproducir el sonido de cerrar
+                isOpened = false;
+            }
         }
     }
 }

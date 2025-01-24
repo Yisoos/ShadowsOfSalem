@@ -2657,6 +2657,7 @@ GameObject:
   - component: {fileID: 762782797}
   - component: {fileID: 762782798}
   - component: {fileID: 762782799}
+  - component: {fileID: 762782800}
   m_Layer: 0
   m_Name: Cajon1Abierto_Escritorio
   m_TagString: Untagged
@@ -2777,6 +2778,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.5540285, y: 3.8259287}
   m_EdgeRadius: 0
+--- !u!114 &762782800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762782796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10ab70013d3cae499f93a27c8ba6852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpened: 1
+  openSound: {fileID: 0}
+  closeSound: {fileID: 8300000, guid: 2ff84fc508e03ac479b26c0d95451ad9, type: 3}
 --- !u!1 &795326457
 GameObject:
   m_ObjectHideFlags: 0
@@ -3825,6 +3841,10 @@ PrefabInstance:
       propertyPath: ClickButton
       value: 
       objectReference: {fileID: 8300000, guid: 43cb291a3064f0247b219e9f0147aa6a, type: 3}
+    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: volumeMusic
+      value: 0.198
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6394,7 +6414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1840554811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6578,7 +6598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1873223424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6631,6 +6651,7 @@ GameObject:
   - component: {fileID: 1884930294}
   - component: {fileID: 1884930295}
   - component: {fileID: 1884930296}
+  - component: {fileID: 1884930297}
   m_Layer: 0
   m_Name: ColliderCajon1_Escritorio
   m_TagString: Untagged
@@ -6719,6 +6740,21 @@ MonoBehaviour:
   - "Esa llave no es para el caj\xF3n..."
   - "\xA1Caj\xF3n abierto!"
   isLocked: 1
+--- !u!114 &1884930297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884930293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10ab70013d3cae499f93a27c8ba6852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpened: 0
+  openSound: {fileID: 8300000, guid: c098640499609654b9b108842c7eca59, type: 3}
+  closeSound: {fileID: 0}
 --- !u!1 &1906454811
 GameObject:
   m_ObjectHideFlags: 0
