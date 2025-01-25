@@ -5,7 +5,6 @@ using UnityEngine;
 public class AccesibilityChecker : MonoBehaviour
 {
     public static AccesibilityChecker Instance;
-    public FeedbackTextController feedbackTextController;
 
     private void Awake()
     {
@@ -17,6 +16,7 @@ public class AccesibilityChecker : MonoBehaviour
         {
             Destroy(this);
         }
+
     }
     public bool ObjectAccessibilityChecker(Transform objectClicked)
     {
