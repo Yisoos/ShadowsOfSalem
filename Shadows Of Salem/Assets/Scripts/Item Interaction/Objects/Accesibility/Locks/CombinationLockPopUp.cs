@@ -26,6 +26,14 @@ public class CombinationLockPopUp : MonoBehaviour
 
             if (combinationMatch)
             {
+                /*CloseUpItemInteraction[] closeUpItemInteraction = FindObjectsOfType<CloseUpItemInteraction>();
+                foreach (CloseUpItemInteraction interControl in closeUpItemInteraction)
+                {
+                    for (int i = 0; i < interControl.objetosInteractuables.Length; i++)
+                    {
+
+                    }
+                }*/
                 //Debug.Log("Correct combination, Lock opened");
                 combinationLock.isLocked = false;
 

@@ -5,15 +5,13 @@ using UnityEngine;
 
 public class CloseUpItemInteraction : MonoBehaviour
 {
-    [Tooltip("Arrastrar el/los objetos como quieres que aparezca al entrar en la vista close up")]public Collider2D[] objetosEstadoInicial;
-    [Tooltip("Arrastrar el/los objetos en el estado que quieres que aparezcan al hacer click en él/ellos (si no quieres que cambie, pon el mismo del estado inicial)")] public Collider2D[] objetosEstadoAlternativo;
-    public FeedbackTextController feedbackTextController;
+    public ColliderSets[] objetosInteractuables;
 
     private void OnEnable()
     {
-        for (int i = 0; i < objetosEstadoAlternativo.Length; ++i)
+        for (int i = objetosInteractuables.Length-1; i >= 0; i--)
         {
-            if (objetosEstadoAlternativo[i].gameObject.activeSelf)
+            if (objetosInteractuables[i].estadoAlternativo.gameObject.activeSelf)
             {
                 ToggleObjectState(i, false);
             }
@@ -24,60 +22,48 @@ public class CloseUpItemInteraction : MonoBehaviour
     {
         if (PauseMenu.isPaused) return; ; // Ignorar cualquier input del usuario cuando el juego está en pausa
 
-        if (Input.GetMouseButtonDown(0) )
+        if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             // Lanza un rayo desde la posición del ratón para detectar colisiones
             RaycastHit2D hit = CheckLayersInOrder(mousePos);
-            bool isAccesible= true;
-            if (hit.collider != null) 
-            { 
-            isAccesible = AccesibilityChecker.Instance.ObjectAccessibilityChecker(hit.transform);
-            }
-            if (hit.transform != null && isAccesible)
+
+            if (hit.collider != null && AccesibilityChecker.Instance.ObjectAccessibilityChecker(hit.transform))
             {
-                int index = Array.IndexOf(objetosEstadoInicial, hit.collider);
-                ItemCollection coleccionable = hit.collider.GetComponent<ItemCollection>();
-                if (coleccionable != null)
-                {
-                    coleccionable.OnMouseDown();
-                }
-               
-                if (index != -1)
-                {
-                    ToggleObjectState(index, true);
-                }
-                else
-                {
-                    index = Array.IndexOf(objetosEstadoAlternativo, hit.collider);
-                    if (index != -1)
-                    {
-                        ToggleObjectState(index, false);
-                    }
-                    else
-                    {
-                       // Debug.Log("Objeto no está definido para interacción");
-                    }
-                }
-                
+                ObjectDetector(hit.collider);
             }
         }
+        
     }
-
+    public void ObjectDetector(Collider2D objectCollider)
+    {
+                for (int i = 0; i < objetosInteractuables.Length; i++)
+                {
+                    if (objectCollider == objetosInteractuables[i].estadoInicial)
+                    {
+                        ToggleObjectState(i, true);
+                        break;
+                    }
+                    else if (objectCollider == objetosInteractuables[i].estadoAlternativo)
+                    {  
+                            ToggleObjectState(i, false);   
+                    }
+                }
+    }
     public void ToggleObjectState(int index, bool initialState) 
     {
-        if (objetosEstadoInicial[index] != objetosEstadoAlternativo[index])
+        if (objetosInteractuables[index].estadoInicial != objetosInteractuables[index].estadoAlternativo)
         {
             if (initialState)
             {
-                objetosEstadoInicial[index].gameObject.SetActive(false);
-                objetosEstadoAlternativo[index].gameObject.SetActive(true);
+                objetosInteractuables[index].estadoInicial.gameObject.SetActive(false);
+                objetosInteractuables[index].estadoAlternativo.gameObject.SetActive(true);
                 //Debug.Log("Objeto está en su estado inicial, cambiando...");
             }
             if (!initialState)
             {
-                objetosEstadoInicial[index].gameObject.SetActive(true);
-                objetosEstadoAlternativo[index].gameObject.SetActive(false);
+                objetosInteractuables[index].estadoInicial.gameObject.SetActive(true);
+                objetosInteractuables[index].estadoAlternativo.gameObject.SetActive(false);
                 //Debug.Log("Objeto está en estado alternativo, cambiando...");
             }
         }

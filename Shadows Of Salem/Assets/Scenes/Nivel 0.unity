@@ -627,7 +627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &173722973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,11 +963,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 562738085}
-  objetosEstadoAlternativo:
-  - {fileID: 562738085}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables:
+  - estadoInicial: {fileID: 562738085}
+    estadoAlternativo: {fileID: 562738085}
 --- !u!1 &382916137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,15 +1246,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 1884930295}
-  - {fileID: 689805499}
-  - {fileID: 1864527152}
-  objetosEstadoAlternativo:
-  - {fileID: 762782799}
-  - {fileID: 1074531376}
-  - {fileID: 843719829}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables:
+  - estadoInicial: {fileID: 1884930295}
+    estadoAlternativo: {fileID: 762782799}
+  - estadoInicial: {fileID: 689805499}
+    estadoAlternativo: {fileID: 1074531376}
+  - estadoInicial: {fileID: 1864527152}
+    estadoAlternativo: {fileID: 843719829}
+  - estadoInicial: {fileID: 1864527152}
+    estadoAlternativo: {fileID: 843719829}
 --- !u!1 &472972751 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3388446832144995735, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
@@ -2008,6 +2006,7 @@ MonoBehaviour:
   UIInventoryDisplay: {fileID: 0}
   feedbackText: {fileID: 0}
   dialDisplayParent: {fileID: 0}
+  isDialOpened: 0
 --- !u!1 &584660558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,7 +2195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &668107582
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3265,11 +3264,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 151676332}
-  objetosEstadoAlternativo:
-  - {fileID: 584660560}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables:
+  - estadoInicial: {fileID: 151676332}
+    estadoAlternativo: {fileID: 584660560}
 --- !u!1 &828207800
 GameObject:
   m_ObjectHideFlags: 0
@@ -4376,13 +4373,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 1059624222}
-  - {fileID: 828207802}
-  objetosEstadoAlternativo:
-  - {fileID: 828207802}
-  - {fileID: 178384759}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables:
+  - estadoInicial: {fileID: 1059624222}
+    estadoAlternativo: {fileID: 828207802}
+  - estadoInicial: {fileID: 828207802}
+    estadoAlternativo: {fileID: 178384759}
 --- !u!1 &1255598695
 GameObject:
   m_ObjectHideFlags: 0
@@ -4997,11 +4992,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 1665301428}
-  objetosEstadoAlternativo:
-  - {fileID: 690355921}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables:
+  - estadoInicial: {fileID: 1665301428}
+    estadoAlternativo: {fileID: 690355921}
 --- !u!1 &1351927735
 GameObject:
   m_ObjectHideFlags: 0
@@ -5308,7 +5301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1538032051
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6287,7 +6280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1840554811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6802,7 +6795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1911104933
 Transform:
   m_ObjectHideFlags: 0
@@ -6884,15 +6877,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 617294805}
-  - {fileID: 88931671}
-  - {fileID: 798030939}
-  objetosEstadoAlternativo:
-  - {fileID: 98863202}
-  - {fileID: 1046643359}
-  - {fileID: 1313176795}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables:
+  - estadoInicial: {fileID: 617294805}
+    estadoAlternativo: {fileID: 98863202}
+  - estadoInicial: {fileID: 88931671}
+    estadoAlternativo: {fileID: 1046643359}
+  - estadoInicial: {fileID: 798030939}
+    estadoAlternativo: {fileID: 1313176795}
 --- !u!1 &1929128092
 GameObject:
   m_ObjectHideFlags: 0

@@ -92,6 +92,7 @@ MonoBehaviour:
   endRotation: 340
   phoneNumberDisplay: {fileID: 645413669472756979}
   phoneParent: {fileID: 0}
+  popUp: {fileID: 2871667679321210766}
 --- !u!1 &290276338221010053
 GameObject:
   m_ObjectHideFlags: 0
