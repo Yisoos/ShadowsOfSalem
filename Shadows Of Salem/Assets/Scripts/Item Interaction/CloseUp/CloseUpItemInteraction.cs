@@ -22,6 +22,8 @@ public class CloseUpItemInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.isPaused) return; ; // Ignorar cualquier input del usuario cuando el juego está en pausa
+
         if (Input.GetMouseButtonDown(0) )
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

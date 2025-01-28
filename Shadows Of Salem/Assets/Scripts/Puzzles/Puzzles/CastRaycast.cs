@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CastRaycast : MonoBehaviour
 {
-
     public float raycastDistance = 10f;  // Distancia del rayo
     public LayerMask selfLayerMask;      // La capa que detecta el raycast (la capa de este objeto)
 

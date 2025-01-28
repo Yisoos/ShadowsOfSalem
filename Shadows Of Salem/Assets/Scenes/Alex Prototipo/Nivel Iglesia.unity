@@ -278,7 +278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &107046579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6509,7 +6509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1431119346
 Transform:
   m_ObjectHideFlags: 0
@@ -8496,8 +8496,7 @@ GameObject:
   - component: {fileID: 1745386997}
   - component: {fileID: 1745387000}
   - component: {fileID: 1745386999}
-  - component: {fileID: 1745387002}
-  - component: {fileID: 1745387003}
+  - component: {fileID: 1745387004}
   m_Layer: 7
   m_Name: SalaTalismanesOscuro
   m_TagString: Untagged
@@ -8512,16 +8511,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745386996}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.175, y: 1.009375, z: 1}
+  m_LocalScale: {x: 1.175, y: 1.0093749, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1431119346}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: -0.03}
+  m_AnchoredPosition: {x: -1.1176934, y: -0.026322357}
   m_SizeDelta: {x: 15, y: 9.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1745386999
@@ -8556,7 +8555,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3788252, y: 0.5165845}
+  m_Offset: {x: 0.31593776, y: 0.32624722}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -8567,7 +8566,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.203865, y: 7.7668324}
+  m_Size: {x: 13.078091, y: 7.386158}
   m_EdgeRadius: 0
 --- !u!212 &1745387000
 SpriteRenderer:
@@ -8621,7 +8620,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1745387002
+--- !u!114 &1745387004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8630,30 +8629,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1745386996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a27101fd14ed4fa4fa179005a09f470b, type: 3}
+  m_Script: {fileID: 11500000, guid: 45fe1d34f5a580e46a1a87999d1155cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedObject: {fileID: 0}
-  lockID: 0
-  unlockedSprite: {fileID: 0}
-  displayText: []
-  isLocked: 1
---- !u!114 &1745387003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745386996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b704d6fe3feab7438210853364452da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  raycastDistance: 10
-  selfLayerMask:
-    serializedVersion: 2
-    m_Bits: 128
+  feedbackMessage: "Est\xE1 muy oscuro. No veo nada."
+  colliders:
+  - {fileID: 1865428676}
+  - {fileID: 1122391249}
 --- !u!1 &1775936241
 GameObject:
   m_ObjectHideFlags: 0
@@ -8805,8 +8787,8 @@ MonoBehaviour:
   - {fileID: 1342100787}
   - {fileID: 1502519314}
   - {fileID: 683015179}
-  pantallaNegro: {fileID: 1745386996}
-  feedbackText: {fileID: 6973665184144531453}
+  darkOverlayControl: {fileID: 1745387004}
+  feedbackMessage: "\xBFQu\xE9 ha sonado?"
 --- !u!114 &1775936249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8838,7 +8820,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1840554811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9851,7 +9833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2037784134
 Transform:
   m_ObjectHideFlags: 0
@@ -10225,7 +10207,8 @@ MonoBehaviour:
   lockedObject: {fileID: 0}
   lockID: 0
   unlockedSprite: {fileID: 0}
-  displayText: []
+  displayText:
+  - "\xA1No, est\xE1 cerrada!"
   isLocked: 1
 --- !u!61 &2145010658
 BoxCollider2D:
@@ -10378,7 +10361,7 @@ MonoBehaviour:
   - {fileID: 1327194836}
   - {fileID: 1510672380}
   - {fileID: 748769295}
-  startingView: 0
+  startingView: 8
   roomEndViews: 02000000050000000600000008000000
   currentView: 0
   arrow:
@@ -10936,7 +10919,7 @@ PrefabInstance:
       objectReference: {fileID: 1929128094}
     - target: {fileID: 4071148912439745777, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -10.499939
+      value: -10.499878
       objectReference: {fileID: 0}
     - target: {fileID: 4129297995308221670, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
