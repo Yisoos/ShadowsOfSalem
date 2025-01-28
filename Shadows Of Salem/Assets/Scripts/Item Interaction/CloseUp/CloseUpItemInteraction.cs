@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class CloseUpItemInteraction : MonoBehaviour
@@ -37,7 +38,12 @@ public class CloseUpItemInteraction : MonoBehaviour
     }
     public void ObjectDetector(Collider2D objectCollider)
     {
-                for (int i = 0; i < objetosInteractuables.Length; i++)
+        ItemCollection coleccionable = objectCollider.GetComponent<ItemCollection>();
+        if (coleccionable != null)
+        {
+            coleccionable.OnMouseDown();
+        }
+        for (int i = 0; i < objetosInteractuables.Length; i++)
                 {
                     if (objectCollider == objetosInteractuables[i].estadoInicial)
                     {

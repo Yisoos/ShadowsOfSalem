@@ -557,11 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 947602919}
-  objetosEstadoAlternativo:
-  - {fileID: 947602919}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables: []
 --- !u!1 &152436668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,13 +1238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 6571954231373668042}
-  - {fileID: 6409650117193743742}
-  objetosEstadoAlternativo:
-  - {fileID: 6571954231373668042}
-  - {fileID: 6409650117193743742}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables: []
 --- !u!1 &418354074 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8229091235990139740, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
@@ -1571,11 +1561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 673394675}
-  objetosEstadoAlternativo:
-  - {fileID: 673394675}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables: []
 --- !u!212 &539989271
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1674,11 +1660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 559550192}
-  objetosEstadoAlternativo:
-  - {fileID: 559550192}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables: []
 --- !u!212 &550365911
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5424,11 +5406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 1617170670}
-  objetosEstadoAlternativo:
-  - {fileID: 1617170670}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables: []
 --- !u!212 &1250191462
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6487,11 +6465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 2145010658}
-  objetosEstadoAlternativo:
-  - {fileID: 2145010658}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables: []
 --- !u!1 &1431119345
 GameObject:
   m_ObjectHideFlags: 0
@@ -6592,11 +6566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 1745386999}
-  objetosEstadoAlternativo:
-  - {fileID: 1745386999}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables: []
 --- !u!1 &1474898034
 GameObject:
   m_ObjectHideFlags: 0
@@ -6969,11 +6939,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 932309080}
-  objetosEstadoAlternativo:
-  - {fileID: 285464796}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables:
+  - estadoInicial: {fileID: 932309080}
+    estadoAlternativo: {fileID: 285464796}
 --- !u!1 &1502519306
 GameObject:
   m_ObjectHideFlags: 0
@@ -8282,48 +8250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ce7ee9ee6bc794192f310b55b2a00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CursorChangingItems:
-  - {fileID: 6571954231373668042}
-  - {fileID: 6409650117193743742}
-  - {fileID: 1494101749}
-  - {fileID: 1665301428}
-  - {fileID: 1541057226}
-  - {fileID: 559550192}
-  - {fileID: 637668656}
-  - {fileID: 375378708}
-  - {fileID: 1078077689}
-  - {fileID: 152436670}
-  - {fileID: 1329533483}
-  - {fileID: 1209273297}
-  - {fileID: 947602919}
-  - {fileID: 932309080}
-  - {fileID: 673394675}
-  - {fileID: 119018916}
-  - {fileID: 1335884402}
-  - {fileID: 712292133}
-  - {fileID: 853894307}
-  - {fileID: 557177762}
-  - {fileID: 915881018}
-  - {fileID: 1849650405}
-  - {fileID: 1474898036}
-  - {fileID: 1699185108}
-  - {fileID: 683015181}
-  - {fileID: 1342100789}
-  - {fileID: 1502519312}
-  - {fileID: 177628793}
-  - {fileID: 2012134661}
-  - {fileID: 2145010658}
-  - {fileID: 1745386999}
-  - {fileID: 1865428676}
-  - {fileID: 1122391249}
-  - {fileID: 2015375211}
-  - {fileID: 1656372267}
-  - {fileID: 2013886092}
-  - {fileID: 933381089}
-  - {fileID: 2088558474}
-  - {fileID: 1179360336}
-  - {fileID: 887056248}
-  - {fileID: 816427203}
+  cursorChangingItems: []
   cursorIndex: 0
 --- !u!114 &1684904973
 MonoBehaviour:
@@ -8337,7 +8264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0846ca68632f143b4cf3ccddc8a56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feedbackTextController: {fileID: 6973665184144531453}
 --- !u!1 &1699185107
 GameObject:
   m_ObjectHideFlags: 0
@@ -9341,11 +9267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 816427203}
-  objetosEstadoAlternativo:
-  - {fileID: 816427203}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables: []
 --- !u!1 &2012134656
 GameObject:
   m_ObjectHideFlags: 0
@@ -9920,23 +9842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 2015375211}
-  - {fileID: 1656372267}
-  - {fileID: 2013886092}
-  - {fileID: 933381089}
-  - {fileID: 2088558474}
-  - {fileID: 1179360336}
-  - {fileID: 887056248}
-  objetosEstadoAlternativo:
-  - {fileID: 2015375211}
-  - {fileID: 1656372267}
-  - {fileID: 2013886092}
-  - {fileID: 933381089}
-  - {fileID: 2088558474}
-  - {fileID: 1179360336}
-  - {fileID: 887056248}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables: []
 --- !u!1 &2086058269
 GameObject:
   m_ObjectHideFlags: 0
@@ -10361,7 +10267,7 @@ MonoBehaviour:
   - {fileID: 1327194836}
   - {fileID: 1510672380}
   - {fileID: 748769295}
-  startingView: 8
+  startingView: 0
   roomEndViews: 02000000050000000600000008000000
   currentView: 0
   arrow:
