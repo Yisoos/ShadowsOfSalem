@@ -18,6 +18,8 @@ public class FeedbackTextTrigger : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        if (PauseMenu.isPaused) return; ; // Ignorar cualquier input del usuario cuando el juego está en pausa
+
         if (AccesibilityChecker.Instance.IsAccessibleOnMousedown(this.transform))
         {
             DisplayAllText();

@@ -17,6 +17,8 @@ public class ClickableObject : MonoBehaviour
     // Función que detecta el clic sobre el objeto
     private void OnMouseDown()
     {
+        if (PauseMenu.isPaused) return; ; // Ignorar cualquier input del usuario cuando el juego está en pausa
+
         if (indicator != null && puzzleManager != null)
         {
             // Notificamos al PuzzleManager que se hizo clic en este objeto
