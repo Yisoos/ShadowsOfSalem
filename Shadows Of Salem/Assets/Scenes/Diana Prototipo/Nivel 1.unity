@@ -270,7 +270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &112790959
 RectTransform:
   m_ObjectHideFlags: 0
@@ -841,7 +841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &276539875
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1059,7 +1059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &318388165
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1120,7 +1120,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 993c112dad8c655429bfb8c87ef78a3a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1471,6 +1471,7 @@ GameObject:
   - component: {fileID: 459746272}
   - component: {fileID: 459746273}
   - component: {fileID: 459746274}
+  - component: {fileID: 459746275}
   m_Layer: 0
   m_Name: CajaFuerte_Cerrada
   m_TagString: Untagged
@@ -1537,7 +1538,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a40926c2d7a33304688a849f03834dd4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1594,6 +1595,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.94654, y: 7.6057253}
   m_EdgeRadius: 0
+--- !u!114 &459746275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459746271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c60ff4d3ba64974bbd6ab76ee7d935b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combinationWheel: {fileID: 0}
+  safeDoor: {fileID: 0}
+  feedbacktext: {fileID: 0}
+  correctCombination: 140611
+  feedbackDuration: 2
 --- !u!1001 &487859796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2990,7 +3008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0846ca68632f143b4cf3ccddc8a56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feedbackTextController: {fileID: 742690427}
 --- !u!114 &908418273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3022,35 +3039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ce7ee9ee6bc794192f310b55b2a00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CursorChangingItems:
-  - {fileID: 1267316020}
-  - {fileID: 615619666}
-  - {fileID: 269852011}
-  - {fileID: 775178613}
-  - {fileID: 1461969829}
-  - {fileID: 1284499078}
-  - {fileID: 2013389115}
-  - {fileID: 1031304650}
-  - {fileID: 1448651665}
-  - {fileID: 1194622977}
-  - {fileID: 1804133676}
-  - {fileID: 1519313848}
-  - {fileID: 2126975679}
-  - {fileID: 2126975679}
-  - {fileID: 1970315943}
-  - {fileID: 1519313848}
-  - {fileID: 2126975679}
-  - {fileID: 307584676}
-  - {fileID: 598173756}
-  - {fileID: 1600798898}
-  - {fileID: 459746274}
-  - {fileID: 1764553413}
-  - {fileID: 15517945}
-  - {fileID: 224559028}
-  - {fileID: 1650881324}
-  - {fileID: 1650881324}
-  - {fileID: 1863346697}
-  - {fileID: 224559028}
+  cursorChangingItems: []
   cursorIndex: 0
 --- !u!1 &924232015
 GameObject:
@@ -4711,7 +4700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1600798897
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6326,7 +6315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2002015575
 RectTransform:
   m_ObjectHideFlags: 0
