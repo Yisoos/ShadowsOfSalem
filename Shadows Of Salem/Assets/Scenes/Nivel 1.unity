@@ -1124,7 +1124,7 @@ PrefabInstance:
     - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: audioData
       value: 
-      objectReference: {fileID: 11400000, guid: c43f91c2f4da72c4a8051b6719f3066e, type: 2}
+      objectReference: {fileID: 11400000, guid: 3e513b392b974f740ae36e768377a2eb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1354,7 +1354,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1612994621 stripped
