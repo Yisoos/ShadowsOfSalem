@@ -6764,10 +6764,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
-      propertyPath: audioData
-      value: 
-      objectReference: {fileID: 11400000, guid: 12e28299944082141bbdde9a2ec603ef, type: 2}
-    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: background
       value: 
       objectReference: {fileID: 8300000, guid: f37c265d412a4ac4984d3e9af2d073c5, type: 3}

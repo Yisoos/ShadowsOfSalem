@@ -25,7 +25,7 @@ public class Lock : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         inventory = FindAnyObjectByType<Inventory>(); // Referencia al inventario asociado
         feedbackText = FindAnyObjectByType<FeedbackTextController>();
-        if (unlockedSprite == null && spriteRenderer != null)
+        if (unlockedSprite == null )
         {
             unlockedSprite = spriteRenderer.sprite;
         }
