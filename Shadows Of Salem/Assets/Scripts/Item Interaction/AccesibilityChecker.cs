@@ -5,7 +5,6 @@ using UnityEngine;
 public class AccesibilityChecker : MonoBehaviour
 {
     public static AccesibilityChecker Instance;
-    public FeedbackTextController feedbackTextController;
 
     private void Awake()
     {
@@ -17,16 +16,17 @@ public class AccesibilityChecker : MonoBehaviour
         {
             Destroy(this);
         }
+
     }
-    public bool ObjectAccessibilityChecker(Transform ObjectClicked)
+    public bool ObjectAccessibilityChecker(Transform objectClicked)
     {
         // Obtiene componentes de bloqueo y dependencias del objeto
-        Lock itemLocked = ObjectClicked.GetComponent<Lock>();
-        LockedObject itemLockedObject = ObjectClicked.GetComponent<LockedObject>();
-        NonOrderedDependencies itemDependency = ObjectClicked.GetComponent<NonOrderedDependencies>();
-        OrderedDependencies itemDependencyByOrder = ObjectClicked.GetComponent<OrderedDependencies>();
-        CombinationLockControl combinationLocked = ObjectClicked.GetComponent<CombinationLockControl>();
-        SecretDoorLogic secretDoorLogic = ObjectClicked.GetComponent<SecretDoorLogic>();
+        Lock itemLocked = objectClicked.GetComponent<Lock>();
+        LockedObject itemLockedObject = objectClicked.GetComponent<LockedObject>();
+        NonOrderedDependencies itemDependency = objectClicked.GetComponent<NonOrderedDependencies>();
+        OrderedDependencies itemDependencyByOrder = objectClicked.GetComponent<OrderedDependencies>();
+        CombinationLockControl combinationLocked = objectClicked.GetComponent<CombinationLockControl>();
+        SecretDoorLogic secretDoorLogic = objectClicked.GetComponent<SecretDoorLogic>();
 
         // Si el objeto está bloqueado, muestra mensaje y devuelve falso
         if (itemLocked != null && itemLocked.isLocked)
@@ -58,15 +58,15 @@ public class AccesibilityChecker : MonoBehaviour
         // Si no hay restricciones, devuelve verdadero
         return true;
     }
-    public void TryAccess(InventoryItem objectDropped, Transform ObjectClicked)
+    public void TryAccess(InventoryItem objectDropped, Transform objectClicked)
     {
         // Obtiene componentes de bloqueo y dependencias del objeto
-        Lock itemLocked = ObjectClicked.GetComponent<Lock>();
-        LockedObject itemLockedObject = ObjectClicked.GetComponent<LockedObject>();
-        NonOrderedDependencies itemDependencies = ObjectClicked.GetComponent<NonOrderedDependencies>();
-        OrderedDependencies itemDependencyByOrder = ObjectClicked.GetComponent<OrderedDependencies>();
-        ObjectCombination itemObjectCombination = ObjectClicked.GetComponent<ObjectCombination>();
-        InterchangableItemPlacement itemInterchangableItemPlacement = ObjectClicked.GetComponent<InterchangableItemPlacement>();
+        Lock itemLocked = objectClicked.GetComponent<Lock>();
+        LockedObject itemLockedObject = objectClicked.GetComponent<LockedObject>();
+        NonOrderedDependencies itemDependencies = objectClicked.GetComponent<NonOrderedDependencies>();
+        OrderedDependencies itemDependencyByOrder = objectClicked.GetComponent<OrderedDependencies>();
+        ObjectCombination itemObjectCombination = objectClicked.GetComponent<ObjectCombination>();
+        InterchangableItemPlacement itemInterchangableItemPlacement = objectClicked.GetComponent<InterchangableItemPlacement>();
         // Si el objeto está bloqueado, muestra mensaje y devuelve falso
         if (itemLocked != null)
         {
@@ -102,28 +102,41 @@ public class AccesibilityChecker : MonoBehaviour
         Lock itemLocked = objectClicked.GetComponent<Lock>();
         LockedObject itemLockedObject = objectClicked.GetComponent<LockedObject>();
         OrderedDependencies itemDependencyByOrder = objectClicked.GetComponent<OrderedDependencies>();
-        FeedbackTextTrigger feedbackTextTrigger = objectClicked.GetComponent<FeedbackTextTrigger>();
-        if (feedbackTextTrigger != null)
+        if (itemLocked != null)
         {
-            if (itemLocked != null || itemDependencyByOrder != null || itemLockedObject != null)
+            if (itemLocked.isLocked)
+            {
+            return false;
+            }
+        }
+        else if (itemDependencyByOrder != null) 
+        {
+            if (itemDependencyByOrder.dependencyMet[^1])
             {
                 return false;
             }
         }
+        else if (itemLockedObject != null) 
+        {
+            if (itemLockedObject.parentLock.isLocked)
+            {
+                return false;
+            }
+        }     
         return true;
     }
-    public bool IsUIObjectInteractable(InventoryItem ObjectDropped, InventoryItem ObjectInInventorySlot) 
+    public bool IsUIObjectInteractable(InventoryItem objectDropped, InventoryItem objectInInventorySlot) 
     {
-        //Debug.Log($"{ObjectDropped.objectName} dropped onto {ObjectInInventorySlot.objectName}");
-        ObjectCombinationInInventory itemCombination = ObjectDropped.GetComponent<ObjectCombinationInInventory>();
-        if (itemCombination != null && itemCombination.keyValuePairs.ContainsKey(ObjectInInventorySlot.itemTag.objectName)) 
+        //Debug.Log($"{objectDropped.objectName} dropped onto {objectInInventorySlot.objectName}");
+        ObjectCombinationInInventory itemCombination = objectDropped.GetComponent<ObjectCombinationInInventory>();
+        if (itemCombination != null && itemCombination.keyValuePairs.ContainsKey(objectInInventorySlot.itemTag.objectName)) 
         {
-            return itemCombination.CheckForCombination(ObjectDropped, ObjectInInventorySlot);
+            return itemCombination.CheckForCombination(objectDropped, objectInInventorySlot);
         }
-        itemCombination = ObjectInInventorySlot.GetComponent<ObjectCombinationInInventory>();
-        if (itemCombination != null && itemCombination.keyValuePairs.ContainsKey(ObjectDropped.itemTag.objectName))
+        itemCombination = objectInInventorySlot.GetComponent<ObjectCombinationInInventory>();
+        if (itemCombination != null && itemCombination.keyValuePairs.ContainsKey(objectDropped.itemTag.objectName))
         {
-                return itemCombination.CheckForCombination(ObjectInInventorySlot, ObjectDropped);
+                return itemCombination.CheckForCombination(objectInInventorySlot, objectDropped);
         }
         return false;
     }

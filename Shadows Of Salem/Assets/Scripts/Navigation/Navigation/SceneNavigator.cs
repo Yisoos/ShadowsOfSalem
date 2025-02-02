@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class SceneNavigator : MonoBehaviour
@@ -30,6 +32,24 @@ public class SceneNavigator : MonoBehaviour
             {
                 view[i].SetActive(false);
             }
+        }
+        if (arrow[2] != null)
+        {
+            Button backButton = arrow[2].GetComponent<Button>();
+            // Add the function to the Button's OnClick event
+            if (backButton != null)
+            {
+            backButton.onClick.AddListener(ExitCloseupView);
+
+            }
+            else
+            {
+                Debug.Log("Button Not found");
+            }
+        }
+        else
+        {
+            Debug.Log("No back button");
         }
         //Debug.Log($"Current view:{currentView}");
         //Debug.Log($"Starting view:{startingView}");
@@ -125,5 +145,17 @@ public class SceneNavigator : MonoBehaviour
     {
         arrow[2].SetActive(false);
         CheckViewEnd();
+    }
+
+    public void ExitCloseupView()
+    {
+        foreach(GameObject v in view)
+        {
+            CloseUpToggle closeUpToggle = v.GetComponent<CloseUpToggle>();
+            if(closeUpToggle != null)
+            {
+                closeUpToggle.ExitCloseUpView();
+            }
+        }
     }
 }
