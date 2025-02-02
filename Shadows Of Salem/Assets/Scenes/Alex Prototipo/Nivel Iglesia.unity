@@ -10361,7 +10361,7 @@ MonoBehaviour:
   - {fileID: 1327194836}
   - {fileID: 1510672380}
   - {fileID: 748769295}
-  startingView: 8
+  startingView: 0
   roomEndViews: 02000000050000000600000008000000
   currentView: 0
   arrow:

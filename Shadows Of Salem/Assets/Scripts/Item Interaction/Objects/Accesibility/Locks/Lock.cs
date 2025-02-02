@@ -45,6 +45,8 @@ public class Lock : MonoBehaviour
     }
     public void OnMouseDown()
     {
+        if (PauseMenu.isPaused) return; ; // Ignorar cualquier input del usuario cuando el juego está en pausa
+
         AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.transform);
     }
     public bool CheckIfLocked()

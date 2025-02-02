@@ -33,6 +33,8 @@ public class RotaryDialControl : MonoBehaviour
     }
     public void OnMouseDown()
     {
+        if (PauseMenu.isPaused) return; ; // Ignorar cualquier input del usuario cuando el juego está en pausa
+
         if (AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.transform))
         {
             StartCoroutine(PopUpWindowManager());
