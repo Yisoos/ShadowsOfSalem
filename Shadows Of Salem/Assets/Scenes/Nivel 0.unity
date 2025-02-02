@@ -713,7 +713,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 12
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: eef3f05af07f3884d908b12ffa2791d6, type: 3}
   m_Color: {r: 0.6862745, g: 0.6862745, b: 0.6862745, a: 1}
   m_FlipX: 0
@@ -3895,6 +3895,14 @@ PrefabInstance:
       propertyPath: ClickButton
       value: 
       objectReference: {fileID: 8300000, guid: 43cb291a3064f0247b219e9f0147aa6a, type: 3}
+    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: doorWithMail
+      value: 
+      objectReference: {fileID: 21300000, guid: b6c6511d998472e44894195a37f602e0, type: 3}
+    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: doorSpriteRenderer
+      value: 
+      objectReference: {fileID: 1541057225}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5441,6 +5449,7 @@ GameObject:
   - component: {fileID: 1541057224}
   - component: {fileID: 1541057225}
   - component: {fileID: 1541057226}
+  - component: {fileID: 1541057227}
   m_Layer: 0
   m_Name: PuertaCerrada_CharlotteRecibidor
   m_TagString: Untagged
@@ -5560,6 +5569,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.46625, y: 2.2366273}
   m_EdgeRadius: 0
+--- !u!114 &1541057227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541057223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1ce33cb885ddf44b6723cc686a36d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1561392372
 GameObject:
   m_ObjectHideFlags: 0
@@ -6786,7 +6807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockedObject: {fileID: 1884930294}
   lockID: 1
-  unlockedSprite: {fileID: 0}
+  unlockedSprite: {fileID: 21300000, guid: 771337b907d74444396571be9f09d784, type: 3}
   displayText:
   - "\xBFD\xF3nde habr\xE9 dejado la llave?..."
   - No necesito eso aqui...

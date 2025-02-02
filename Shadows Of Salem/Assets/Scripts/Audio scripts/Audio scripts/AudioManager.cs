@@ -25,6 +25,11 @@ public class AudioManager : MonoBehaviour
     [Range(0f, 1f)] public float volumeSFX = 1f; // Volumen de los efectos de sonido (0 = silencio, 1 = volumen máximo)
     [Range(0f, 1f)] public float volumeMusic = 1f; // Volumen de la música de fondo (0 = silencio, 1 = volumen máximo)
 
+    [Header("---------- Door/Mail Sprite Changes ----------")]
+    public SpriteRenderer doorSpriteRenderer; // hacer referencia al spriteRenderer de la puerta 
+    [Tooltip("Asignar el sprite de la puerta con la carta aquí. Cuando el timbre suena, el sprite cambia.")]
+    public Sprite doorWithMail; // asignar el sprite de la puerta con la carta aquí 
+
     private void Start()
     {
         // Iniciar la música de fondo con un delay
@@ -89,7 +94,24 @@ public class AudioManager : MonoBehaviour
         if (timbre != null)
         {
             PlaySFX(timbre); // Reproducir el timbre
+
+            if (doorSpriteRenderer != null && doorWithMail != null)
+            {
+                doorSpriteRenderer.sprite = doorWithMail;
+            }
+            else
+            {
+                Debug.LogWarning("No está asignado el doorSpriteRenderer o el doorWithMail.");
+            }
+
+            // Activar el collider de la puerta
+            ColliderDisabler doorColliderActivator = FindObjectOfType<ColliderDisabler>();
+            if (doorColliderActivator != null)
+            {
+                doorColliderActivator.EnableInteraction();
+            }
         }
+
         else
         {
             Debug.LogWarning("No se asignó un clip de sonido para el timbre.");
