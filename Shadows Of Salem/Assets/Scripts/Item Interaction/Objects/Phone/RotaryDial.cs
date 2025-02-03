@@ -17,26 +17,36 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     private float currentAngle; // Ángulo actual durante el giro
     private bool isReturning; // Indicador de si el dial está volviendo a su posición inicial
     private float DistanceToEnd;
+    public Transform popUp;
 
     private void Start()
     {
-        OnEnable();
+        ResetDial();
     }
     private void OnEnable()
+    {
+        ResetDial();
+    }
+
+    public void ResetDial() 
     {
         if (phoneParent!= null && phoneParent.UIInventoryDisplay != null)
         {
             phoneParent.UIInventoryDisplay.gameObject.SetActive(false);
         }
         if (phoneParent != null && phoneParent.feedbackText != null ) 
-        { 
+        {
+            phoneParent.feedbackText.PopUpText("");
             phoneParent.feedbackText.gameObject.SetActive(false);
+            phoneParent.isDialOpened = true;
         }
         phoneNumberDisplay.text = string.Empty;
         transform.rotation = Quaternion.Euler(0, 0, defaultRotation);
     }
+
     private void OnDisable()
     {
+
         if (phoneParent.UIInventoryDisplay != null)
         {
             phoneParent.UIInventoryDisplay.gameObject.SetActive(true);
@@ -44,8 +54,8 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         if (phoneParent.feedbackText != null)
         {
             phoneParent.feedbackText.gameObject.SetActive(true);
-
         }
+        phoneParent.isDialOpened = false;
     }
     // Calcula el ángulo entre dos puntos en la pantalla
     float GetAngleBetweenPoints(Vector3 from, Vector3 to)
@@ -102,7 +112,7 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         startAngle = GetAngleBetweenPoints(origin, pointer);
         previousAngle = startAngle;
         DistanceToEnd = startAngle < endRotation? startAngle + (360 - endRotation) : startAngle-endRotation;
-        if (eventData != null)
+        if (eventData != null && GetDigit(eventData) != null)
         {
         currentNumber = GetDigit(eventData).text;
         }
@@ -189,13 +199,6 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         {
             OnDisable();
             transform.parent.gameObject.SetActive(false);
-
-            Collider2D parentCollider = phoneParent.GetComponent<Collider2D>();
-            if (parentCollider != null)
-            {
-                parentCollider.enabled = true;
-                //Debug.Log("Collider has been disabled.");
-            }
         }
     }
 
