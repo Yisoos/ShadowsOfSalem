@@ -82,17 +82,4 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public IEnumerator PlayTimbreAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay); // Espera el tiempo indicado
-        if (timbre != null)
-        {
-            PlaySFX(timbre); // Reproducir el timbre
-        }
-
-        else
-        {
-            Debug.LogWarning("No se asignó un clip de sonido para el timbre.");
-        }
-    }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9132833076752554514}
   - component: {fileID: 561880750186491146}
   m_Layer: 5
-  m_Name: Tutorial
+  m_Name: Tutorial (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 472.36755, y: 193}
+  m_AnchoredPosition: {x: 472.36755, y: 154}
   m_SizeDelta: {x: 771.5203, y: 224.7605}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9132833076752554514
@@ -65,7 +65,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Haga clic y gire el dial hacia la derecha hasta que llegue al tope. '
+  m_text: "Mantenga clic sostenido sobre el n\xFAmero y gire la rueda hacia la derecha
+    hasta que llegue al tope. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b55f0db5873e2d3418dcac6ce8bc9465, type: 2}
   m_sharedMaterial: {fileID: 1582558983478268921, guid: b55f0db5873e2d3418dcac6ce8bc9465, type: 2}
@@ -2148,7 +2149,7 @@ GameObject:
   - component: {fileID: 2315482942377809319}
   - component: {fileID: 645413669472756979}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Number (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2170,7 +2171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 472.36755, y: 40.88}
+  m_AnchoredPosition: {x: 472.36755, y: -71}
   m_SizeDelta: {x: 771.5203, y: 224.7605}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2315482942377809319
@@ -2236,7 +2237,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 3
   m_wordSpacing: 0
@@ -2264,7 +2265,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 33.64807, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

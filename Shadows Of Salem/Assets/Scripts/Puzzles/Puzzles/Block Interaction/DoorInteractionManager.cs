@@ -11,13 +11,14 @@ public class DoorInteractionManager : MonoBehaviour
     public Collider2D doorCollider; // collider de la puerta
     [Tooltip("Arrastra el sprite de la puerta con la carta aquí")]
     public Sprite doorWithMail;
+    [Header("---------- Delay Settings ----------")]
+    public float timbreDelay = 3f; // Tiempo de espera antes del timbre
 
-    private AudioManager audioManager; 
+    private AudioManager audioManager;
 
     private void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
-
+        audioManager = FindFirstObjectByType<AudioManager>();
         // desactivar al principio el collider de la puerta
         if (doorCollider != null)
         {
@@ -35,11 +36,7 @@ public class DoorInteractionManager : MonoBehaviour
 
     public void TriggerTimbre()
     {
-        if (audioManager != null)
-        {
-            StartCoroutine(audioManager.PlayTimbreAfterDelay(3f));
-        }
-
+        StartCoroutine(PlayTimbreAfterDelay(timbreDelay));
         StartCoroutine(HandleDoorInteraction());
     }
 
@@ -69,6 +66,20 @@ public class DoorInteractionManager : MonoBehaviour
             doorCollider.enabled = true;
             Debug.Log("Door collider activated.");
             ObjectInteractionSingleton.Instance.isColliderEnabled = true; 
+        }
+    }
+
+    public IEnumerator PlayTimbreAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Espera el tiempo indicado
+        if (audioManager != null)
+        {
+            audioManager.PlaySFX(audioManager.timbre); // Reproducir el timbre
+        }
+
+        else
+        {
+            Debug.LogWarning("No se asignó un clip de sonido para el timbre.");
         }
     }
 }

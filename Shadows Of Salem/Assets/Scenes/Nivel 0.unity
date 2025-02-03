@@ -792,7 +792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &178384758
 Transform:
   m_ObjectHideFlags: 0
@@ -1530,76 +1530,6 @@ MonoBehaviour:
     objectType: 2
     quantity: 1
     transform: {fileID: 0}
-  collectSound: {fileID: 0}
---- !u!1 &535236402
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 535236404}
-  - component: {fileID: 535236403}
-  - component: {fileID: 535236405}
-  m_Layer: 0
-  m_Name: "Gu\xEDaDeScripts"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &535236403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535236402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3ef02f841fb89e4ca28a60b79fa3c27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &535236404
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535236402}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6750798, y: 0.48903197, z: -0.0050563305}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &535236405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535236402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 531b90af6e45da84ba0c71555b537525, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 0}
-  amountToCollect: 1
-  inheritTags:
-    objectName: Llave
-    displayText:
-    - se ha abierto la puerta
-    sprite: {fileID: 21300000, guid: 3563cd1b13a13c34fa77152beac1b398, type: 3}
-    stackable: 0
-    objectType: 1
-    quantity: 0
-    transform: {fileID: 0}
-  collectSound: {fileID: 0}
 --- !u!1 &562738077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2634,6 +2564,7 @@ MonoBehaviour:
   doorSpriteRenderer: {fileID: 1541057225}
   doorCollider: {fileID: 1541057226}
   doorWithMail: {fileID: 21300000, guid: b6c6511d998472e44894195a37f602e0, type: 3}
+  timbreDelay: 3
 --- !u!1 &699706875
 GameObject:
   m_ObjectHideFlags: 0
@@ -3135,7 +3066,6 @@ MonoBehaviour:
     objectType: 2
     quantity: 1
     transform: {fileID: 0}
-  collectSound: {fileID: 0}
 --- !u!212 &799030142
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3957,6 +3887,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: b6c6511d998472e44894195a37f602e0, type: 3}
     - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: soundLibrary
+      value: 
+      objectReference: {fileID: 11400000, guid: f49585abd9902d54dbbcec14039eb399, type: 2}
+    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: doorSpriteRenderer
       value: 
       objectReference: {fileID: 1541057225}
@@ -4408,7 +4342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1096079728
 Transform:
   m_ObjectHideFlags: 0
@@ -4492,7 +4426,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosInteractuables: []
+  objetosInteractuables:
+  - estadoInicial: {fileID: 1059624222}
+    estadoAlternativo: {fileID: 828207802}
+  - estadoInicial: {fileID: 828207802}
+    estadoAlternativo: {fileID: 178384759}
+  - estadoInicial: {fileID: 842719957}
+    estadoAlternativo: {fileID: 168077750}
 --- !u!1 &1255598695
 GameObject:
   m_ObjectHideFlags: 0
@@ -5357,7 +5297,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.14, y: 2.93}
+    oldSize: {x: 4.18, y: 2.83}
     newSize: {x: 4.18, y: 2.83}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6277,8 +6217,6 @@ MonoBehaviour:
   displayText:
   - "Est\xE1 cerrado..."
   - "\xA1Ba\xFAl abierto!"
-  clickSound: {fileID: 0}
-  openChestSound: {fileID: 0}
   popUpLockParent: {fileID: 1423499380}
   feedbackText: {fileID: 6973665184144531453}
 --- !u!1 &1684904968
@@ -6368,7 +6306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ce7ee9ee6bc794192f310b55b2a00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorChangingItems: []
+  CursorChangingItems: []
   cursorIndex: 0
 --- !u!114 &1684904973
 MonoBehaviour:
@@ -6382,6 +6320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0846ca68632f143b4cf3ccddc8a56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackTextController: {fileID: 0}
 --- !u!82 &1685500154 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 2335808118949585453, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
@@ -6682,7 +6621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1873223424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6880,7 +6819,6 @@ MonoBehaviour:
     objectType: 1
     quantity: 1
     transform: {fileID: 0}
-  collectSound: {fileID: 0}
 --- !u!212 &1906454815
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7973,5 +7911,4 @@ SceneRoots:
   - {fileID: 1684904969}
   - {fileID: 795326460}
   - {fileID: 985610976}
-  - {fileID: 535236404}
   - {fileID: 691036347}
