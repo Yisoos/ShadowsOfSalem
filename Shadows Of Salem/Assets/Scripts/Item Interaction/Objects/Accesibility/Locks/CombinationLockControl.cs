@@ -5,14 +5,10 @@ using UnityEngine;
 
 public class CombinationLockControl : MonoBehaviour
 {
-    public bool isLocked; // Indica si el candado está cerrado
-    public string combination; // La combinación para desbloquear este candado
+    public bool isLocked; // Indicates if the lock is closed
+    public string combination; // The key to unlock this lock
     public GameObject popUpLockPrefab;
     public string[] displayText;
-
-    [Header("Sonidos")]
-    public AudioClip clickSound;    // Sonido al interactuar con el candado
-    public AudioClip openChestSound; // Sonido al abrir el baúl
 
     [HideInInspector] public Transform popUpLockParent;
     [HideInInspector] public FeedbackTextController feedbackText;
@@ -25,39 +21,33 @@ public class CombinationLockControl : MonoBehaviour
 
     public void OnMouseDown()
     {
-        // Si el candado está bloqueado, mostrar el pop-up
         if (isLocked)
         {
-            // Reproducir sonido de clic al interactuar
-            AudioManager.Instance.PlaySFX(clickSound);
             StartCoroutine(PopUpWindowManager());
-        }
-        else
-        {
-            // Si está desbloqueado, abrir el baúl y reproducir el sonido
-            OpenChest();
         }
     }
 
     private IEnumerator PopUpWindowManager()
     {
-        yield return new WaitForSeconds(0.2f); // Retardo opcional
+        yield return new WaitForSeconds(0.2f); // Delay for half a second (adjust as necessary)
 
         if (isLocked && popUpLockPrefab != null)
         {
+
             CombinationLockPopUp[] allComLocksInScene = GameObject.FindObjectsOfType<CombinationLockPopUp>(true);
-            bool foundMatchingTag = false;
+            bool foundMatchingTag = false; // Track if a matching tag is found
 
             foreach (CombinationLockPopUp combLock in allComLocksInScene)
             {
                 if (combLock.combinationLock == this)
                 {
                     combLock.gameObject.SetActive(true);
-                    foundMatchingTag = true;
-                    break;
+                    foundMatchingTag = true; // Mark that we found a match
+                    break; // Exit loop once a match is found
                 }
             }
 
+            // If no matching tag was found, instantiate a new pop-up
             if (!foundMatchingTag)
             {
                 GameObject popUp = Instantiate(popUpLockPrefab, popUpLockParent);
@@ -66,26 +56,13 @@ public class CombinationLockControl : MonoBehaviour
                 popUpScript.combinationLock = this;
             }
 
-            // Desactivar el Collider
+            // Disable the Collider
             Collider2D objectCollider = GetComponent<Collider2D>();
             if (objectCollider != null)
             {
                 objectCollider.enabled = false;
+                //Debug.Log("Collider has been disabled.");
             }
         }
-    }
-
-    private void OpenChest()
-    {
-        // Aquí puedes incluir lógica adicional, como animaciones del baúl abriéndose
-
-        // Reproducir sonido de apertura del baúl
-        if (openChestSound != null)
-        {
-            AudioManager.Instance.PlaySFX(openChestSound);
-        }
-
-        // Debug opcional para verificar que se abre correctamente
-        Debug.Log("El baúl se ha abierto.");
     }
 }

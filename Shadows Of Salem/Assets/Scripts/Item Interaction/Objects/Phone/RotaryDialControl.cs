@@ -26,8 +26,6 @@ public class RotaryDialControl : MonoBehaviour
     [HideInInspector] public FeedbackTextController feedbackText;
     [HideInInspector] public Transform dialDisplayParent;
 
-    /*[HideInInspector]*/ public bool isDialOpened = false;
-
     private void Start()
     {
         feedbackText = FindFirstObjectByType<FeedbackTextController>();
@@ -35,7 +33,9 @@ public class RotaryDialControl : MonoBehaviour
     }
     public void OnMouseDown()
     {
-        if (AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.transform) && isDialOpened == false)
+        if (PauseMenu.isPaused) return; ; // Ignorar cualquier input del usuario cuando el juego está en pausa
+
+        if (AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.transform))
         {
             StartCoroutine(PopUpWindowManager());
         }
@@ -54,8 +54,8 @@ public class RotaryDialControl : MonoBehaviour
             {
                 if (dial.phoneParent == this)
                 {
-                    dial.popUp.gameObject.SetActive(true);
-                    dial.popUp.transform.SetAsLastSibling();
+                    dial.gameObject.SetActive(true);
+                    dial.transform.SetAsLastSibling();
                     foundMatchingTag = true; // Mark that we found a match
                     break; // Exit loop once a match is found
                 }
@@ -70,9 +70,15 @@ public class RotaryDialControl : MonoBehaviour
 
                 // Reproduce el sonido al girar la rueda
                 PlayDialSound();
+
                 popUp.transform.SetAsLastSibling();
             }
-            
+
+            Collider2D objectCollider = GetComponent<Collider2D>();
+            if (objectCollider != null)
+            {
+                objectCollider.enabled = false;
+            }
         }
     }
 

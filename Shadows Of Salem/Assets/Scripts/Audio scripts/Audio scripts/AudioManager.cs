@@ -1,93 +1,98 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance { get; private set; }
+    [Header("---------- Audio Source ----------")]
+    [SerializeField] AudioSource musicSource;
+    [SerializeField] AudioSource SFXSource;
 
-    [Header("Datos de Audio")]
-    public AudioManagerData audioData; // El ScriptableObject donde se almacenan los clips
+    [Header("---------- Audio Clip ----------")]
+    public AudioClip background; // Música de fondo
+    public AudioClip ClickButton;
+    public AudioClip saltoDeEscritura;
+    public AudioClip Inicio_Button;
+    public AudioClip AjustesButton;
+    public AudioClip SalirButton;
+    public AudioClip timbre; // Sonido del timbre
 
-    [Header("Fuentes de Audio")]
-    [SerializeField] private AudioSource musicSource;  // Fuente de música
-    [SerializeField] private AudioSource SFXSource;    // Fuente de efectos de sonido
+    [Header("---------- Delay Settings ----------")]
+    public float backgroundDelay = 2f; // Tiempo de espera antes de la música
+    public float timbreDelay = 3f; // Tiempo de espera antes del timbre
 
-    [Header("Volumen")]
-    [Range(0f, 1f)] public float volumeSFX = 1f; // Volumen de efectos de sonido
-    [Range(0f, 1f)] public float volumeMusic = 1f; // Volumen de música de fondo
+    [Header("---------- Volumen ----------")]
+    [Range(0f, 1f)] public float volumeSFX = 1f; // Volumen de los efectos de sonido (0 = silencio, 1 = volumen máximo)
+    [Range(0f, 1f)] public float volumeMusic = 1f; // Volumen de la música de fondo (0 = silencio, 1 = volumen máximo)
 
-    [Header("Tiempos de Retraso")]
-    public float timbreDelay = 3f;  // Retraso antes de reproducir el timbre
-
-    private void Awake()
+   
+    private void Start()
     {
-        // Implementación del patrón Singleton
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject); // Elimina el AudioManager duplicado
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // No destruir al cambiar de escena
-        }
+        // Iniciar la música de fondo con un delay
+        StartCoroutine(PlayBackgroundMusicAfterDelay(backgroundDelay));
 
-        // Establecer volúmenes al iniciar
+
+        // Establecer volúmenes iniciales
         SetVolumeSFX(volumeSFX);
         SetVolumeMusic(volumeMusic);
     }
 
-    private void Start()
-    {
-        // Asignar y reproducir música de fondo si se ha configurado audioData
-        if (audioData != null && musicSource != null)
-        {
-            musicSource.clip = audioData.background;
-            musicSource.Play();
-        }
-
-        // Iniciar la corutina para reproducir el timbre después de un retraso
-        StartCoroutine(PlayTimbreAfterDelay(timbreDelay));
-    }
-
-    // Método para reproducir efectos de sonido
-    public void PlaySFX(AudioClip clip)
-    {
-        if (clip != null)
-        {
-            SFXSource.PlayOneShot(clip); // Reproducir el efecto de sonido
-        }
-    }
-
-    // Método para reproducir el timbre con retraso
-    private IEnumerator PlayTimbreAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);  // Esperar el tiempo especificado
-        if (audioData != null && audioData.timbre != null)
-        {
-            PlaySFX(audioData.timbre);  // Reproducir el timbre
-        }
-        else
-        {
-            Debug.LogWarning("El timbre no está asignado en AudioManagerData.");
-        }
-    }
-
-    // Métodos para ajustar el volumen de los efectos de sonido
+    // Método para ajustar el volumen de los efectos de sonido
     public void SetVolumeSFX(float volume)
     {
         if (SFXSource != null)
         {
-            SFXSource.volume = Mathf.Clamp(volume, 0f, 1f);
+            SFXSource.volume = Mathf.Clamp(volume, 0f, 1f); // Asegura que el volumen esté entre 0 y 1
         }
     }
 
-    // Métodos para ajustar el volumen de la música de fondo
+    // Método para ajustar el volumen de la música de fondo
     public void SetVolumeMusic(float volume)
     {
         if (musicSource != null)
         {
-            musicSource.volume = Mathf.Clamp(volume, 0f, 1f);
+            musicSource.volume = Mathf.Clamp(volume, 0f, 0.3f); // Asegura que el volumen esté entre 0 y 1
+        }
+    }
+
+    // Método para reproducir un sonido específico
+    public void PlaySFX(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            SFXSource.PlayOneShot(clip); // Reproduce el efecto de sonido
+        }
+        else
+        {
+            Debug.LogWarning("Clip de sonido no asignado.");
+        }
+    }
+
+    private IEnumerator PlayBackgroundMusicAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Espera el tiempo indicado
+        if (background != null)
+        {
+            musicSource.clip = background;
+            musicSource.Play(); // Reproducir música de fondo
+        }
+        else
+        {
+            Debug.LogWarning("No se asignó un clip de música de fondo.");
+        }
+    }
+
+    public IEnumerator PlayTimbreAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Espera el tiempo indicado
+        if (timbre != null)
+        {
+            PlaySFX(timbre); // Reproducir el timbre
+        }
+
+        else
+        {
+            Debug.LogWarning("No se asignó un clip de sonido para el timbre.");
         }
     }
 }
