@@ -741,7 +741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &173722973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1077,11 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 562738085}
-  objetosEstadoAlternativo:
-  - {fileID: 562738085}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables: []
 --- !u!1 &382916137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,7 +1094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &382916138
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1280,7 +1276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &451784480
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1362,15 +1358,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 1884930295}
-  - {fileID: 689805499}
-  - {fileID: 1864527152}
-  objetosEstadoAlternativo:
-  - {fileID: 762782799}
-  - {fileID: 1074531376}
-  - {fileID: 843719829}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables:
+  - estadoInicial: {fileID: 1884930295}
+    estadoAlternativo: {fileID: 762782799}
+  - estadoInicial: {fileID: 689805499}
+    estadoAlternativo: {fileID: 1074531376}
+  - estadoInicial: {fileID: 1864527152}
+    estadoAlternativo: {fileID: 843719829}
 --- !u!1 &472972751 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3388446832144995735, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
@@ -1536,6 +1530,7 @@ MonoBehaviour:
     objectType: 2
     quantity: 1
     transform: {fileID: 0}
+  collectSound: {fileID: 0}
 --- !u!1 &535236402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1599,7 @@ MonoBehaviour:
     objectType: 1
     quantity: 0
     transform: {fileID: 0}
+  collectSound: {fileID: 0}
 --- !u!1 &562738077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,6 +2118,7 @@ MonoBehaviour:
   UIInventoryDisplay: {fileID: 0}
   feedbackText: {fileID: 0}
   dialDisplayParent: {fileID: 0}
+  isDialOpened: 0
 --- !u!1 &584660558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,7 +2291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &668107582
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2336,7 +2333,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 271f001f34c76d043bb2a5682b5ff4be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 365a99dc136859d42b0535a8b05bf44f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3077,6 +3074,7 @@ MonoBehaviour:
     objectType: 2
     quantity: 1
     transform: {fileID: 0}
+  collectSound: {fileID: 0}
 --- !u!212 &799030142
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3347,11 +3345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 151676332}
-  objetosEstadoAlternativo:
-  - {fileID: 584660560}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables:
+  - estadoInicial: {fileID: 151676332}
+    estadoAlternativo: {fileID: 584660560}
 --- !u!1 &828207800
 GameObject:
   m_ObjectHideFlags: 0
@@ -4435,15 +4431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 1059624222}
-  - {fileID: 828207802}
-  - {fileID: 842719957}
-  objetosEstadoAlternativo:
-  - {fileID: 828207802}
-  - {fileID: 178384759}
-  - {fileID: 168077750}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables: []
 --- !u!1 &1255598695
 GameObject:
   m_ObjectHideFlags: 0
@@ -5058,11 +5046,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 1665301428}
-  objetosEstadoAlternativo:
-  - {fileID: 690355921}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables:
+  - estadoInicial: {fileID: 1665301428}
+    estadoAlternativo: {fileID: 690355921}
 --- !u!1 &1351927735
 GameObject:
   m_ObjectHideFlags: 0
@@ -5310,7 +5296,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.18, y: 2.83}
+    oldSize: {x: 4.14, y: 2.93}
     newSize: {x: 4.18, y: 2.83}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6243,6 +6229,8 @@ MonoBehaviour:
   displayText:
   - "Est\xE1 cerrado..."
   - "\xA1Ba\xFAl abierto!"
+  clickSound: {fileID: 0}
+  openChestSound: {fileID: 0}
   popUpLockParent: {fileID: 1423499380}
   feedbackText: {fileID: 6973665184144531453}
 --- !u!1 &1684904968
@@ -6332,33 +6320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ce7ee9ee6bc794192f310b55b2a00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CursorChangingItems:
-  - {fileID: 143887623}
-  - {fileID: 1610408440}
-  - {fileID: 1420227471}
-  - {fileID: 562738085}
-  - {fileID: 1884930295}
-  - {fileID: 689805499}
-  - {fileID: 1864527152}
-  - {fileID: 1297857917}
-  - {fileID: 151676332}
-  - {fileID: 1494101749}
-  - {fileID: 1603177526}
-  - {fileID: 617294805}
-  - {fileID: 88931671}
-  - {fileID: 798030939}
-  - {fileID: 506167201}
-  - {fileID: 1665301428}
-  - {fileID: 1906454816}
-  - {fileID: 799030143}
-  - {fileID: 1541057226}
-  - {fileID: 168077750}
-  - {fileID: 828207802}
-  - {fileID: 178384759}
-  - {fileID: 1304473316}
-  - {fileID: 842719957}
-  - {fileID: 2118224019}
-  - {fileID: 1059624222}
+  cursorChangingItems: []
   cursorIndex: 0
 --- !u!114 &1684904973
 MonoBehaviour:
@@ -6372,7 +6334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0846ca68632f143b4cf3ccddc8a56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feedbackTextController: {fileID: 6973665184144531453}
 --- !u!82 &1685500154 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 2335808118949585453, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
@@ -6489,7 +6450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1840554811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6871,6 +6832,7 @@ MonoBehaviour:
     objectType: 1
     quantity: 1
     transform: {fileID: 0}
+  collectSound: {fileID: 0}
 --- !u!212 &1906454815
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7070,15 +7032,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 617294805}
-  - {fileID: 88931671}
-  - {fileID: 798030939}
-  objetosEstadoAlternativo:
-  - {fileID: 98863202}
-  - {fileID: 1046643359}
-  - {fileID: 1313176795}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables:
+  - estadoInicial: {fileID: 617294805}
+    estadoAlternativo: {fileID: 98863202}
+  - estadoInicial: {fileID: 88931671}
+    estadoAlternativo: {fileID: 1046643359}
+  - estadoInicial: {fileID: 798030939}
+    estadoAlternativo: {fileID: 1313176795}
 --- !u!1 &1929128092
 GameObject:
   m_ObjectHideFlags: 0
