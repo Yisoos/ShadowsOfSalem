@@ -26,6 +26,7 @@ public class CambiarEscenas : MonoBehaviour
 
         // Cargar la escena directamente
         SceneManager.LoadScene(sceneName);
+        ChangeBackgroundMusicForNextScene();
     }
 
     public void ChangeToScene(string sceneName)
@@ -35,6 +36,7 @@ public class CambiarEscenas : MonoBehaviour
 
         // Cargar la escena
         SceneManager.LoadScene(sceneName);
+        ChangeBackgroundMusicForNextScene();
     }
 
     private void ChangeBackgroundMusicForNextScene()
@@ -46,11 +48,12 @@ public class CambiarEscenas : MonoBehaviour
         // Cambiar música según la escena siguiente (aquí también puedes agregar más lógica si es necesario)
         if (nextSceneName == "Nivel0") // Aquí debes especificar los nombres de tus escenas
         {
+            AudioManager.Instance.StopPlayingAudio();
             AudioManager.Instance.ChangeBackgroundMusic(AudioManager.Instance.audioData.backgroundLv0);
         }
         else
         {
-            AudioManager.Instance.ChangeBackgroundMusic(AudioManager.Instance.audioData.backgroundINTRO); // Cambiar a la música de introducción si no es "Nivel0"
+            AudioManager.Instance.StopPlayingAudio(); // Cambiar a la música de introducción si no es "Nivel0"
         }
     }
 }

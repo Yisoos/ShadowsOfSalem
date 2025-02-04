@@ -17,8 +17,6 @@ public class AudioManager : MonoBehaviour
     [Range(0f, 1f)] public float volumeSFX = 1f; // Volumen de efectos de sonido
     [Range(0f, 1f)] public float volumeMusic = 1f; // Volumen de música de fondo
 
-    [Header("Tiempos de Retraso")]
-    public float timbreDelay = 3f;  // Retraso antes de reproducir el timbre
 
     private void Awake()
     {
@@ -69,6 +67,14 @@ public class AudioManager : MonoBehaviour
     {
         AudioListener.pause = false;
         musicSource.Play(); // Reanuda la música de fondo si estaba pausada
+    }
+
+    public void StopPlayingAudio() 
+    {
+        Debug.Log("stopping");
+
+        SFXSource.Stop();
+        musicSource.Stop();
     }
 
     // Método para ajustar el volumen de los efectos de sonido
