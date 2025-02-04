@@ -12,42 +12,24 @@ public class DoorInteractionManager : MonoBehaviour
     [Tooltip("Arrastra el sprite de la puerta con la carta aquí")]
     public Sprite doorWithMail;
 
-    private AudioManager audioManager; 
 
     private void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
-
         // desactivar al principio el collider de la puerta
         if (doorCollider != null)
         {
             doorCollider.enabled = false;
         }
 
-        // dontdestroyonload
-        if (ObjectInteractionSingleton.Instance != null)
-        {
-            doorCollider.enabled = ObjectInteractionSingleton.Instance.isColliderEnabled;
-        }
-
-        TriggerTimbre();
+        StartCoroutine(PlayDoorbellWithDelay());
     }
 
-    public void TriggerTimbre()
-    {
-        if (audioManager != null)
-        {
-            StartCoroutine(audioManager.PlayTimbreAfterDelay(3f));
-        }
 
-        StartCoroutine(HandleDoorInteraction());
-    }
-
-    // la corutina responsable de cambiar el sprite y activar el collider de nuevo
-    private IEnumerator HandleDoorInteraction()
+    private IEnumerator PlayDoorbellWithDelay()
     {
-        // esperar que termine de sonar el timbr
-        yield return new WaitForSeconds(audioManager.timbre.length);
+        yield return new WaitForSeconds(2f);
+
+        SoundManager.Instance.PlaySound("Timbre", SoundType.SFX);
 
         // cambiar el sprite
         if (doorSpriteRenderer != null && doorWithMail != null)
@@ -68,7 +50,6 @@ public class DoorInteractionManager : MonoBehaviour
         {
             doorCollider.enabled = true;
             Debug.Log("Door collider activated.");
-            ObjectInteractionSingleton.Instance.isColliderEnabled = true; 
         }
     }
 }
