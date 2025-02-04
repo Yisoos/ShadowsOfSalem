@@ -9,8 +9,16 @@ public class SafeCombinationController : MonoBehaviour
     private int currentIndex = 0; // Estado inicial de la contraseña
     public FeedbackTextController feedbackText; // Referencia al FeedbackTextController
     public GameObject closeUpObject; // Referencia al objeto de close up
+    public bool isLocked = true;
 
 
+    private void OnMouseDown()
+    {
+        if ( (isLocked))
+        {
+            closeUpObject.SetActive(true);
+        }
+    }
     // verifica si el número introducido es correcto
     public void CheckNumber(int number)
     {
@@ -59,7 +67,7 @@ public class SafeCombinationController : MonoBehaviour
     private void UnlockSafe()
     {
         feedbackText.PopUpText("Caja fuerte desbloqueada.");
-
+        isLocked = false;
         // Cerrar el close up
         if (closeUpObject != null)
         {
