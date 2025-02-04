@@ -1,11 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class DetectCursorChange : MonoBehaviour
 {
-    public List<Collider2D> CursorChangingItems; // List of colliders where cursor should change
+    public List<Collider2D> cursorChangingItems; // List of colliders where cursor should change
     public int cursorIndex = 0; // Index of the cursor variant to show
 
     void Start()
@@ -15,7 +15,7 @@ public class DetectCursorChange : MonoBehaviour
 
     void Update()
     {
-        if (PauseMenu.isPaused) return; ; // Ignorar cualquier input del usuario cuando el juego est� en pausa
+        if (PauseMenu.isPaused) return; ; // Ignorar cualquier input del usuario cuando el juego está en pausa
 
         if (CursorChanger.instance != null)
         {
@@ -26,7 +26,7 @@ public class DetectCursorChange : MonoBehaviour
 
             if (hit.collider != null)
             {
-                if (CursorChangingItems.Contains(hit.collider))
+                if (cursorChangingItems.Contains(hit.collider))
                 {
                     if (Input.GetMouseButton(0))
                     {
@@ -48,6 +48,13 @@ public class DetectCursorChange : MonoBehaviour
                 CursorChanger.instance.SetCursorToDefault();
             }       
         }
+    }
+    [ContextMenu("Anadir todos los Coliders")]
+    private void PopulateColliders()
+    {
+        cursorChangingItems.Clear();
+        // Find all Collider2D components in the scene
+        cursorChangingItems.AddRange(Resources.FindObjectsOfTypeAll<Collider2D>());
     }
 }
 

@@ -5297,7 +5297,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.18, y: 2.83}
+    oldSize: {x: 4.16, y: 2.94}
     newSize: {x: 4.18, y: 2.83}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6293,7 +6293,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 686bc702dfe9c2548b7decd8afaca3bf, type: 3}
   cursorPorDefecto: {fileID: 2800000, guid: 686bc702dfe9c2548b7decd8afaca3bf, type: 3}
   cursorHotspot: {x: 5, y: 5}
-  currentCursor: {fileID: 0}
+  currentCursor: {fileID: 2800000, guid: 686bc702dfe9c2548b7decd8afaca3bf, type: 3}
 --- !u!114 &1684904972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6306,7 +6306,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ce7ee9ee6bc794192f310b55b2a00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CursorChangingItems: []
+  cursorChangingItems:
+  - {fileID: 88931671}
+  - {fileID: 143887623}
+  - {fileID: 151676332}
+  - {fileID: 168077750}
+  - {fileID: 178384759}
+  - {fileID: 506167201}
+  - {fileID: 562738085}
+  - {fileID: 584660560}
+  - {fileID: 617294805}
+  - {fileID: 689805499}
+  - {fileID: 798030939}
+  - {fileID: 799030143}
+  - {fileID: 828207802}
+  - {fileID: 842719957}
+  - {fileID: 843719829}
+  - {fileID: 1059624222}
+  - {fileID: 1297857917}
+  - {fileID: 1304473316}
+  - {fileID: 1420227471}
+  - {fileID: 1494101749}
+  - {fileID: 1541057226}
+  - {fileID: 1603177526}
+  - {fileID: 1610408440}
+  - {fileID: 1665301428}
+  - {fileID: 1864527152}
+  - {fileID: 1884930295}
+  - {fileID: 1906454816}
+  - {fileID: 2118224019}
   cursorIndex: 0
 --- !u!114 &1684904973
 MonoBehaviour:
@@ -6320,7 +6348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0846ca68632f143b4cf3ccddc8a56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feedbackTextController: {fileID: 0}
 --- !u!82 &1685500154 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 2335808118949585453, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
