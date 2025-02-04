@@ -3190,6 +3190,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 150de1530bec430429c46059c636a48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  variantesCursor:
+  - {fileID: 2800000, guid: a5251fbc596c2e94880f3aad515e7505, type: 3}
+  - {fileID: 2800000, guid: 689d01bc0c172cc429352e566ff53ca4, type: 3}
+  - {fileID: 2800000, guid: 686bc702dfe9c2548b7decd8afaca3bf, type: 3}
+  cursorPorDefecto: {fileID: 2800000, guid: 686bc702dfe9c2548b7decd8afaca3bf, type: 3}
+  cursorHotspot: {x: 0, y: 0}
+  currentCursor: {fileID: 0}
 --- !u!114 &908418274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3246,7 +3253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &924232016
 Transform:
   m_ObjectHideFlags: 0
