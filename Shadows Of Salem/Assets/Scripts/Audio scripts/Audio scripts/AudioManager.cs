@@ -1,40 +1,80 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
-    [Header("---------- Audio Source ----------")]
-    [SerializeField] AudioSource musicSource;
-    [SerializeField] AudioSource SFXSource;
+    public static AudioManager Instance { get; private set; }
 
-    [Header("---------- Audio Clip ----------")]
-    public AudioClip background; // Música de fondo
-    public AudioClip ClickButton;
-    public AudioClip saltoDeEscritura;
-    public AudioClip Inicio_Button;
-    public AudioClip AjustesButton;
-    public AudioClip SalirButton;
-    public AudioClip timbre; // Sonido del timbre
+    [Header("Datos de Audio")]
+    public AudioManagerData audioData; // El ScriptableObject donde se almacenan los clips
 
-    [Header("---------- Delay Settings ----------")]
-    public float backgroundDelay = 2f; // Tiempo de espera antes de la música
-    public float timbreDelay = 3f; // Tiempo de espera antes del timbre
+    [Header("Fuentes de Audio")]
+    [SerializeField] private AudioSource musicSource;  // Fuente de música
+    [SerializeField] private AudioSource SFXSource;    // Fuente de efectos de sonido
 
-    [Header("---------- Volumen ----------")]
-    [Range(0f, 1f)] public float volumeSFX = 1f; // Volumen de los efectos de sonido (0 = silencio, 1 = volumen máximo)
-    [Range(0f, 1f)] public float volumeMusic = 1f; // Volumen de la música de fondo (0 = silencio, 1 = volumen máximo)
+    [Header("Volumen")]
+    [Range(0f, 1f)] public float volumeSFX = 1f; // Volumen de efectos de sonido
+    [Range(0f, 1f)] public float volumeMusic = 1f; // Volumen de música de fondo
 
-   
-    private void Start()
+
+    private void Awake()
     {
-        // Iniciar la música de fondo con un delay
-        StartCoroutine(PlayBackgroundMusicAfterDelay(backgroundDelay));
+        // Implementación del patrón Singleton
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // Elimina el AudioManager duplicado
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // No destruir al cambiar de escena
+        }
 
-
-        // Establecer volúmenes iniciales
+        // Establecer volúmenes al iniciar
         SetVolumeSFX(volumeSFX);
         SetVolumeMusic(volumeMusic);
+    }
+
+    private void Start()
+    {
+        // Asignar y reproducir música de fondo si se ha configurado audioData
+        if (audioData != null && musicSource != null)
+        {
+            musicSource.clip = audioData.backgroundINTRO;
+            musicSource.Play();
+        }
+    }
+
+    // Método para reproducir efectos de sonido
+    public void PlaySFX(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            SFXSource.PlayOneShot(clip); // Reproducir el efecto de sonido
+        }
+    }
+
+    // Método para pausar el audio (cuando se cambia de escena, por ejemplo)
+    public void PauseAudio()
+    {
+        AudioListener.pause = true;
+        musicSource.Pause(); // Pausa la música de fondo si está sonando
+    }
+
+    // Método para reanudar el audio
+    public void ResumeAudio()
+    {
+        AudioListener.pause = false;
+        musicSource.Play(); // Reanuda la música de fondo si estaba pausada
+    }
+
+    public void StopPlayingAudio() 
+    {
+        Debug.Log("stopping");
+
+        SFXSource.Stop();
+        musicSource.Stop();
     }
 
     // Método para ajustar el volumen de los efectos de sonido
@@ -42,7 +82,7 @@ public class AudioManager : MonoBehaviour
     {
         if (SFXSource != null)
         {
-            SFXSource.volume = Mathf.Clamp(volume, 0f, 1f); // Asegura que el volumen esté entre 0 y 1
+            SFXSource.volume = Mathf.Clamp(volume, 0f, 1f);
         }
     }
 
@@ -51,35 +91,17 @@ public class AudioManager : MonoBehaviour
     {
         if (musicSource != null)
         {
-            musicSource.volume = Mathf.Clamp(volume, 0f, 0.3f); // Asegura que el volumen esté entre 0 y 1
+            musicSource.volume = Mathf.Clamp(volume, 0f, 1f);
         }
     }
 
-    // Método para reproducir un sonido específico
-    public void PlaySFX(AudioClip clip)
+    // Cambia la música de fondo entre escenas
+    public void ChangeBackgroundMusic(AudioClip newBackgroundClip)
     {
-        if (clip != null)
+        if (musicSource != null && newBackgroundClip != null)
         {
-            SFXSource.PlayOneShot(clip); // Reproduce el efecto de sonido
-        }
-        else
-        {
-            Debug.LogWarning("Clip de sonido no asignado.");
+            musicSource.clip = newBackgroundClip;
+            musicSource.Play();
         }
     }
-
-    private IEnumerator PlayBackgroundMusicAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay); // Espera el tiempo indicado
-        if (background != null)
-        {
-            musicSource.clip = background;
-            musicSource.Play(); // Reproducir música de fondo
-        }
-        else
-        {
-            Debug.LogWarning("No se asignó un clip de música de fondo.");
-        }
-    }
-
 }

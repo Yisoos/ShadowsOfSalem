@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -18,7 +18,7 @@ public class Calidad_Logica : MonoBehaviour
         QualitySettings.SetQualityLevel(dropdownValue);
         dropdown.value = dropdownValue;
 
-        // Agrega un listener al Dropdown para reproducir sonido cuando se selecciona una opción
+        // Agrega un listener al Dropdown para reproducir sonido cuando se selecciona una opciÃ³n
         dropdown.onValueChanged.AddListener(OnDropdownClick);
     }
     public void ChangeQuality(int value)
@@ -27,13 +27,13 @@ public class Calidad_Logica : MonoBehaviour
         QualitySettings.SetQualityLevel(dropdownValue);
         PlayerPrefs.SetInt("Quality", value);
     }
-    // Método que se llama cuando se hace clic en el Dropdown
+    // MÃ©todo que se llama cuando se hace clic en el Dropdown
     private void OnDropdownClick(int value)
     {
         // Reproduce el sonido al hacer clic en el Dropdown
         if (audioManager != null)
         {
-            audioManager.PlaySFX(audioManager.ClickButton); // Asegúrate de tener un clip asignado en AudioManager
+            audioManager.PlaySFX(audioManager.audioData.clickButton); // Asegï¿½rate de tener un clip asignado en AudioManager
         }
         else
         {
