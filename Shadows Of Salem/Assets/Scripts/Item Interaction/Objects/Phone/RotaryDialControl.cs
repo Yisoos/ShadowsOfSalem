@@ -14,7 +14,7 @@ public class RotaryDialControl : MonoBehaviour
     public string[] displayText;
     [Space(5)] public TMP_FontAsset[] fontAsset;
     
-    [Space(10), Header("Audio Settings")]
+    [Space(10), Header("Ajustes de Audio")]
     public AudioSource dialAudioSource; // Referencia al AudioSource
     public AudioClip dialSoundClip;     // Clip de sonido para el giro de la rueda
 
@@ -25,6 +25,7 @@ public class RotaryDialControl : MonoBehaviour
 
     [HideInInspector] public FeedbackTextController feedbackText;
     [HideInInspector] public Transform dialDisplayParent;
+    [HideInInspector] public bool isDialOpened = false;
 
     private void Start()
     {
@@ -33,7 +34,9 @@ public class RotaryDialControl : MonoBehaviour
     }
     public void OnMouseDown()
     {
-        if (AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.transform))
+        if (PauseMenu.isPaused) return; ; // Ignorar cualquier input del usuario cuando el juego está en pausa
+
+        if (AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.transform) && isDialOpened == false)
         {
             StartCoroutine(PopUpWindowManager());
         }
@@ -52,8 +55,8 @@ public class RotaryDialControl : MonoBehaviour
             {
                 if (dial.phoneParent == this)
                 {
-                    dial.gameObject.SetActive(true);
-                    dial.transform.SetAsLastSibling();
+                    dial.popUp.gameObject.SetActive(true);
+                    dial.popUp.transform.SetAsLastSibling();
                     foundMatchingTag = true; // Mark that we found a match
                     break; // Exit loop once a match is found
                 }
@@ -70,12 +73,6 @@ public class RotaryDialControl : MonoBehaviour
                 PlayDialSound();
 
                 popUp.transform.SetAsLastSibling();
-            }
-
-            Collider2D objectCollider = GetComponent<Collider2D>();
-            if (objectCollider != null)
-            {
-                objectCollider.enabled = false;
             }
         }
     }

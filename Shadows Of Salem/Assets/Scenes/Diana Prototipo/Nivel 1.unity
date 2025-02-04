@@ -2398,11 +2398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 1863346697}
-  objetosEstadoAlternativo:
-  - {fileID: 1863346697}
-  feedbackTextController: {fileID: 742690427}
+  objetosInteractuables:
+  - estadoInicial: {fileID: 1863346697}
+    estadoAlternativo: {fileID: 1863346697}
 --- !u!1 &606971392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2659,17 +2657,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8229091235990139740, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
   m_PrefabInstance: {fileID: 487859796}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &742690427 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5296900171575377450, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
-  m_PrefabInstance: {fileID: 487859796}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89d8d67f2a5c00c4abaa58df4d2f13df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &775178609
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,7 +2977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0846ca68632f143b4cf3ccddc8a56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feedbackTextController: {fileID: 742690427}
 --- !u!114 &908418273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3022,35 +3008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ce7ee9ee6bc794192f310b55b2a00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CursorChangingItems:
-  - {fileID: 1267316020}
-  - {fileID: 615619666}
-  - {fileID: 269852011}
-  - {fileID: 775178613}
-  - {fileID: 1461969829}
-  - {fileID: 1284499078}
-  - {fileID: 2013389115}
-  - {fileID: 1031304650}
-  - {fileID: 1448651665}
-  - {fileID: 1194622977}
-  - {fileID: 1804133676}
-  - {fileID: 1519313848}
-  - {fileID: 2126975679}
-  - {fileID: 2126975679}
-  - {fileID: 1970315943}
-  - {fileID: 1519313848}
-  - {fileID: 2126975679}
-  - {fileID: 307584676}
-  - {fileID: 598173756}
-  - {fileID: 1600798898}
-  - {fileID: 459746274}
-  - {fileID: 1764553413}
-  - {fileID: 15517945}
-  - {fileID: 224559028}
-  - {fileID: 1650881324}
-  - {fileID: 1650881324}
-  - {fileID: 1863346697}
-  - {fileID: 224559028}
+  cursorChangingItems: []
   cursorIndex: 0
 --- !u!1 &924232015
 GameObject:
@@ -3589,10 +3547,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
-      propertyPath: audioData
-      value: 
-      objectReference: {fileID: 11400000, guid: c43f91c2f4da72c4a8051b6719f3066e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6412,13 +6366,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 1600798898}
-  - {fileID: 459746274}
-  objetosEstadoAlternativo:
-  - {fileID: 606971394}
-  - {fileID: 318388167}
-  feedbackTextController: {fileID: 742690427}
+  objetosInteractuables:
+  - estadoInicial: {fileID: 1600798898}
+    estadoAlternativo: {fileID: 606971394}
+  - estadoInicial: {fileID: 459746274}
+    estadoAlternativo: {fileID: 318388167}
 --- !u!1 &2013389111
 GameObject:
   m_ObjectHideFlags: 0

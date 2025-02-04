@@ -25,7 +25,7 @@ public class Lock : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         inventory = FindAnyObjectByType<Inventory>(); // Referencia al inventario asociado
         feedbackText = FindAnyObjectByType<FeedbackTextController>();
-        if (unlockedSprite == null && spriteRenderer != null)
+        if (unlockedSprite == null )
         {
             unlockedSprite = spriteRenderer.sprite;
         }
@@ -45,6 +45,8 @@ public class Lock : MonoBehaviour
     }
     public void OnMouseDown()
     {
+        if (PauseMenu.isPaused) return; ; // Ignorar cualquier input del usuario cuando el juego está en pausa
+
         AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.transform);
     }
     public bool CheckIfLocked()

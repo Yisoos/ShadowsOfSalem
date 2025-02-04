@@ -58,7 +58,7 @@ public class SecretDoorLogic : MonoBehaviour
 
                 if (rotateDirection < 0 && rotateDirection > -50 && Mathf.Abs( transform.rotation.eulerAngles.z - endRotation) > 5f)
                 {
-                    transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + rotateDirection);
+                    transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + rotateDirection/2);
                 }
 
                 previousAngle = currentAngle;
