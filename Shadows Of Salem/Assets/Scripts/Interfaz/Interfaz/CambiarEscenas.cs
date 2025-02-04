@@ -46,7 +46,7 @@ public class CambiarEscenas : MonoBehaviour
         string nextSceneName = SceneManager.GetSceneByBuildIndex(nextSceneIndex).name;
 
         // Cambiar música según la escena siguiente (aquí también puedes agregar más lógica si es necesario)
-        if (nextSceneName == "Nivel0") // Aquí debes especificar los nombres de tus escenas
+        if (nextSceneName == "Nivel 0") // Aquí debes especificar los nombres de tus escenas
         {
             AudioManager.Instance.StopPlayingAudio();
             AudioManager.Instance.ChangeBackgroundMusic(AudioManager.Instance.audioData.backgroundLv0);
