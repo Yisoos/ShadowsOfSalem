@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class AudioManager : MonoBehaviour
         // Asignar y reproducir música de fondo si se ha configurado audioData
         if (audioData != null && musicSource != null)
         {
-            musicSource.clip = audioData.background;
+            musicSource.clip = audioData.backgroundINTRO;
             musicSource.Play();
         }
     }
@@ -56,10 +57,21 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Método para reproducir el timbre con retraso
-   
+    // Método para pausar el audio (cuando se cambia de escena, por ejemplo)
+    public void PauseAudio()
+    {
+        AudioListener.pause = true;
+        musicSource.Pause(); // Pausa la música de fondo si está sonando
+    }
 
-    // Métodos para ajustar el volumen de los efectos de sonido
+    // Método para reanudar el audio
+    public void ResumeAudio()
+    {
+        AudioListener.pause = false;
+        musicSource.Play(); // Reanuda la música de fondo si estaba pausada
+    }
+
+    // Método para ajustar el volumen de los efectos de sonido
     public void SetVolumeSFX(float volume)
     {
         if (SFXSource != null)
@@ -68,12 +80,22 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Métodos para ajustar el volumen de la música de fondo
+    // Método para ajustar el volumen de la música de fondo
     public void SetVolumeMusic(float volume)
     {
         if (musicSource != null)
         {
             musicSource.volume = Mathf.Clamp(volume, 0f, 1f);
+        }
+    }
+
+    // Cambia la música de fondo entre escenas
+    public void ChangeBackgroundMusic(AudioClip newBackgroundClip)
+    {
+        if (musicSource != null && newBackgroundClip != null)
+        {
+            musicSource.clip = newBackgroundClip;
+            musicSource.Play();
         }
     }
 }
