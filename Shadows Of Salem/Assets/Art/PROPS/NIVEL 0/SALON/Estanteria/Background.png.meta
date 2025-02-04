@@ -1,12 +1,16 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Shadows Of Salem/Assets/Art/PROPS/NIVEL 0/SALON/Estanteria/Background.png.meta
 guid: f0d31ef35171c8b4392a3b17146fb70e
+========
+guid: baf565c1ea3e5ce4e85b6af46f14427e
+>>>>>>>> Michael-Sonido2:Shadows Of Salem/Assets/Art/PROPS/NIVEL 0/SALON/CharlotteSala.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0

@@ -1,12 +1,16 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Shadows Of Salem/Assets/Art/PROPS/NIVEL 0/SALON/Estanteria/Bible.png.meta
 guid: 5f20dbed706f3e945822bc9ec39feb9e
+========
+guid: 271f001f34c76d043bb2a5682b5ff4be
+>>>>>>>> Michael-Sonido2:Shadows Of Salem/Assets/Art/PROPS/NIVEL 0/SALON/Fondo_CharlotteSala.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
