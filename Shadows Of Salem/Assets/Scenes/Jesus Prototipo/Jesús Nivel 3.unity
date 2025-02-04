@@ -4232,7 +4232,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1041013750}
   - component: {fileID: 1041013751}
-  - component: {fileID: 1041013752}
   m_Layer: 0
   m_Name: Zoom_Ventana
   m_TagString: Untagged
@@ -4310,23 +4309,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1041013752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041013749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 1357297604}
-  objetosEstadoAlternativo:
-  - {fileID: 1357297604}
-  feedbackTextController: {fileID: 6973665184144531453}
 --- !u!1 &1043175451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7940589322037771877, guid: bf4c1f3a31fef7d45a3d5270f4758845, type: 3}
@@ -10643,11 +10625,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetosEstadoInicial:
-  - {fileID: 53271030}
-  objetosEstadoAlternativo:
-  - {fileID: 1302179039}
-  feedbackTextController: {fileID: 6973665184144531453}
+  objetosInteractuables:
+  - estadoInicial: {fileID: 53271030}
+    estadoAlternativo: {fileID: 1302179039}
 --- !u!212 &2042096654
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -54,18 +54,19 @@ public class OrderMechanic : MonoBehaviour
             Debug.Log("Correct Order!");
             if (darkOverlayControl != null)
             {
-                darkOverlayControl.DeactivateOverlay(); // es correcto, desactivamos el overlay
-                feedbackText.PopUpText(feedbackMessage);
+                darkOverlayControl.ConditionMet = true; // es correcto, desactivamos el overlay
             }
-            else 
-            {
                 feedbackText.PopUpText(feedbackMessage);
-            }
+           
         }
 
         else
         {
             Debug.Log("Incorrect Order!"); // no es correcto, no hacemos nada
+            if (darkOverlayControl != null)
+            {
+                darkOverlayControl.ConditionMet = false; // es correcto, desactivamos el overlay
+            }
         }
     }
 

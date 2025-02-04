@@ -278,7 +278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &107046579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5973,7 +5973,7 @@ GameObject:
   - component: {fileID: 1342100789}
   - component: {fileID: 1342100788}
   m_Layer: 3
-  m_Name: Vela3_Collider
+  m_Name: Vela2_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6955,7 +6955,7 @@ GameObject:
   - component: {fileID: 1502519312}
   - component: {fileID: 1502519315}
   m_Layer: 3
-  m_Name: Vela2_Collider
+  m_Name: Vela3_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7105,7 +7105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1510672381
 Transform:
   m_ObjectHideFlags: 0
@@ -8250,7 +8250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ce7ee9ee6bc794192f310b55b2a00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorChangingItems: []
+  CursorChangingItems: []
   cursorIndex: 0
 --- !u!114 &1684904973
 MonoBehaviour:
@@ -8264,6 +8264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0846ca68632f143b4cf3ccddc8a56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackTextController: {fileID: 0}
 --- !u!1 &1699185107
 GameObject:
   m_ObjectHideFlags: 0
@@ -8562,6 +8563,7 @@ MonoBehaviour:
   colliders:
   - {fileID: 1865428676}
   - {fileID: 1122391249}
+  ConditionMet: 0
 --- !u!1 &1775936241
 GameObject:
   m_ObjectHideFlags: 0
@@ -8572,7 +8574,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1775936242}
   - component: {fileID: 1775936244}
-  - component: {fileID: 1775936245}
   - component: {fileID: 1775936249}
   - component: {fileID: 1775936248}
   m_Layer: 0
@@ -8581,7 +8582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1775936242
 Transform:
   m_ObjectHideFlags: 0
@@ -8652,51 +8653,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1775936245
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775936241}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16, y: 10.67}
-    newSize: {x: 19.2, y: 10.8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 16, y: 10.67}
-  m_EdgeRadius: 0
 --- !u!114 &1775936248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9176,14 +9132,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1968730343}
   - component: {fileID: 1968730344}
-  - component: {fileID: 1968730345}
   m_Layer: 0
   m_Name: Vista General
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1968730343
 Transform:
   m_ObjectHideFlags: 0
@@ -9255,19 +9210,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1968730345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968730342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8966f6c89bcb36847a84e4b35cf6eeb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objetosInteractuables: []
 --- !u!1 &2012134656
 GameObject:
   m_ObjectHideFlags: 0

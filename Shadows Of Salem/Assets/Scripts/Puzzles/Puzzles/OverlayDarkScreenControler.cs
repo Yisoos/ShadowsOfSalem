@@ -14,14 +14,23 @@ public class OverlayDarkScreenControler : MonoBehaviour
     [Tooltip("Desactivar los colliders con que no quieres interactuar cuando esté activo el overlay.")]
     public Collider2D[] colliders;
     private bool isOverlayActive = true;
+    [HideInInspector] public bool ConditionMet = false;
 
-    void Start()
+    private void OnEnable()
     {
+        if (ConditionMet) 
+        {
+            DeactivateOverlay();
+        }
+        
+    }
+    void Awake()
+    {
+        overlayDarkScreen = GetComponent<SpriteRenderer>();
+        overlayCollider = gameObject.GetComponent<Collider2D>();
         feedbackText = FindAnyObjectByType<FeedbackTextController>();
         SetCollidersActive(false);
 
-        overlayDarkScreen = GetComponent<SpriteRenderer>();
-        overlayCollider = GetComponent<Collider2D>();
 
         // que sea visible al inicio el overlay
         ActivateOverlay();
