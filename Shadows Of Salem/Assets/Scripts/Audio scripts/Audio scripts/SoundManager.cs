@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
@@ -49,7 +50,7 @@ public class SoundManager : MonoBehaviour
         }
     }
     
-    private void PlayBackgroundMusic(AudioClip clip)
+    public void PlayBackgroundMusic(AudioClip clip)
     {
         AudioSource bgmSource = GetComponent<AudioSource>();
         bgmSource.clip = clip;
@@ -58,7 +59,7 @@ public class SoundManager : MonoBehaviour
         bgmSource.Play();
     }
 
-    private void PlayUISound(AudioClip clip)
+    public void PlayUISound(AudioClip clip)
     {
         GameObject tempObject = new GameObject("TempUISound");
         AudioSource tempSource = tempObject.AddComponent<AudioSource>();

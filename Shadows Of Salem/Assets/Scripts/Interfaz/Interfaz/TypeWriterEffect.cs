@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class TypeWriterEffect : MonoBehaviour
 {
-
-    AudioManager audioManager; // controlar Sonido
     TMP_Text _tmpProText;
     string originalText; //  Almacena el texto original del componente TMP antes de que se inicie el efecto
 
@@ -28,10 +26,7 @@ public class TypeWriterEffect : MonoBehaviour
 
     private bool clicActivado = true;
     public CambiarEscenas changeScenes;
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>(); //Se utiliza para que suene el efeco de sonido
-    }
+    
 
     void Start()
     {
@@ -58,7 +53,7 @@ public class TypeWriterEffect : MonoBehaviour
     {
 
         // Reproducir sonido SFX cuando se salta la escritura
-        audioManager.PlaySFX(audioManager.saltoDeEscritura);
+        SoundManager.Instance.PlaySound("MaquinaDeEscribir", SoundType.SFX);
 
         isTyping = true;
         hasFinishedTyping = false;
