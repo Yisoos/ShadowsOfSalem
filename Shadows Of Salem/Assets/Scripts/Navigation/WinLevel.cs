@@ -8,6 +8,7 @@ public class WinLevel : MonoBehaviour
     public string sceneToGoToWhenFinished;
     public string[] RequiredItems;
     public string failMessage;
+    public Transform 
     public void OnMouseDown() 
     {
         PassLevel();

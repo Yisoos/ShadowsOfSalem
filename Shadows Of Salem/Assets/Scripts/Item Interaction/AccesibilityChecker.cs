@@ -108,6 +108,7 @@ public class AccesibilityChecker : MonoBehaviour
         Lock itemLocked = objectClicked.GetComponent<Lock>();
         LockedObject itemLockedObject = objectClicked.GetComponent<LockedObject>();
         OrderedDependencies itemDependencyByOrder = objectClicked.GetComponent<OrderedDependencies>();
+        LightSwitch lightSwitch = objectClicked.GetComponent<LightSwitch>();
         if (itemLocked != null)
         {
             if (itemLocked.isLocked)
@@ -115,20 +116,24 @@ public class AccesibilityChecker : MonoBehaviour
             return false;
             }
         }
-        else if (itemDependencyByOrder != null) 
+        if (itemDependencyByOrder != null) 
         {
             if (itemDependencyByOrder.dependencyMet[^1])
             {
                 return false;
             }
         }
-        else if (itemLockedObject != null) 
+        if (itemLockedObject != null) 
         {
             if (itemLockedObject.parentLock.isLocked)
             {
                 return false;
             }
-        }     
+        }
+        if (lightSwitch != null)
+        {
+            return lightSwitch.IsAccessible();
+        }
         return true;
     }
     public bool IsUIObjectInteractable(InventoryItem objectDropped, InventoryItem objectInInventorySlot) 
