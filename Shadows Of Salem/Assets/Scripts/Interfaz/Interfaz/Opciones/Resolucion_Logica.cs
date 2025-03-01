@@ -59,7 +59,7 @@ public class Resolucion_Logica : MonoBehaviour
         // Reproduce el sonido al hacer clic en el Dropdown
         if (audioManager != null)
         {
-            audioManager.PlaySFX(audioManager.ClickButton); // Asegúrate de tener un clip asignado en AudioManager
+            audioManager.PlaySFX(audioManager.audioData.clickButton); // Asegúrate de tener un clip asignado en AudioManager
         }
         else
         {

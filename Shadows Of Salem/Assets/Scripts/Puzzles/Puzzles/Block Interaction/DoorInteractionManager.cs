@@ -44,7 +44,7 @@ public class DoorInteractionManager : MonoBehaviour
     private IEnumerator HandleDoorInteraction()
     {
         // esperar que termine de sonar el timbr
-        yield return new WaitForSeconds(audioManager.timbre.length);
+        yield return new WaitForSeconds(audioManager.audioData.timbre.length);
 
         // cambiar el sprite
         if (doorSpriteRenderer != null && doorWithMail != null)
@@ -74,7 +74,7 @@ public class DoorInteractionManager : MonoBehaviour
         yield return new WaitForSeconds(delay); // Espera el tiempo indicado
         if (audioManager != null)
         {
-            audioManager.PlaySFX(audioManager.timbre); // Reproducir el timbre
+            audioManager.PlaySFX(audioManager.audioData.timbre); // Reproducir el timbre
         }
 
         else

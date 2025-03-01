@@ -1542,7 +1542,8 @@ GameObject:
   - component: {fileID: 562738080}
   - component: {fileID: 562738084}
   - component: {fileID: 562738086}
-  - component: {fileID: 562738085}
+  - component: {fileID: 562738088}
+  - component: {fileID: 562738087}
   m_Layer: 0
   m_Name: Telefono
   m_TagString: Untagged
@@ -1642,7 +1643,70 @@ MonoBehaviour:
   - Ahora necesito poner un cable nuevo...
   - "\xA1Telefono arreglado!"
   dependencyMet: 
---- !u!60 &562738085
+--- !u!114 &562738086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562738077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37d5288b4589ea4db234b317971f392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberToCall: 3-8-9-1-7
+  dialDisplayPrefab: {fileID: 290276338221010053, guid: 2a9f42df249769343b3ce762dd8e1b32, type: 3}
+  dialReturnSpeed: 4
+  displayText:
+  - Llamando al Jefe...
+  fontAsset:
+  - {fileID: 11400000, guid: b55f0db5873e2d3418dcac6ce8bc9465, type: 2}
+  - {fileID: 11400000, guid: f138b4c345536ce4f984ad672c46340c, type: 2}
+  dialAudioSource: {fileID: 1685500154}
+  dialSoundClip: {fileID: 0}
+  UIInventoryDisplay: {fileID: 0}
+  RotaryTutorialAnimationTimeOut: 5.5
+  feedbackText: {fileID: 0}
+  dialDisplayParent: {fileID: 0}
+  isDialOpened: 0
+  correctNumberCalled: 0
+--- !u!58 &562738087
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562738077}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.8515801, y: -1.6654179}
+  serializedVersion: 2
+  m_Radius: 2.160031
+--- !u!60 &562738088
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1728,12 +1792,9 @@ PolygonCollider2D:
       - {x: 1.86, y: -2.56}
       - {x: 1.8299999, y: -2.35}
       - {x: 1.8399999, y: -2.3}
-      - {x: 1.9455646, y: -3.3072865}
-      - {x: 3.7186484, y: -2.923764}
-      - {x: 3.386566, y: -2.4479487}
-      - {x: 3.315241, y: -2.0573502}
-      - {x: 3.3927543, y: -0.30072725}
-      - {x: 2.6540453, y: 0.29551148}
+      - {x: 1.8299999, y: -2.2}
+      - {x: 1.8, y: -2.1399999}
+      - {x: 1.8, y: -2.06}
       - {x: 1.68, y: -1.8499999}
       - {x: 1.67, y: -1.81}
       - {x: 1.63, y: -1.76}
@@ -2023,32 +2084,6 @@ PolygonCollider2D:
       - {x: 0.90999997, y: 1.27}
       - {x: 0.87, y: 1.23}
   m_UseDelaunayMesh: 1
---- !u!114 &562738086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562738077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e37d5288b4589ea4db234b317971f392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberToCall: 3-8-9-1-7
-  dialDisplayPrefab: {fileID: 290276338221010053, guid: 2a9f42df249769343b3ce762dd8e1b32, type: 3}
-  dialReturnSpeed: 4
-  displayText:
-  - Llamando al Jefe...
-  fontAsset:
-  - {fileID: 11400000, guid: b55f0db5873e2d3418dcac6ce8bc9465, type: 2}
-  - {fileID: 11400000, guid: f138b4c345536ce4f984ad672c46340c, type: 2}
-  dialAudioSource: {fileID: 1685500154}
-  dialSoundClip: {fileID: 0}
-  UIInventoryDisplay: {fileID: 0}
-  feedbackText: {fileID: 0}
-  dialDisplayParent: {fileID: 0}
-  isDialOpened: 0
 --- !u!1 &584660558
 GameObject:
   m_ObjectHideFlags: 0
@@ -3874,6 +3909,10 @@ PrefabInstance:
       propertyPath: SFXSource
       value: 
       objectReference: {fileID: 1685500154}
+    - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
+      propertyPath: audioData
+      value: 
+      objectReference: {fileID: 11400000, guid: 961c2c7e688177b428fb710a69c62f9b, type: 2}
     - target: {fileID: 6756462595932695960, guid: 1d9759bb133432445b61539664a0f51c, type: 3}
       propertyPath: background
       value: 
@@ -6293,7 +6332,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 686bc702dfe9c2548b7decd8afaca3bf, type: 3}
   cursorPorDefecto: {fileID: 2800000, guid: 686bc702dfe9c2548b7decd8afaca3bf, type: 3}
   cursorHotspot: {x: 5, y: 5}
-  currentCursor: {fileID: 2800000, guid: 686bc702dfe9c2548b7decd8afaca3bf, type: 3}
+  currentCursor: {fileID: 0}
 --- !u!114 &1684904972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6307,13 +6346,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorChangingItems:
+  - {fileID: 562738088}
   - {fileID: 88931671}
   - {fileID: 143887623}
   - {fileID: 151676332}
   - {fileID: 168077750}
   - {fileID: 178384759}
   - {fileID: 506167201}
-  - {fileID: 562738085}
   - {fileID: 584660560}
   - {fileID: 617294805}
   - {fileID: 689805499}
@@ -7342,6 +7381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4221fe6a840372242b4fa9906413aae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredObjectAccess:
+  - {fileID: 562738078}
   sceneToGoToWhenFinished: Nivel 0 a 1 Mensaje
   RequiredItems: []
   failMessage: 

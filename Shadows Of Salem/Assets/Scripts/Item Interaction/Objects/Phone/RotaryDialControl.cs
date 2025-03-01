@@ -20,17 +20,20 @@ public class RotaryDialControl : MonoBehaviour
 
     [Space(10), Header("Otros Ajustes")]
     public Transform UIInventoryDisplay;
+    [Range(5,30)]public float RotaryTutorialAnimationTimeOut= 10;
 
 
 
     [HideInInspector] public FeedbackTextController feedbackText;
     [HideInInspector] public Transform dialDisplayParent;
     [HideInInspector] public bool isDialOpened = false;
+    [HideInInspector] public bool correctNumberCalled;
 
     private void Start()
     {
         feedbackText = FindFirstObjectByType<FeedbackTextController>();
         dialDisplayParent = FindObjectOfType<Canvas>().transform;
+        correctNumberCalled = false;
     }
     public void OnMouseDown()
     {

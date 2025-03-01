@@ -18,15 +18,24 @@ public class MultipleViewItem : MonoBehaviour
         itemCollection.inheritTags.objectName = objectStatusName[currentStatus];
         itemCollection.inheritTags.sprite = objectStatusSprite[currentStatus];
         }
-        thisSprite.sprite = objectStatusSprite[currentStatus];
+        //thisSprite.sprite = objectStatusSprite[currentStatus];
         UpdateMultipleViews(currentStatus);
     }
-    public void HideObjectsInAllViews() 
+    private void OnDisable()
     {
-        gameObject.SetActive(false);
+        UpdateAllViewsVisibility();
+    }
+    private void OnEnable()
+    {
+        UpdateAllViewsVisibility();
+    }
+    public void UpdateAllViewsVisibility() 
+    {
+        SpriteRenderer thisSprite = GetComponent<SpriteRenderer>();
+        bool active = gameObject.activeSelf;
         for (int i = 0; i < objectVariations.Length; i++) 
         {
-            objectVariations[i].gameObject.SetActive(false);
+            objectVariations[i].gameObject.SetActive(active);
         }
     }
     public void UpdateMultipleViews(int index) 
