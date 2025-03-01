@@ -5,6 +5,7 @@ using UnityEngine;
 public class MicroFilmController : MonoBehaviour
 {
     LightSwitch lightswitch;
+    public Collider2D ZoomedOutMicrofilm;
     public Transform microfilmLightOff;
     public string lightOffMessage;
     public Transform microfilmLightOn;
@@ -19,11 +20,25 @@ public class MicroFilmController : MonoBehaviour
         feedbackText = FindAnyObjectByType<FeedbackTextController>();
         TurnOffPopUp();
     }
-    private void OnMouseDown()
+    private void OnDisable()
     {
-        if (AccesibilityChecker.Instance.ObjectAccessibilityChecker(transform) && !isPopUpOpen)
+        TurnOffPopUp();
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0)) // Checks for left mouse button click
         {
-            TurnOnPopUp();
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+
+            if (hit.collider != null && hit.collider == ZoomedOutMicrofilm)
+            {
+                if (AccesibilityChecker.Instance.ObjectAccessibilityChecker(transform) && !isPopUpOpen)
+                {
+                    TurnOnPopUp();
+                }
+            }
         }
     }
 
@@ -40,12 +55,12 @@ public class MicroFilmController : MonoBehaviour
             feedbackText.PopUpText(lightOnMessage);
 
         }
-        gameObject.SetActive(false);
+        ZoomedOutMicrofilm.gameObject.SetActive(false);
         isPopUpOpen = true;
     }
     public void TurnOffPopUp()
     {
-        gameObject.SetActive(true);
+        ZoomedOutMicrofilm.gameObject.SetActive(true);
         microfilmLightOff.gameObject.SetActive(false);
         microfilmLightOn.gameObject.SetActive(false);
         isPopUpOpen = false;
