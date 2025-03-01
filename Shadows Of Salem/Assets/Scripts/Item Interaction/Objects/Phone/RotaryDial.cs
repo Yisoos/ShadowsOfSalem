@@ -11,21 +11,32 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     public float endRotation; // Ángulo de rotación inicial del dial
     public TMP_Text phoneNumberDisplay;
     public RotaryDialControl phoneParent;
+    public Transform popUp;
+
     private string currentNumber; // Número actual que se obtiene al girar el dial
     private float startAngle;
     private float previousAngle; // Ángulo previo al girar
     private float currentAngle; // Ángulo actual durante el giro
     private bool isReturning; // Indicador de si el dial está volviendo a su posición inicial
     private float DistanceToEnd;
-    public Transform popUp;
+    private Animator animator;
 
     private void Start()
     {
         ResetDial();
+        animator= GetComponentInParent<Animator>();
+        if (animator != null)
+        {
+            animator.SetBool("ToggleTutorial", true);
+        }
     }
     private void OnEnable()
     {
         ResetDial();
+        if (animator != null)
+        { 
+            animator.SetBool("ToggleTutorial", true);
+        }
     }
 
     public void ResetDial() 
@@ -46,6 +57,11 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     private void OnDisable()
     {
+        if (animator != null)
+        {
+            animator.SetBool("ToggleTutorial", false);
+        }
+        StopCoroutine(TutorialAnimationTimeOut());
 
         if (phoneParent.UIInventoryDisplay != null)
         {
@@ -106,7 +122,12 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     // Evento que se ejecuta al iniciar el arrastre del dial
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Vector3 origin = transform.position;
+        StopCoroutine(TutorialAnimationTimeOut());
+        if (animator != null)
+        {
+            animator.SetBool("ToggleTutorial", false);
+        }
+            Vector3 origin = transform.position;
         Vector3 pointer = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(transform.position).z));
        
         startAngle = GetAngleBetweenPoints(origin, pointer);
@@ -162,10 +183,9 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
                 }
                 if (phoneNumberDisplay.text == phoneParent.numberToCall)
                 {
-                    WinLevel winLevel = FindAnyObjectByType<WinLevel>();
                     phoneNumberDisplay.font = phoneParent.fontAsset[1];
                     phoneNumberDisplay.text = phoneParent.displayText[0];
-                    winLevel.PassLevel();
+                    phoneParent.correctNumberCalled = true;
                 }
             }
         }
@@ -176,6 +196,8 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     // Corrutina que devuelve el dial a su posición inicial
     private IEnumerator ReturnDialPosition()
     {
+        WinLevel winLevel = FindAnyObjectByType<WinLevel>();
+      
         isReturning = true;
 
         float currentRotation = transform.rotation.eulerAngles.z;
@@ -189,8 +211,12 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             yield return null;
         }
 
+        if(phoneParent.correctNumberCalled)
+        winLevel.TryToWinLevel();
+
         transform.rotation = Quaternion.Euler(0, 0, defaultRotation);
         isReturning = false;
+        StartCoroutine(TutorialAnimationTimeOut());
     }
 
     public void DesactivarPopUp() 
@@ -198,7 +224,7 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         if (!isMouseOnDial()) 
         {
             OnDisable();
-            transform.parent.gameObject.SetActive(false);
+            transform.parent.parent.gameObject.SetActive(false);
         }
     }
 
@@ -238,5 +264,12 @@ public class RotaryDial : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         // Return false if the topmost UI element is not the direct parent
         return false;
     }
-
+    private IEnumerator TutorialAnimationTimeOut()
+    {
+        yield return new WaitForSeconds(phoneParent.RotaryTutorialAnimationTimeOut);
+        if (animator != null)
+        {
+            animator.SetBool("ToggleTutorial", true);
+        }
+    }
 }

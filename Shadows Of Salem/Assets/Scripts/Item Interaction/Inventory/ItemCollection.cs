@@ -33,7 +33,7 @@ public class ItemCollection : MonoBehaviour
                 MultipleViewItem multipleViewItem = GetComponent<MultipleViewItem>();
                 if (multipleViewItem != null)
                 {
-                    multipleViewItem.HideObjectsInAllViews();
+                    multipleViewItem.UpdateAllViewsVisibility();
                 }
                 else
                 {

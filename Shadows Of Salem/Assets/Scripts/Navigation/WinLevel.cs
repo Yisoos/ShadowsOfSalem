@@ -1,38 +1,66 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class WinLevel : MonoBehaviour
 {
+    public Transform[] requiredObjectAccess;
+
     public string sceneToGoToWhenFinished;
     public string[] RequiredItems;
     public string failMessage;
-    public void OnMouseDown() 
+
+    private Inventory inventory;
+    private FeedbackTextController feedbackTextController;
+    private CambiarEscenas scenesManager;
+
+    private void Awake()
     {
+        inventory = FindAnyObjectByType<Inventory>();
+        feedbackTextController = FindAnyObjectByType<FeedbackTextController>();
+        scenesManager = FindAnyObjectByType<CambiarEscenas>();
+    }
+
+    public void TryToWinLevel()
+    {
+        foreach (Transform requiredObject in requiredObjectAccess)
+        {
+            if(!AccesibilityChecker.Instance.ObjectAccessibilityChecker(requiredObject))
+            return;
+        }
         PassLevel();
     }
-    public bool IsReadyToFinish() 
-    { 
-        Inventory inventory = FindAnyObjectByType<Inventory>();
-        FeedbackTextController feedbackTextController = FindAnyObjectByType<FeedbackTextController>();
-        for (int i = 0;i < RequiredItems.Length; i++) 
+
+    public void OnMouseDown()
+    {
+        TryToWinLevel(); // Ensures conditions are checked
+    }
+
+    public bool IsReadyToFinish()
+    {
+        if (inventory == null || inventory.items == null)
         {
-            if (!inventory.items.Find(currentItem => currentItem.itemTag.objectName == RequiredItems[i])) 
+            Debug.LogWarning("Inventory not found or empty!");
+            return false;
+        }
+
+        foreach (var requiredItem in RequiredItems)
+        {
+            if (!inventory.items.Exists(currentItem => currentItem.itemTag.objectName == requiredItem))
             {
-                feedbackTextController.PopUpText(failMessage);
+                feedbackTextController?.PopUpText(failMessage);
                 return false;
             }
         }
-        return true; 
+        return true;
     }
 
-    public void PassLevel() 
+    public void PassLevel()
     {
         if (IsReadyToFinish() && AccesibilityChecker.Instance.ObjectAccessibilityChecker(transform))
         {
-            CambiarEscenas scenesManager = FindAnyObjectByType<CambiarEscenas>();
-            scenesManager.ChangeToScene(sceneToGoToWhenFinished);
+            scenesManager?.ChangeToScene(sceneToGoToWhenFinished);
         }
-    } 
+    }
 }

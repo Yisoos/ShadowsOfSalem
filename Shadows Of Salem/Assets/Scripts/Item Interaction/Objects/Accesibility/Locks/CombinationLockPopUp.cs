@@ -26,14 +26,7 @@ public class CombinationLockPopUp : MonoBehaviour
 
             if (combinationMatch)
             {
-                /*CloseUpItemInteraction[] closeUpItemInteraction = FindObjectsOfType<CloseUpItemInteraction>();
-                foreach (CloseUpItemInteraction interControl in closeUpItemInteraction)
-                {
-                    for (int i = 0; i < interControl.objetosInteractuables.Length; i++)
-                    {
-
-                    }
-                }*/
+               
                 //Debug.Log("Correct combination, Lock opened");
                 combinationLock.isLocked = false;
 
@@ -42,6 +35,7 @@ public class CombinationLockPopUp : MonoBehaviour
                     combinationLock.feedbackText.PopUpText(combinationLock.displayText[1]);
                     StartCoroutine(DeactivateAfterDelay()); // Start the coroutine for delayed deactivation
                 }
+
                 TurnOnLockCollider();
             }
             else
@@ -55,6 +49,11 @@ public class CombinationLockPopUp : MonoBehaviour
     {
         yield return new WaitForSeconds(delayBeforeDeactivate);
         gameObject.SetActive(false);
+        CloseUpItemInteraction closeUpItemInteraction = combinationLock.transform.parent.GetComponent<CloseUpItemInteraction>();
+        if (closeUpItemInteraction != null)
+        {
+            closeUpItemInteraction.ObjectDetector(combinationLock.GetComponent<Collider2D>());
+        }
     }
 
     public void AddNumberToCombinationDigit(TMP_Text displayDigit)
