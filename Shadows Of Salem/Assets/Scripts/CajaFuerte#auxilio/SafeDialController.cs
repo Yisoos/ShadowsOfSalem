@@ -32,7 +32,7 @@ public class SafeDialController : MonoBehaviour
     {
 
         currentNumber = (currentNumber - 1 + 20) % 20; // Va hacia atras disminuyendo el numero (0, 20, 19..)
-        Debug.Log("left");
+        //Debug.Log("left");
         transform.Rotate(0, 0, -18); // Gira la rueda 18 grados a la izquierda
         isHolding = true; // Comprueba que el usuario está manteniendo un número
 
@@ -42,7 +42,7 @@ public class SafeDialController : MonoBehaviour
     {
 
         currentNumber = (currentNumber + 1) % 20; // Va hacia delante aumentando el numero (0, 1, 2..)
-        Debug.Log("Right");
+        //Debug.Log("Right");
         transform.Rotate(0, 0, 18); 
         isHolding = true; 
 

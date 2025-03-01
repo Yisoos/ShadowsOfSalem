@@ -92,6 +92,19 @@ public class Lock : MonoBehaviour
                     {
                         lockedObjectControl.OpenUp();
                     }
+                    CloseUpItemInteraction closeUpItemInteraction = transform.parent.GetComponent<CloseUpItemInteraction>();
+                    if (closeUpItemInteraction != null)
+                    {
+                        closeUpItemInteraction.ObjectDetector(GetComponent<Collider2D>());
+                    }
+                    else
+                    {
+                        closeUpItemInteraction = transform.parent.parent.GetComponent<CloseUpItemInteraction>();
+                    }
+                    if (closeUpItemInteraction != null)
+                    {
+                        closeUpItemInteraction.ObjectDetector(GetComponent<Collider2D>());
+                    }
                 }
             }
             else
