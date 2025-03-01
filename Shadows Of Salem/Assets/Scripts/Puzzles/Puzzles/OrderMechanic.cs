@@ -13,6 +13,7 @@ public class OrderMechanic : MonoBehaviour
     private FeedbackTextController feedbackText;
     [Tooltip("Escribir aquí el mensaje que quieres que aparezca cuando se ha resuelto el puzle.")]
     public string feedbackMessage;
+    [HideInInspector]public  bool isCorrect;
 
     private void Start()
     {
@@ -21,14 +22,14 @@ public class OrderMechanic : MonoBehaviour
     public void UpdateOrder()
     {
         // Esta función registra el orden actual de los objetos secundarios dentro de un objeto padre y luego verifica si el orden es correcto según un orden predefinido
-        Debug.Log("UpdateOrder called");
+        //Debug.Log("UpdateOrder called");
 
         // Obtener todos los objetos secundarios del padre en su orden aactual
         currentOrder = new Transform[correctOrder.Length];
         for (int i = 0; i < transform.childCount; i++) // recorremos cada hijo del objeto padre
         {
             currentOrder[i] = transform.GetChild(i); // almacenamos cada hijo en el indice correspondiente del array "currentOrder"
-            Debug.Log($"Current Order[{i}] = {currentOrder[i].name}");
+            //Debug.Log($"Current Order[{i}] = {currentOrder[i].name}");
         }
 
         // llamar la funcion que comprueba si el orden es correcto
@@ -37,7 +38,7 @@ public class OrderMechanic : MonoBehaviour
 
     private void CheckOrder()
     {
-        bool isCorrect = true;
+        isCorrect = true;
 
         // comprobar el orden
         for (int i = 0; i < correctOrder.Length; i++)
@@ -51,18 +52,17 @@ public class OrderMechanic : MonoBehaviour
         
         if (isCorrect)
         {
-            Debug.Log("Correct Order!");
+            //Debug.Log("Correct Order!");
             if (darkOverlayControl != null)
             {
                 darkOverlayControl.ConditionMet = true; // es correcto, desactivamos el overlay
             }
                 feedbackText.PopUpText(feedbackMessage);
-           
         }
 
         else
         {
-            Debug.Log("Incorrect Order!"); // no es correcto, no hacemos nada
+            //Debug.Log("Incorrect Order!"); // no es correcto, no hacemos nada
             if (darkOverlayControl != null)
             {
                 darkOverlayControl.ConditionMet = false; // es correcto, desactivamos el overlay
