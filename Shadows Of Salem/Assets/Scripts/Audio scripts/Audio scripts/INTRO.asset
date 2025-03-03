@@ -18,7 +18,7 @@ MonoBehaviour:
   backgroundLv2: {fileID: 0}
   backgroundLv3: {fileID: 0}
   clickButton: {fileID: 0}
-  saltoDeEscritura: {fileID: 8300000, guid: ca5f26d63a326f64c8890ea1e827a97c, type: 3}
+  saltoDeEscritura: {fileID: 8300000, guid: c783178d7d21fbc49a0011a6d1b28689, type: 3}
   inicioButton: {fileID: 0}
   ajustesButton: {fileID: 0}
   salirButton: {fileID: 0}
