@@ -21,5 +21,5 @@ public class Tags
     public TypeObject objectType;
 
     [HideInInspector] public int quantity;
-    public Transform transform;
+    [HideInInspector]public Transform transform;
 }
