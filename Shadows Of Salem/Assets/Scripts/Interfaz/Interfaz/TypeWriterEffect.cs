@@ -27,6 +27,8 @@ public class TypeWriterEffect : MonoBehaviour
     private bool clicActivado = true;
     public CambiarEscenas changeScenes;
 
+    public GameObject imagenFinal;
+
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>(); // Se utiliza para reproducir los efectos de sonido
@@ -159,6 +161,10 @@ public class TypeWriterEffect : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         Debug.Log("Wait");
         title.enabled = true;
+        if (imagenFinal != null)
+        {
+            gameObject.SetActive(imagenFinal);
+        }
         clicActivado = false;
 
         yield return new WaitForSeconds(titleDisplayDelay);
