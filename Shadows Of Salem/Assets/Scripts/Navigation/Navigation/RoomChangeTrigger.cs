@@ -13,7 +13,11 @@ public class RoomChangeTrigger : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        if(AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.gameObject.transform))
-        nav.ChangeViewRoom(viewNumber);
+        ChangeRoom();
+    }
+    public void ChangeRoom()
+    {
+        if (AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.gameObject.transform))
+            nav.ChangeViewRoom(viewNumber);
     }
 }
