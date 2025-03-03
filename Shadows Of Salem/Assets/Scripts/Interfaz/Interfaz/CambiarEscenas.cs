@@ -26,7 +26,7 @@ public class CambiarEscenas : MonoBehaviour
 
         // Cargar la escena directamente
         SceneManager.LoadScene(sceneName);
-        ChangeBackgroundMusicForNextScene();
+        //ChangeBackgroundMusicForNextScene();
     }
 
     public void ChangeToScene(string sceneName)

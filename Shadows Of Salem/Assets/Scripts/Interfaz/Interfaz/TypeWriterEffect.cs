@@ -31,19 +31,27 @@ public class TypeWriterEffect : MonoBehaviour
 
     private void Awake()
     {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>(); // Se utiliza para reproducir los efectos de sonido
+        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>(); // Se utiliza para reproducir los efectos de sonido
+        GameObject audioObject = GameObject.FindGameObjectWithTag("Audio");
+        if (audioObject != null)
+        {
+            audioManager = audioObject.GetComponent<AudioManager>();
+        }
     }
 
     void Start()
     {
         _tmpProText = GetComponent<TMP_Text>();
-        title.enabled = false;
+        if (title != null)
+        {
+            title.enabled = false;
+        }
+
         if (imagenFinal !=  null) 
         {
             imagenFinal.SetActive(false);
         }
 
-        gameObject.SetActive(true);
 
         if (_tmpProText != null)
         {
@@ -56,7 +64,11 @@ public class TypeWriterEffect : MonoBehaviour
             }
 
             changeScenes = FindObjectOfType<CambiarEscenas>();
-
+            if (phrases == null || phrases.Length == 0)
+            {
+                Debug.LogError("Error: No phrases assigned!");
+                return;
+            }
             StartCoroutine(TypePhrase(phrases[currentPhraseIndex])); // Inicia la corrutina para realizar el efecto de máquina de escribir
         }
     }
@@ -71,7 +83,10 @@ public class TypeWriterEffect : MonoBehaviour
         if (currentScene != "Nivel0")
         {
             Debug.Log("Reproduciendo sonido de escritura"); // Depuración para asegurar que el sonido se reproduce solo si no estamos en Nivel0
-            audioManager.PlaySFX(audioManager.audioData.saltoDeEscritura);
+            if (audioManager != null)
+            {
+                audioManager.PlaySFX(audioManager.audioData.saltoDeEscritura);
+            }
         }
         else
         {
@@ -166,7 +181,10 @@ public class TypeWriterEffect : MonoBehaviour
     {
         yield return new WaitForSeconds(0.7f);
         Debug.Log("Wait");
-        title.enabled = true;
+        if (title != null)
+        {
+            title.enabled = true;
+        }
         if (imagenFinal != null)
         {
             imagenFinal.SetActive(true);
@@ -175,7 +193,10 @@ public class TypeWriterEffect : MonoBehaviour
 
         yield return new WaitForSeconds(titleDisplayDelay);
         Debug.Log("Display title");
-        title.enabled = false;
+        if (title != null)
+        {
+            title.enabled = false;
+        }
 
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Changing scenes");

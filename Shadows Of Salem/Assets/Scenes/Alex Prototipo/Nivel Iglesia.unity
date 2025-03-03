@@ -6850,10 +6850,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2048382920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3878748840385c14c91a640860493760, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c9399dca1b27e64ab4be7a13529af8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToGoToWhenFinished: final
+  sceneName: final
 --- !u!4 &601090966706872143
 Transform:
   m_ObjectHideFlags: 0
@@ -6906,7 +6906,7 @@ MonoBehaviour:
   - {fileID: 87725718}
   - {fileID: 1327194836}
   - {fileID: 1510672380}
-  startingView: 2
+  startingView: 6
   roomEndViews: 010000000300000005000000
   currentView: 0
   arrow:
