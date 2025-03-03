@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3a76a910cd1ea459e301239ed0b0ce, type: 3}
   m_Name: nivel 0
   m_EditorClassIdentifier: 
-  background: {fileID: 8300000, guid: f37c265d412a4ac4984d3e9af2d073c5, type: 3}
+  backgroundINTRO: {fileID: 8300000, guid: f37c265d412a4ac4984d3e9af2d073c5, type: 3}
+  backgroundLv0: {fileID: 0}
+  backgroundLv1: {fileID: 0}
+  backgroundLv2: {fileID: 0}
+  backgroundLv3: {fileID: 0}
   clickButton: {fileID: 0}
   saltoDeEscritura: {fileID: 0}
   inicioButton: {fileID: 0}
