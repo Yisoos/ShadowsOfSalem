@@ -27,7 +27,7 @@ public class TypeWriterEffect : MonoBehaviour
     private bool clicActivado = true;
     public CambiarEscenas changeScenes;
 
-    public GameObject imagenFinal;
+    [SerializeField] GameObject imagenFinal;
 
     private void Awake()
     {
@@ -38,6 +38,12 @@ public class TypeWriterEffect : MonoBehaviour
     {
         _tmpProText = GetComponent<TMP_Text>();
         title.enabled = false;
+        if (imagenFinal !=  null) 
+        {
+            imagenFinal.SetActive(false);
+        }
+
+        gameObject.SetActive(true);
 
         if (_tmpProText != null)
         {
@@ -163,7 +169,7 @@ public class TypeWriterEffect : MonoBehaviour
         title.enabled = true;
         if (imagenFinal != null)
         {
-            gameObject.SetActive(imagenFinal);
+            imagenFinal.SetActive(true);
         }
         clicActivado = false;
 
