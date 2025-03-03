@@ -89,6 +89,7 @@ public class SceneNavigator : MonoBehaviour
             view[newView].SetActive(true);
             view[currentView].SetActive(false);
             currentView=newView;
+            LeaveCloseupViewArrows();
             CheckViewEnd();
             //Debug.Log($"current view is {currentView}");
     }

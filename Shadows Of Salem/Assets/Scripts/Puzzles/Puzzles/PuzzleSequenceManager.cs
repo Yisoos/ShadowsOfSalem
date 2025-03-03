@@ -9,9 +9,18 @@ public class PuzzleSequenceManager : MonoBehaviour
     public GameObject[] sequenceObjects;
 
     //public GameObject openedBasement;
-    [Header("When puzzle is solved:")]
-    public Transform objectToMove;   
-    public Vector3 newPosition;     
+    [Header("Puzzle Solved:")]
+    [Tooltip("When puzzle is solved, move X objects to reveal passage:")]
+    [Space(10)]
+
+    [Header("Virgen Closeup")]
+    public Transform virgenZoom;   
+    public Vector3 virgenZoomPos;
+
+    [Space(10)]
+    [Header("Virgen Altar")]
+    public Transform virgenAltar;
+    public Vector3 virgenAltarPos;
 
     // Almacena la secuencia de objetos clickeados por el jugador
     private GameObject[] playerClicks;
@@ -58,7 +67,7 @@ public class PuzzleSequenceManager : MonoBehaviour
                 Debug.Log("¡Puzzle completado!");
                 //openedBasement.SetActive(true);
                 MoveObject();
-                entradaCatacumbas.enabled = false;
+                entradaCatacumbas.enabled = true;
 
                 feedbackText.PopUpText("¿Qué fue ese sonido? Viene del pasillo.");
 
@@ -104,9 +113,10 @@ public class PuzzleSequenceManager : MonoBehaviour
 
     void MoveObject()
     {
-        if (objectToMove != null)
+        if (virgenZoom != null)
         {
-            objectToMove.position = newPosition;  // Cambia la posición
+            virgenZoom.position = virgenZoomPos;  // Cambia la posición
+            virgenAltar.position = virgenAltarPos;
         }
     }
 }

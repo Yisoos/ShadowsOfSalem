@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dba095cfc2aa042aa9afafeb998d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Nivel 0
+  sceneName: "Men\xFA"
 --- !u!1 &592907329
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 1079089409}
   - component: {fileID: 1079089408}
   m_Layer: 5
-  m_Name: Prologo
+  m_Name: Final
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
