@@ -30,7 +30,7 @@ public class KeepReusableItem : MonoBehaviour
         foreach(var reusableItem in reusableInventoryItems)
         {
             ItemCollection inheretedTag = reusableItem.GetComponent<ItemCollection>();
-            inventory.CollectItem(itemPrefab, inheretedTag.inheritTags, 1);
+            inventory.CollectItem(itemPrefab, inheretedTag.inheritTags, inheretedTag.amountToCollect);
         }
     }
 
