@@ -58,6 +58,7 @@ public class AccesibilityChecker : MonoBehaviour
         }
         if (safeCombinationController != null && safeCombinationController.isLocked)
         {
+            safeCombinationController.closeUpObject.SetActive(true);
             return false;
         }
 
