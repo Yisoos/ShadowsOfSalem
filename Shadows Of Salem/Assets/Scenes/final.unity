@@ -261,7 +261,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1250616084}
   - {fileID: 1079089407}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -735,7 +734,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 592907333}
+  m_Father: {fileID: 1876349220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -935,16 +934,20 @@ MonoBehaviour:
   leadingCharBeforeDelay: 1
   flechita: {fileID: 1227135434}
   phrases:
-  - "\u201CEn Salem, Massachusetts, el pasado resuena con ecos de miedo e incertidumbre.
-    A\xFAn habita en las sombras la cacer\xEDa de brujas de 1692 en la que muchas
-    mujeres fueron acusadas, torturadas y ejecutadas por brujer\xEDa."
-  - "Ahora, siglos despu\xE9s, Charlotte Hart, una periodista con sed de justicia,
-    est\xE1 decidida a desenterrar la verdad que ha permanecido oculta bajo el miedo
-    y la manipulaci\xF3n durante tanto tiempo... "
-  - ...aunque al hacerlo pueda cambiarlo todo."
+  - "\u201CEn Salem, Massachusetts, los secretos se aferran con garras heladas, un
+    recordatorio constante de la oscuridad que se esconden sobre la verdad.\r"
+  - " Charlotte con su incansable b\xFAsqueda de la verdad, Se encontr\xF3 con las
+    profundidades de secretos enterrados, desafiando a quienes desean que el pasado
+    permanezca oculto. Las sombras de Salem son profundas y tenaces, capaces de atrapar
+    bajo sus fauces a cualquiera que se atreva a buscar la verdad...\r"
+  - "en la penumbra de una celda, Charlotte siente el fr\xEDo, las palabras que una
+    vez escribi\xF3, las verdades que busc\xF3 revelar, ahora se ahogan en la oscuridad
+    de los secretos de Salem. \r"
+  - "Continuar\xE1...\""
   titleDisplayDelay: 1.7
   title: {fileID: 1876349221}
   changeScenes: {fileID: 50734359}
+  imagenFinal: {fileID: 1250616083}
 --- !u!1 &1876349219
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,7 +977,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1250616084}
   m_Father: {fileID: 1079089407}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1002,9 +1006,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'hola
-
-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a7b49bd831bbe874eb23767c9eb2dbdd, type: 2}
   m_sharedMaterial: {fileID: -6240723000820211294, guid: a7b49bd831bbe874eb23767c9eb2dbdd, type: 2}
