@@ -86,6 +86,7 @@ public class SceneNavigator : MonoBehaviour
 
     public void ChangeViewRoom(int newView)
     {
+        Debug.Log(currentView +" "+ newView);
             view[newView].SetActive(true);
             view[currentView].SetActive(false);
             currentView=newView;
