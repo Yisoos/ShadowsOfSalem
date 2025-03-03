@@ -23,11 +23,15 @@ public class PuzzleSequenceManager : MonoBehaviour
     // Para evitar hacer clic mientras se procesan los clics
     private bool isPuzzleInProgress = false;
 
+    // Collider Entrada Catacumbas
+    public Collider2D entradaCatacumbas;
+
     private void Start()
     {
         //openedBasement.SetActive(false);
         // Asegurarse de que playerClicks esté inicializado correctamente
         playerClicks = new GameObject[5];
+        entradaCatacumbas.enabled = false;
     }
 
     // Este método se llama cuando se hace clic en un objeto
@@ -54,6 +58,8 @@ public class PuzzleSequenceManager : MonoBehaviour
                 Debug.Log("¡Puzzle completado!");
                 //openedBasement.SetActive(true);
                 MoveObject();
+                entradaCatacumbas.enabled = false;
+
                 feedbackText.PopUpText("¿Qué fue ese sonido? Viene del pasillo.");
 
             }
