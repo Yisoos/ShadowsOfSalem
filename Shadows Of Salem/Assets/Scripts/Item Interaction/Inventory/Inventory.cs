@@ -28,7 +28,8 @@ public class Inventory : MonoBehaviour
 
     // Método para recolectar un objeto y agregarlo al inventario
     public bool CollectItem(InventoryItem itemPrefab, Tags origin, int amount)
-    { 
+    {
+        KeepReusableItem keepReusable = FindAnyObjectByType<KeepReusableItem>();
         // Buscar si el objeto ya existe en el inventario i
         InventoryItem itemInList = items.Find(currentItem => currentItem.itemTag.objectName == origin.objectName);
         if (itemInList != null && itemInList.itemTag.stackable && origin.stackable)
@@ -41,6 +42,10 @@ public class Inventory : MonoBehaviour
             if (itemText != null)
             {
                 itemText.text = itemInList.itemTag.quantity > 1 ? itemInList.itemTag.quantity.ToString() : "";
+            }
+            if (keepReusable != null)
+            {
+            keepReusable.UpdateReusableItemList(origin);
             }
             return true;
         }
@@ -62,6 +67,10 @@ public class Inventory : MonoBehaviour
                     if (itemText != null)
                     {
                         itemText.text = itemTags.itemTag.quantity > 1 ? itemTags.itemTag.quantity.ToString() : "";
+                    }
+                    if (keepReusable != null)
+                    {
+                        keepReusable.UpdateReusableItemList(origin);
                     }
                     return true; // Salir después de añadir el objeto
                 }
