@@ -8,8 +8,11 @@ public class PuzzleSequenceManager : MonoBehaviour
     [Tooltip("Meter aqui los GameObjects en el orden que quereis. Recordar añadirles un collider.")]
     public GameObject[] sequenceObjects;
 
-    public GameObject openedBasement;
-    
+    //public GameObject openedBasement;
+    [Header("When puzzle is solved:")]
+    public Transform objectToMove;   
+    public Vector3 newPosition;     
+
     // Almacena la secuencia de objetos clickeados por el jugador
     private GameObject[] playerClicks;
     private int clickCount = 0;
@@ -20,12 +23,15 @@ public class PuzzleSequenceManager : MonoBehaviour
     // Para evitar hacer clic mientras se procesan los clics
     private bool isPuzzleInProgress = false;
 
+    // Collider Entrada Catacumbas
+    public Collider2D entradaCatacumbas;
+
     private void Start()
     {
-        openedBasement.SetActive(false);
+        //openedBasement.SetActive(false);
         // Asegurarse de que playerClicks esté inicializado correctamente
-        playerClicks = new GameObject[4];
-
+        playerClicks = new GameObject[5];
+        entradaCatacumbas.enabled = false;
     }
 
     // Este método se llama cuando se hace clic en un objeto
@@ -50,8 +56,12 @@ public class PuzzleSequenceManager : MonoBehaviour
             if (IsSequenceCorrect())
             {
                 Debug.Log("¡Puzzle completado!");
-                openedBasement.SetActive(true);
+                //openedBasement.SetActive(true);
+                MoveObject();
+                entradaCatacumbas.enabled = false;
+
                 feedbackText.PopUpText("¿Qué fue ese sonido? Viene del pasillo.");
+
             }
             else
             {
@@ -90,6 +100,13 @@ public class PuzzleSequenceManager : MonoBehaviour
         // Volver a habilitar la interacción después de un pequeño retraso
         isPuzzleInProgress = false;
     }
-    
 
+
+    void MoveObject()
+    {
+        if (objectToMove != null)
+        {
+            objectToMove.position = newPosition;  // Cambia la posición
+        }
+    }
 }

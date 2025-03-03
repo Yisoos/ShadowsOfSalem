@@ -13,6 +13,12 @@ public class ItemCollection : MonoBehaviour
     {
         inheritTags.transform = transform;
     }
+    private void OnEnable()
+    {
+        inheritTags.transform = this.transform;
+        
+    }
+    
     public void OnMouseDown()
     {   if(AccesibilityChecker.Instance.ObjectAccessibilityChecker(this.gameObject.transform)) 
         {
@@ -22,7 +28,7 @@ public class ItemCollection : MonoBehaviour
 
     public void CollectItem() 
     {
-        // Obtener la instancia de Inventory
+        // Obtener la instancia de inventory
         Inventory inventory = FindObjectOfType<Inventory>();
         if (inventory != null)
         {
