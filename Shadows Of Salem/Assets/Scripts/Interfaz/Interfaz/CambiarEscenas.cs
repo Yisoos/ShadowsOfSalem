@@ -32,7 +32,10 @@ public class CambiarEscenas : MonoBehaviour
     public void ChangeToScene(string sceneName)
     {
         // Llamar al AudioManager para cambiar la música de fondo
-        AudioManager.Instance.ChangeBackgroundMusic(AudioManager.Instance.audioData.backgroundLv0); // Cambiar al AudioClip de la escena nivel 0
+        if (sceneName == "Nivel Iglesia")
+        {
+        AudioManager.Instance.ChangeBackgroundMusic(AudioManager.Instance.audioData.backgroundLv0); // Cambiar al AudioClip de la escena nivel 
+        }
 
         // Cargar la escena
         SceneManager.LoadScene(sceneName);

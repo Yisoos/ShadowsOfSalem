@@ -69,11 +69,16 @@ public class TypeWriterEffect : MonoBehaviour
                 Debug.LogError("Error: No phrases assigned!");
                 return;
             }
+            else
+            {
+                currentPhraseIndex = 0;
             StartCoroutine(TypePhrase(phrases[currentPhraseIndex])); // Inicia la corrutina para realizar el efecto de máquina de escribir
+
+            }
         }
     }
 
-    IEnumerator TypePhrase(string phrase)
+    public IEnumerator TypePhrase(string phrase)
     {
         // Comprobar si estamos en la escena de nivel 0
         string currentScene = SceneManager.GetActiveScene().name;

@@ -8387,7 +8387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navigated: 0000
-  secondsToWaitToFinishLevel: 0
+  secondsToWaitToFinishLevel: 5
   finishedNavigation: 0
 --- !u!1 &1305200810
 GameObject:
