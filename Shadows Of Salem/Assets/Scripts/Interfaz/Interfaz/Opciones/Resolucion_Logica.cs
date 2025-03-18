@@ -8,13 +8,9 @@ public class Resolucion_Logica : MonoBehaviour
 {
     public TMP_Dropdown dropdown;
     private Resolution[] resolutions;
-    private AudioManager audioManager; // Controlador de sonido
 
     void Start()
     {
-        // Inicializa el AudioManager al iniciar el script
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-
         CheckResolution();
 
         // Agrega un listener al Dropdown para reproducir sonido cuando se selecciona una opción
@@ -56,14 +52,7 @@ public class Resolucion_Logica : MonoBehaviour
     // Método que se llama cuando se hace clic en el Dropdown
     private void OnDropdownClick(int value)
     {
-        // Reproduce el sonido al hacer clic en el Dropdown
-        if (audioManager != null)
-        {
-            audioManager.PlaySFX(audioManager.audioData.clickButton); // Asegúrate de tener un clip asignado en AudioManager
-        }
-        else
-        {
-            Debug.LogWarning("AudioManager no encontrado.");
-        }
+        SoundManager.Instance.PlaySound("Click", SoundType.UI);
+
     }
 }

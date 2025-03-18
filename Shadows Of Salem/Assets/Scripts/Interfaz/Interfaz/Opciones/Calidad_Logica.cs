@@ -8,12 +8,10 @@ public class Calidad_Logica : MonoBehaviour
 {
     public TMP_Dropdown dropdown;
     public int dropdownValue;
-    private AudioManager audioManager; // Control de sonido
+    
     // Start is called before the first frame update
     void Start()
     {
-        // Inicializa el AudioManager al iniciar el script
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         dropdownValue = PlayerPrefs.GetInt("Quality", 3);
         QualitySettings.SetQualityLevel(dropdownValue);
         dropdown.value = dropdownValue;
@@ -31,13 +29,6 @@ public class Calidad_Logica : MonoBehaviour
     private void OnDropdownClick(int value)
     {
         // Reproduce el sonido al hacer clic en el Dropdown
-        if (audioManager != null)
-        {
-            audioManager.PlaySFX(audioManager.audioData.clickButton); // Aseg�rate de tener un clip asignado en AudioManager
-        }
-        else
-        {
-            Debug.LogWarning("AudioManager no encontrado.");
-        }
+        SoundManager.Instance.PlaySound("Click", SoundType.UI);
     }
 }
