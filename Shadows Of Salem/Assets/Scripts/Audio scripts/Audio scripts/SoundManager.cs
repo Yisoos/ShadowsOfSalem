@@ -6,12 +6,14 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
+    public SoundDatabase soundDatabase;
+
     [Range(0f, 1f)]
-    public float sfxVolume = 1f; // Volume for SFX
+    public float SFXVolume = 1f; // Volume for SFX
     [Range(0f, 1f)]
-    public float bgmVolume = 1f; // Volume for BGM
+    public float BGMVolume = 1f; // Volume for BGM
     [Range(0f, 1f)]
-    public float uiVolume = 1f; // Volume for UI sounds
+    public float UIVolume = 1f; // Volume for UI sounds
 
     private void Awake()
     {
@@ -28,17 +30,17 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(string soundName, SoundType type)
     {
-        AudioClip clip = SoundDatabase.Instance.GetSound(soundName, type);
+        AudioClip clip = soundDatabase.GetSound(soundName, type);
         if (clip != null)
         {
             switch (type)
             {
                 case SoundType.SFX:
                     AudioSource sfxSource = GetComponent<AudioSource>();
-                    sfxSource.PlayOneShot(clip, sfxVolume);
+                    sfxSource.PlayOneShot(clip, SFXVolume);
                     break;
                     
-                case SoundType.BGMUSIC:
+                case SoundType.BGM:
                     PlayBackgroundMusic(clip);
                     break;
 
@@ -55,7 +57,7 @@ public class SoundManager : MonoBehaviour
         AudioSource bgmSource = GetComponent<AudioSource>();
         bgmSource.clip = clip;
         bgmSource.loop = true;
-        bgmSource.volume = bgmVolume;
+        bgmSource.volume = BGMVolume;
         bgmSource.Play();
     }
 
@@ -64,7 +66,7 @@ public class SoundManager : MonoBehaviour
         GameObject tempObject = new GameObject("TempUISound");
         AudioSource tempSource = tempObject.AddComponent<AudioSource>();
         tempSource.clip = clip;
-        tempSource.volume = uiVolume;
+        tempSource.volume = UIVolume;
         tempSource.Play();
         Destroy(tempObject, clip.length); // limpiar
     }

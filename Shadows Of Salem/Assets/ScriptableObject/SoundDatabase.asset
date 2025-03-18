@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2184c2f32b6c8c4ebbc919baf5022bc, type: 3}
   m_Name: SoundDatabase
   m_EditorClassIdentifier: 
+  backgroundMusic:
+  - name: BGM/Nivel0
+    clip: {fileID: 8300000, guid: ab6c92016eb9b414baee3cfa984088bc, type: 3}
   soundEffects:
   - name: Timbre
     clip: {fileID: 8300000, guid: 91516a55ebd7ebc46aac48a08d5b46c5, type: 3}
   - name: MaquinaDeEscribir
     clip: {fileID: 8300000, guid: c783178d7d21fbc49a0011a6d1b28689, type: 3}
-  backgroundMusic:
-  - name: BGMUSIC/Nivel0
-    clip: {fileID: 8300000, guid: ab6c92016eb9b414baee3cfa984088bc, type: 3}
   uiSounds: []

@@ -5,31 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SoundDatabase", menuName = "Audio/SoundDatabase")]
 public class SoundDatabase : ScriptableObject
 {
-    private static SoundDatabase _instance;
+    //MUSIC
+    public Sound[] backgroundMusic;
 
-    public static SoundDatabase Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = Resources.Load<SoundDatabase>("SoundDatabase");
-                if (_instance == null)
-                {
-                    Debug.LogError("No se encontró el SoundDatabase en Resources.");
-                }
-            }
-            return _instance;
-        }
-    }
+    [Space(10)]
+    public Sound[] soundEffects;
 
-    [Header("Sound Effects")]
-    public Sound[] soundEffects; 
-
-    [Header("Background Music")]
-    public Sound[] backgroundMusic; 
-
-    [Header("UI Sounds")]
+    [Space(10)]
     public Sound[] uiSounds; 
 
     public AudioClip GetSound(string name, SoundType type)
@@ -37,7 +19,7 @@ public class SoundDatabase : ScriptableObject
         Sound[] soundsToSearch = type switch
         {
             SoundType.SFX => soundEffects,
-            SoundType.BGMUSIC => backgroundMusic,
+            SoundType.BGM => backgroundMusic,
             SoundType.UI => uiSounds,
             _ => null
         };
@@ -58,7 +40,7 @@ public class SoundDatabase : ScriptableObject
 public enum SoundType
 {
     SFX,
-    BGMUSIC,
+    BGM,
     UI 
 }
 

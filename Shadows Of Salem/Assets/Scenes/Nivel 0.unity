@@ -5396,9 +5396,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c77c41fa11f78c459c2f9a56222b0fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxVolume: 1
-  bgmVolume: 1
-  uiVolume: 1
+  soundDatabase: {fileID: 11400000, guid: 1a2285c184a8d914ebe8c329fcd398c6, type: 2}
+  SFXVolume: 1
+  BGMVolume: 1
+  UIVolume: 1
 --- !u!4 &1501832963
 Transform:
   m_ObjectHideFlags: 0
